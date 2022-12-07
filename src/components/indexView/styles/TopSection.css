@@ -1,98 +1,16 @@
 .backgroundContainer {
     width: 100%;
-    height: 50vh;
+    height: auto;
+    overflow: hidden;
+    transition: .3s;
 }
 
 .topSectionContainer {
     width: 100%;
-    height: 150px;
+    height: 35vh;
     background-color: #06113C;
     border-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.bottomSectionContainer {
-    width: 100%;
-    height: 360px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.bottomSectionDatabasesContainer,
-.bottomSectionPendingTaskContainer{
-    width: 49%;
-    height: 100%;
-}
-
-.bottomContentContainerMargin {
-    margin: auto;
-    width: 95%;
-}
-
-.bottomContentContainerMargin p {
-    width: 100%;
-    font-family: poppinsMedium;
-    font-size: 16px;
-    color: #000000;
-}
-
-.databasesContainer {
-    margin: auto;
-    width: 100%;
-    height: 280px;
-    border-radius: 15px;
-    background-color: #e6ecfc;
-    display: flex;
-    justify-content: space-between;
-}
-
-.databaseShortCutContainer {
-    width: 160px;
-    height: 160px;
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-}
-
-.databaseTopContainer{
-    margin: auto;
-    width: 90%;
-    height: 20%;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.databaseTopContainer .databaseLastModDate{
-    width: calc(100% - 15px);
-    font-family: poppinsMedium;
-    font-size: 10px;
-    color: #000000;
-}
-
-.databaseContentContainer{
-    margin: auto;
-    width: 90%;
-    height: calc(100% - 40%);
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-}
-
-.databaseContentContainer .databaseName{
-    width: 100%;
-    text-align: center;
-}
-
-.databaseBottomContainer{
-    margin: auto;
-    width: 90%;
-    height: 20%;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}

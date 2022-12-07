@@ -5,6 +5,8 @@ import './index.css'
 import SideNavBar from './components/SideNavBar'
 
 import TopSection from './components/indexView/TopContainerBox'
+import DatabaseContainer from "./components/indexView/DatabaseContainer";
+import PendingTasksContainer from './components/indexView/PendingTasskContainer'
 
 const currentViewSelected = 'Dashboard'
 
@@ -33,9 +35,25 @@ function getTitleOfView() {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+
     <SideNavBar userName='Armando Peralta' userPhotoURL='./src/assets/components/SIdeNavBar/me.jpg' currentViewSelected={currentViewSelected} />
+
     <div className="viewContentContainer">
-      <TopSection currentViewtitle={getTitleOfView()} />
+
+      <div className="mainViewContainer">
+
+        <TopSection currentViewtitle={getTitleOfView()} />
+
+        <div className="bottomSectionContainer">
+
+          <DatabaseContainer />
+          <PendingTasksContainer />
+
+        </div>
+
+      </div>
+
     </div>
+
   </React.StrictMode>
 )

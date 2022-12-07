@@ -1,0 +1,117 @@
+.bottomSectionDatabasesContainer{
+    width: 49%;
+    height: 40vh;
+}
+
+.bottomContentContainerMargin {
+    margin: auto;
+    width: 95%;
+    height: 100%;
+}
+
+.bottomContentContainerMargin p {
+    width: 100%;
+    font-family: poppinsMedium;
+    font-size: 16px;
+    color: #000000;
+}
+
+.databasesContainer {
+    margin: auto;
+    width: 100%;
+    height: 350px;
+    border-radius: 15px;
+    background-color: #e6ecfc;
+    display: flex;
+    justify-content: space-between;
+    overflow-y: scroll;
+    padding-top: 10px;
+}
+
+.databasesContainer::-webkit-scrollbar {
+    width: 0px;
+}
+
+.databaseShortCutContainer {
+    width: 160px;
+    height: 150px;
+    min-width: 160px;
+    min-height: 160px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    transition: .3s;
+    cursor: pointer;
+    margin-right: 25px;
+}
+
+.databaseShortCutContainer:hover{
+    box-shadow: 7px 7px 14px 5px rgba(0,0,0,0.1);
+}
+
+.databaseTopContainer{
+    margin: auto;
+    width: 90%;
+    height: 20%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.databaseTopContainer .databaseLastModDate{
+    width: calc(100% - 15px);
+    font-family: poppinsMedium;
+    font-size: 10px;
+    color: #000000;
+}
+
+.databaseContentContainer{
+    margin: auto;
+    width: 90%;
+    height: calc(100% - 40%);
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.databaseContentContainer .databaseName{
+    width: 100%;
+    text-align: center;
+}
+
+.databaseBottomContainer{
+    margin: auto;
+    width: 90%;
+    height: 32px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lastModificationFromUsersContainer{
+    width: 45px;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lastUserModificationImageContainer{
+    min-width: 15px;
+    min-height: 15px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 30px;
+    background-color: orange;
+}
+
+.lastUserModificationImageContainer img{
+    width: 100%;
+    height: auto;    
+}
