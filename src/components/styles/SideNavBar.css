@@ -1,0 +1,204 @@
+@font-face {
+    font-family: poppinsMedium;
+    src: url(../../assets/fonts/Poppins-Medium.ttf);
+}
+
+/*
+
+.sideNavBarContainer {
+    width: 5%;
+    height: 100%;
+    background-color: #d8e5ff;
+    box-shadow: 12px 23px 31px 13px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: .3s;
+}
+
+.sideNavBarContainer:hover {
+    width: 15%;
+}
+
+.sideNavBarContainer:hover .sideNavBarMenuContainer {
+    width: 90%;
+}
+
+.sideNavBarMenuContainer {
+    min-height: 90px;
+    width: 100%;
+    height: 95%;
+    overflow: hidden;
+    transition: .3s;
+    margin-left: 15px;
+}
+
+.sideNavBarOptionContainer {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.sideNavBarOptionContainer:first-child {
+    margin-bottom: 50px;
+}
+
+.snvoUserPhotoContainer {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    border: 2px solid rgba(138, 131, 131, 0.496);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.snvoUserPhotoContainer img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 80px;
+
+}
+
+.snvoIconOptionContainer {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.snvOptionSelected {
+    background: rgb(20, 113, 252);
+    background: -moz-linear-gradient(336deg, rgba(20, 113, 252, 1) 0%, rgba(171, 245, 255, 1) 71%);
+    background: -webkit-linear-gradient(336deg, rgba(20, 113, 252, 1) 0%, rgba(171, 245, 255, 1) 71%);
+    background: linear-gradient(336deg, rgba(20, 113, 252, 1) 0%, rgba(171, 245, 255, 1) 71%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1471fc", endColorstr="#abf5ff", GradientType=1);
+    box-shadow: 0px 10px 15px -3px rgb(20, 113, 252);
+}
+
+.snvoLabelsContainer {
+    width: 200px;
+    height: 80px;
+    margin-left: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.snvoLabelsContainer p {
+    font-family: poppinsMedium;
+    font-size: 16px;
+    color: #000000;
+}
+
+.sideNavBarMenuContainer p {
+    width: 80px;
+    text-align: center;
+    font-family: poppinsMedium;
+    font-size: 20px;
+    color: #000000;
+    white-space: nowrap;
+}*/
+
+.sideNavBar {
+    width: 70px;
+    min-width: 70px;
+    height: 90%;
+    background-color: #d8e5ff;
+    box-shadow: 12px 23px 31px 13px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: .3s;
+}
+
+.sideNavBarContainer {
+    margin: auto;
+    width: 60px;
+    height: 95%;
+}
+
+.topSideNavBarContainer {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.userPhotoContainer {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 12px 23px 31px 13px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.userPhotoContainer img {
+    width: 100%;
+    height: auto;
+}
+
+.topSlash {
+    margin: auto;
+    width: 60px;
+    height: 1px;
+    background-color: #0000003c;
+    margin-bottom: 15px;
+}
+
+.sideNavBarContainer p {
+    width: 100%;
+    text-align: center;
+    font-family: poppinsMedium;
+    font-size: 16px;
+    color: #000000;
+}
+
+.navOptionContainer {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.navOptionIconContainer {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: .3s;
+}
+
+.optionSelected {
+    border-radius: 50px;
+    background: rgb(61, 0, 244);
+    background: -moz-linear-gradient(98deg, rgba(61, 0, 244, 1) 0%, rgba(0, 228, 255, 1) 100%);
+    background: -webkit-linear-gradient(98deg, rgba(61, 0, 244, 1) 0%, rgba(0, 228, 255, 1) 100%);
+    background: linear-gradient(98deg, rgba(61, 0, 244, 1) 0%, rgba(0, 228, 255, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3d00f4", endColorstr="#00e4ff", GradientType=1);
+    border-radius: 50%;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+.navOptionIconContainer:hover {
+    background-color: #73737323;
+    border-radius: 50%;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
+}
