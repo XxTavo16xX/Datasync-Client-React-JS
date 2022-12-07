@@ -1,10 +1,7 @@
 import { MdDashboard, MdChromeReaderMode, MdViewSidebar, MdAutoAwesomeMotion, MdList } from "react-icons/md";
-
 import './styles/SideNavBar.css'
 
-const currentOptionSelected = 'Dashboard'
-
-function SideNavBar({ userName, userPhotoURL }) {
+function SideNavBar({ userName, userPhotoURL, currentViewSelected }) {
 
     return <div className='sideNavBar'>
 
@@ -26,9 +23,9 @@ function SideNavBar({ userName, userPhotoURL }) {
 
             <div className="navOptionContainer" title='Dashboard'>
 
-                <div className={currentOptionSelected == 'Dashboard' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
+                <div className={currentViewSelected == 'Dashboard' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
 
-                    <MdDashboard size={28} color={currentOptionSelected == 'Dashboard' ? '#ffffff' : '#8B98A4'}/>
+                    <MdDashboard size={28} color={currentViewSelected == 'Dashboard' ? '#ffffff' : '#8B98A4'}/>
 
                 </div>
 
@@ -36,9 +33,9 @@ function SideNavBar({ userName, userPhotoURL }) {
 
             <div className="navOptionContainer" title='Base de datos'>
 
-                <div className={currentOptionSelected == 'Database' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
+                <div className={currentViewSelected == 'Database' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
 
-                    <MdChromeReaderMode size={28} color={currentOptionSelected == 'Database' ? '#ffffff' : '#8B98A4'}/>
+                    <MdChromeReaderMode size={28} color={currentViewSelected == 'Database' ? '#ffffff' : '#8B98A4'}/>
 
                 </div>
 
@@ -46,9 +43,9 @@ function SideNavBar({ userName, userPhotoURL }) {
 
             <div className="navOptionContainer" title='Caja Fuerte'>
 
-                <div className={currentOptionSelected == 'SafetyBox' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
+                <div className={currentViewSelected == 'SafetyBox' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
 
-                    <MdViewSidebar size={28} color={currentOptionSelected == 'SafetyBox' ? '#ffffff' : '#8B98A4'}/>
+                    <MdViewSidebar size={28} color={currentViewSelected == 'SafetyBox' ? '#ffffff' : '#8B98A4'}/>
 
                 </div>
 
@@ -56,9 +53,9 @@ function SideNavBar({ userName, userPhotoURL }) {
 
             <div className="navOptionContainer" title='Respaldos'>
 
-                <div className={currentOptionSelected == 'Backup' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
+                <div className={currentViewSelected == 'Backup' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
 
-                    <MdAutoAwesomeMotion size={28} color={currentOptionSelected == 'Backup' ? '#ffffff' : '#8B98A4'}/>
+                    <MdAutoAwesomeMotion size={28} color={currentViewSelected == 'Backup' ? '#ffffff' : '#8B98A4'}/>
 
                 </div>
 
@@ -66,9 +63,9 @@ function SideNavBar({ userName, userPhotoURL }) {
 
             <div className="navOptionContainer" title='Tareas Pendientes'>
 
-                <div className={currentOptionSelected == 'PendingTasks' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
+                <div className={currentViewSelected == 'PendingTasks' ? 'navOptionIconContainer optionSelected' : 'navOptionIconContainer'}>
 
-                    <MdList size={28} color={currentOptionSelected == 'PendingTasks' ? '#ffffff' : '#8B98A4'}/>
+                    <MdList size={28} color={currentViewSelected == 'PendingTasks' ? '#ffffff' : '#8B98A4'}/>
 
                 </div>
 
