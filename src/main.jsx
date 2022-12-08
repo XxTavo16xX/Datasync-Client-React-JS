@@ -6,7 +6,7 @@ import SideNavBar from './components/SideNavBar'
 
 import TopSection from './components/indexView/TopContainerBox'
 import DatabaseContainer from "./components/indexView/DatabaseContainer";
-import PendingTasksContainer from './components/indexView/PendingTasskContainer'
+import PendingTasksContainer from './components/indexView/PendingTaskContainer'
 
 const currentViewSelected = 'Dashboard'
 
