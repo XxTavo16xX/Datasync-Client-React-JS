@@ -1,0 +1,16 @@
+.accentButtonContainer{
+    width: 23%;
+    height: 35px;
+    background-color: #0FE9BF;
+    border-radius: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.accentButtonContainer p{
+    color: #000;
+    font-family: poppinsMedium;
+    font-size: 14px;
+}

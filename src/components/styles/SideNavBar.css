@@ -1,4 +1,9 @@
 @font-face {
+    font-family: poppinsLight;
+    src: url(../../assets/fonts/Poppins-Light.ttf);
+}
+
+@font-face {
     font-family: poppinsMedium;
     src: url(../../assets/fonts/Poppins-Medium.ttf);
 }

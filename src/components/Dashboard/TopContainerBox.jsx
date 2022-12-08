@@ -1,7 +1,7 @@
 
 import './styles/TopSection.css'
 
-function TopContainerBox({ currentViewtitle }) {
+function TopContainerBox() {
 
     return <div className="backgroundContainer">
 
