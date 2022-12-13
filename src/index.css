@@ -47,7 +47,7 @@ body {
   align-items: center;
 }
 
-.Content-Container{
+.App-Content-Container{
   width: calc(100% - 50px);
   height: 95%;
 }
