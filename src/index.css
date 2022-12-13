@@ -3,18 +3,6 @@ body {
   padding: 0;
   min-height: 100vh;
 
-  background: rgb(250, 244, 255);
-  background: -moz-linear-gradient(135deg, rgba(250, 244, 255, 1) 0%, rgba(215, 229, 250, 1) 100%);
-  background: -webkit-linear-gradient(135deg, rgba(250, 244, 255, 1) 0%, rgba(215, 229, 250, 1) 100%);
-  background: linear-gradient(135deg, rgba(250, 244, 255, 1) 0%, rgba(215, 229, 250, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#faf4ff", endColorstr="#d7e5fa", GradientType=1);
-
-  /* background: rgb(31, 6, 106); */
-  /* background: -moz-linear-gradient(98deg, rgba(31, 6, 106, 1) 0%, rgba(45, 6, 201, 1) 100%); */
-  /* background: -webkit-linear-gradient(98deg, rgba(31, 6, 106, 1) 0%, rgba(45, 6, 201, 1) 100%); */
-  /* background: linear-gradient(98deg, rgba(31, 6, 106, 1) 0%, rgba(45, 6, 201, 1) 100%); */
-  /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1f066a", endColorstr="#2d06c9", GradientType=1); */
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,19 +10,16 @@ body {
 }
 
 #root {
-  width: 95vw;
-  height: 95vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .viewContentContainer {
-  width: calc(100% - 130px);
+  width: calc(100% - 240px);
   height: 90%;
 }
 
-.mainViewContainer{
+.mainViewContainer {
   width: 100%;
   height: 100%;
 }
@@ -45,4 +30,24 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.App-Content{
+  width: calc(100% - 240px);
+  height: calc(100% - 60px);
+  margin-left: 240px;
+  margin-top: 60px;
+  background: rgb(233, 248, 255);
+  background: -moz-linear-gradient(309deg, rgba(233, 248, 255, 1) 0%, rgba(238, 233, 255, 1) 100%);
+  background: -webkit-linear-gradient(309deg, rgba(233, 248, 255, 1) 0%, rgba(238, 233, 255, 1) 100%);
+  background: linear-gradient(309deg, rgba(233, 248, 255, 1) 0%, rgba(238, 233, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e9f8ff", endColorstr="#eee9ff", GradientType=1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Content-Container{
+  width: calc(100% - 50px);
+  height: 95%;
 }

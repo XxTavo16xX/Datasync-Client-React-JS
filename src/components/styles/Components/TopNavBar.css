@@ -1,0 +1,142 @@
+@font-face {
+    font-family: poppinsLight;
+    src: url(../../../assets/fonts/Poppins-Light.ttf);
+}
+
+@font-face {
+    font-family: poppinsMedium;
+    src: url(../../../assets/fonts/Poppins-Medium.ttf);
+}
+
+.Header {
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    position: fixed;
+    z-index: 1000;
+    border-bottom: 1px solid #00000022;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header-Lateral-Menu-Button {
+    display: none;
+}
+
+.Header-Logo-Container {
+    width: 240px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Header-Logo-Container h1 {
+    font-family: poppinsMedium;
+    font-size: 20px;
+    padding: 0px 0px 0px 15px;
+    color: #06113C;
+    cursor: default;
+}
+
+.Header-View-Info-Container{
+    width: calc(100% - 480px);
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Header-Current-View-Label{
+    width: calc(100% - 480px);
+    font-family: poppinsMedium;
+    font-size: 20px;
+    color: #06113C;
+    margin-left: 10px;
+    cursor: default;
+}
+
+.Header-User-Container {
+    width: 240px;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.User-Container {
+    width: 220px;
+    height: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.User-Photo-Container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 40px;
+}
+
+.User-Photo-Container img {
+    width: 100%;
+    height: auto;
+}
+
+.User-Name-Label {
+    width: auto;
+    max-width: 130px;
+    font-family: poppinsLight;
+    color: #202020;
+    margin-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.User-Options-Button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    margin-left: 10px;
+    border-radius: 5px;
+    background-color: #f6f6f6;
+    cursor: pointer;
+}
+
+@media screen and (min-width:0px) and (max-width:414px) {
+
+    .Header-Lateral-Menu-Button {
+        width: 35px;
+        height: 35px;
+        border: none;
+        margin-left: 10px;
+        border-radius: 5px;
+        background-color: #f6f6f6;
+        cursor: pointer;
+        display: block;
+    }
+
+    .Header-Logo-Container{
+        width: auto;
+    }
+
+    .Header-User-Container{
+        width: 50px;
+    }
+
+    .User-Name-Label{
+        display: none;
+    }
+
+    .User-Options-Button{
+        display: none;
+    }
+
+}
