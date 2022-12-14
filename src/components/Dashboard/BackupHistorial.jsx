@@ -61,6 +61,8 @@ const BackUpHistorial = () => {
 
                 <div className="Top-Container-Backup-Historial-Content">
 
+                    // * Populating the Backup History with the data Recived by Datasync-API
+
                     {
 
                         backupData.map(({ backupType, backupMessage, backupDate, backupFiles }) => {
