@@ -1,6 +1,82 @@
-
-.Top-Container-Backup-Historial-Container{
+.Top-Container-Backup-Historial-Container {
     width: 550px;
     height: 100%;
     border-radius: 15px;
+    background-color: #00ffa6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Top-Container-Backup-Historial-Margin {
+    width: 96%;
+    height: 95%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.Top-Container-Backup-Historial-Top {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.Top-Container-Backup-Historial-Top-Title-Label {
+    font-family: poppinsMedium;
+    font-size: 18px;
+    color: #06113c;
+    margin-top: -.05%;
+    white-space: nowrap;
+}
+
+.Top-Container-Backup-Now-Button {
+    height: 40px;
+    padding: 0px 15px 0px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #06113c;
+    border: none;
+    border-radius: 40px;
+}
+
+.Top-Container-Backup-Now-Button-Label {
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.Top-Container-Backup-Historial-Content-Container {
+    width: 100%;
+    height: calc(100% - 60px);
+}
+
+.Top-Container-Backup-Historial-Snippet{
+    width: 100%;
+    height: 60px;
+}
+
+.Top-Container-Backup-Historial-Snippet-Title{
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #06113c;
+}
+
+.Top-Container-Backup-Historial-Bottom-Container{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Top-Container-Backup-Historial-Bottom-Labels{
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #06113c;
+    white-space: nowrap;   
 }
