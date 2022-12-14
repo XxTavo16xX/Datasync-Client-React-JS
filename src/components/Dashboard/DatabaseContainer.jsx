@@ -1,4 +1,7 @@
+
+import { getHumanDateFromTimestamp } from '../sharedFunctions'
 import { MdMoreVert } from 'react-icons/md'
+
 import './styles/DatabaseContainer.css'
 
 // ! Dont user direct user photo url, use userID.ProfilePhoto insted
@@ -68,7 +71,7 @@ function DatabaseContainer() {
 
                                     <div className="Database-Window-Last-Date-User-Container">
 
-                                        <p className="Database-Window-Last-Date-User-Label">{new Date(lastDatabaseChangeDate * 1000).toLocaleDateString('SP-MX').replaceAll('/', '-')}</p>
+                                        <p className="Database-Window-Last-Date-User-Label">{getHumanDateFromTimestamp(lastDatabaseChangeDate)}</p>
 
                                     </div>
 
