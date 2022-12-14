@@ -1,12 +1,15 @@
 
 import './styles/TopSection.css'
 
+import BackUpHistorial from './BackupHistorial'
+
 function TopContainerBox() {
 
-    return <div className="backgroundContainer">
+    return <div className="Top-Section-Container">
 
-        <div className="topSectionContainer">
+        <div className="Top-Section-Container-Margin">
 
+            <BackUpHistorial />
 
         </div>
 

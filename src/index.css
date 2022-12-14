@@ -14,24 +14,6 @@ body {
   height: 100vh;
 }
 
-.viewContentContainer {
-  width: calc(100% - 240px);
-  height: 90%;
-}
-
-.mainViewContainer {
-  width: 100%;
-  height: 100%;
-}
-
-.bottomSectionContainer {
-  width: 100%;
-  height: 230px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .App-Content{
   width: calc(100% - 240px);
   height: calc(100% - 60px);
