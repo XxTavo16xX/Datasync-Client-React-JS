@@ -61,20 +61,20 @@ const BackUpHistorial = () => {
 
                 <div className="Top-Container-Backup-Historial-Content">
 
-                    // * Populating the Backup History with the data Recived by Datasync-API
-
                     {
+
+                        // * Populating the Backup History with the data Recived by Datasync-API
 
                         backupData.map(({ backupType, backupMessage, backupDate, backupFiles }) => {
 
-                            return <div className="Top-Container-Backup-Historial-Snippet"  key={backupDate}>
+                            return <div className="Top-Container-Backup-Historial-Snippet" key={backupDate}>
 
-                                <span className='Top-Container-Backup-Historial-Snippet-Title'>{ backupMessage }</span>
+                                <span className='Top-Container-Backup-Historial-Snippet-Title'>{backupMessage}</span>
 
                                 <div className="Top-Container-Backup-Historial-Bottom-Container">
 
-                                    <p className='Top-Container-Backup-Historial-Bottom-Labels'>{ getHumanDateFromTimestamp(backupDate) }</p>
-                                    <p className='Top-Container-Backup-Historial-Bottom-Labels'>{ backupFiles }</p>
+                                    <p className='Top-Container-Backup-Historial-Bottom-Labels'>{getHumanDateFromTimestamp(backupDate)}</p>
+                                    <p className='Top-Container-Backup-Historial-Bottom-Labels'>{backupFiles}</p>
 
                                 </div>
 
