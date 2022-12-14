@@ -5,27 +5,39 @@ const backupData = [
 
     {
         backupType: "Respaldo Automatico",
+        backupMessage: "La copia de seguridad se ha completado correctamente.",
         backupDate: 1670577300,
-        backupFiles: "Personalizado"
+        backupFiles: "Elementos personalizados"
 
     }, {
         backupType: "Respaldo Automatico",
+        backupMessage: "La copia de seguridad se ha completado correctamente.",
         backupDate: 1669972500,
-        backupFiles: "Personalizado"
+        backupFiles: "Elementos personalizados"
 
     }, {
         backupType: "Respaldo Automatico",
+        backupMessage: "La copia de seguridad se ha completado correctamente.",
         backupDate: 1669367700,
-        backupFiles: "Personalizado"
+        backupFiles: "Elementos personalizados"
 
     }, {
         backupType: "Respaldo Automatico",
+        backupMessage: "La copia de seguridad se ha completado correctamente.",
         backupDate: 1668762900,
-        backupFiles: "Personalizado"
+        backupFiles: "Elementos personalizados"
 
-    },
+    }
 
 ]
+
+const getHumanDateFromTimestamp = (timeStamp) => {
+
+    const humanMonthsList = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    const date = new Date(timeStamp * 1000)
+    return date.getDate() + ' de ' + humanMonthsList[date.getMonth()] + ' de ' + date.getFullYear()
+
+}
 
 const BackUpHistorial = () => {
 
@@ -49,18 +61,26 @@ const BackUpHistorial = () => {
 
                 <div className="Top-Container-Backup-Historial-Content">
 
-                    <div className="Top-Container-Backup-Historial-Snippet">
+                    {
 
-                        <span className='Top-Container-Backup-Historial-Snippet-Title'>La copia de seguridad se ha completado correctamente.</span>
+                        backupData.map(({ backupType, backupMessage, backupDate, backupFiles }) => {
 
-                        <div className="Top-Container-Backup-Historial-Bottom-Container">
+                            return <div className="Top-Container-Backup-Historial-Snippet"  key={backupDate}>
 
-                            <p className='Top-Container-Backup-Historial-Bottom-Labels'>16 de diciembre 2022 </p>
-                            <p className='Top-Container-Backup-Historial-Bottom-Labels'>Elementos personalizados</p>
+                                <span className='Top-Container-Backup-Historial-Snippet-Title'>{ backupMessage }</span>
 
-                        </div>
+                                <div className="Top-Container-Backup-Historial-Bottom-Container">
 
-                    </div>
+                                    <p className='Top-Container-Backup-Historial-Bottom-Labels'>{ getHumanDateFromTimestamp(backupDate) }</p>
+                                    <p className='Top-Container-Backup-Historial-Bottom-Labels'>{ backupFiles }</p>
+
+                                </div>
+
+                            </div>
+
+                        })
+
+                    }
 
                 </div>
 
