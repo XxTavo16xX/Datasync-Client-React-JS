@@ -11,7 +11,7 @@ import DashboardView from './components/Dashboard/DashboardView'
 import DatabaseView from './components/Database/DatabaseView'
 
 
-const currentViewSelected = 'Base de datos'
+const currentViewSelected = 'Dashboard'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 

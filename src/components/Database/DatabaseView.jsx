@@ -12,9 +12,26 @@ const dbOrdersElements = [
         orderState: 'En entrega',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: 2,
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
+        },
+        {
+            orderProductName: "Bolsa de papel",
+            orderProductAmount: 500000,
+            orderProductUnitPrice: 0.32,
+            orderProductPriceInFiat: 'USD'
+        },{
+            orderProductName: "Papel Bond",
+            orderProductAmount: 2,
+            orderProductUnitPrice: 145.32,
+            orderProductPriceInFiat: 'USD'
+        },
+        {
+            orderProductName: "Bolsa de papel",
+            orderProductAmount: 500000,
+            orderProductUnitPrice: 0.32,
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'CAM-SAN IMPRESORES, S.A. DE C.V.',
         orderInvoice: 'CAM-SAN IMPRESORES, S.A. DE C.V.',
@@ -27,9 +44,9 @@ const dbOrdersElements = [
         orderState: 'Completado',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: "2 Toneladas",
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'PRODUCTOS ARPAPEL, SA DE CV',
         orderInvoice: 'PRODUCTOS ARPAPEL, SA DE CV',
@@ -42,9 +59,9 @@ const dbOrdersElements = [
         orderState: 'Completado',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: "2 Toneladas",
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'CORPORACION DE PRODUCTOS INDUSTRIALES, S.A. DE C.V.',
         orderInvoice: 'CORPORACION DE PRODUCTOS INDUSTRIALES, S.A. DE C.V.',
@@ -57,9 +74,9 @@ const dbOrdersElements = [
         orderState: 'En entrega',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: "2 Toneladas",
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'CAM-SAN IMPRESORES, S.A. DE C.V.',
         orderInvoice: 'CAM-SAN IMPRESORES, S.A. DE C.V.',
@@ -72,9 +89,9 @@ const dbOrdersElements = [
         orderState: 'Completado',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: "2 Toneladas",
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'PRODUCTOS ARPAPEL, SA DE CV',
         orderInvoice: 'PRODUCTOS ARPAPEL, SA DE CV',
@@ -87,9 +104,9 @@ const dbOrdersElements = [
         orderState: 'Completado',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: "2 Toneladas",
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'CORPORACION DE PRODUCTOS INDUSTRIALES, S.A. DE C.V.',
         orderInvoice: 'CORPORACION DE PRODUCTOS INDUSTRIALES, S.A. DE C.V.',
@@ -102,9 +119,9 @@ const dbOrdersElements = [
         orderState: 'En entrega',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: "2 Toneladas",
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'CAM-SAN IMPRESORES, S.A. DE C.V.',
         orderInvoice: 'CAM-SAN IMPRESORES, S.A. DE C.V.',
@@ -117,9 +134,9 @@ const dbOrdersElements = [
         orderState: 'Completado',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: "2 Toneladas",
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'PRODUCTOS ARPAPEL, SA DE CV',
         orderInvoice: 'PRODUCTOS ARPAPEL, SA DE CV',
@@ -132,9 +149,9 @@ const dbOrdersElements = [
         orderState: 'Completado',
         orderProducts: [{
             orderProductName: "Papel Bond",
-            orderProductAmoun: "2 Toneladas",
+            orderProductAmount: "2 Toneladas",
             orderProductUnitPrice: 145.32,
-            orderProductPriceInFiat: 'usd'
+            orderProductPriceInFiat: 'USD'
         }],
         orderProvider: 'CORPORACION DE PRODUCTOS INDUSTRIALES, S.A. DE C.V.',
         orderInvoice: 'CORPORACION DE PRODUCTOS INDUSTRIALES, S.A. DE C.V.',
@@ -215,7 +232,17 @@ const DatabaseView = () => {
                                     <td className='Database-Table-Body-Title-Label'>{orderNumberCop}</td>
                                     <td className='Database-Table-Body-Title-Label'>{getHumanDateFromTimestamp(orderCreatioDate)}</td>
                                     <td className='Database-Table-Body-Title-Label'>{orderState}</td>
-                                    <td className='Database-Table-Body-Title-Label'>{orderProducts.toString()}</td>
+                                    <td className='Database-Table-Body-Title-Label Database-Table-Body-Products-Container'>{
+
+                                        // orderProducts.map(({ orderProductName, orderProductAmount, orderProductPriceInFiat, orderProductUnitPrice }, index) => { return <div className="Database-Table-Body-Product-Shape" key={orderNumberCop + ' :' + index} title={orderProductName + ', Cantidad: ' + orderProductAmount + ', Precio Unitario: ' + orderProductUnitPrice + ' Precio Total: ' + [orderProductUnitPrice * orderProductAmount] + ' ' + orderProductPriceInFiat} ></div> })
+
+                                        <button className="Database-Table-Body-Products-Button">
+
+                                            <p className='Database-Table-Body-Products-Button-Label'>Ver Productos</p>
+
+                                        </button>
+
+                                    }</td>
                                     <td className='Database-Table-Body-Title-Label'>{orderProvider}</td>
                                     <td className='Database-Table-Body-Title-Label'>{orderInvoice}</td>
                                     <td className='Database-Table-Body-Title-Label'>{orderConsign}</td>
