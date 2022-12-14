@@ -3,33 +3,33 @@ import './styles/PendingTask.css'
 
 function PendingTasksContainer() {
 
-    return <div className="bottomSectionPendingTaskContainer">
+    return <div className="Pending-Task-Content-Container">
 
-        <div className="bottomContentContainerMargin">
+        <div className="Pending-Task-Content-Margin">
 
-            <p>Tareas Pendientes</p>
+            <p className='Pending-Task-Content-Title-Label'>Tareas Pendientes</p>
 
-            <div className="taskListContainer"></div>
+            <div className="Pending-Task-List-Container"></div>
 
-            <div className="taskInputContainer">
+            <div className="Pending-Task-Input-Container">
 
-                <div className="taskInputButton">
+                <button className="Pending-Task-Action-Button">
 
-                    <MdMic size={18} />
+                    <MdMic size={18} color={'#000000'} />
 
-                </div>
+                </button>
 
-                <div className="taskInputInputContainer">
+                <div className="Pending-Task-Input-Container-Bar">
 
-                    <input type="text" placeholder='Enviar correo a ...'/>
-
-                </div>
-
-                <div className="taskInputButton">
-
-                    <MdSend size={18} />
+                    <input className='Pending-Task-Input-Container-Input' type="text" placeholder='Enviar correo a ...'/>
 
                 </div>
+
+                <button className="Pending-Task-Action-Button">
+
+                    <MdSend size={18} color={'#000000'} />
+
+                </button>
 
 
             </div>
