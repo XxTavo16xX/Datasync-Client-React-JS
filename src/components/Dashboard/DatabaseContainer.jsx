@@ -18,30 +18,30 @@ const databaseConecctionData = [
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Cobranza",
         lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
-        databaseStoreSpace: "15 MB"
+        databaseStoreSpace: "13.3 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Catalogo",
         lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
-        databaseStoreSpace: "15 MB"
+        databaseStoreSpace: "121 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Presupuesto",
         lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
-        databaseStoreSpace: "15 MB"
+        databaseStoreSpace: "19.3 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Ventas",
-        lastDatabaseUsersChangePhotoURL: ['./src/assets/components/SIdeNavBar/me.jpg', './src/assets/components/SIdeNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
-        databaseStoreSpace: "15 MB"
+        lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
+        databaseStoreSpace: "10.7 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Listados",
-        lastDatabaseUsersChangePhotoURL: ['./src/assets/components/SIdeNavBar/me.jpg', './src/assets/components/SIdeNavBar/oskar.jpg', './src/assets/components/SIdeNavBar/defaultUser.png'],
+        lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', './src/assets/components/TopNavBar/defaultUser.png'],
         databaseStoreSpace: "15 MB"
     }
 
@@ -99,7 +99,7 @@ function DatabaseContainer() {
 
                                                 lastDatabaseUsersChangePhotoURL.map((currentUserImageURL) => {
 
-                                                    return <div className="Database-Window-User-Image-Container">
+                                                    return <div className="Database-Window-User-Image-Container" key={currentUserImageURL} >
 
                                                         <img className='Databa-Window-User-Image' src={currentUserImageURL} />
 

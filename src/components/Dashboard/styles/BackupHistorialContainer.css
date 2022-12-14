@@ -30,6 +30,7 @@
     color: #06113c;
     margin-top: -.05%;
     white-space: nowrap;
+    cursor: default;
 }
 
 .Top-Container-Backup-Now-Button {
@@ -41,6 +42,7 @@
     background-color: #06113c;
     border: none;
     border-radius: 40px;
+    cursor: pointer;
 }
 
 .Top-Container-Backup-Now-Button-Label {
@@ -66,6 +68,7 @@
     font-family: poppinsMedium;
     font-size: 14px;
     color: #06113c;
+    cursor: default;
 }
 
 .Top-Container-Backup-Historial-Bottom-Container{
@@ -80,5 +83,6 @@
     font-family: poppinsLight;
     font-size: 14px;
     color: #06113c;
-    white-space: nowrap;   
+    white-space: nowrap;
+    cursor: default;
 }
