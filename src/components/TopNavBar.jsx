@@ -1,13 +1,13 @@
 import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos } from "react-icons/md";
 import './styles/Components/TopNavBar.css'
 
-const TopNavBar = () => {
+const TopNavBar = ({currentViewName}) => {
 
     return <div className="Header">
 
         <MenuButton />
         <Logo />
-        <ViewInfo />
+        <ViewInfo viewTitle={currentViewName}/>
         <UserContainer />
 
     </div>
@@ -35,13 +35,13 @@ const Logo = () => {
 
 }
 
-const ViewInfo = () => {
+const ViewInfo = ({viewTitle}) => {
 
     return <div className="Header-View-Info-Container">
 
         <MdArrowForwardIos size={18} color={'#06113c74'} />
 
-        <p className="Header-Current-View-Label">Dashboard</p>
+        <p className="Header-Current-View-Label">{viewTitle}</p>
 
     </div>
 
@@ -55,11 +55,11 @@ const UserContainer = () => {
 
             <div className="User-Photo-Container">
 
-                <img src="./src/assets/components/TopNavBar/defaultUser.png" />
+                <img src="./src/assets/components/TopNavBar/me.jpg" />
 
             </div>
 
-            <p className="User-Name-Label">User Name</p>
+            <p className="User-Name-Label">Armando Peralta</p>
 
             <button className="User-Options-Button">
 

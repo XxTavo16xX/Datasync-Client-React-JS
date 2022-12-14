@@ -57,7 +57,7 @@
 }
 
 .User-Container {
-    width: 220px;
+    width: 350px;
     height: 80%;
     display: flex;
     justify-content: flex-start;
@@ -81,7 +81,7 @@
 
 .User-Name-Label {
     width: auto;
-    max-width: 130px;
+    max-width: 260px;
     font-family: poppinsLight;
     color: #202020;
     margin-left: 10px;

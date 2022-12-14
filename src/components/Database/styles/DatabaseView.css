@@ -35,55 +35,81 @@
 
 .databaseResultsContainer {
     width: 100%;
-    height: calc(100% - 80px);
-    background-color: #dfe6f0;
-    border-radius: 25px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);    
+    height: auto;
+    max-height: calc(100% - 80px);
+    border-radius: 5px;
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
-.databaseReadContainer img{
+.databaseResultsContainer::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+    background-color: #ebf2ff;
+}
+
+.databaseResultsContainer::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: #00ffa6;
+}
+
+.databaseReadContainer img {
     width: auto;
     height: 100%;
 }
 
-table {
+.Database-Results-Table {
     width: 100%;
     border-collapse: collapse;
 }
 
-tr:first-child{
-    background-color: #e4e2e2;
+.Database-Table-Head-Title-Label {
+    height: 20px;
+    padding: 5px 10px 5px 0px;
+    font-family: poppinsLight;
+    font-size: 15px;
+    white-space: nowrap;
+    cursor: default;
+    text-align: left;
 }
 
-th,
-td {
-    
-    height: 20px;
-    padding: 8px;
+.Database-Table-Body-Title-Label {
+    height: 40px;
+    padding: 5px 10px 5px 0px;
     text-align: left;
     font-family: poppinsLight;
     font-size: 14px;
     white-space: nowrap;
     cursor: default;
-}
-
-td{
-    max-width: 20px;
-    overflow-x:scroll;
-}
-
-td::-webkit-scrollbar {
-    width: 0px;
+    border-bottom: 1px solid #0000001a;
 }
 
 th:first-child,
 td:first-child {
     width: 20px;
+    border-bottom: 1px solid #0000001a;
 
+}
+
+td {
+    cursor: pointer;
 }
 
 th:first-child input,
 td:first-child input {
+    cursor: pointer;
+}
+
+.Database-Table-Head-Row {
+    background-color: #00ffa6;
+}
+
+.Database-Table-Body-Row {
+    background-color: #ffffff;
+}
+
+.Database-Table-Body-Row:hover {
+    background-color: transparent;
     cursor: pointer;
 }
 

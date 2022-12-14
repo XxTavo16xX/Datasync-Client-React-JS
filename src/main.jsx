@@ -11,13 +11,13 @@ import DashboardView from './components/Dashboard/DashboardView'
 import DatabaseView from './components/Database/DatabaseView'
 
 
-const currentViewSelected = 'Dashboard'
+const currentViewSelected = 'Base de datos'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <React.StrictMode>
 
-    <TopNavBar/>
+    <TopNavBar currentViewName ={currentViewSelected}/>
     <SideNavBar/>
 
     <div className="App-Content">
@@ -25,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <div className="App-Content-Container">
 
         { currentViewSelected == 'Dashboard' ? <DashboardView /> : null}
+        { currentViewSelected == 'Base de datos' ? <DatabaseView /> : null}
 
       </div>
 
