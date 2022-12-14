@@ -1,118 +1,177 @@
-.bottomSectionDatabasesContainer{
-    width: 49%;
+.Database-Content-Container {
+    width: 50%;
     height: 100%;
-    background-color: green;
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
 }
 
-.bottomContentContainerMargin {
-    margin: auto;
-    width: 95%;
+.Database-Content-Container-Margin {
+    width: 98%;
     height: 100%;
+    overflow: hidden;
 }
 
-.bottomContentContainerMargin p {
+.Database-Content-Title-Label {
     width: 100%;
+    height: 25px;
     font-family: poppinsMedium;
     font-size: 16px;
     color: #000000;
 }
 
-.databasesContainer {
+.Database-Windows-Container {
     margin: auto;
     width: 100%;
-    height: 350px;
+    height: 86%;
     border-radius: 15px;
-    background-color: #e6ecfc;
+    background-color: #ffffff;
     display: flex;
-    justify-content: space-between;
-    overflow-y: scroll;
-    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .databasesContainer::-webkit-scrollbar {
     width: 0px;
 }
 
-.databaseShortCutContainer {
-    width: 160px;
-    height: 150px;
-    min-width: 160px;
-    min-height: 160px;
-    background-color: #ffffff;
+.Database-Windows-Content-Margin {
+    width: 97%;
+    height: 95%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 47%;
+    gap: 2%;
+}
+
+.Database-Window-Container {
+    width: 100%;
+    height: 100%;
+    background-color: #C8F7DC;
     border-radius: 15px;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    margin-right: 25px;
 }
 
-.databaseShortCutContainer:hover{
-    box-shadow: 7px 7px 14px 5px rgba(0,0,0,0.1);
-}
-
-.databaseTopContainer{
-    margin: auto;
+.Database-Window-Content-Margin {
     width: 90%;
-    height: 20%;
-    overflow: hidden;
+    height: 90%;
+}
+
+.Database-Window-Top-Container {
+    width: 100%;
+    height: 15%;
     display: flex;
-    justify-content: space-between;
+    justify-self: space-between;
     align-items: center;
 }
 
-.databaseTopContainer .databaseLastModDate{
-    width: calc(100% - 15px);
-    font-family: poppinsMedium;
-    font-size: 10px;
-    color: #000000;
-}
-
-.databaseContentContainer{
-    margin: auto;
+.Database-Window-Last-Date-User-Container {
     width: 90%;
-    height: calc(100% - 40%);
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
+    overflow: hidden;
 }
 
-.databaseContentContainer .databaseName{
+.Database-Window-Last-Date-User-Label {
     width: 100%;
+    text-align: left;
+    font-family: poppinsLight;
+    font-size: 12px;
+    white-space: nowrap;
+    color: #06113C;
+    cursor: default;
+}
+
+.Database-Window-Options-Button {
+    height: 100%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Database-Window-Center-Container{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Database-Window-Center-Name-Label{
     text-align: center;
+    font-family: poppinsMedium;
+    font-size: 18px;
+    white-space: nowrap;
+    color: #06113C;
+    cursor: default;
+
 }
 
-.databaseBottomContainer{
-    margin: auto;
-    width: 90%;
-    height: 32px;
-    overflow: hidden;
+.Database-Window-Bottom-Container{
+    width: 100%;
+    height: 15%;
     display: flex;
-    justify-content: space-between;
+    justify-self: space-between;
     align-items: center;
 }
 
-.lastModificationFromUsersContainer{
-    width: 45px;
-    height: 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.Database-Window-Last-Users-Container{
+    width: 70%;
+    height: 100%;   
 }
 
-.lastUserModificationImageContainer{
-    min-width: 15px;
-    min-height: 15px;
-    width: 15px;
-    height: 15px;
+.Database-Window-User-Snippet{
+    width: 40%;
+    height: 80%;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+.Database-Window-User-Image-Container{
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border-radius: 30px;
-    background-color: orange;
 }
 
-.lastUserModificationImageContainer img{
+.Databa-Window-User-Image{
     width: 100%;
-    height: auto;    
+    height: auto;
+}
+
+.Database-Window-Storage-Space-Container{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Database-Window-Storage-Space-Snippet{
+    width: 90%;
+    height: 80%;
+    background-color: #ffffff;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.Database-Window-Storage-Space-Label{
+    font-family: poppinsMedium;
+    font-size: 12px;
+    white-space: nowrap;
+    color: #06113C;
 }
