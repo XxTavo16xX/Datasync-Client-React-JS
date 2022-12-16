@@ -28,6 +28,10 @@
     margin-bottom: 10px;
 }
 
+.SideNavBar-Option-Selected{
+    background-color: #dfdfdf;
+}
+
 .SideNavBar-Option:hover{
     background-color: #dfdfdf;
 }

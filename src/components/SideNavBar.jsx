@@ -1,49 +1,59 @@
 import { MdDashboard, MdChromeReaderMode, MdViewSidebar, MdAutoAwesomeMotion, MdList } from "react-icons/md";
-import AppContext from "./AppContext";
-import { useContext } from "react";
+
+import React, { useContext } from 'react';
+import { AppContext } from './AppContext';
 
 import './styles/SideNavBar.css'
 
 const SideNavBar = () => {
 
-    // ! App Context
-
-    const contextApp = useContext(AppContext)
-    console.log(contextApp.currenViewSelected);
-
     return <div className='SideNavBar'>
 
         <p className="SideNavBar-Title-Section">Menu</p>
 
-        <SideNavBarOptionContainer OptionName='Dashboard' />
-        <SideNavBarOptionContainer OptionName='Base de datos' />
-        <SideNavBarOptionContainer OptionName='Caja Segura' />
-        <SideNavBarOptionContainer OptionName='Respaldos' />
-        <SideNavBarOptionContainer OptionName='Tareas Pendientes' />
+        <SideNavBarOptionContainer currentViewSelected='Dashboard' />
+        <SideNavBarOptionContainer currentViewSelected='Base de datos' />
+        <SideNavBarOptionContainer currentViewSelected='Caja Segura' />
+        <SideNavBarOptionContainer currentViewSelected='Respaldos' />
+        <SideNavBarOptionContainer currentViewSelected='Tareas Pendientes' />
 
     </div>
 
 }
 
-const SideNavBarOptionContainer = ({ OptionName }) => {    
+const SideNavBarOptionContainer = ({ currentViewSelected }) => {
 
-    return <div className="SideNavBar-Option">
+    const { state, setState } = useContext(AppContext);
 
-        <button className="SideNavBar-Option-Container">
+    const handleChange = (newViewToDisplay) => {
+        setState({
+            ...state,
+            currentViewToDisplay: newViewToDisplay,
+        });
+    };
 
-            {OptionName == 'Dashboard' ? <MdDashboard size={24} color={'#06113C'} /> : null}
-            {OptionName == 'Base de datos' ? <MdChromeReaderMode size={24} color={'#06113C'} /> : null}
-            {OptionName == 'Caja Segura' ? <MdViewSidebar size={24} color={'#06113C'} /> : null}
-            {OptionName == 'Respaldos' ? <MdAutoAwesomeMotion size={24} color={'#06113C'} /> : null}
-            {OptionName == 'Tareas Pendientes' ? <MdList size={24} color={'#06113C'} /> : null}
+    return (
+        <div className={state.currenViewSelected == currentViewSelected ? "SideNavBar-Option SideNavBar-Option-Selected" : "SideNavBar-Option"}
+            onClick={() => {
+                handleChange(currentViewSelected)
+            }}>
+
+            <button className="SideNavBar-Option-Container">
+
+                {currentViewSelected == 'Dashboard' ? <MdDashboard size={24} color={'#06113C'} /> : null}
+                {currentViewSelected == 'Base de datos' ? <MdChromeReaderMode size={24} color={'#06113C'} /> : null}
+                {currentViewSelected == 'Caja Segura' ? <MdViewSidebar size={24} color={'#06113C'} /> : null}
+                {currentViewSelected == 'Respaldos' ? <MdAutoAwesomeMotion size={24} color={'#06113C'} /> : null}
+                {currentViewSelected == 'Tareas Pendientes' ? <MdList size={24} color={'#06113C'} /> : null}
 
 
 
-            <p className="SideNavBar-Option-Name-Label">{OptionName}</p>
+                <p className="SideNavBar-Option-Name-Label">{currentViewSelected}</p>
 
-        </button>
+            </button>
 
-    </div>
+        </div>
+    )
 
 }
 

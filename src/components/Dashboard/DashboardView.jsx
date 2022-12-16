@@ -3,16 +3,16 @@ import TopSection from './TopContainerBox'
 import DatabaseContainer from "./DatabaseContainer";
 import PendingTasksContainer from './PendingTaskContainer'
 
-import AppContext from "../AppContext";
 import { useContext } from "react";
+import { AppContext } from '../AppContext';
 
 import './styles/DashboardContainer.css'
 
 const DashboardView = () => {
 
-    const contextApp = useContext(AppContext)
+    const { state, setState } = useContext(AppContext);
 
-    return <div className={contextApp.currenViewSelected == 'Dashboard' ? 'Dashboard-Content-Container' : 'Content-Container-Hidded'}>
+    return <div className={state.currentViewToDisplay === 'Dashboard' ? 'Dashboard-Content-Container' : 'Content-Container-Hidded'}>
 
         <div className="Dashboard-Top-Section-Container">
 

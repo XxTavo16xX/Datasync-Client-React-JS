@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-import { AppContextProvider } from './components/AppContext'
+import { AppProvider } from './components/AppContext'
 
 import TopNavBar from './components/TopNavBar'
 import SideNavBar from './components/SideNavBar'
@@ -10,13 +10,11 @@ import SideNavBar from './components/SideNavBar'
 import DashboardView from './components/Dashboard/DashboardView'
 import DatabaseView from './components/Database/DatabaseView'
 
-const currentViewSelected = 'Base de datos'
-
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <React.StrictMode>
 
-    <AppContextProvider>
+    <AppProvider>
 
       <TopNavBar />
       <SideNavBar />
@@ -32,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       </div>
 
-    </AppContextProvider>
+    </AppProvider>
 
   </React.StrictMode>
 

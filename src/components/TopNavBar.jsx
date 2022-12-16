@@ -1,18 +1,19 @@
 import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos } from "react-icons/md";
-import AppContext from "./AppContext";
+
 import { useContext } from "react";
+import { AppContext } from './AppContext';
 
 import './styles/Components/TopNavBar.css'
 
 const TopNavBar = ({currentViewName}) => {
 
-    const contextApp = useContext(AppContext)
+    const { state, setState } = useContext(AppContext);
 
     return <div className="Header">
 
         <MenuButton />
         <Logo />
-        <ViewInfo viewTitle={contextApp.currenViewSelected}/>
+        <ViewInfo viewTitle={state.currentViewToDisplay}/>
         <UserContainer />
 
     </div>

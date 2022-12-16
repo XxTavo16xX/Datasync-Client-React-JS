@@ -1,11 +1,20 @@
-import { createContext } from "react";
+// Script to set context with React:
 
-const AppContext = createContext()
+import React from 'react';
 
-export function AppContextProvider({children}) {
+const AppContext = React.createContext();
+
+const AppProvider = (props) => {
+    const [state, setState] = React.useState({
+        currentViewToDisplay: 'Dashboard',
+        value2: 'another initial value',
+    });
+
     return (
-        <AppContext.Provider value={{currenViewSelected:'Base de datos'}}>{children}</AppContext.Provider>
-    )
-}
+        <AppContext.Provider value={{ state, setState }}>
+            {props.children}
+        </AppContext.Provider>
+    );
+};
 
-export default AppContext
+export { AppContext, AppProvider };
