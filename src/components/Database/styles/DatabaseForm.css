@@ -1,23 +1,24 @@
-.Database-New-Order-Form-Container{
+.Database-New-Order-Form-Container {
     margin: auto;
-    width: 100%;
+    width: 60%;
     height: 100%;
     background-color: #ffffff;
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
     z-index: 15;
     border-radius: 5px;
-    box-shadow: 0px 10px 15px 15px rgba(0,0,0,0.1);
+    box-shadow: 0px 10px 15px 15px rgba(0, 0, 0, 0.1);
+    transition: .3s;
+    overflow: hidden;
 }
 
-.Database-New-Order-Form-Container-HIde{
+.Database-New-Order-Form-Container-HIde {
     display: none;
 }
 
-.Form-Container-Top-Container{
+.Form-Container-Top-Container {
     width: 100%;
     height: 50px;
     background-color: #06113C;
@@ -26,14 +27,14 @@
     align-items: center;
 }
 
-.Form-Container-Top-Title-Label{
+.Form-Container-Top-Title-Label {
     font-family: poppinsMedium;
     font-size: 16px;
     color: #ffffff;
     margin-left: 15px;
 }
 
-.Form-Container-Form-Controlls-Container{
+.Form-Container-Form-Controlls-Container {
     width: auto;
     height: 50px;
     display: flex;
@@ -41,7 +42,7 @@
     align-items: center;
 }
 
-.Form-Container-Controller-Button{
+.Form-Container-Controller-Button {
     width: 50px;
     height: 50px;
     background-color: transparent;
@@ -49,11 +50,102 @@
     cursor: pointer;
 }
 
-.Form-Container-Controller-Button:hover{
+.Form-Container-Controller-Button:hover {
     background-color: #4c4b4b;
 
 }
 
-.Form-Container-Close-Button:hover{
+.Form-Container-Close-Button:hover {
     background-color: red;
+}
+
+.Form-Container-Form-Container {
+    width: 100%;
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.Form-Container-Form-Container::-webkit-scrollbar {
+    width: 8px;
+    background-color: #ebf2ff;
+}
+
+.Form-Container-Form-Container::-webkit-scrollbar-thumb {
+    background-color: #06113C;
+}
+
+.Form-Content-Margin {
+    width: calc(100% - 20px);
+    height: 96%;
+}
+
+.Form-Content-Top-Container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.From-Content-Input-1-4 {
+    width: 24%;
+    height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.From-Content-Input-1-2 {
+    width: 48%;
+    height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Form-Content-Mid-Container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.From-Content-Container-1-3 {
+    width: 33%;
+    height: auto;
+    background-color: #e1e0e020;
+    border-radius: 15px;
+}
+
+.Form-Content-1-3-Margin {
+    margin: auto;
+    width: 95%;
+    height: auto;
+}
+
+.Form-Content-Title-Label {
+    font-family: poppinsMedium;
+    font-size: 16px;
+    color: #000;
+}
+
+.Subtitle-Label{
+    margin-bottom: 38px;
+}
+
+.Form-Content-Two-Inputs-One-Column {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.From-Content-Input-15 {
+    width: 49%;
+    height: auto;
 }

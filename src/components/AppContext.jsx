@@ -7,7 +7,7 @@ const AppContext = React.createContext();
 const AppProvider = (props) => {
 
     const [globalContext, setGlobalContext] = React.useState({
-        currentViewToDisplay: 'Base de datos',
+        currentViewToDisplay: 'Dashboard',
         currentDatabaseCollectionSelected: 'Ordenes',
         isNewOrderFormVisible: false
     });
