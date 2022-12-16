@@ -8,7 +8,7 @@ const AppProvider = (props) => {
 
     const [globalContext, setGlobalContext] = React.useState({
         currentViewToDisplay: 'Base de datos',
-        currentDatabaseSelected: 'Ordenes'
+        currentDatabaseCollectionSelected: 'Ordenes'
     });
 
     return (

@@ -1,6 +1,6 @@
 
 
-.topSearchContainer{
+.Top-Search-Container{
     width: 75%;
     height: 35px;
     background-color: #fff;
@@ -12,7 +12,7 @@
     overflow: hidden;
 }
 
-.topCurrentSearchInCollectionContainer{
+.Top-Search-Current-Collection-Container{
     width: 119px;
     height: 100%;
     display: flex;
@@ -21,21 +21,23 @@
     border-right: 1px solid #0000001c;
 }
 
-.selectDatabaseButton{
+.Top-Search-Select-Collection-Button{
     width: 100px;
     height: 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
-.selectDatabaseButton .currentDBNameLabel{
+.Top-Search-Current-Collection-Name-Label{
     font-family: poppinsLight;
     font-size: 14px;
 }
 
-.topSearchInputContainer{
+.Top-Search-Input-Container{
     width: calc(100% - 120px);
     height: 100%;
     display: flex;
@@ -43,7 +45,7 @@
     align-items: center;
 }
 
-.topSearchInputContainer input{
+.Top-Search-Input-Container input{
     width: calc(100% - 20px);
     height: 100%;
     outline: none;

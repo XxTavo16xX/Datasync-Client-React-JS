@@ -8,23 +8,23 @@ const TopSearchContainer = () => {
 
     const { globalContext, setGlobalContext } = useContext(AppContext);
 
-    return <div className="topSearchContainer">
+    return <div className="Top-Search-Container">
 
-        <div className="topCurrentSearchInCollectionContainer">
+        <div className="Top-Search-Current-Collection-Container">
 
-            <div className="selectDatabaseButton">
+            <button className="Top-Search-Select-Collection-Button">
 
-                <p className="currentDBNameLabel">{globalContext.currentDatabaseSelected}</p>
+                <p className="Top-Search-Current-Collection-Name-Label">{globalContext.currentDatabaseCollectionSelected}</p>
 
                 <MdExpandMore />
 
-            </div>
+            </button>
 
         </div>
 
-        <div className="topSearchInputContainer">
+        <div className="Top-Search-Input-Container">
 
-            <input type="text" placeholder="Buscar en ordenes"/>
+            <input type="text" placeholder={'Buscar en ' + globalContext.currentDatabaseCollectionSelected}/>
 
         </div>
 
