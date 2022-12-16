@@ -196,11 +196,11 @@ const DatabaseView = () => {
 
     const { globalContext, setGlobalContext } = useContext(AppContext);
 
-    return <div className={globalContext.currentViewToDisplay == 'Base de datos' ? 'databaseViewContainer' : 'Content-Container-Hidded'}>
+    return <div className={globalContext.currentViewToDisplay == 'Base de datos' ? 'Database-View-Container' : 'Content-Container-Hidded'}>
 
-        <div className="databaseToolsContainer">
+        <div className="Database-View-Tools-Container">
 
-            <div className="databaseToolsTopContainer">
+            <div className="Database-View-Tools-Top-Container">
 
                 <TopSearchContainer />
 
@@ -208,7 +208,7 @@ const DatabaseView = () => {
 
             </div>
 
-            <div className="databaseResultsContainer">
+            <div className="Database-Results-Container">
 
                 <table className='Database-Results-Table' id='dbResultsTable' >
 
@@ -264,7 +264,7 @@ const DatabaseView = () => {
 
         </div>
 
-        <div className="databaseReadContainer">
+        <div className="Database-Read-Container">
 
             <img src="src\assets\dev_image.jpg" alt="" />
 
