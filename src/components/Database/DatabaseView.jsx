@@ -24,7 +24,7 @@ const dbOrdersElements = [
             orderProductAmount: 500000,
             orderProductUnitPrice: 0.32,
             orderProductPriceInFiat: 'USD'
-        },{
+        }, {
             orderProductName: "Papel Bond",
             orderProductAmount: 2,
             orderProductUnitPrice: 145.32,
@@ -194,9 +194,9 @@ const selectAllElementsInList = () => {
 
 const DatabaseView = () => {
 
-    const { state, setState } = useContext(AppContext);
+    const { globalContext, setGlobalContext } = useContext(AppContext);
 
-    return <div className={state.currentViewToDisplay == 'Base de datos' ? 'databaseViewContainer' : 'Content-Container-Hidded'}>
+    return <div className={globalContext.currentViewToDisplay == 'Base de datos' ? 'databaseViewContainer' : 'Content-Container-Hidded'}>
 
         <div className="databaseToolsContainer">
 

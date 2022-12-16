@@ -23,17 +23,17 @@ const SideNavBar = () => {
 
 const SideNavBarOptionContainer = ({ currentViewSelected }) => {
 
-    const { state, setState } = useContext(AppContext);
+    const { globalContext, setGlobalContext } = useContext(AppContext);
 
     const handleChange = (newViewToDisplay) => {
-        setState({
-            ...state,
+        setGlobalContext({
+            ...globalContext,
             currentViewToDisplay: newViewToDisplay,
         });
     };
 
     return (
-        <div className={state.currenViewSelected == currentViewSelected ? "SideNavBar-Option SideNavBar-Option-Selected" : "SideNavBar-Option"}
+        <div className={globalContext.currenViewSelected == currentViewSelected ? "SideNavBar-Option SideNavBar-Option-Selected" : "SideNavBar-Option"}
             onClick={() => {
                 handleChange(currentViewSelected)
             }}>

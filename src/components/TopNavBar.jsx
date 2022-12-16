@@ -7,13 +7,13 @@ import './styles/Components/TopNavBar.css'
 
 const TopNavBar = ({currentViewName}) => {
 
-    const { state, setState } = useContext(AppContext);
+    const { globalContext, setGlobalContext } = useContext(AppContext);
 
     return <div className="Header">
 
         <MenuButton />
         <Logo />
-        <ViewInfo viewTitle={state.currentViewToDisplay}/>
+        <ViewInfo viewTitle={globalContext.currentViewToDisplay}/>
         <UserContainer />
 
     </div>

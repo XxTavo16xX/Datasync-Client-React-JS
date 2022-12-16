@@ -35,7 +35,7 @@
 
 .databaseResultsContainer {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-height: calc(100% - 80px);
     border-radius: 5px;
     overflow-x: scroll;
@@ -60,6 +60,7 @@
 
 .Database-Results-Table {
     width: 100%;
+    height: 100%;
     border-collapse: collapse;
 }
 
@@ -75,7 +76,7 @@
 }
 
 .Database-Table-Body-Title-Label {
-    height: 40px;
+    height: 20px;
     padding: 5px 10px 5px 0px;
     text-align: left;
     font-family: poppinsLight;
@@ -112,6 +113,7 @@ td:first-child input {
 }
 
 .Database-Table-Body-Products-Container {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

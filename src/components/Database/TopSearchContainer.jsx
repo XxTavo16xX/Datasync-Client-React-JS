@@ -1,7 +1,12 @@
 import { MdExpandMore } from "react-icons/md";
+import { useContext } from "react";
+import { AppContext } from '../AppContext';
+
 import './styles/TopSearchContainer.css'
 
 const TopSearchContainer = () => {
+
+    const { globalContext, setGlobalContext } = useContext(AppContext);
 
     return <div className="topSearchContainer">
 
@@ -9,7 +14,7 @@ const TopSearchContainer = () => {
 
             <div className="selectDatabaseButton">
 
-                <p className="currentDBNameLabel">Ordenes</p>
+                <p className="currentDBNameLabel">{globalContext.currentDatabaseSelected}</p>
 
                 <MdExpandMore />
 

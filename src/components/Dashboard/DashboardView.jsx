@@ -10,9 +10,9 @@ import './styles/DashboardContainer.css'
 
 const DashboardView = () => {
 
-    const { state, setState } = useContext(AppContext);
+    const { globalContext, setGlobalContext } = useContext(AppContext);
 
-    return <div className={state.currentViewToDisplay === 'Dashboard' ? 'Dashboard-Content-Container' : 'Content-Container-Hidded'}>
+    return <div className={globalContext.currentViewToDisplay === 'Dashboard' ? 'Dashboard-Content-Container' : 'Content-Container-Hidded'}>
 
         <div className="Dashboard-Top-Section-Container">
 
