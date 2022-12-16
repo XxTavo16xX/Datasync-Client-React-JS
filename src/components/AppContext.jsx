@@ -4,7 +4,7 @@ const AppContext = createContext()
 
 export function AppContextProvider({children}) {
     return (
-        <AppContext.Provider value={{currenViewSelected:'Dashboard'}}>{children}</AppContext.Provider>
+        <AppContext.Provider value={{currenViewSelected:'Base de datos'}}>{children}</AppContext.Provider>
     )
 }
 

@@ -3,6 +3,9 @@ import { getHumanDateFromTimestamp } from '../sharedFunctions'
 import TopSearchContainer from './TopSearchContainer'
 import AcentButtonForDBTools from './AcentButtonForDBTools'
 
+import AppContext from "../AppContext";
+import { useContext } from "react";
+
 import './styles/DatabaseView.css'
 
 const dbOrdersElements = [
@@ -191,7 +194,9 @@ const selectAllElementsInList = () => {
 
 const DatabaseView = () => {
 
-    return <div className="databaseViewContainer">
+    const contextApp = useContext(AppContext)
+
+    return <div className={contextApp.currenViewSelected == 'Base de datos' ? 'databaseViewContainer' : 'Content-Container-Hidded'}>
 
         <div className="databaseToolsContainer">
 
