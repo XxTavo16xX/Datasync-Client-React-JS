@@ -1,9 +1,23 @@
 
+import React, { useContext } from 'react';
+import { AppContext } from '../AppContext';
+
 import './styles/dbToolsButton.css'
 
 const AcentButtonForDBTools = () => {
 
-    return <div className="accentButtonContainer">
+    const { globalContext, setGlobalContext } = useContext(AppContext);
+
+    const updateNewFormIsVisible = () => {
+
+        if (globalContext.isNewOrderFormVisible == false) return setGlobalContext({ ...globalContext, isNewOrderFormVisible: true });
+        if (globalContext.isNewOrderFormVisible == true) return setGlobalContext({ ...globalContext, isNewOrderFormVisible: false });
+
+    }
+
+    return <div className="accentButtonContainer" onClick={() => {
+        updateNewFormIsVisible()
+    }}>
 
         <p>Nueva Orden</p>
 

@@ -2,11 +2,13 @@ import { getHumanDateFromTimestamp } from '../sharedFunctions'
 
 import TopSearchContainer from './TopSearchContainer'
 import AcentButtonForDBTools from './AcentButtonForDBTools'
+import FormContainer from './FormContainer';
 
 import { useContext } from "react";
 import { AppContext } from '../AppContext';
 
 import './styles/DatabaseView.css'
+import './styles/DatabaseForm.css'
 
 const dbOrdersElements = [
     {
@@ -263,6 +265,8 @@ const DatabaseView = () => {
             </div>
 
         </div>
+
+        <FormContainer />
 
         <div className="Database-Read-Container">
 
