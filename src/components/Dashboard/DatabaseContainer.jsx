@@ -2,9 +2,12 @@
 import { getHumanDateFromTimestamp } from '../sharedFunctions'
 import { MdMoreVert } from 'react-icons/md'
 
+import { useContext } from "react";
+import { AppContext } from '../AppContext';
+
 import './styles/DatabaseContainer.css'
 
-// ! Dont user direct user photo url, use userID.ProfilePhoto insted
+// ! Dont use direct user photo url, use userID.ProfilePhoto insted
 
 const databaseConecctionData = [
 
@@ -49,6 +52,18 @@ const databaseConecctionData = [
 
 function DatabaseContainer() {
 
+    const { globalContext, setGlobalContext } = useContext(AppContext);
+
+    const goDatabaseViewInCollection = (collectionToShow) => {
+
+        setGlobalContext({
+            ...globalContext,
+            currentDatabaseCollectionSelected: collectionToShow,
+            currentViewToDisplay: 'Base de datos',
+        });
+
+    }
+
     return <div className="Database-Content-Container">
 
         <div className="Database-Content-Container-Margin">
@@ -63,7 +78,7 @@ function DatabaseContainer() {
 
                     databaseConecctionData.map(({ lastDatabaseChangeDate, databaseName, lastDatabaseUsersChangePhotoURL, databaseStoreSpace }) => {
 
-                        return <div className="Database-Window-Container" key={databaseName}>
+                        return <div className="Database-Window-Container" key={databaseName} onClick={() => { goDatabaseViewInCollection(databaseName) }}>
 
                             <div className="Database-Window-Content-Margin">
 
