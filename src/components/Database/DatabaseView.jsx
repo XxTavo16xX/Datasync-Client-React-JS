@@ -3,6 +3,7 @@ import { getHumanDateFromTimestamp } from '../sharedFunctions'
 import TopSearchContainer from './TopSearchContainer'
 import AcentButtonForDBTools from './AcentButtonForDBTools'
 import FormContainer from './FormContainer';
+import { DatabasePDFReader } from './DatabasePDFReader';
 
 import { useContext } from "react";
 import { AppContext } from '../AppContext';
@@ -241,8 +242,6 @@ const DatabaseView = () => {
                                     <td className='Database-Table-Body-Title-Label'>{orderState}</td>
                                     <td className='Database-Table-Body-Title-Label Database-Table-Body-Products-Container'>{
 
-                                        // orderProducts.map(({ orderProductName, orderProductAmount, orderProductPriceInFiat, orderProductUnitPrice }, index) => { return <div className="Database-Table-Body-Product-Shape" key={orderNumberCop + ' :' + index} title={orderProductName + ', Cantidad: ' + orderProductAmount + ', Precio Unitario: ' + orderProductUnitPrice + ' Precio Total: ' + [orderProductUnitPrice * orderProductAmount] + ' ' + orderProductPriceInFiat} ></div> })
-
                                         <button className="Database-Table-Body-Products-Button">
 
                                             <p className='Database-Table-Body-Products-Button-Label'>Ver Productos</p>
@@ -268,11 +267,7 @@ const DatabaseView = () => {
 
         <FormContainer />
 
-        <div className="Database-Read-Container">
-
-            <img src="src\assets\dev_image.jpg" alt="" />
-
-        </div>
+        <DatabasePDFReader />
 
 
     </div>
