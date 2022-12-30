@@ -1,19 +1,19 @@
 import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos } from "react-icons/md";
 
 import { useContext } from "react";
-import { AppContext } from './AppContext';
+import { AppContext } from '../../app/Context';
 
-import './styles/Components/TopNavBar.css'
+import './styles/TopNavBar.css'
 
 const TopNavBar = ({currentViewName}) => {
 
-    const { globalContext, setGlobalContext } = useContext(AppContext);
+    const { context, setContext } = useContext(AppContext);
 
     return <div className="Header">
 
         <MenuButton />
-        <Logo />
-        <ViewInfo viewTitle={globalContext.currentViewToDisplay}/>
+        <Logo appName={context.app.app_name} />
+        <ViewInfo current_view_name={context.app.current_view}/>
         <UserContainer />
 
     </div>
@@ -31,23 +31,23 @@ const MenuButton = () => {
 
 }
 
-const Logo = () => {
+const Logo = ({appName}) => {
 
     return <div className="Header-Logo-Container">
 
-        <h1>Datasync</h1>
+        <h1>{appName}</h1>
 
     </div>
 
 }
 
-const ViewInfo = ({viewTitle}) => {
+const ViewInfo = ({current_view_name}) => {
 
     return <div className="Header-View-Info-Container">
 
         <MdArrowForwardIos size={18} color={'#06113c74'} />
 
-        <p className="Header-Current-View-Label">{viewTitle}</p>
+        <p className="Header-Current-View-Label">{current_view_name}</p>
 
     </div>
 

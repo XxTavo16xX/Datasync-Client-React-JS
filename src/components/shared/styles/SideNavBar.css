@@ -11,7 +11,7 @@
 }
 
 .SideNavBar-Title-Section{
-    font-family: poppinsMedium;
+    font-family: poppinsLight;
     font-size: 16px;
     color: #06113C;
     margin-left: 15px;
@@ -47,11 +47,17 @@
     cursor: pointer;
 }
 
-.SideNavBar-Option-Name-Label{
+.SideNavBar-Option-Name-Label,
+.SideNavBar-Option-Name-Label-Selected{
     font-family: poppinsLight;
     font-size: 16px;
     color: #06113C;
     margin-left: 10px;
+}
+
+.SideNavBar-Option-Name-Label-Selected{
+    font-family: poppinsMedium;
+    font-weight: 900;
 }
 
 @media screen and (min-width:0px) and (max-width:414px) {

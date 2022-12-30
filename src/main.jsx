@@ -2,13 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-import { AppProvider } from './components/AppContext'
+import { AppProvider } from './app/Context'
 
-import TopNavBar from './components/TopNavBar'
-import SideNavBar from './components/SideNavBar'
+import TopNavBar from './components/shared/TopNavBar'
+import SideNavBar from './components/shared/SideNavBar'
 
-import DashboardView from './components/Dashboard/DashboardView'
-import DatabaseView from './components/Database/DatabaseView'
+// import DashboardView from './components/Dashboard/DashboardView'
+// import DatabaseView from './components/Database/DatabaseView'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -23,8 +23,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
         <div className="App-Content-Container">
 
-          <DashboardView />
-          <DatabaseView />
+          {/* <DashboardView /> */}
+          {/* <DatabaseView /> */}
 
         </div>
 
