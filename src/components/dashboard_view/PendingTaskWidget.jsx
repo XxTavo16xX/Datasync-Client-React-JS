@@ -1,17 +1,20 @@
 
-import { MdExpandMore, MdMic, MdSend, MdSignalCellularConnectedNoInternet0Bar } from 'react-icons/md'
+import { MdExpandMore, MdMic, MdSend, MdDone, MdCheckBoxOutlineBlank } from 'react-icons/md'
 import { getWeekDateInHumanFormat } from '../../modules/Calendar'
 
 import './styles/PendingTask.css'
 
 const pendingTaskReceived = [
     {
+        pendingTaskID: 0,
         pendingTaskName: 'Ask for Password Proposal Feedback',
         isPendingTaskCompleted: true
     }, {
+        pendingTaskID: 1,
         pendingTaskName: 'Learn WebVR & Three.js.',
         isPendingTaskCompleted: false
     }, {
+        pendingTaskID: 2,
         pendingTaskName: 'Test Pending Task List .',
         isPendingTaskCompleted: true
     },
@@ -61,7 +64,7 @@ const PendingTaskWidget = () => {
 
                                 return (
 
-                                    <div className="Pending-Task-Element-Box-Complete" key={currentPendingTask.pendingTaskName}>
+                                    <div className="Pending-Task-Element-Box-Complete" key={currentPendingTask.pendingTaskID}>
 
                                         <div className="Pending-Task-Element-Content">
 
@@ -69,7 +72,11 @@ const PendingTaskWidget = () => {
 
                                             <p className='Pending-Task-Label'>{currentPendingTask.pendingTaskName}</p>
 
-                                            <input className='Pending-Task-CheckBox-Input' type="checkbox" name="" id="" />
+                                            <button className='Pending-Task-Checkbox-Button' >
+                                                
+                                                <MdDone color={'#ffffff60'} size={28}/>
+                                                
+                                            </button>
 
                                         </div>
 
@@ -105,13 +112,17 @@ const PendingTaskWidget = () => {
 
                                 return (
 
-                                    <div className="Pending-Task-Element-Box" key={currentPendingTask.pendingTaskName}>
+                                    <div className="Pending-Task-Element-Box" key={currentPendingTask.pendingTaskID}>
 
                                         <div className="Pending-Task-Element-Content">
 
                                             <p className='Pending-Task-Label'>{currentPendingTask.pendingTaskName}</p>
 
-                                            <input className='Pending-Task-CheckBox-Input' type="checkbox" name="" id="" />
+                                            <button className='Pending-Task-Checkbox-Button'>
+                                                
+                                                <MdCheckBoxOutlineBlank color={'#ffffff'} size={28}/>
+                                                
+                                            </button>
 
                                         </div>
 
