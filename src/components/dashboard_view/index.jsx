@@ -1,3 +1,4 @@
+
 // * Dependencies Required 
 
 import { useContext } from "react";
@@ -12,7 +13,9 @@ import './styles/index.css'
 
 // * Components Required
 
-import TopSection from './TopSection'
+import ResumenWidget from './ResumenWidget'
+import BackupWidget from './BackupWidget'
+
 import DatabaseWidget from './DatabaseWidget'
 import PendingTaskWidget from './PendingTaskWidget'
 
@@ -28,14 +31,24 @@ const DashboardView = () => {
 
             <div className="Dashboard-Top-Section-Container">
 
-                <TopSection />
+                <div className="Top-Section-Container">
+
+                    <div className="Top-Section-Container-Margin">
+
+                        <ResumenWidget />
+
+                        <BackupWidget />
+
+                    </div>
+
+                </div>
 
             </div>
 
             <div className="Dashboard-Bottom-Section-Container">
 
-                {/* <DatabaseContainer /> */}
-                {/* <PendingTasksContainer /> */}
+                <DatabaseWidget />
+                <PendingTaskWidget />
 
             </div>
 

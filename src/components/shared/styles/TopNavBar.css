@@ -20,6 +20,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border-right: 1px solid #00000022;
 }
 
 .Header-Logo-Container h1 {

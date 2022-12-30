@@ -1,0 +1,236 @@
+.Pending-Task-Content-Container {
+    width: 49%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 7px 7px 14px #212f4e14, -7px -7px 14px #58585818;
+}
+
+
+.Pending-Task-Content-Background {
+    width: 100%;
+    height: 100%;
+    background-color: #040412;
+    position: absolute;
+    z-index: 1;
+}
+
+.Pending-Task-Widget-Bacground-Sphere {
+    width: 40px;
+    height: 40px;
+    filter: blur(15px);
+    /* background: #0901ff; */
+    background: rgba(6, 6, 236, 0.324);
+    background: -moz-radial-gradient(circle, rgba(9, 1, 255, 1) 0%, rgba(76, 0, 255, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(9, 1, 255, 1) 0%, rgba(76, 0, 255, 1) 100%);
+    background: radial-gradient(circle, rgba(9, 1, 255, 1) 0%, rgba(76, 0, 255, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0901ff", endColorstr="#4c00ff", GradientType=1);
+    border-radius: 40px;
+    position: absolute;
+    top: 60%;
+    left: 2%;
+    box-shadow: 0px 0px 40px 34px rgb(6, 6, 236, 0.324);
+    opacity: 0.5;
+}
+
+.Pending-Task-Widget-Bacground-Sphere-2 {
+    width: 200px;
+    height: 200px;
+    filter: blur(15px);
+    background: -webkit-radial-gradient(left bottom, rgb(0, 50, 252) 100px, rgb(196, 242, 255));
+    border-radius: 200px;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    box-shadow: 0px 0px 100px 34px rgb(6, 6, 236, 0.324);
+}
+
+.Pending-Task-Content {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 96%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+    background-color: transparent;
+}
+
+.Pending-Task-Title-Container{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Pending-Task-Content-Title-Label {
+    max-width: 50%;
+    height: 25px;
+    font-family: poppinsMedium;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.Pending-Task-Calendar-Day-Label{
+    max-width: 50%;
+    height: 25px;
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: right;
+}
+
+.Pending-Task-Elements-Container{
+    width: 100%;
+    height: auto;
+    max-height: calc(100% - 144px);
+    overflow: hidden;
+}
+
+.Pending-Task-State-Container {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Pending-Task-State-Label {
+    font-family: poppinsLight;
+    font-size: 16px;
+    color: #ffffffe5;
+}
+
+.Pending-Task-List-Container-Elements {
+    width: 100%;
+    height: auto;
+    max-height: calc(42% - 30px);
+    padding-top: 10px;
+    overflow-y: scroll;
+}
+
+.Pending-Task-List-Container-Elements::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff34;
+}
+
+.Pending-Task-List-Container-Elements::-webkit-scrollbar-thumb {
+    background: #ffffff7c;
+}
+
+.Pending-Task-Element-Box {
+    width: calc(100% - 10px);
+    height: 32px;
+    background-color: #ffffff2f;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.Pending-Task-Element-Content {
+    width: 98%;
+    height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.Pending-Task-Label {
+    width: calc(100% - 40px);
+    text-align: left;
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.Pending-Task-CheckBox-Input {
+    width: 20px;
+    height: 20px;
+}
+
+.Pending-Task-Element-Box-Complete {
+    cursor: default;
+}
+
+.Pending-Task-Element-Box-Complete .Pending-Task-Element-Content .Pending-Task-Label,
+.Pending-Task-Element-Box-Complete .Pending-Task-Element-Content .Pending-Task-CheckBox-Input {
+    opacity: 0.7;
+}
+
+.Pending-Task-Complete-Indicator {
+    margin: auto;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffffba;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 3px;
+    transition: .3s;
+}
+
+.Pending-Task-Element-Box-Complete:hover {
+    background-color: #ffffff15;
+}
+
+.Pending-Task-Element-Box-Complete:hover .Pending-Task-Element-Content .Pending-Task-Complete-Indicator {
+    width: 0px;
+}
+
+.Pending-Task-Controllers-Container {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+}
+
+.Pending-Task-Controller-Task-Button {
+    width: 40px;
+    height: 40px;
+    border-radius: 38px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Pending-Task-Controller-Text-Input-Container {
+    width: calc(100% - 100px);
+    height: 40px;
+    border-radius: 38px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.Pending-Task-Controller-Text-Input {
+    width: calc(100% - 20px);
+    height: 100%;
+    border: none;
+    outline: none;
+    font-family: poppinsLight;
+    font-size: 16;
+    color: #000000;
+    padding-left: 20px;
+}
+
+.Pending-Task-Controller-Text-Input::placeholder {
+    color: #000000;
+}

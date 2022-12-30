@@ -45,7 +45,7 @@ const ViewInfo = ({current_view_name}) => {
 
     return <div className="Header-View-Info-Container">
 
-        <MdArrowForwardIos size={18} color={'#06113c74'} />
+        <MdArrowForwardIos size={18} color={'#06113c74'} style={{marginLeft: '20px'}} />
 
         <p className="Header-Current-View-Label">{current_view_name}</p>
 
