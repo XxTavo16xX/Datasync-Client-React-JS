@@ -1,7 +1,7 @@
 
 // * This function will return the date in a human format of numberDay, MonthName, numberYear in spanish
 
-const toHumanDate = (timestamp) => {
+export const getDateInHumanFormat = (timestamp) => {
 
     if(!timestamp) return '01 de enero de 2023'
 

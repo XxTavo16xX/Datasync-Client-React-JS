@@ -1,29 +1,31 @@
 
-import TopSection from './TopContainerBox'
-import DatabaseContainer from "./DatabaseContainer";
-import PendingTasksContainer from './PendingTaskContainer'
+// import TopSection from './TopContainerBox'
+// import DatabaseContainer from "./DatabaseContainer";
+// import PendingTasksContainer from './PendingTaskContainer'
 
 import { useContext } from "react";
-import { AppContext } from '../AppContext';
+import { AppContext } from '../../app/Context';
 
 import './styles/DashboardContainer.css'
 
 const DashboardView = () => {
 
-    const { globalContext, setGlobalContext } = useContext(AppContext);
+    const { context, setContext } = useContext(AppContext);
 
-    return <div className={globalContext.currentViewToDisplay === 'Dashboard' ? 'Dashboard-Content-Container' : 'Content-Container-Hidded'}>
+    const currentView = context.app.current_view
+
+    return <div className={currentView === 'Dashboard' ? 'Dashboard-Content-Container' : 'Content-Container-Hidded'}>
 
         <div className="Dashboard-Top-Section-Container">
 
-            <TopSection />
+            {/* <TopSection /> */}
 
         </div>
 
         <div className="Dashboard-Bottom-Section-Container">
 
-            <DatabaseContainer />
-            <PendingTasksContainer />
+            {/* <DatabaseContainer /> */}
+            {/* <PendingTasksContainer /> */}
 
         </div>
 

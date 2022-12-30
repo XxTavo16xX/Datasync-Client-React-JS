@@ -1,5 +1,5 @@
 
-import { getHumanDateFromTimestamp } from '../sharedFunctions'
+import { getDateInHumanFormat } from '../../modules/Calendar'
 
 import './styles/BackupHistorialContainer.css'
 
@@ -33,7 +33,7 @@ const backupData = [
 
 ]
 
-const BackUpHistorial = () => {
+const BackupWidget = () => {
 
     return <div className="Top-Container-Backup-Historial-Container">
 
@@ -67,7 +67,7 @@ const BackUpHistorial = () => {
 
                                 <div className="Top-Container-Backup-Historial-Bottom-Container">
 
-                                    <p className='Top-Container-Backup-Historial-Bottom-Labels'>{getHumanDateFromTimestamp(backupDate)}</p>
+                                    <p className='Top-Container-Backup-Historial-Bottom-Labels'>{getDateInHumanFormat(backupDate)}</p>
                                     <p className='Top-Container-Backup-Historial-Bottom-Labels'>{backupFiles}</p>
 
                                 </div>
@@ -91,4 +91,4 @@ const BackUpHistorial = () => {
 
 }
 
-export default BackUpHistorial
+export default BackupWidget
