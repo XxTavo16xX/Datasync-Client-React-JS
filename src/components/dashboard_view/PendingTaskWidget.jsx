@@ -27,8 +27,8 @@ const PendingTaskWidget = () => {
 
         <div className="Pending-Task-Content-Background">
 
-            <div className="Pending-Task-Widget-Bacground-Sphere"></div>
-            <div className="Pending-Task-Widget-Bacground-Sphere-2"></div>
+            <div className="Pending-Task-Widget-Background-Sphere"></div>
+            <div className="Pending-Task-Widget-Background-Sphere-2"></div>
 
         </div>
 

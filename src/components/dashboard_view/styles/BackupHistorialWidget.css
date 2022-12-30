@@ -1,11 +1,14 @@
 .Top-Container-Backup-Historial-Container {
     width: 550px;
-    height: 100%;
-    border-radius: 15px;
-    background-color: #00ffa6;
+    height: 100%;    
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 7px 7px 14px #212f4e14, -7px -7px 14px #58585818;
+    background-color: #010101dc;
 }
 
 .Top-Container-Backup-Historial-Margin {
@@ -27,7 +30,7 @@
 .Top-Container-Backup-Historial-Top-Title-Label {
     font-family: poppinsMedium;
     font-size: 18px;
-    color: #06113c;
+    color: #ffffff;
     margin-top: -.05%;
     white-space: nowrap;
     cursor: default;
@@ -39,14 +42,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #06113c;
+    background: -webkit-radial-gradient(left bottom, rgb(0, 50, 252) 100px, rgb(196, 242, 255));
     border: none;
     border-radius: 40px;
     cursor: pointer;
 }
 
 .Top-Container-Backup-Now-Button-Label {
-    font-family: poppinsLight;
+    font-family: poppinsMedium;
     font-size: 14px;
     color: #ffffff;
     white-space: nowrap;
@@ -61,13 +64,25 @@
 .Top-Container-Backup-Historial-Snippet{
     width: 100%;
     height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 2px;
+    background-color: #ffffff2f;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.Top-Container-Backup-Historial-Snippet-Margin{
+    width: 97%;
+    height: 73%;
+    overflow: hidden;
 }
 
 .Top-Container-Backup-Historial-Snippet-Title{
     font-family: poppinsMedium;
     font-size: 14px;
-    color: #06113c;
+    color: #ffffff;
     cursor: default;
 }
 
@@ -82,7 +97,7 @@
 .Top-Container-Backup-Historial-Bottom-Labels{
     font-family: poppinsLight;
     font-size: 14px;
-    color: #06113c;
+    color: #ffffff;
     white-space: nowrap;
     cursor: default;
 }

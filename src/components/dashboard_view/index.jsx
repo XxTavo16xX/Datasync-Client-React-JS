@@ -33,6 +33,12 @@ const DashboardView = () => {
 
                 <div className="Top-Section-Container">
 
+                    <div className="Top-Section-Container-Background">
+
+                        <div className="Top-Section-Time-Shape"></div>
+
+                    </div>
+
                     <div className="Top-Section-Container-Margin">
 
                         <ResumenWidget />
