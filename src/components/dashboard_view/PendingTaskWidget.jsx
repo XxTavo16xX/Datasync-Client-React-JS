@@ -13,7 +13,7 @@ const pendingTaskReceived = [
         isPendingTaskCompleted: false
     }, {
         pendingTaskName: 'Test Pending Task List .',
-        isPendingTaskCompleted: false
+        isPendingTaskCompleted: true
     },
 
 ]

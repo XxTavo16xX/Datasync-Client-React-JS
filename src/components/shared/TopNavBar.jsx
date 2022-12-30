@@ -45,6 +45,18 @@ const ViewInfo = ({current_view_name}) => {
 
     return <div className="Header-View-Info-Container">
 
+        <div className="Header-Account-Workspace-Selector">
+
+            <p className="Header-Account-Workspace-Label">Personal</p>
+
+            <div className="Header-Account-Workspace-Button">
+
+                <MdKeyboardArrowDown color="ffffff" size={24} style={{ marginLeft: 10, marginTop: 3 }} />
+
+            </div>
+
+        </div>
+
         <MdArrowForwardIos size={18} color={'#06113c74'} style={{marginLeft: '20px'}} />
 
         <p className="Header-Current-View-Label">{current_view_name}</p>
