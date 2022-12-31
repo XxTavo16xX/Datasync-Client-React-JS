@@ -1,12 +1,10 @@
 
 // * Dependencies Required 
 
-import { useContext } from "react";
-
 // * Modules Required
 
-import { AppContext } from "../../app/Context";
 import { convertToDisplayNumber } from "../../modules/Display";
+import { getWeekDateInHumanFormat } from "../../modules/Calendar";
 
 // * view Styles
 
@@ -56,7 +54,7 @@ const ResumenWidget = () => {
 
         <DigitalClockWidget />
 
-        <p className="Top-Containter-Resume-Current-Week-Day-Date">Viernes, 30 de Diciembre de 2022</p>
+        <p className="Top-Containter-Resume-Current-Week-Day-Date"> { getWeekDateInHumanFormat( Date.now() ) }</p>
 
     </div>
 

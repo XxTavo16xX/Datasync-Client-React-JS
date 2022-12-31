@@ -4,11 +4,19 @@
 const monthNamesList = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const WeekDaysNameList = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
-export const getDateInHumanFormat = (timestamp) => {
+export const getDateInHumanFormatByTimestamp = (timestamp) => {
 
     if(!timestamp) return '01 de enero de 2023'
 
     const date = new Date ( timestamp * 1000 )
+
+    return date.getDate() + ' de ' + monthNamesList[ date.getMonth() ] + ' de ' + date.getFullYear()
+
+}
+
+export const getDateInHumanFormat = () => {
+
+    const date = new Date ( Date.now() )
 
     return date.getDate() + ' de ' + monthNamesList[ date.getMonth() ] + ' de ' + date.getFullYear()
 
