@@ -10,16 +10,10 @@ const defaultContext = {
     app: {
         app_name: 'Datasync',
         current_view: 'Dashboard',
+        workspace: 'Copinsa',
         database: {
             default_collectino: 'Ordenes',
             save_element_form_is_displayed: false
-        },
-        system: {
-            time:{
-                hours:'10',
-                minutes: '29',
-                seconds: '15'
-            }
         }
     },
     user: {

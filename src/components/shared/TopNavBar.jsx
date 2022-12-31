@@ -13,7 +13,7 @@ const TopNavBar = ({currentViewName}) => {
 
         <MenuButton />
         <Logo appName={context.app.app_name} />
-        <ViewInfo current_view_name={context.app.current_view}/>
+        <ViewInfo current_workspace={ context.app.workspace } current_view_name={ context.app.current_view }/>
         <UserContainer />
 
     </div>
@@ -41,13 +41,13 @@ const Logo = ({appName}) => {
 
 }
 
-const ViewInfo = ({current_view_name}) => {
+const ViewInfo = ({current_view_name, current_workspace}) => {
 
     return <div className="Header-View-Info-Container">
 
         <div className="Header-Account-Workspace-Selector">
 
-            <p className="Header-Account-Workspace-Label">Personal</p>
+            <p className="Header-Account-Workspace-Label">{ current_workspace }</p>
 
             <div className="Header-Account-Workspace-Button">
 
