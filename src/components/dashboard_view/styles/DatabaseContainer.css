@@ -7,15 +7,27 @@
     border-radius: 15px;
     position: relative;
     overflow: hidden;
+    box-shadow: 7px 7px 14px #212f4e14, -7px -7px 14px #58585818;
 }
 
 .Database-Content-Container-Background{
     width: 100%;
     height: 100%;
+    background-color: #040412;
     position: absolute;
-    filter: blur(1px);
-    background-color: #ffffff93;
     z-index: 1;
+}
+
+.Database-Content-Widget-Background-Sphere {
+    width: 200px;
+    height: 200px;
+    filter: blur(15px);
+    background: -webkit-radial-gradient(left bottom, rgb(189, 103, 255) 100px, rgb(120, 162, 255));
+    border-radius: 200px;
+    position: absolute;
+    top: 60%;
+    left: -5%;
+    box-shadow: 0px 0px 100px 34px rgb(6, 6, 236, 0.324);
 }
 
 .Database-Content-Container-Margin {
@@ -24,7 +36,7 @@
     left: 0;
     right: 0;
     top: 0;
-    width: 98%;
+    width: 96%;
     height: 100%;
     overflow: hidden;
     z-index: 2;
@@ -36,18 +48,17 @@
     height: 25px;
     font-family: poppinsMedium;
     font-size: 16px;
-    color: #000000;
+    color: #ffffff;
 }
 
 .Database-Windows-Container {
     margin: auto;
     width: 100%;
     height: 86%;
-    border-radius: 15px;
-    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
 }
 
 .databasesContainer::-webkit-scrollbar {
@@ -66,12 +77,18 @@
 .Database-Window-Container {
     width: 100%;
     height: 100%;
-    background-color: #C8F7DC;
+    background: linear-gradient(45deg, #0306166c, #00001c);
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: .3s;
+}
+
+.Database-Window-Container:hover{
+    background: linear-gradient(45deg, #3e3f456c, #00001c);
+    transform: scale(1.05);
 }
 
 .Database-Window-Content-Margin {
@@ -99,10 +116,10 @@
 .Database-Window-Last-Date-User-Label {
     width: 100%;
     text-align: left;
-    font-family: poppinsLight;
+    font-family: poppinsMedium;
     font-size: 12px;
     white-space: nowrap;
-    color: #06113C;
+    color: #ffffff;
     cursor: default;
 }
 
@@ -130,7 +147,7 @@
     font-family: poppinsMedium;
     font-size: 18px;
     white-space: nowrap;
-    color: #06113C;
+    color: #ffffff;
     cursor: default;
 
 }

@@ -71,12 +71,16 @@ const DatabaseWidget = () => {
             currentViewToDisplay: 'Base de datos',
         });
  */
-        
+
     }
 
     return <div className="Database-Content-Container">
 
-        <div className="Database-Content-Container-Background"></div>
+        <div className="Database-Content-Container-Background">
+
+            <div className="Database-Content-Widget-Background-Sphere"></div>
+
+        </div>
 
         <div className="Database-Content-Container-Margin">
 
@@ -104,7 +108,7 @@ const DatabaseWidget = () => {
 
                                     <button className="Database-Window-Options-Button">
 
-                                        <MdMoreVert size={16} color={'#000000'} />
+                                        <MdMoreVert size={16} color={'#ffffff'} />
 
                                     </button>
 
