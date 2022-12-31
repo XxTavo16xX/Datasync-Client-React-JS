@@ -21,37 +21,37 @@ const databaseConecctionData = [
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Ordenes",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
+        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/muffin.png', '/src/assets/images/me.jpg', '/src/assets/images/elon.png'],
         databaseStoreSpace: "15 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Cobranza",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
+        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/elon.png', '/src/assets/images/me.jpg', '/src/assets/images/muffin.png'],
         databaseStoreSpace: "13.3 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Catalogo",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
+        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/me.jpg', '/src/assets/images/muffin.png', '/src/assets/images/elon.png'],
         databaseStoreSpace: "121 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Presupuesto",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
+        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/muffin.png', '/src/assets/images/elon.png', '/src/assets/images/me.jpg'],
         databaseStoreSpace: "19.3 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Ventas",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', '/src/assets/components/TopNavBar/defaultUser.png'],
+        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/elon.png', '/src/assets/images/me.jpg', '/src/assets/images/muffin.png'],
         databaseStoreSpace: "10.7 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Listados",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/components/TopNavBar/me.jpg', '/src/assets/components/TopNavBar/oskar.jpg', './src/assets/components/TopNavBar/defaultUser.png'],
+        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/me.jpg', '/src/assets/images/elon.png', './src/assets/images/muffin.png'],
         databaseStoreSpace: "15 MB"
     }
 
