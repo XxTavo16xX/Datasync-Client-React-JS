@@ -3,8 +3,8 @@
 
 // * Modules Required
 
-import { convertToDisplayNumber } from "../../modules/Display";
-import { getWeekDateInHumanFormat } from "../../modules/Calendar";
+import { convertToDisplayNumber } from "../../lib/Display";
+import { getWeekDateInHumanFormat } from "../../lib/Calendar";
 
 // * view Styles
 

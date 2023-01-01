@@ -1,7 +1,7 @@
 
 import { MdExpandMore, MdMic, MdSend, MdDone, MdCheckBoxOutlineBlank } from 'react-icons/md'
 
-import { getDateInHumanFormat } from '../../modules/Calendar'
+import { getDateInHumanFormat } from '../../lib/Calendar'
 
 import './styles/PendingTask.css'
 

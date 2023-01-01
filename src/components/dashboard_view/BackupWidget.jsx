@@ -1,5 +1,5 @@
 
-import { getDateInHumanFormat } from '../../modules/Calendar'
+import { getDateInHumanFormat } from '../../lib/Calendar'
 
 import './styles/BackupHistorialWidget.css'
 

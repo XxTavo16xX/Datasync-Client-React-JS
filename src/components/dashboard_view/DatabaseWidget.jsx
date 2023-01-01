@@ -7,7 +7,7 @@ import { MdMoreVert } from 'react-icons/md'
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
-import { getDateInHumanFormat } from "../../modules/Calendar";
+import { getDateInHumanFormat } from "../../lib/Calendar";
 
 // * view Styles
 
