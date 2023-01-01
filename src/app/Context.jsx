@@ -4,6 +4,8 @@
 
 import React from 'react';
 
+// * Creating context
+
 const AppContext = React.createContext();
 
 const defaultContext = {

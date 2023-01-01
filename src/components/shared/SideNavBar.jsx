@@ -1,23 +1,25 @@
+
+// * Dependencies Required 
+
 import { MdDashboard, MdChat, MdChromeReaderMode, MdViewSidebar, MdAutoAwesomeMotion, MdList } from "react-icons/md";
 import { AiFillCalendar } from "react-icons/ai";
-
 import React, { useContext } from 'react';
+
+// * Modules Required
+
 import { AppContext } from '../../app/Context';
+
+// * view Styles
 
 import './styles/SideNavBar.css'
 
 const views = ['Dashboard', 'Chat', 'Calendario', 'Base de datos', 'Caja Segura', 'Respaldos', 'Tareas Pendientes']
 
+// * View to return
+
 const SideNavBar = () => {
 
     const { context, setContext } = useContext(AppContext);
-
-    // const handleChange = (newViewToDisplay) => {
-    // setGlobalContext({
-    // ...globalContext,
-    // currentViewToDisplay: newViewToDisplay,
-    // });
-    // };
 
     return <div className='SideNavBar'>
 
@@ -51,13 +53,15 @@ const SideNavBar = () => {
 
 const MenuOptionContainerSelected = ({ menuOptionName }) => {
 
+    // * Component to return
+
     return (
 
-        <div className="SideNavBar-Option">
+        <div className="SideNavBar-Option" onClick={() => { testClickHangler() }}>
 
             <button className="SideNavBar-Option-Container">
 
-                { MenuOptionIcon(menuOptionName) }
+                {MenuOptionIcon(menuOptionName)}
 
                 <p className="SideNavBar-Option-Name-Label-Selected">{menuOptionName}</p>
 
@@ -72,13 +76,28 @@ const MenuOptionContainerSelected = ({ menuOptionName }) => {
 
 const MenuOptionContainer = ({ menuOptionName }) => {
 
+    const { context, setContext } = useContext(AppContext);
+
+    // * This function will handle the sideNavBar menu option selected by update the context saving current values.
+
+
+    const clickHandler = (viewToDisplay) => {
+
+        if (!viewToDisplay) return
+
+        setContext({ app: { ...context.app, current_view: viewToDisplay }, user: { ...context.user } })
+
+    }
+
+    // * Component to return
+
     return (
 
-        <div className="SideNavBar-Option">
+        <div className="SideNavBar-Option" onClick={() => { clickHandler(menuOptionName) }}>
 
             <button className="SideNavBar-Option-Container">
 
-                { MenuOptionIcon(menuOptionName) }
+                {MenuOptionIcon(menuOptionName)}
 
                 <p className="SideNavBar-Option-Name-Label">{menuOptionName}</p>
 
