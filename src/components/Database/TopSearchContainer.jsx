@@ -1,6 +1,6 @@
 import { MdExpandMore } from "react-icons/md";
 import { useContext } from "react";
-import { AppContext } from '../AppContext';
+import { AppContext } from "../../app/Context";
 
 import './styles/TopSearchContainer.css'
 
@@ -34,12 +34,12 @@ const databaseCollectionEnable = ["Ordenes", "Cobranza", "Catalogo", "Presupuest
 
 const TopSearchContainer = () => {
 
-    const { globalContext, setGlobalContext } = useContext(AppContext);
+    const { context, setContext } = useContext(AppContext);
 
     const changeCurrentDBCollectionSelected = (collectionToDisplay) => {
 
-        setGlobalContext({
-            ...globalContext,
+        setContext({
+            ...context,
             currentDatabaseCollectionSelected: collectionToDisplay
         });
 
@@ -53,7 +53,7 @@ const TopSearchContainer = () => {
 
             <button className="Top-Search-Select-Collection-Button" onClick={showCollectionsOptionsContainer}>
 
-                <p className="Top-Search-Current-Collection-Name-Label">{globalContext.currentDatabaseCollectionSelected}</p>
+                <p className="Top-Search-Current-Collection-Name-Label">{context.app.database.default_collection}</p>
 
                 <MdExpandMore />
 
@@ -65,7 +65,7 @@ const TopSearchContainer = () => {
 
                     databaseCollectionEnable.map(collectionOptionName => {
 
-                        if(collectionOptionName == globalContext.currentDatabaseCollectionSelected)  return
+                        if(collectionOptionName == context.currentDatabaseCollectionSelected)  return
 
                         return <button className="Top-Search-Option-Button" onClick={() => { changeCurrentDBCollectionSelected(collectionOptionName) }} key={collectionOptionName}>
 
@@ -83,7 +83,7 @@ const TopSearchContainer = () => {
 
         <div className="Top-Search-Input-Container">
 
-            <input type="text" placeholder={'Buscar en ' + globalContext.currentDatabaseCollectionSelected} />
+            <input type="text" placeholder={'Buscar en ' + context.app.database.default_collection} />
 
         </div>
 

@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 
 
 import { useContext } from "react";
-import { AppContext } from '../AppContext';
+import { AppContext } from "../../app/Context";
 
 
 import './styles/DatabaseForm.css'
@@ -31,16 +31,16 @@ const minimizeNewOrderForm = () => {
 
 const FormContainer = () => {
 
-    const { globalContext, setGlobalContext } = useContext(AppContext);
+    const { context, setContext } = useContext(AppContext);
 
     const closeNewOrderForm = () => {
 
-        if (globalContext.isNewOrderFormVisible == false) return setGlobalContext({ ...globalContext, isNewOrderFormVisible: true });
-        if (globalContext.isNewOrderFormVisible == true) return setGlobalContext({ ...globalContext, isNewOrderFormVisible: false });
+        if (context.isNewOrderFormVisible == false) return setContext({ ...context, isNewOrderFormVisible: true });
+        if (context.isNewOrderFormVisible == true) return setContext({ ...context, isNewOrderFormVisible: false });
 
     }
 
-    return <div className={globalContext.isNewOrderFormVisible == true ? "Database-New-Order-Form-Container" : "Database-New-Order-Form-Container Database-New-Order-Form-Container-HIde"} id="newOrderFormContainer">
+    return <div className={context.isNewOrderFormVisible == true ? "Database-New-Order-Form-Container" : "Database-New-Order-Form-Container Database-New-Order-Form-Container-HIde"} id="newOrderFormContainer">
 
         <div className="Form-Container-Top-Container">
 

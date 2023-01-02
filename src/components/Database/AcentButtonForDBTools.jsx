@@ -1,17 +1,17 @@
 
 import React, { useContext } from 'react';
-import { AppContext } from '../AppContext';
+import { AppContext } from "../../app/Context";
 
 import './styles/dbToolsButton.css'
 
 const AcentButtonForDBTools = () => {
 
-    const { globalContext, setGlobalContext } = useContext(AppContext);
+    const { context, setContext } = useContext(AppContext);
 
     const updateNewFormIsVisible = () => {
 
-        if (globalContext.isNewOrderFormVisible == false) return setGlobalContext({ ...globalContext, isNewOrderFormVisible: true });
-        if (globalContext.isNewOrderFormVisible == true) return setGlobalContext({ ...globalContext, isNewOrderFormVisible: false });
+        if (context.app.database.default_collection == false) return setContext({ ...context, isNewOrderFormVisible: true });
+        if (context.app.database.default_collection == true) return setContext({ ...context, isNewOrderFormVisible: false });
 
     }
 

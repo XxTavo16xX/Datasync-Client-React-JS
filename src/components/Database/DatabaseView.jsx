@@ -1,4 +1,5 @@
-import { getHumanDateFromTimestamp } from '../sharedFunctions'
+
+import { getDateInHumanFormatByTimestamp } from '../../lib/Calendar';
 
 import TopSearchContainer from './TopSearchContainer'
 import AcentButtonForDBTools from './AcentButtonForDBTools'
@@ -6,7 +7,7 @@ import FormContainer from './FormContainer';
 import { DatabasePDFReader } from './DatabasePDFReader';
 
 import { useContext } from "react";
-import { AppContext } from '../AppContext';
+import { AppContext } from '../../app/Context';
 
 import './styles/DatabaseView.css'
 import './styles/DatabaseForm.css'
@@ -197,9 +198,9 @@ const selectAllElementsInList = () => {
 
 const DatabaseView = () => {
 
-    const { globalContext, setGlobalContext } = useContext(AppContext);
+    const { context, setContext } = useContext(AppContext);
 
-    return <div className={globalContext.currentViewToDisplay == 'Base de datos' ? 'Database-View-Container' : 'Content-Container-Hidded'}>
+    return <div className={context.app.current_view == 'Base de datos' ? 'Database-View-Container' : 'Content-Container-Hidded'}>
 
         <div className="Database-View-Tools-Container">
 
@@ -238,7 +239,7 @@ const DatabaseView = () => {
                                 return <tr className='Database-Table-Body-Row' key={orderNumberCop}>
                                     <td><input type="checkbox" name="" id="" /></td>
                                     <td className='Database-Table-Body-Title-Label'>{orderNumberCop}</td>
-                                    <td className='Database-Table-Body-Title-Label'>{getHumanDateFromTimestamp(orderCreatioDate)}</td>
+                                    <td className='Database-Table-Body-Title-Label'>{getDateInHumanFormatByTimestamp(orderCreatioDate)}</td>
                                     <td className='Database-Table-Body-Title-Label'>{orderState}</td>
                                     <td className='Database-Table-Body-Title-Label Database-Table-Body-Products-Container'>{
 

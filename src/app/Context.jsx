@@ -12,9 +12,9 @@ const defaultContext = {
     app: {
         app_name: 'Datasync',
         current_view: 'Dashboard',
-        workspace: 'Copinsa',
+        workspace: 'Personal',
         database: {
-            default_collectino: 'Ordenes',
+            default_collection: 'Ordenes',
             save_element_form_is_displayed: false
         }
     },

@@ -8,7 +8,7 @@ import TopNavBar from './components/shared/TopNavBar'
 import SideNavBar from './components/shared/SideNavBar'
 
 import DashboardView from './components/dashboard_view/'
-// import DatabaseView from './components/Database/DatabaseView'
+import DatabaseView from './components/Database/DatabaseView'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <div className="App-Content-Container">
 
           <DashboardView />
-          {/* <DatabaseView /> */}
+          <DatabaseView />
 
         </div>
 
