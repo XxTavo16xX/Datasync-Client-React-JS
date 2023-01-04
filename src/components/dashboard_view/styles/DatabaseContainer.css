@@ -235,6 +235,9 @@
         grid-auto-rows: none;
         gap: none;
         overflow-x: scroll;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
     }
 
     .Database-Content-Container-Margin{
@@ -250,6 +253,15 @@
         max-width: 160px;
         min-height: 160px;
         max-height: 160px;
+        scroll-snap-align: start;
+    }
+
+    .Database-Window-Container:hover{
+        transform: none;
+    }
+
+    .Database-Window-Storage-Space-Label{
+        font-size: 10px;
     }
 
 }
