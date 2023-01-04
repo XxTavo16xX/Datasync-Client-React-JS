@@ -1,14 +1,28 @@
+
+// * Dependencies Required 
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
+
+// * Modules Required
 
 import { AppProvider } from './app/Context'
+
+// * view Styles
+
+import './index.css'
+
+// * Components Required
 
 import TopNavBar from './components/shared/TopNavBar'
 import SideNavBar from './components/shared/SideNavBar'
 
 import DashboardView from './components/dashboard_view/'
 import DatabaseView from './components/Database/DatabaseView'
+
+import SafetyBoxView from './components/safety_box_view'
+
+// * view to Return
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -25,6 +39,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
           <DashboardView />
           <DatabaseView />
+          <SafetyBoxView />
 
         </div>
 

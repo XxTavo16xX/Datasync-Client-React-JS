@@ -1,0 +1,244 @@
+.SafetyBox-Content-Container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.SafetyBox-SearchBar-Container{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    background-color: #ffffff5f;
+    border-radius: 10px;
+}
+
+.SafetyBox-SearchBar-Category-Filter-Button{
+    width: 125px;
+    min-width: 125px;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #06113c;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.SafetyBox-SarchBar-Category-Filter-Label{
+    color: #ffffff;
+    font-family: poppinsLight;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+.SafetyBox-SearchBar-Input-Container{
+    width: calc(100% - 525px);
+    height: 100%;
+    border-radius: 5px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.1);
+}
+
+.SafetyBox-SearchBar-Input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    color: #000000;
+    font-family: poppinsLight;
+    font-size: 16px;
+}
+
+.SafetyBox-SeachBar-Normal-Button{
+    width: 150px;
+    height: 100%;
+    background-color: #06113c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0px 15px 0px 15px;
+    cursor: pointer;
+}
+
+.SafetyBox-SearchBar-Button-Label{
+    color: #ffffff;
+    font-family: poppinsLight;
+    font-size: 14px;
+    flex-wrap: nowrap;
+}
+
+.SafetyBox-Results-Container{
+    width: 100%;
+    height: calc(100% - 60px);
+}
+
+.SafetyBox-Results-Container-List{
+    width: 79%;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.SafetyBox-Results-Container-List::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff00;
+}
+
+.SafetyBox-Results-Container-List::-webkit-scrollbar-thumb {
+    background: #06113c ;
+}
+
+
+.SafetyBox-Results-Container-Title-Label{
+    color: #06113c;
+    font-family: poppinsMedium;
+    font-size: 20px;
+    flex-wrap: nowrap;
+}
+
+.Password-Manager-Category-Container{
+    max-width: 99%;
+    background-color: #ffffffc2;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.Password-Manager-Category-Title-Container{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -5px;
+    overflow: hidden;
+}
+
+.Password-Manager-Category-Title-Container-Margin{
+    margin: auto;
+    width: 98%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.Password-Manager-Category-Title-Label{
+    color: #06113c;
+    font-family: poppinsMedium;
+    font-size: 20px;
+    flex-wrap: nowrap;
+}
+
+.Password-Manager-Category-List-Container{
+    width: 100%;
+    height: auto;
+}
+
+.Password-Manager-Category-Table-Titles-Container{
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.Password-Manager-Category-Table-Titles-Container-Margin{
+    margin: auto;
+    width: 98%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Password-Manager-Category-Table-Title-Container{
+    width: 30%;
+    height: 100%;
+}
+
+.Password-Manager-Category-List-Element-Container{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.Password-Manager-Category-List-Element-Container:last-child{
+    margin-bottom: 20px;
+}
+
+.Password-Manager-Category-Element-Container{
+    width: 100%;
+    height: 100%;
+}
+
+.Password-Manager-Category-Element-Container-Margin{
+    margin: auto;
+    width: 98%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Password-Manager-Category-Element-Element-Site-Name-Container,
+.Password-Manager-Category-Element-Element-Account-Container,
+.Password-Manager-Category-Element-Element-Password-Representation {
+    width: 30%;
+    height: 100%;
+}
+
+.Password-Manager-Category-Element-Name-Title-Label,
+.Password-Manager-Category-Element-Account-Title-Label,
+.Password-Manager-Category-Element-Password-Title-Label {
+    color: #06113c;
+    font-family: poppinsMedium;
+    font-size: 16px;
+}
+
+.Password-Manager-Category-Element-Name-Label,
+.Password-Manager-Category-Element-Account-Label,
+.Password-Manager-Category-Element-Password-Label {
+    color: #000000;
+    font-family: poppinsLight;
+    font-size: 16px;
+}
+
+.SafetyBox-Results-Container-Recents{
+    width: 21%;
+    height: 100%;
+}
+
+.Password-Manager-Category-Element-Element-Action-Buttons-Container {
+    width: 10%;
+    min-width: 110px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.Password-Action-Button{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000000;
+    border-radius: 5px;
+    transition: .3s;
+    cursor: pointer;
+    border: none;
+}
+
+.Password-Action-Button:hover{
+    background-color: #00000022;
+}
