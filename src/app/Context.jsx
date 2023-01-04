@@ -11,7 +11,7 @@ const AppContext = React.createContext();
 const defaultContext = {
     app: {
         app_name: 'Datasync',
-        current_view: 'Caja Segura',
+        current_view: 'Dashboard',
         workspace: 'Personal',
         database: {
             default_collection: 'Ordenes',

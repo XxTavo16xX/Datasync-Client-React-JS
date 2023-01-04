@@ -79,12 +79,37 @@
 .SafetyBox-Results-Container{
     width: 100%;
     height: calc(100% - 60px);
+    overflow: hidden;
 }
 
 .SafetyBox-Results-Container-List{
     width: 79%;
-    height: 90%;
-    overflow-y: scroll;
+    height: auto;
+    max-height: 90%;
+    overflow-y: scroll;    
+}
+
+.SafetyBox-Results-Container-Empty-List-Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+
+.SafetyBox-Results-Container-Empty-List-Container-Margin{
+    width: 98%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SafetyBox-Results-Container-Empty-List{
+    color: #06113c;
+    font-family: poppinsMedium;
+    font-size: 20px;
+    flex-wrap: nowrap;
 }
 
 .SafetyBox-Results-Container-List::-webkit-scrollbar {

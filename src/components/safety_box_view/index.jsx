@@ -14,68 +14,7 @@ import './styles/index.css'
 
 // * Components Required
 
-let userPasswordSchemaReceived = [
-    {
-        "currentCategory": 'Correos',
-        "categoryElements": [
-            {
-                "elementName": "Gmail",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }, {
-                "elementName": "Gmail",
-                "elementAccount": "tavo141692@gmail.com"
-
-            }, {
-                "elementName": "Gmail Escuela",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }]
-    }, {
-        "currentCategory": 'Redes Sociales',
-        "categoryElements": [
-            {
-                "elementName": "Twitter",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }, {
-                "elementName": "Instagram",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }, {
-                "elementName": "Reddit",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }, {
-                "elementName": "Facebook",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }]
-    }, {
-        "currentCategory": 'Entretenimiento',
-        "categoryElements": [
-            {
-                "elementName": "Netflix",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }, {
-                "elementName": "Spotify",
-                "elementAccount": "Facebook"
-
-            }, {
-                "elementName": "HBO MAX",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }, {
-                "elementName": "Amazon Prime",
-                "elementAccount": "tavo141692@gmail.com"
-
-            }, {
-                "elementName": "Disney",
-                "elementAccount": "tavo14169@gmail.com"
-
-            }]
-    }]
+let userPasswordSchemaReceived = ['empty']
 
 
 // * view to Return
@@ -147,6 +86,27 @@ const SafeTyBoxResults = () => {
             {
 
                 userPasswordSchemaReceived.map(currentElement => {
+
+                    if (currentElement == 'empty') return (
+
+                        <div className="SafetyBox-Results-Container-Empty-List-Container">
+
+                            <div className="SafetyBox-Results-Container-Empty-List-Container-Margin">
+
+                                <p className="SafetyBox-Results-Container-Empty-List">Aun no haz guardado ninguna contraseña</p>
+
+                                <div className="SafetyBox-SeachBar-Normal-Button">
+
+                                    <p className="SafetyBox-SearchBar-Button-Label" >Guardar Contraseña</p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    )
 
                     const { subCategories } = currentElement;
 
