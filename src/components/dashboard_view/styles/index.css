@@ -69,3 +69,13 @@
     justify-content: space-between;
     align-items: center;
 }
+
+/* * Styles for Cellphone * */
+
+@media screen and (min-width:0px) and (max-width:414px) {
+ 
+    .Dashboard-Top-Section-Container{
+        height: 495px;
+    }
+
+}

@@ -12,7 +12,6 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,4 +46,25 @@ body {
 
 .Content-Container-Hidded{
   display: none;
+}
+
+/* * Styles for Cellphone * */
+
+@media screen and (min-width:0px) and (max-width:414px) {
+
+  body {
+    overflow: auto;
+  }
+
+  .App-Content{
+    width: 100%;
+    margin-left: 0;
+  } 
+
+  .App-Content-Container{
+    width: calc(100% - 20px);
+    height: 95%;
+  }
+  
+
 }

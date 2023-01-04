@@ -243,3 +243,26 @@
 .Pending-Task-Controller-Text-Input::placeholder {
     color: #000000;
 }
+
+/* * Styles for Cellphone * */
+
+@media screen and (min-width:0px) and (max-width:414px) {
+
+    .Pending-Task-Content{
+        width: 90%;
+    }
+
+    .Pending-Task-Content-Container{
+        width: 100%;
+        height: 400px;
+    }
+
+    .Pending-Task-Content-Title-Label{
+        font-size: 14px;
+    }
+
+    .Pending-Task-Calendar-Day-Label{
+        font-size: 14px;
+    }
+
+}

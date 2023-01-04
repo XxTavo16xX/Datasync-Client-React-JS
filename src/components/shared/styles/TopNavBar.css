@@ -136,7 +136,17 @@
     }
 
     .Header-Logo-Container{
-        width: auto;
+        width: calc(100% - 90px);
+        justify-content: center;
+        border-right: 0px;
+    }
+
+    .Header-Logo-Container h1 {
+        padding: 0;
+    }
+
+    .Header-View-Info-Container{
+        display: none;
     }
 
     .Header-User-Container{

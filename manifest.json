@@ -1,0 +1,10 @@
+{
+    "name": "Datasync",
+    "short_name": "Datasync",
+    "theme_color": "#000d41",
+    "background_color": "#e6e4f7",
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/"
+}

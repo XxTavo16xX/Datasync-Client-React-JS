@@ -67,3 +67,34 @@
     font-size: 16px;
     color: #ffffff;
 }
+
+/* * Styles for Cellphone * */
+
+@media screen and (min-width:0px) and (max-width:414px) {
+ 
+    .Top-Container-Resumen-Data-Container{
+        width: 100%;
+    }
+
+    .Top-Container-Resumen-Digital-Clock-Container{
+        margin: auto;
+    }
+ 
+    .Digital-Clock-Digitals-Container{
+        margin: auto;
+    }
+
+    .Top-Section-Container-Margin{
+        display: block;
+    }
+
+    .Top-Container-Resumen-Data-Container{
+        height: 160px;
+        margin-bottom: 20px;
+    }
+
+    .Top-Containter-Resume-Current-Week-Day-Date{
+        width: 100%;
+    }
+
+}

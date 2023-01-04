@@ -89,7 +89,7 @@ const SafeTyBoxResults = () => {
 
                     if (currentElement == 'empty') return (
 
-                        <div className="SafetyBox-Results-Container-Empty-List-Container">
+                        <div className="SafetyBox-Results-Container-Empty-List-Container" key={0}>
 
                             <div className="SafetyBox-Results-Container-Empty-List-Container-Margin">
 
