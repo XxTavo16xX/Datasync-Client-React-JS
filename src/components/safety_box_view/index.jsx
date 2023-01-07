@@ -2,7 +2,10 @@
 // * Dependencies Required 
 
 import { useContext } from "react";
-import { MdExpandMore, MdMoreVert, MdDeleteOutline, MdModeEdit, MdRemoveRedEye } from "react-icons/md";
+import { MdExpandMore, MdMoreVert, MdDeleteOutline, MdModeEdit, MdRemoveRedEye, MdClose, MdCopyAll, MdCheckBoxOutlineBlank } from "react-icons/md";
+import { IoIosRefresh } from "react-icons/io";
+import TextField from '@mui/material/TextField';
+import Slider from '@mui/material/Slider';
 
 // * Modules Required
 
@@ -14,7 +17,102 @@ import './styles/index.css'
 
 // * Components Required
 
-let userPasswordSchemaReceived = ['empty']
+let userPasswordSchemaReceived = [{
+    "currentCategory": 'Correos',
+    "categoryElements": [
+        {
+            "elementName": "Gmail",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "Gmail",
+            "elementAccount": "tavo141692@gmail.com"
+
+        }, {
+            "elementName": "Gmail",
+            "elementAccount": "vengoparamatar@gmail.com"
+
+        }, {
+            "elementName": "Gmail Escuela",
+            "elementAccount": "20654398@prepaenlinea-sep.edu.mx"
+
+        }, {
+            "elementName": "Ionos Web Design Nodes",
+            "elementAccount": "armandoperalta@webdesignnodes.com"
+
+        }, {
+            "elementName": "Ionos PayAll",
+            "elementAccount": "armandoperalta@payall.com.mx"
+
+        }]
+}, {
+    "currentCategory": 'Redes Sociales',
+    "categoryElements": [
+        {
+            "elementName": "Github",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "Twitter",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "Instagram",
+            "elementAccount": "Login with Facebook"
+
+        }, {
+            "elementName": "Reddit",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "Twitch",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "LinkedIn",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "Facebook",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }]
+}, {
+    "currentCategory": 'Entretenimiento',
+    "categoryElements": [
+        {
+            "elementName": "Steam",
+            "elementAccount": "tavogamer_16"
+
+        },
+        {
+            "elementName": "Netflix",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "Spotify",
+            "elementAccount": "Login with Facebook"
+
+        }, {
+            "elementName": "HBO MAX",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "Amazon Prime",
+            "elementAccount": "tavo141692@gmail.com"
+
+        }, {
+            "elementName": "Disney",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }, {
+            "elementName": "F1 TV",
+            "elementAccount": "tavo14169@gmail.com"
+
+        }]
+}]
+
+import SelectBox from "../shared/SelectBox";
 
 
 // * view to Return
@@ -30,6 +128,8 @@ const SafetyBoxView = () => {
             <SafetyBoxSearchBar />
 
             <SafeTyBoxResults />
+
+            <PasswordGeneratorContainer />
 
         </div>
 
@@ -239,10 +339,131 @@ const SafeTyBoxResults = () => {
 
 }
 
-// * This funcion will recive a obj where must check the existance of subCategories, in case
-// * there are subCategories will create a loop to return all the elements as html component
+const PasswordGeneratorContainer = () => {
 
-const analyzeUserPasswordSchema = (currentElement) => {
+    return (
+
+        <div className="Password-Generator-Container">
+
+            <div className="Password-Generator-Container-Margin">
+
+                <div className="Password-Generator-Title-Bar-Container">
+
+                    <p className="Password-Generator-Container-Title-Label">Generar Contraseña Segura</p>
+
+                    <div className="Password-Generator-Title-Bar-Close-Button">
+
+                        <MdClose size={20} color={'#ff150d'} />
+
+                    </div>
+
+                </div>
+
+
+                <div className="Password-Result-Container">
+
+                    <div className="Password-Result-Container-Margin">
+
+                        <input className="Password-Result-Input-Label" type="text" placeholder="*********" />
+
+                        <div className="Password-Result-Action-Button">
+
+                            <IoIosRefresh />
+
+                        </div>
+
+                        <div className="Password-Result-Action-Button">
+
+                            <MdCopyAll />
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className="Password-Result-Properties-Container">
+
+                    <div className="Password-Result-Properties-Container-Margin">
+
+                        <p className="Password-Generator-Container-Title-Label">Propiedades de contraseña</p>
+
+                        <div className="Password-Generator-Container-Slider-Container">
+
+                            <p className="Password-Generator-Container-Subtitle-Label">Longitud de Contraseña</p>
+
+                            <div className="Password-Generator-Container-Slider-Options-Container">
+
+                                <div className="Password-Generator-Container-Slider-Option-Slider-Container">
+
+                                    <Slider defaultValue={15} min={8} max={75} aria-label="Small" valueLabelDisplay="auto" />
+
+                                </div>
+
+                                <div className="Password-Generator-Container-Slider-Option-Input-Container">
+
+                                    <input className="Password-Generator-Container-Slider-Option-Input" type="number" placeholder="15" />
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                        <div className="Password-Generator-Properties-Container">
+
+                            <div className="Password-Generator-Property-Container">
+
+                                <p className="Password-Generator-Property-Title-Label">Contraseña en: </p>
+
+                                <SelectBox defaultOption={'0'} optionsList={['Mayusculas y Minusculas', 'Mayusculas', 'Minusculas']}/>
+
+                            </div>
+
+                            <div className="Password-Generator-Property-Container">
+
+                                <p className="Password-Generator-Property-Title-Label">Debe tener numeros</p>
+
+
+                            </div>
+
+                            <div className="Password-Generator-Property-Container">
+
+                                <p className="Password-Generator-Property-Title-Label">Debe tener simbolos</p>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div className="Password-Generator-Save-After-Creation-Container">
+
+                    <p className="Password-Generator-Container-Title-Label">¿Guardar contraseña?</p>
+
+                    <div className="Password-Generator-Container-CheckBox-Button">
+
+                        <MdCheckBoxOutlineBlank size={16} color={"#fff"} />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    )
+
+}
+
+const showPasswordGenerator = () => {
 
 
 

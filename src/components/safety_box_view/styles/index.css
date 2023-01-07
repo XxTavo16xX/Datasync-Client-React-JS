@@ -4,9 +4,10 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    position: relative;
 }
 
-.SafetyBox-SearchBar-Container{
+.SafetyBox-SearchBar-Container {
     width: 100%;
     height: 40px;
     display: flex;
@@ -17,7 +18,7 @@
     border-radius: 10px;
 }
 
-.SafetyBox-SearchBar-Category-Filter-Button{
+.SafetyBox-SearchBar-Category-Filter-Button {
     width: 125px;
     min-width: 125px;
     height: 100%;
@@ -30,23 +31,23 @@
     border-radius: 10px;
 }
 
-.SafetyBox-SarchBar-Category-Filter-Label{
+.SafetyBox-SarchBar-Category-Filter-Label {
     color: #ffffff;
     font-family: poppinsLight;
     font-size: 14px;
     border-radius: 10px;
 }
 
-.SafetyBox-SearchBar-Input-Container{
+.SafetyBox-SearchBar-Input-Container {
     width: calc(100% - 525px);
     height: 100%;
     border-radius: 5px;
     background-color: #ffffff;
     overflow: hidden;
-    box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 10px 23px 0px rgba(0, 0, 0, 0.1);
 }
 
-.SafetyBox-SearchBar-Input{
+.SafetyBox-SearchBar-Input {
     width: 100%;
     height: 100%;
     outline: none;
@@ -57,7 +58,7 @@
     font-size: 16px;
 }
 
-.SafetyBox-SeachBar-Normal-Button{
+.SafetyBox-SeachBar-Normal-Button {
     width: 150px;
     height: 100%;
     background-color: #06113c;
@@ -69,27 +70,30 @@
     cursor: pointer;
 }
 
-.SafetyBox-SearchBar-Button-Label{
+.SafetyBox-SearchBar-Button-Label {
     color: #ffffff;
     font-family: poppinsLight;
     font-size: 14px;
     flex-wrap: nowrap;
 }
 
-.SafetyBox-Results-Container{
+.SafetyBox-Results-Container {
     width: 100%;
     height: calc(100% - 60px);
     overflow: hidden;
+    position: absolute;
+    z-index: 2;
+    top: 40px;
 }
 
-.SafetyBox-Results-Container-List{
+.SafetyBox-Results-Container-List {
     width: 79%;
     height: auto;
     max-height: 90%;
-    overflow-y: scroll;    
+    overflow-y: scroll;
 }
 
-.SafetyBox-Results-Container-Empty-List-Container{
+.SafetyBox-Results-Container-Empty-List-Container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +101,7 @@
     border-radius: 15px;
 }
 
-.SafetyBox-Results-Container-Empty-List-Container-Margin{
+.SafetyBox-Results-Container-Empty-List-Container-Margin {
     width: 98%;
     height: auto;
     display: flex;
@@ -105,7 +109,7 @@
     align-items: center;
 }
 
-.SafetyBox-Results-Container-Empty-List{
+.SafetyBox-Results-Container-Empty-List {
     color: #06113c;
     font-family: poppinsMedium;
     font-size: 20px;
@@ -118,25 +122,25 @@
 }
 
 .SafetyBox-Results-Container-List::-webkit-scrollbar-thumb {
-    background: #06113c ;
+    background: #06113c;
 }
 
 
-.SafetyBox-Results-Container-Title-Label{
+.SafetyBox-Results-Container-Title-Label {
     color: #06113c;
     font-family: poppinsMedium;
     font-size: 20px;
     flex-wrap: nowrap;
 }
 
-.Password-Manager-Category-Container{
+.Password-Manager-Category-Container {
     max-width: 99%;
     background-color: #ffffffc2;
     border-radius: 15px;
     margin-bottom: 30px;
 }
 
-.Password-Manager-Category-Title-Container{
+.Password-Manager-Category-Title-Container {
     width: 100%;
     height: 40px;
     display: flex;
@@ -146,7 +150,7 @@
     overflow: hidden;
 }
 
-.Password-Manager-Category-Title-Container-Margin{
+.Password-Manager-Category-Title-Container-Margin {
     margin: auto;
     width: 98%;
     height: 100%;
@@ -156,26 +160,26 @@
     flex-wrap: nowrap;
 }
 
-.Password-Manager-Category-Title-Label{
+.Password-Manager-Category-Title-Label {
     color: #06113c;
     font-family: poppinsMedium;
     font-size: 20px;
     flex-wrap: nowrap;
 }
 
-.Password-Manager-Category-List-Container{
+.Password-Manager-Category-List-Container {
     width: 100%;
     height: auto;
 }
 
-.Password-Manager-Category-Table-Titles-Container{
+.Password-Manager-Category-Table-Titles-Container {
     width: 100%;
     height: 40px;
     overflow: hidden;
     border-radius: 15px;
 }
 
-.Password-Manager-Category-Table-Titles-Container-Margin{
+.Password-Manager-Category-Table-Titles-Container-Margin {
     margin: auto;
     width: 98%;
     height: 100%;
@@ -184,28 +188,28 @@
     align-items: center;
 }
 
-.Password-Manager-Category-Table-Title-Container{
+.Password-Manager-Category-Table-Title-Container {
     width: 30%;
     height: 100%;
 }
 
-.Password-Manager-Category-List-Element-Container{
+.Password-Manager-Category-List-Element-Container {
     width: 100%;
     height: 50px;
     margin-bottom: 5px;
     overflow: hidden;
 }
 
-.Password-Manager-Category-List-Element-Container:last-child{
+.Password-Manager-Category-List-Element-Container:last-child {
     margin-bottom: 20px;
 }
 
-.Password-Manager-Category-Element-Container{
+.Password-Manager-Category-Element-Container {
     width: 100%;
     height: 100%;
 }
 
-.Password-Manager-Category-Element-Container-Margin{
+.Password-Manager-Category-Element-Container-Margin {
     margin: auto;
     width: 98%;
     height: 100%;
@@ -237,7 +241,7 @@
     font-size: 16px;
 }
 
-.SafetyBox-Results-Container-Recents{
+.SafetyBox-Results-Container-Recents {
     width: 21%;
     height: 100%;
 }
@@ -251,7 +255,7 @@
     align-items: center;
 }
 
-.Password-Action-Button{
+.Password-Action-Button {
     width: 35px;
     height: 35px;
     display: flex;
@@ -264,6 +268,205 @@
     border: none;
 }
 
-.Password-Action-Button:hover{
+.Password-Action-Button:hover {
     background-color: #00000022;
+}
+
+.Password-Generator-Container {
+    margin: auto;
+    max-width: 540px;
+    width: 100%;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0px 10px 18px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.Password-Generator-Container::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff;
+}
+
+.Password-Generator-Container::-webkit-scrollbar-thumb {
+    background: #06113c;
+}
+
+.Password-Generator-Container-Margin {
+    width: 95%;
+    height: 95%;
+}
+
+.Password-Generator-Title-Bar-Container{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.Password-Generator-Container-Title-Label {
+    color: #06113c;
+    font-family: poppinsMedium;
+    font-size: 14px;
+}
+
+.Password-Generator-Title-Bar-Close-Button{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #ecefff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.Password-Result-Container {
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #ecefff;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Password-Result-Container-Margin {
+    width: 98%;
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Password-Result-Input-Label {
+    width: calc(100% - 100px);
+    color: #06113c;
+    font-family: poppinsMedium;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.Password-Result-Action-Button {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Password-Result-Properties-Container {
+    margin: auto;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.Password-Result-Properties-Container-Margin {
+    margin: auto;
+    width: 98%;
+    height: 75%;
+}
+
+.Password-Generator-Container-Subtitle-Label{
+    color: #06113c;
+    font-family: poppinsMedium;
+    font-size: 12px;   
+}
+
+.Password-Generator-Container-Slider-Options-Container{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.Password-Generator-Container-Slider-Option-Slider-Container{
+    width: calc(100% - 50px);
+    height: 100%;
+}
+
+.Password-Generator-Container-Slider-Option-Input-Container{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #ecefff;
+    border-radius: 10px;
+}
+
+.Password-Generator-Container-Slider-Option-Input{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    text-align: center;
+}
+
+.Password-Generator-Container-Slider-Option-Input::-webkit-outer-spin-button,
+.Password-Generator-Container-Slider-Option-Input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.Password-Generator-Properties-Container{
+    width: 100%;
+    height: 69px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Password-Generator-Property-Container{
+    width: 30%;
+    height: 60px;
+}
+
+.Password-Generator-Property-Title-Label{
+    color: #06113c;
+    font-family: poppinsMedium;
+    font-size: 12px;   
+}
+
+
+.Password-Generator-Save-After-Creation-Container{
+    margin: auto;
+    width: 98%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Password-Generator-Container-CheckBox-Button{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #06113c;
+    border-radius: 10px;
 }

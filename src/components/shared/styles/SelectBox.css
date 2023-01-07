@@ -1,0 +1,26 @@
+.SelectBox-Container{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #ecefff;
+}
+
+.SelectBox-Container-Margin{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.SelectBox-Option-Selected-Label{
+    width: calc(100% - 50px);
+    font-size: 10px;
+    font-family: poppinsMedium;
+    color: #000;
+}
