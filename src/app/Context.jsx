@@ -11,11 +11,15 @@ const AppContext = React.createContext();
 const defaultContext = {
     app: {
         app_name: 'Datasync',
-        current_view: 'Dashboard',
+        current_view: 'Caja Segura',
         workspace: 'Personal',
         database: {
             default_collection: 'Ordenes',
             save_element_form_is_displayed: false
+        },
+        safetybox:{
+            password_generator_is_displayed: true,
+            password_generator_save_password: false
         }
     },
     user: {

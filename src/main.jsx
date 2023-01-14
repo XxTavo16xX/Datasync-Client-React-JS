@@ -14,6 +14,8 @@ import './index.css'
 
 // * Components Required
 
+import NotificationWidget from './components/shared/NotificationWidget'
+
 import TopNavBar from './components/shared/TopNavBar'
 import SideNavBar from './components/shared/SideNavBar'
 
@@ -32,6 +34,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
       <TopNavBar />
       <SideNavBar />
+      <NotificationWidget />
 
       <div className="App-Content">
 
