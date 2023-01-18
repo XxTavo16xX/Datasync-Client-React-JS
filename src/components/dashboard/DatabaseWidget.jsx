@@ -21,37 +21,37 @@ const databaseConecctionData = [
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Ordenes",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/muffin.png', '/src/assets/images/me.jpg', '/src/assets/images/elon.png'],
+        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/muffin.png', '/public/assets/images/me.jpg', '/public/assets/images/elon.png'],
         databaseStoreSpace: "15 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Cobranza",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/elon.png', '/src/assets/images/me.jpg', '/src/assets/images/muffin.png'],
+        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/elon.png', '/public/assets/images/me.jpg', '/public/assets/images/muffin.png'],
         databaseStoreSpace: "13.3 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Catalogo",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/me.jpg', '/src/assets/images/muffin.png', '/src/assets/images/elon.png'],
+        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/me.jpg', '/public/assets/images/muffin.png', '/public/assets/images/elon.png'],
         databaseStoreSpace: "121 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Presupuesto",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/muffin.png', '/src/assets/images/elon.png', '/src/assets/images/me.jpg'],
+        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/muffin.png', '/public/assets/images/elon.png', '/public/assets/images/me.jpg'],
         databaseStoreSpace: "19.3 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Ventas",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/elon.png', '/src/assets/images/me.jpg', '/src/assets/images/muffin.png'],
+        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/elon.png', '/public/assets/images/me.jpg', '/public/assets/images/muffin.png'],
         databaseStoreSpace: "10.7 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Listados",
-        lastDatabaseUsersChangePhotoURL: ['/src/assets/images/me.jpg', '/src/assets/images/elon.png', './src/assets/images/muffin.png'],
+        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/me.jpg', '/public/assets/images/elon.png', './public/assets/images/muffin.png'],
         databaseStoreSpace: "15 MB"
     }
 
@@ -61,26 +61,9 @@ const databaseConecctionData = [
 
 const DatabaseWidget = () => {
 
-    const { context, setContext } = useContext(AppContext);
-
-    const goDatabaseViewInCollection = (collectionToShow) => {
-
-        /* setGlobalContext({
-            ...globalContext,
-            currentDatabaseCollectionSelected: collectionToShow,
-            currentViewToDisplay: 'Base de datos',
-        });
- */
-
-    }
+    const { setContext } = useContext(AppContext);
 
     return <div className="Database-Widget-Content-Container">
-
-        <div className="Database-Content-Container-Background">
-
-            <div className="Database-Content-Widget-Background-Sphere"></div>
-
-        </div>
 
         <div className="Database-Content-Container-Margin">
 

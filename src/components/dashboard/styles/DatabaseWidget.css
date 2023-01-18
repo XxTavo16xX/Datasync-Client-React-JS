@@ -1,5 +1,5 @@
 .Database-Widget-Content-Container {
-    width: 49%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -8,26 +8,6 @@
     position: relative;
     overflow: hidden;
     box-shadow: 7px 7px 14px #212f4e14, -7px -7px 14px #58585818;
-}
-
-.Database-Content-Container-Background {
-    width: 100%;
-    height: 100%;
-    background-color: #040412;
-    position: absolute;
-    z-index: 1;
-}
-
-.Database-Content-Widget-Background-Sphere {
-    width: 200px;
-    height: 200px;
-    filter: blur(15px);
-    background: -webkit-radial-gradient(left bottom, rgb(189, 103, 255) 100px, rgb(120, 162, 255));
-    border-radius: 200px;
-    position: absolute;
-    top: 60%;
-    left: -5%;
-    box-shadow: 0px 0px 100px 34px rgb(6, 6, 236, 0.324);
 }
 
 .Database-Content-Container-Margin {
@@ -48,7 +28,7 @@
     height: 25px;
     font-family: poppinsMedium;
     font-size: 16px;
-    color: #ffffff;
+    color: #000d41;
 }
 
 .Database-Windows-Container {
@@ -77,7 +57,7 @@
 .Database-Window-Container {
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #0306166c, #00001c);
+    background-color: #ffffffe3;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -87,8 +67,8 @@
 }
 
 .Database-Window-Container:hover {
-    background: linear-gradient(45deg, #3e3f456c, #00001c);
     transform: scale(1.05);
+    background-color: #ffffff;
 }
 
 .Database-Window-Content-Margin {
@@ -119,7 +99,7 @@
     font-family: poppinsMedium;
     font-size: 12px;
     white-space: nowrap;
-    color: #ffffff;
+    color: #000d41;
     cursor: default;
 }
 
@@ -147,7 +127,7 @@
     font-family: poppinsMedium;
     font-size: 18px;
     white-space: nowrap;
-    color: #ffffff;
+    color: #000d41;
     cursor: default;
 
 }
@@ -197,7 +177,7 @@
 .Database-Window-Storage-Space-Snippet {
     width: 90%;
     height: 80%;
-    background-color: #ffffff;
+    background-color: rgb(0, 0, 255);
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -209,7 +189,7 @@
     font-family: poppinsMedium;
     font-size: 12px;
     white-space: nowrap;
-    color: #06113C;
+    color: #ffffff;
 }
 
 /* * Styles for Cellphone * */

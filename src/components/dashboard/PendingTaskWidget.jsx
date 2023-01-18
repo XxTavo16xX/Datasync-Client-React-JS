@@ -26,13 +26,6 @@ const PendingTaskWidget = () => {
 
     return <div className="Pending-Task-Content-Container">
 
-        <div className="Pending-Task-Content-Background">
-
-            <div className="Pending-Task-Widget-Background-Sphere"></div>
-            <div className="Pending-Task-Widget-Background-Sphere-2"></div>
-
-        </div>
-
         <div className="Pending-Task-Content">
 
             <div className="Pending-Task-Title-Container">
@@ -146,7 +139,7 @@ const PendingTaskWidget = () => {
 
                 <div className="Pending-Task-Controller-Task-Button">
 
-                    <MdMic size={24} />
+                    <MdMic size={24} color='#ffffff' />
 
                 </div>
 
@@ -158,7 +151,7 @@ const PendingTaskWidget = () => {
 
                 <div className="Pending-Task-Controller-Task-Button">
 
-                    <MdSend size={18} />
+                    <MdSend size={18} color='#ffffff' />
 
                 </div>
 

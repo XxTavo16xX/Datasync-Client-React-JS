@@ -32,6 +32,7 @@ const AppView = () => {
 
                 <div className="App-View-Sphere-shape-1"></div>
                 <div className="App-View-Sphere-shape-2"></div>
+                <div className="App-View-Sphere-shape-3"></div>
 
             </div>
 

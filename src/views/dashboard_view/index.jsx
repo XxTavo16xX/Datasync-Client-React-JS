@@ -16,6 +16,9 @@ import './style/Dashboard_view/index.css'
 import ResumenWidget from '../../components/dashboard/ResumenWidget'
 import BackupWidget from '../../components/dashboard/BackupWidget'
 
+import DatabaseWidget from '../../components/dashboard/DatabaseWidget'
+import PendingTaskWidget from '../../components/dashboard/PendingTaskWidget'
+
 // * view to Return
 
 const DashboardView = () => {
@@ -37,6 +40,34 @@ const DashboardView = () => {
                         <ResumenWidget />
 
                         <BackupWidget />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div className="Bottom-Section-Container">
+
+                <div className="Database-Widget-Container">
+
+                    <div className="Database-Widget-Background"></div>
+
+                    <div className="Database-Widget-Content-Container">
+
+                        <DatabaseWidget />
+
+                    </div>
+
+                </div>
+
+                <div className="PendingTask-Widget-Container">
+
+                    <div className="PendingTask-Widget-Background"></div>
+
+                    <div className="PendingTask-Widget-Content-Container">
+
+                        <PendingTaskWidget />
 
                     </div>
 
