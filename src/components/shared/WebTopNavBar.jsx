@@ -31,7 +31,7 @@ const WebTopNavBar = () => {
 
                     <div className="Web-Top-Nav-Bar-Container-Logo-Icon-Container">
 
-                        <img src="./src/assets/images/logo.svg" alt="" />
+                        <img src="public\assets\icons\logo.svg" alt="" />
 
                     </div>
 
