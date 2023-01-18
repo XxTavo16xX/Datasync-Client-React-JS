@@ -1,0 +1,17 @@
+.CheckBox-Button {
+    width: auto;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.CheckBox-Button-Label {
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #000000;
+    margin-left: 5px;
+}

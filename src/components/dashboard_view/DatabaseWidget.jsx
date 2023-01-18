@@ -11,7 +11,7 @@ import { getDateInHumanFormat } from "../../lib/Calendar";
 
 // * view Styles
 
-import './styles/DatabaseContainer.css'
+import './styles/DatabaseWidget.css'
 
 // * Fetched data example 
 // ! Must replace with data received by module
@@ -74,7 +74,7 @@ const DatabaseWidget = () => {
 
     }
 
-    return <div className="Database-Content-Container">
+    return <div className="Database-Widget-Content-Container">
 
         <div className="Database-Content-Container-Background">
 

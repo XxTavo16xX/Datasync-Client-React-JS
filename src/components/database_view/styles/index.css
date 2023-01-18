@@ -1,0 +1,18 @@
+
+.Database-Content-Container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Database-Content-Results-Container{
+    width: 68%;
+    height: 100%;
+}
+
+.Database-Content-Result-View{
+    width: 32%;
+    height: 100%;
+}

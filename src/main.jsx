@@ -16,13 +16,7 @@ import './index.css'
 
 import NotificationWidget from './components/shared/NotificationWidget'
 
-import TopNavBar from './components/shared/TopNavBar'
-import SideNavBar from './components/shared/SideNavBar'
-
-import DashboardView from './components/dashboard_view/'
-import DatabaseView from './components/Database/DatabaseView'
-
-import SafetyBoxView from './components/safety_box_view'
+import LoginView from './components/Login'
 
 // * view to Return
 
@@ -32,21 +26,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     <AppProvider>
 
-      <TopNavBar />
-      <SideNavBar />
       <NotificationWidget />
+      <LoginView />
 
-      <div className="App-Content">
+      {/* <TopNavBar /> */}
+      {/* <SideNavBar /> */}
 
-        <div className="App-Content-Container">
-
-          <DashboardView />
-          <DatabaseView />
-          <SafetyBoxView />
-
-        </div>
-
-      </div>
+      
 
     </AppProvider>
 

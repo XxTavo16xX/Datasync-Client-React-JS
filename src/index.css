@@ -26,7 +26,7 @@ body {
 .App-Content{
   width: calc(100% - 240px);
   height: calc(100% - 60px);
-  margin-left: 240px;
+  margin-left: 235px;
   margin-top: 60px;
   background: rgb(233, 248, 255);
   background: -moz-linear-gradient(309deg, rgba(233, 248, 255, 1) 0%, rgba(238, 233, 255, 1) 100%);
