@@ -1,11 +1,11 @@
 @font-face {
   font-family: poppinsLight;
-  src: url(../public/assets/fonts/Poppins-Light.ttf);
+  src: url(../assets/fonts/Poppins-Light.ttf);
 }
 
 @font-face {
   font-family: poppinsMedium;
-  src: url(../public/assets/fonts/Poppins-Medium.ttf);
+  src: url(../assets/fonts/Poppins-Medium.ttf);
 }
 
 body {
