@@ -7,9 +7,8 @@
 .Top-Container-Resumen-Digital-Clock-Container{
     width: 275px;
     height: 125px;
-    border: 1px solid #ffffff;
-    box-shadow: inset 0px 0px 92px -30px #002affb8;
     border-radius: 20px;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +48,7 @@
     text-align: center;
     font-family: poppinsMedium;
     font-size: 80px;
-    color: #ffffff;
+    color: #000d41;
 }
 
 .Digits-Colom{
@@ -57,15 +56,15 @@
     text-align: center;
     font-family: poppinsMedium;
     font-size: 80px;
-    color: #ffffff;
+    color: #000d41;
 }
 
 .Top-Containter-Resume-Current-Week-Day-Date{
     width: 275px;
     text-align: center;
-    font-family: poppinsLight;
+    font-family: poppinsMedium;
     font-size: 16px;
-    color: #ffffff;
+    color: #000d41;
 }
 
 /* * Styles for Cellphone * */
