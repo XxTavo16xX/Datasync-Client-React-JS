@@ -76,13 +76,15 @@
 }
 
 .Database-Widget-Container{
-    width: 49%;
+    width: 56%;
     height: 100%;
     position: relative;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 .PendingTask-Widget-Container{
-    width: 49%;
+    width: 42%;
     height: 100%;
     position: relative;
 }

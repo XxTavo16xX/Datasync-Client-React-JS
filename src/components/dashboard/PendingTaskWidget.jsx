@@ -114,7 +114,7 @@ const PendingTaskWidget = () => {
 
                                             <button className='Pending-Task-Checkbox-Button'>
                                                 
-                                                <MdCheckBoxOutlineBlank color={'#ffffff'} size={28}/>
+                                                <MdCheckBoxOutlineBlank color={'#000d41'} size={28}/>
                                                 
                                             </button>
 
