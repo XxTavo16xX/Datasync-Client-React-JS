@@ -6,25 +6,25 @@ const WeekDaysNameList = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 
 
 export const getDateInHumanFormatByTimestamp = (timestamp) => {
 
-    if(!timestamp) return '01 de enero de 2023'
+    if (!timestamp) return '01 de enero de 2023'
 
-    const date = new Date ( timestamp * 1000 )
+    const date = new Date(timestamp * 1000)
 
-    return date.getDate() + ' de ' + monthNamesList[ date.getMonth() ] + ' de ' + date.getFullYear()
-
-}
-
-export const getDateInHumanFormat = () => {
-
-    const date = new Date ( Date.now() )
-
-    return date.getDate() + ' de ' + monthNamesList[ date.getMonth() ] + ' de ' + date.getFullYear()
+    return date.getDate() + ' de ' + monthNamesList[date.getMonth()] + ' de ' + date.getFullYear()
 
 }
 
-export const getWeekDateInHumanFormat = ( timestamp ) => {
+export const getCurrentDateInHumanFormat = () => {
 
-    if(!timestamp) return 'Domingo 01 de Enero'
+    const date = new Date(Date.now())
+
+    return date.getDate() + ' de ' + monthNamesList[date.getMonth()] + ' de ' + date.getFullYear()
+
+}
+
+export const getWeekDateInHumanFormat = (timestamp) => {
+
+    if (!timestamp) return 'Domingo 01 de Enero'
 
     const date = new Date(timestamp);
 

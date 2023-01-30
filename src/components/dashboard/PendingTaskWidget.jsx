@@ -1,7 +1,7 @@
 
 import { MdExpandMore, MdMic, MdSend, MdDone, MdCheckBoxOutlineBlank } from 'react-icons/md'
 
-import { getDateInHumanFormat } from '../../lib/Calendar'
+import { getCurrentDateInHumanFormat } from '../../lib/Calendar'
 
 import './styles/PendingTask.css'
 
@@ -32,7 +32,7 @@ const PendingTaskWidget = () => {
 
                 <p className="Pending-Task-Content-Title-Label">Tareas Pendientes</p>
 
-                <p className="Pending-Task-Calendar-Day-Label">{ getDateInHumanFormat() }</p>
+                <p className="Pending-Task-Calendar-Day-Label">{ getCurrentDateInHumanFormat() }</p>
 
             </div>
 

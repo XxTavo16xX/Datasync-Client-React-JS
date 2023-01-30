@@ -124,5 +124,34 @@
     .Dashboard-Top-Section-Container{
         height: 180px;
     }
+
+    .App-View-Sphere-shape-1 {
+        width: 150px;
+        height: 150px;
+        border-radius: 150px;
+        position: absolute;
+        top: -40px;
+        right: -65px;
+    }
+    
+    .App-View-Sphere-shape-2 {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        position: absolute;
+        z-index: 2;
+        top: 35%;
+        left: -12%;
+    }
+    
+    .App-View-Sphere-shape-3 {
+        width: 250px;
+        height: 250px;
+        border-radius: 250px;
+        position: absolute;
+        top: 89%;
+        right: -17%;
+    }
+    
     
 }

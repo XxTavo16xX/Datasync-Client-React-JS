@@ -105,7 +105,7 @@
     height: 100%;
     border: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     background-color: transparent;
     border-radius: 5px;
@@ -230,6 +230,7 @@
 
     .Database-Content-Container-Margin{
         width: 90%;
+        height: 85%;
     }
 
     .Database-Widget-Content-Container{
@@ -238,6 +239,10 @@
 
     .Database-Content-Title-Label{
         font-size: 14px;
+    }
+
+    .Database-Windows-Content-Margin::-webkit-scrollbar {
+        -webkit-appearance: none;
     }
 
     .Database-Window-Container{
@@ -250,6 +255,10 @@
 
     .Database-Window-Container:hover{
         transform: none;
+    }
+
+    .Database-Window-Last-Date-User-Label{
+        font-size: 9px;
     }
 
     .Database-Window-Storage-Space-Label{

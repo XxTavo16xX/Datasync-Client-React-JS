@@ -20,7 +20,13 @@ import CheckBoxButton from "../shared/CheckBoxButton";
 
 const LoginView = () => {
 
-    const { context } = useContext(AppContext)
+    const { context, setContext } = useContext(AppContext)
+
+    const loginUser = () => {
+
+        setContext({ user: { ...context.user, is_session_created: true }, app: { ...context.app } })
+
+    }
 
     if (context.user.is_session_created === false) {
 
@@ -85,7 +91,7 @@ const LoginView = () => {
 
                                     <div className="Login-Form-Input-Container">
 
-                                        <input className="Login-Form-Input-Container-Input" type="text" placeholder="Ingresa tu Contraseña" />
+                                        <input className="Login-Form-Input-Container-Input" type="password" placeholder="Ingresa tu Contraseña" />
 
                                     </div>
 
@@ -99,7 +105,7 @@ const LoginView = () => {
 
                                         </div>
 
-                                        <button className="Login-Form-Action-Button-Login">Iniciar Sesion</button>
+                                        <button className="Login-Form-Action-Button-Login" onClick={loginUser}>Iniciar Sesion</button>
 
                                         <button className="Login-Form-Action-Button-Register">Unirme</button>
 

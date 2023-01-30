@@ -1,5 +1,5 @@
 
-import { getDateInHumanFormat } from '../../lib/Calendar'
+import { getCurrentDateInHumanFormat } from '../../lib/Calendar'
 
 import './styles/BackupHistorialWidget.css'
 
@@ -69,7 +69,7 @@ const BackupWidget = () => {
 
                                     <div className="Top-Container-Backup-Historial-Bottom-Container">
 
-                                        <p className='Top-Container-Backup-Historial-Bottom-Labels'>{getDateInHumanFormat(backupDate)}</p>
+                                        <p className='Top-Container-Backup-Historial-Bottom-Labels'>{getCurrentDateInHumanFormat(backupDate)}</p>
                                         <p className='Top-Container-Backup-Historial-Bottom-Labels'>{backupFiles}</p>
 
                                     </div>

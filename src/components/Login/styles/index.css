@@ -103,11 +103,13 @@
     height: auto;
     position: relative;
     z-index: 6;
+    overflow: hidden;
 }
 
 .Login-View-Content-Container-Text-Content {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .Login-View-Title-AppName-Label {
@@ -325,6 +327,7 @@
 
     .Login-View-Title-Label {
         font-size: 20px;
+        overflow: hidden;
     }
 
     .Login-View-Greatings-Label {

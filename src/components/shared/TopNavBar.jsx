@@ -9,7 +9,7 @@ const TopNavBar = ({currentViewName}) => {
 
     const { context, setContext } = useContext(AppContext);
 
-    return <div className="Header">
+    return <div className="Header" id="appHeader">
 
         <MenuButton />
         <Logo appName={context.app.app_name} />

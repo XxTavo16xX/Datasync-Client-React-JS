@@ -7,7 +7,7 @@ import { MdMoreVert } from 'react-icons/md'
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
-import { getDateInHumanFormat } from "../../lib/Calendar";
+import { getDateInHumanFormatByTimestamp } from "../../lib/Calendar";
 
 // * view Styles
 
@@ -19,38 +19,38 @@ import './styles/DatabaseWidget.css'
 const databaseConecctionData = [
 
     {
-        lastDatabaseChangeDate: 1670329001,
-        databaseName: "Ordenes",
+        lastDatabaseChangeDate: 1675068318,
+        databaseName: "DevLabel",
         lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/elon.png'],
         databaseStoreSpace: "15 MB"
     },
     {
-        lastDatabaseChangeDate: 1670329001,
-        databaseName: "Cobranza",
+        lastDatabaseChangeDate: 1674682258,
+        databaseName: "DevLabel",
         lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/elon.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png'],
         databaseStoreSpace: "13.3 MB"
     },
     {
-        lastDatabaseChangeDate: 1670329001,
-        databaseName: "Catalogo",
+        lastDatabaseChangeDate: 1674595858,
+        databaseName: "DevLabel",
         lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/elon.png'],
         databaseStoreSpace: "121 MB"
     },
     {
-        lastDatabaseChangeDate: 1670329001,
-        databaseName: "Presupuesto",
+        lastDatabaseChangeDate: 1670323001,
+        databaseName: "DevLabel",
         lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/elon.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg'],
         databaseStoreSpace: "19.3 MB"
     },
     {
-        lastDatabaseChangeDate: 1670329001,
-        databaseName: "Ventas",
+        lastDatabaseChangeDate: 1661459458,
+        databaseName: "DevLabel",
         lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/elon.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png'],
         databaseStoreSpace: "10.7 MB"
     },
     {
-        lastDatabaseChangeDate: 1670329001,
-        databaseName: "Listados",
+        lastDatabaseChangeDate: 1656189058,
+        databaseName: "DevLabel",
         lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/elon.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png'],
         databaseStoreSpace: "15 MB"
     }
@@ -85,15 +85,21 @@ const DatabaseWidget = () => {
 
                                     <div className="Database-Window-Last-Date-User-Container">
 
-                                        <p className="Database-Window-Last-Date-User-Label">{getDateInHumanFormat(lastDatabaseChangeDate)}</p>
+                                        <p className="Database-Window-Last-Date-User-Label">{getDateInHumanFormatByTimestamp(lastDatabaseChangeDate)}</p>
 
                                     </div>
 
-                                    <button className="Database-Window-Options-Button">
+                                    <div className="Database-Window-Options-Button">
 
-                                        <MdMoreVert size={16} color={'#ffffff'} />
+                                        <MdMoreVert size={16} color={'#000d41'} style={{
+                                            float: 'right',
+                                            display: 'flex',
+                                            justifyContent: 'flex-end',
+                                            alignContent: 'center'
 
-                                    </button>
+                                        }} />
+
+                                    </div>
 
                                 </div>
 

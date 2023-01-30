@@ -8,6 +8,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    transition: .3s;
 }
 
 .Header-Lateral-Menu-Button {
@@ -125,6 +126,11 @@
 /* * Movile Styles * */
 
 @media screen and (min-width:0px) and (max-width:414px) {
+
+    .Header {
+        background-color: rgba(255, 255, 255, 0);
+        border-bottom: 1px solid rgba(0, 0, 0, 0);
+    }
 
     .Header-Lateral-Menu-Button {
         width: 35px;

@@ -7,7 +7,6 @@
     border-radius: 15px;
     position: relative;
     overflow: hidden;
-    box-shadow: 7px 7px 14px #212f4e14, -7px -7px 14px #58585818;
 }
 
 .Pending-Task-Content {
