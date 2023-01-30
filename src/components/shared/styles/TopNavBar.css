@@ -122,6 +122,8 @@
     cursor: pointer;
 }
 
+/* * Movile Styles * */
+
 @media screen and (min-width:0px) and (max-width:414px) {
 
     .Header-Lateral-Menu-Button {

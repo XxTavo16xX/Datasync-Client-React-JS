@@ -21,37 +21,37 @@ const databaseConecctionData = [
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Ordenes",
-        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/muffin.png', '/public/assets/images/me.jpg', '/public/assets/images/elon.png'],
+        lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/elon.png'],
         databaseStoreSpace: "15 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Cobranza",
-        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/elon.png', '/public/assets/images/me.jpg', '/public/assets/images/muffin.png'],
+        lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/elon.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png'],
         databaseStoreSpace: "13.3 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Catalogo",
-        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/me.jpg', '/public/assets/images/muffin.png', '/public/assets/images/elon.png'],
+        lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/elon.png'],
         databaseStoreSpace: "121 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Presupuesto",
-        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/muffin.png', '/public/assets/images/elon.png', '/public/assets/images/me.jpg'],
+        lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/elon.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg'],
         databaseStoreSpace: "19.3 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Ventas",
-        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/elon.png', '/public/assets/images/me.jpg', '/public/assets/images/muffin.png'],
+        lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/elon.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png'],
         databaseStoreSpace: "10.7 MB"
     },
     {
         lastDatabaseChangeDate: 1670329001,
         databaseName: "Listados",
-        lastDatabaseUsersChangePhotoURL: ['/public/assets/images/me.jpg', '/public/assets/images/elon.png', './public/assets/images/muffin.png'],
+        lastDatabaseUsersChangePhotoURL: ['https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg', 'https://scontent.webdesignnodes.com/datasync_dev/images/elon.png', 'https://scontent.webdesignnodes.com/datasync_dev/images/muffin.png'],
         databaseStoreSpace: "15 MB"
     }
 

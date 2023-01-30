@@ -2,9 +2,6 @@
 // * Dependencies Required 
 
 import { useContext } from "react";
-import * as LottiePlayer from "@lottiefiles/lottie-player";
-import { MdCheckBoxOutlineBlank } from 'react-icons/md'
-
 
 // * Modules Required
 
@@ -23,7 +20,7 @@ import CheckBoxButton from "../shared/CheckBoxButton";
 
 const LoginView = () => {
 
-    const { context, setContext } = useContext(AppContext)
+    const { context } = useContext(AppContext)
 
     if (context.user.is_session_created === false) {
 
@@ -34,6 +31,7 @@ const LoginView = () => {
                 <div className="Login-View-Background">
 
                     <div className="Login-View-Background-Shape-1"></div>
+                    <div className="Login-View-Content-Container-Background-Shape-1"></div>
 
                 </div>
 
@@ -45,11 +43,7 @@ const LoginView = () => {
 
                         <div className="Login-View-Content-Container-Text-Container">
 
-                            <div className="Login-View-Content-Container-Text-Background">
-
-                                <div className="Login-View-Content-Container-Background-Shape-1"></div>
-
-                            </div>
+                            <div className="Login-View-Content-Container-Text-Background"></div>
 
                             <div className="Login-View-Content-Container-Text-Content">
 
@@ -99,14 +93,15 @@ const LoginView = () => {
 
                                         <div className="Login-Form-Action-Button-Container-Session">
 
-                                            
-                                            <CheckBoxButton checkBoxLabel='Mantener Sesion Abierta'/>
+                                            <CheckBoxButton checkBoxLabel='Mantener Sesion Abierta' />
 
                                             <button className="Login-Form-Action-Button-Recover-Password">Recuperar Contraseña</button>
 
                                         </div>
 
                                         <button className="Login-Form-Action-Button-Login">Iniciar Sesion</button>
+
+                                        <button className="Login-Form-Action-Button-Register">Unirme</button>
 
                                     </div>
 

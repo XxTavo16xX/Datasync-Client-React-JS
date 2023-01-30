@@ -9,7 +9,7 @@ import { AppContext } from '../../app/Context';
 
 // * view Styles
 
-import './style/Dashboard_view/index.css'
+import '../styles/Dashboard_view.css'
 
 // * Components Required
 

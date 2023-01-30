@@ -73,7 +73,7 @@ const UserContainer = () => {
 
             <div className="User-Photo-Container">
 
-                <img src="public\assets\images\me.jpg" />
+                <img src="https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg" />
 
             </div>
 

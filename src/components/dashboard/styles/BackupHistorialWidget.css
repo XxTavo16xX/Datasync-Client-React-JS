@@ -1,6 +1,6 @@
 .Top-Container-Backup-Historial-Container {
     width: 550px;
-    height: 100%;    
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@
     overflow: hidden;
 }
 
-.Top-Container-Backup-Historial-Snippet{
+.Top-Container-Backup-Historial-Snippet {
     width: 100%;
     height: 65px;
     display: flex;
@@ -71,20 +71,20 @@
     border-radius: 15px;
 }
 
-.Top-Container-Backup-Historial-Snippet-Margin{
+.Top-Container-Backup-Historial-Snippet-Margin {
     width: 97%;
     height: 73%;
     overflow: hidden;
 }
 
-.Top-Container-Backup-Historial-Snippet-Title{
+.Top-Container-Backup-Historial-Snippet-Title {
     font-family: poppinsMedium;
     font-size: 14px;
     color: #000d41;
     cursor: default;
 }
 
-.Top-Container-Backup-Historial-Bottom-Container{
+.Top-Container-Backup-Historial-Bottom-Container {
     width: 100%;
     height: 30px;
     display: flex;
@@ -92,7 +92,7 @@
     align-items: center;
 }
 
-.Top-Container-Backup-Historial-Bottom-Labels{
+.Top-Container-Backup-Historial-Bottom-Labels {
     font-family: poppinsLight;
     font-size: 14px;
     color: #000d41;
@@ -103,53 +103,9 @@
 /* * Styles for Cellphone * */
 
 @media screen and (min-width:0px) and (max-width:414px) {
- 
+
     .Top-Container-Backup-Historial-Container{
-        margin: auto;
-        width: 95%;
-    }
-
-    .Top-Container-Backup-Historial-Margin{
-        width: 95%;
-    }
-
-    .Top-Container-Backup-Historial-Top-Title-Label{
-        font-size: 14px;
-    }
-
-    .Top-Container-Backup-Now-Button{
-        height: 25px;
-        padding: 0px 20px 0px 20px;
-    }
-
-    .Top-Container-Backup-Now-Button-Label{
-        font-size: 10px;
-    }
-
-    .Top-Container-Backup-Historial-Snippet{
-        height: 82px;
-    }
-
-    .Top-Container-Backup-Historial-Snippet-Margin{
-        height: 90%;
-    }
-
-    .Top-Container-Backup-Historial-Snippet-Title{
-        font-size: 12px;
-    }
-
-    .Top-Container-Backup-Historial-Bottom-Labels{
-        font-size: 11px;
-    }
-
-    .Dashboard-Bottom-Section-Container{
-        height: auto;
-        display: block;
-    }
-
-    .Database-Content-Container{
-        width: 100%;
-        height: 1200px;
+        display: none;
     }
 
 }

@@ -88,8 +88,7 @@
     }
 
     .Top-Container-Resumen-Data-Container{
-        height: 160px;
-        margin-bottom: 20px;
+        height: auto;
     }
 
     .Top-Containter-Resume-Current-Week-Day-Date{

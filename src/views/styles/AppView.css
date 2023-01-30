@@ -108,3 +108,21 @@
     background: linear-gradient(144deg, rgba(2, 2, 83, 1) 0%, rgba(14, 14, 38, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020253", endColorstr="#0e0e26", GradientType=1);
 }
+
+
+@media screen and (min-width:0px) and (max-width:414px) {
+
+    
+
+    .App-Content-Container{
+        width: 100%;
+        height: auto;
+        margin: 61px 0px 0px 0px;
+        overflow: scroll;
+    }
+
+    .Dashboard-Top-Section-Container{
+        height: 180px;
+    }
+    
+}

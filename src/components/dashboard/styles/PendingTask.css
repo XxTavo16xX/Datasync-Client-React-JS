@@ -211,6 +211,10 @@
 
 @media screen and (min-width:0px) and (max-width:414px) {
 
+    .PendingTask-Widget-Container{
+        width: 100%;
+    }
+
     .Pending-Task-Content{
         width: 90%;
     }
@@ -230,6 +234,6 @@
 
     .Pending-Task-Widget-Background-Sphere{
         top: 1%;
-    }
+    }    
 
 }

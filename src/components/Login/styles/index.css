@@ -56,6 +56,22 @@
     animation-iteration-count: infinite;
 }
 
+.Login-View-Content-Container-Background-Shape-1 {
+    margin: auto;
+    width: 800px;
+    height: 800px;
+    border-radius: 800px;
+    position: absolute;
+    bottom: -265px;
+    left: -265px;
+    background: rgb(8, 0, 255);
+    background: -moz-radial-gradient(circle, rgba(8, 0, 255, 0.227328431372549) 0%, rgba(255, 0, 219, 0) 100%);
+    background: -webkit-radial-gradient(circle, rgba(8, 0, 255, 0.227328431372549) 0%, rgba(255, 0, 219, 0) 100%);
+    background: radial-gradient(circle, rgba(8, 0, 255, 0.227328431372549) 0%, rgba(255, 0, 219, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0800ff", endColorstr="#ff00db", GradientType=1);
+    filter: blur(40px);
+}
+
 .Login-View-Content {
     width: 100%;
     height: 100%;
@@ -82,27 +98,16 @@
     z-index: 5;
 }
 
-.Login-View-Content-Container-Background-Shape-1 {
-    margin: auto;
-    width: 800px;
-    height: 800px;
-    border-radius: 800px;
-    position: absolute;
-    top: 60%;
-    left: -57%;
-    background: rgb(8, 0, 255);
-    background: -moz-radial-gradient(circle, rgba(8, 0, 255, 0.227328431372549) 0%, rgba(255, 0, 219, 0) 100%);
-    background: -webkit-radial-gradient(circle, rgba(8, 0, 255, 0.227328431372549) 0%, rgba(255, 0, 219, 0) 100%);
-    background: radial-gradient(circle, rgba(8, 0, 255, 0.227328431372549) 0%, rgba(255, 0, 219, 0) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0800ff", endColorstr="#ff00db", GradientType=1);
-    filter: blur(40px);
-}
-
 .Login-View-Content-Container-Text-Container {
     width: 60%;
-    height: 70%;
+    height: auto;
     position: relative;
     z-index: 6;
+}
+
+.Login-View-Content-Container-Text-Content {
+    width: 100%;
+    height: 100%;
 }
 
 .Login-View-Title-AppName-Label {
@@ -142,7 +147,6 @@
 .Login-View-Animation-Container {
     width: 400px;
     height: 400px;
-    float: rightLogin-View-Greatings-Label;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,6 +201,7 @@
     background-color: #dfe5ff;
     border-radius: 15px;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .Login-Form-Input-Container-Input {
@@ -231,7 +236,7 @@
     font-family: poppinsMedium;
     font-size: 12px;
     color: #000d41;
-    cursor: pointer;
+    cursor: pointer;    
 }
 
 .Login-Form-Action-Button-Login {
@@ -244,4 +249,130 @@
     font-size: 12px;
     color: #fff;
     cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.Login-Form-Action-Button-Register {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    background-color: #b3f5ff;
+    font-family: poppinsMedium;
+    font-size: 12px;
+    color: #000d41;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* * Movile Styles * */
+
+@media screen and (min-width:0px) and (max-width:414px) {
+
+    @keyframes sphereMovementAnimation {
+
+        0% {
+            transform: translate(0px, 0px);
+            border-radius: 20% 80% 29% 71% / 69% 58% 42% 31%;
+        }
+
+        50% {
+            transform: translate(10px, 20px);
+            border-radius: 75% 25% 75% 25% / 33% 81% 19% 67%;
+        }
+
+        75% {
+            transform: translate(0px, 0px);
+            border-radius: 20% 80% 29% 71% / 69% 58% 42% 31%;
+        }
+
+    }
+
+    .Login-View-Background-Shape-1 {
+        width: 100px;
+        height: 100px;
+        top: auto;
+        bottom: 50px;
+        right: 0;
+    }
+
+    .Login-View-Content-Container-Background-Shape-1 {
+        width: 150px;
+        height: 150px;
+        border-radius: 150px;
+        top: -60px;
+        bottom: auto;
+        left: -60px;
+    }
+
+
+    .Login-View-Content-Container {
+        width: 90%;
+        height: 87%;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        z-index: 4;
+        margin-top: 80px;
+    }
+
+    .Login-View-Content-Container-Text-Container {
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .Login-View-Title-Label {
+        font-size: 20px;
+    }
+
+    .Login-View-Greatings-Label {
+        display: none;
+    }
+
+    .Login-View-Animation-Container {
+        margin: auto;
+        width: 175px;
+        height: 175px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -70vh;
+    }
+
+    .Login-View-Content-Container-Form-Container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Login-View-Content-Form-Container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Login-View-Content-Form-Container-Content {
+        height: 100%;
+    }
+
+    .Login-View-Content-Form-Content-Title-Label {
+        margin-top: 0;
+        font-size: 20px;
+    }
+
+    .Login-Form-Action-Button-Register{
+        background-color: #b3f5ffae;
+    }
+
+    .Login-Form-Action-Button-Container-Session {
+        height: auto;
+        display: block;
+    }
+
+    .Login-Form-Action-Button-Recover-Password {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+
 }

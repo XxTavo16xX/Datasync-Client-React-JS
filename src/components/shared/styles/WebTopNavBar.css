@@ -1,4 +1,4 @@
-.Web-Top-Nav-Bar{
+.Web-Top-Nav-Bar {
     width: 100%;
     height: 60px;
     display: flex;
@@ -8,7 +8,7 @@
     z-index: 999;
 }
 
-.Web-Top-Nav-Bar-Container{
+.Web-Top-Nav-Bar-Container {
     width: 90%;
     height: 100%;
     display: flex;
@@ -16,7 +16,7 @@
     align-items: center;
 }
 
-.Web-Top-Nav-Bar-Logo-Container{
+.Web-Top-Nav-Bar-Logo-Container {
     width: auto;
     height: 100%;
     display: flex;
@@ -24,7 +24,7 @@
     align-items: center;
 }
 
-.Web-Top-Nav-Bar-Container-Logo-Icon-Container{
+.Web-Top-Nav-Bar-Container-Logo-Icon-Container {
     width: 60px;
     height: 60px;
     display: flex;
@@ -32,14 +32,14 @@
     align-items: center;
 }
 
-.Web-Top-Nav-Bar-Logo-App-Name-Label{
+.Web-Top-Nav-Bar-Logo-App-Name-Label {
     font-family: poppinsMedium;
     font-size: 22px;
     color: #000d41;
     margin-left: 5px;
 }
 
-.Web-Top-Nav-Bar-Menu-Container{
+.Web-Top-Nav-Bar-Menu-Container {
     width: 600px;
     height: 100%;
     display: flex;
@@ -47,14 +47,14 @@
     align-items: center;
 }
 
-.Web-Top-Nav-Bar-Menu-Nav{
+.Web-Top-Nav-Bar-Menu-Nav {
     width: 100%;
     height: 25px;
     text-align: center;
     float: left;
 }
 
-.Web-Top-Nav-Bar-Menu-Nav-Ul{
+.Web-Top-Nav-Bar-Menu-Nav-Ul {
     margin: auto;
     width: 100%;
     list-style: none;
@@ -63,13 +63,13 @@
     justify-content: space-evenly;
 }
 
-.Web-Top-Nav-Bar-Menu-Nav-Ul-Li{
+.Web-Top-Nav-Bar-Menu-Nav-Ul-Li {
     display: inline;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.Web-Top-Nav-Bar-Menu-Nav-Ul-Li-Label{
+.Web-Top-Nav-Bar-Menu-Nav-Ul-Li-Label {
     width: 100%;
     color: #000d41;
     font-size: 16px;
@@ -78,4 +78,28 @@
     font-family: poppinsLight;
     font-weight: 300;
     cursor: pointer;
+}
+
+/* * Movile Styles * */
+
+@media screen and (min-width:0px) and (max-width:414px) {
+
+    .Web-Top-Nav-Bar-Container {
+        justify-content: space-between;
+    }
+
+    .Web-Top-Nav-Bar-Container-Logo-Icon-Container {
+        width: 40px;
+        height: 40px;
+    }
+
+    .Web-Top-Nav-Bar-Logo-App-Name-Label {
+        font-size: 18px;
+        margin-left: 1px;
+    }
+
+    .Web-Top-Nav-Bar-Menu-Container {
+        display: none;
+    }    
+
 }

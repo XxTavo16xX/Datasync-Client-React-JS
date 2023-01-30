@@ -3,8 +3,7 @@
 
 import { useContext } from "react";
 import * as LottiePlayer from "@lottiefiles/lottie-player";
-import { MdCheckBoxOutlineBlank } from 'react-icons/md'
-
+import { MdSubject } from "react-icons/md";
 
 // * Modules Required
 
@@ -25,7 +24,7 @@ const WebTopNavBar = () => {
 
         <div className="Web-Top-Nav-Bar">
 
-            <div className="Web-Top-Nav-Bar-Container">
+            <div className="Web-Top-Nav-Bar-Container">                
 
                 <div className="Web-Top-Nav-Bar-Logo-Container">
 
@@ -54,12 +53,23 @@ const WebTopNavBar = () => {
 
                 </div>
 
+                <MenuButton />
 
             </div>
 
         </div>
 
     )
+
+}
+
+const MenuButton = () => {
+
+    return <button className="Header-Lateral-Menu-Button">
+
+        <MdSubject size={20} />
+
+    </button>
 
 }
 
