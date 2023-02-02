@@ -28,6 +28,22 @@ const DatabaseView = () => {
 
                 <TopSearchContainer />
 
+                <div className="Database-View-Results-Table-Container">
+
+                    <div className="Database-View-Results-Table-Background">
+
+
+
+                    </div>
+
+                    <div className="Database-View-Results-Table-Content">
+
+                
+
+                    </div>
+
+                </div>
+
             </div>
 
             <div className="Database-View-Element-View-Container">

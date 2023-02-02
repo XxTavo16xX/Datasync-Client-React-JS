@@ -9,6 +9,28 @@
 .Database-View-Navegation-Container {
     width: 67%;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Database-View-Results-Table-Container {
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+    position: relative;
+}
+
+.Database-View-Results-Table-Background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff6a;
+    backdrop-filter: blur(16.5px);
+    -webkit-backdrop-filter: blur(16.5px);
+    border-radius: 20px;
 }
 
 .Database-View-Element-View-Container {
@@ -28,7 +50,7 @@
     border-radius: 20px;
 }
 
-.Database-View-Element-View-Content{
+.Database-View-Element-View-Content {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -38,7 +60,7 @@
     align-items: center;
 }
 
-.Database-View-Element-View-Content-Clear-Label{
+.Database-View-Element-View-Content-Clear-Label {
     font-family: poppinsMedium;
     font-size: 14px;
     color: #000d41;
