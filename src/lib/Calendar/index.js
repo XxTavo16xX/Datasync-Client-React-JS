@@ -2,7 +2,6 @@
 // * This function will return the date in a human format of numberDay, MonthName, numberYear in spanish
 
 const monthNamesList = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-const WeekDaysNameList = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
 export const getDateInHumanFormatByTimestamp = (timestamp) => {
 
@@ -22,6 +21,14 @@ export const getCurrentDateInHumanFormat = () => {
 
 }
 
+export const getMonthAndYearInHumandFormat = () => {
+
+    const date = new Date(Date.now())
+
+    return monthNamesList[date.getMonth()] + ' de ' + date.getFullYear()
+
+}
+
 export const getWeekDateInHumanFormat = (timestamp) => {
 
     if (!timestamp) return 'Domingo 01 de Enero'
@@ -29,5 +36,25 @@ export const getWeekDateInHumanFormat = (timestamp) => {
     const date = new Date(timestamp);
 
     return date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
+
+}
+
+export const getWeekDayNameByDate = (date) => {
+
+    if (!date) return 'Domingo 01 de Enero'
+
+    return date.toLocaleDateString('es-ES', { weekday: 'long' });
+
+}
+
+export const getDaysInCurrentMonth = (year, month) => {
+
+    const currentDate = new Date(year, month, 1);
+    const days = [];
+    while (currentDate.getMonth() === month) {
+        days.push(new Date(currentDate));
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return days;
 
 }

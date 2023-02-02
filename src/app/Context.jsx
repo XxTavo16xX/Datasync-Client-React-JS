@@ -11,7 +11,7 @@ const AppContext = React.createContext();
 const defaultContext = {
     app: {
         app_name: 'Datasync',
-        current_view: 'Dashboard',
+        current_view: 'Calendario',
         workspace: 'Personal',
         database: {
             default_collection: 'Ordenes',
@@ -23,7 +23,7 @@ const defaultContext = {
         }
     },
     user: {
-        is_session_created: false,
+        is_session_created: true,
         user_name: '',
         user_profile_photo_url: '/src/assets/images/defaultUser.png',
         user_gender: 'M'

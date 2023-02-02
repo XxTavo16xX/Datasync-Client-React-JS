@@ -18,6 +18,7 @@ import SideNavBar from '../components/shared/SideNavBar'
 
 import DashboardView from '../views/dashboard_view'
 import ChatView from '../views/chat_view'
+import CalendarView from '../views/calendar_view'
 import DatabaseView from '../views/database_view'
 import SafetyBoxView from "../views/safetybox_view";
 
@@ -50,6 +51,7 @@ const AppView = () => {
 
                         <DashboardView />
                         <ChatView />
+                        <CalendarView />
                         <DatabaseView />
                         <SafetyBoxView />
 
