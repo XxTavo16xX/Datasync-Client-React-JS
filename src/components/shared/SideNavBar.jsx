@@ -1,7 +1,7 @@
 
 // * Dependencies Required 
 
-import { MdDashboard, MdChat, MdChromeReaderMode, MdViewSidebar, MdAutoAwesomeMotion, MdList } from "react-icons/md";
+import { MdDashboard, MdChat, MdChromeReaderMode, MdViewSidebar, MdDescription, MdAutoAwesomeMotion, MdList } from "react-icons/md";
 import { AiFillCalendar } from "react-icons/ai";
 import React, { useContext } from 'react';
 
@@ -13,7 +13,7 @@ import { AppContext } from '../../app/Context';
 
 import './styles/SideNavBar.css'
 
-const views = ['Dashboard', 'Chat', 'Calendario', 'Base de datos', 'Caja Segura', 'Respaldos', 'Tareas Pendientes']
+const views = ['Dashboard', 'Chat', 'Calendario', 'Base de datos', 'Documentos', 'Caja Segura', 'Respaldos', 'Tareas Pendientes']
 
 // * View to return
 
@@ -119,6 +119,7 @@ const MenuOptionIcon = (menuOptionName) => {
         case 'Chat': return <MdChat size={24} color={'#06113C'} />
         case 'Calendario': return <AiFillCalendar size={24} color={'#06113C'} />
         case 'Base de datos': return <MdChromeReaderMode size={24} color={'#06113C'} />
+        case 'Documentos': return <MdDescription size={24} color={'#06113C'} />
         case 'Caja Segura': return <MdViewSidebar size={24} color={'#06113C'} />
         case 'Respaldos': return <MdAutoAwesomeMotion size={24} color={'#06113C'} />
         case 'Tareas Pendientes': return <MdList size={24} color={'#06113C'} />
