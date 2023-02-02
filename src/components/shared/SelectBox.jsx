@@ -14,8 +14,6 @@ import './styles/SelectBox.css'
 
 const SelectBox = ({defaultOption, optionsList}) => {
 
-    console.log(defaultOption);
-
     return (
 
         <div className="SelectBox-Container">

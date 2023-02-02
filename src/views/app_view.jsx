@@ -17,8 +17,9 @@ import TopNavBar from '../components/shared/TopNavBar'
 import SideNavBar from '../components/shared/SideNavBar'
 
 import DashboardView from '../views/dashboard_view'
-import SafetyBoxView from "../views/safetybox_view";
 import ChatView from '../views/chat_view'
+import DatabaseView from '../views/database_view'
+import SafetyBoxView from "../views/safetybox_view";
 
 // * view to Return
 
@@ -48,8 +49,9 @@ const AppView = () => {
                     <div className="App-Content-Margin">
 
                         <DashboardView />
-                        <SafetyBoxView />
                         <ChatView />
+                        <DatabaseView />
+                        <SafetyBoxView />
 
                     </div>
 
