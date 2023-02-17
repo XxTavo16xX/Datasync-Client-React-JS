@@ -16,7 +16,7 @@ import './index.css'
 
 import NotificationWidget from './components/shared/NotificationWidget'
 
-import LoginView from './components/Login'
+import LoginView from './views/login_view'
 import AppView from './views/app_view'
 
 // * view to Return
