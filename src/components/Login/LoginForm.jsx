@@ -2,6 +2,7 @@
 // * Dependencies Required 
 
 import { useContext } from "react";
+import { MdVisibility } from 'react-icons/md'
 
 // * Modules Required
 
@@ -19,9 +20,16 @@ import CheckBoxButton from '../shared/CheckBoxButton';
 
 const LoginForm = () => {
 
+    const switchPasswordVisibility = () => {
+
+        if (document.getElementById('Login-Form-Password-Input').type == 'password') return document.getElementById('Login-Form-Password-Input').type = 'text'
+        if (document.getElementById('Login-Form-Password-Input').type == 'text') return document.getElementById('Login-Form-Password-Input').type = 'password'
+
+    }
+
     const errorHandler = (handlerAction, handlerID, handlerMessage) => {
 
-        if(handlerAction == 'set'){
+        if (handlerAction == 'set') {
 
             const InputContainer = document.getElementById(handlerID + '-Input-Container')
             const InputErrorLabel = document.getElementById(handlerID + '-Input-Error-Label')
@@ -32,7 +40,7 @@ const LoginForm = () => {
             return
         }
 
-        if(handlerAction == 'clear'){
+        if (handlerAction == 'clear') {
 
             const InputContainer = document.getElementById(handlerID + '-Input-Container')
             const InputErrorLabel = document.getElementById(handlerID + '-Input-Error-Label')
@@ -52,12 +60,12 @@ const LoginForm = () => {
 
         // * Input Verification
 
-        if(!userEmail) return errorHandler('set', 'Email', 'Escribe tu correo electronico')
-        if(!userEmail.includes('@') || !userEmail.includes('.')) return errorHandler('set', 'Email', 'Escribe un correo valido')
-        if(userEmail.length < 5 ) return errorHandler('set', 'Email', 'Escribe un correo valido')
+        if (!userEmail) return errorHandler('set', 'Email', 'Escribe tu correo electronico')
+        if (!userEmail.includes('@') || !userEmail.includes('.')) return errorHandler('set', 'Email', 'Escribe un correo valido')
+        if (userEmail.length < 5) return errorHandler('set', 'Email', 'Escribe un correo valido')
 
-        if(userPassword.length < 8 ) return errorHandler('set', 'Password', 'Tu contraseña debe tener minimo 8 caracteres')
-        
+        if (userPassword.length < 8) return errorHandler('set', 'Password', 'Tu contraseña debe tener minimo 8 caracteres')
+
     }
 
     return (
@@ -74,9 +82,15 @@ const LoginForm = () => {
 
             <p className="Login-Input-Error-Label" id="Email-Input-Error-Label"></p>
 
-            <div className="Login-Form-Input-Container" id="Password-Input-Container" onClick={() => { errorHandler('clear', 'Password') }}>
+            <div className="Login-Form-Input-Container Password-Changes" id="Password-Input-Container" onClick={() => { errorHandler('clear', 'Password') }}>
 
                 <input className="Login-Form-Input-Container-Input" id="Login-Form-Password-Input" type="password" placeholder="Ingresa tu Contraseña" />
+
+                <div className="Login-Form-Password-Text-Switch" onClick={switchPasswordVisibility}>
+
+                    <MdVisibility size={18} color='#000d41' />
+
+                </div>
 
             </div>
 

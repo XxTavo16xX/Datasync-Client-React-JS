@@ -25,6 +25,12 @@
     overflow: hidden;
 }
 
+.Password-Changes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .Login-Form-Input-Container-Input {
     width: 100%;
     height: 100%;
@@ -37,7 +43,20 @@
     padding-left: 10px;
 }
 
-.Login-Input-Error-Label{
+.Input-Password-Changes {
+    width: calc(100% - 50px);
+}
+
+.Login-Form-Password-Text-Switch{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Login-Input-Error-Label {
     width: 100%;
     font-family: poppinsLight;
     font-size: 14px;
@@ -65,7 +84,7 @@
     font-family: poppinsMedium;
     font-size: 12px;
     color: #000d41;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 .Login-Form-Action-Button-Login {
