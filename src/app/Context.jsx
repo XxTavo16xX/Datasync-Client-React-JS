@@ -26,7 +26,8 @@ const defaultContext = {
         is_session_created: false,
         user_name: '',
         user_profile_photo_url: '/src/assets/images/defaultUser.png',
-        user_gender: 'M'
+        user_gender: 'M',
+        user_Token: ''
     }
 }
 

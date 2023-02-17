@@ -17,11 +17,11 @@
 }
 
 .Login-Form-Input-Container {
-    width: 100%;
+    width: calc(100% - 2px);
     height: 40px;
     background-color: #dfe5ff;
     border-radius: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     overflow: hidden;
 }
 
@@ -35,6 +35,14 @@
     font-size: 14px;
     color: #000d41;
     padding-left: 10px;
+}
+
+.Login-Input-Error-Label{
+    width: 100%;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #ff150d;
+    margin-bottom: 15px;
 }
 
 .Login-Form-Action-Button-Container {
