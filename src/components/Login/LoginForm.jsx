@@ -7,6 +7,7 @@ import { MdVisibility } from 'react-icons/md'
 // * Modules Required
 
 import { AppContext } from "../../app/Context";
+import { sendLoginRequest } from "../../services/auth";
 
 // * view Styles
 
@@ -19,6 +20,8 @@ import CheckBoxButton from '../shared/CheckBoxButton';
 // * view to Return
 
 const LoginForm = () => {
+
+    const { context, setContext } = useContext(AppContext);
 
     const switchPasswordVisibility = () => {
 
@@ -53,7 +56,7 @@ const LoginForm = () => {
 
     }
 
-    const loginUser = () => {
+    const loginUser = async () => {
 
         const userEmail = document.getElementById('Login-Form-Email-Input').value
         const userPassword = document.getElementById('Login-Form-Password-Input').value
@@ -66,6 +69,22 @@ const LoginForm = () => {
 
         if (userPassword.length < 8) return errorHandler('set', 'Password', 'Tu contraseña debe tener minimo 8 caracteres')
 
+        const requestResponse = await sendLoginRequest(userEmail, userPassword)
+
+        if(requestResponse.message == "Account not found") return errorHandler('set','Email','Verifica tu correo')
+
+        if(requestResponse.message == "Password Incorrect") return errorHandler('set','Password','Verifica tu contraseña')
+
+        // * If Login Request is complete successfully the user token must be saved in local
+
+        if(requestResponse.message == "user Authentication complete") {
+
+            const userTOKEN = requestResponse.jwt
+
+            setContext({ user: { ...context.user, user_Token: userTOKEN, is_session_created: true }, app: { ...context.app } })
+
+        }
+        
     }
 
     return (
