@@ -15,6 +15,7 @@ import '../styles/Login_view.css'
 
 import WebTopNavBar from '../../components/shared/WebTopNavBar'
 import LoginForm from '../../components/Login/LoginForm'
+import RegisterForm from "../../components/Login/RegisterForm";
 
 // * view to Return
 
@@ -68,7 +69,12 @@ const LoginView = () => {
 
                                 </div>
 
-                                <LoginForm />
+                                <div className="Login-Forms-Container" id="Login-Forms-Container">
+
+                                    <LoginForm/>
+                                    <RegisterForm/>
+
+                                </div>
 
                             </div>
 

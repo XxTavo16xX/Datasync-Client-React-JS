@@ -71,20 +71,34 @@ const LoginForm = () => {
 
         const requestResponse = await sendLoginRequest(userEmail, userPassword)
 
-        if(requestResponse.message == "Account not found") return errorHandler('set','Email','Verifica tu correo')
+        if (requestResponse.message == "Account not found") return errorHandler('set', 'Email', 'Verifica tu correo')
 
-        if(requestResponse.message == "Password Incorrect") return errorHandler('set','Password','Verifica tu contraseña')
+        if (requestResponse.message == "Password Incorrect") return errorHandler('set', 'Password', 'Verifica tu contraseña')
 
         // * If Login Request is complete successfully the user token must be saved in local
 
-        if(requestResponse.message == "user Authentication complete") {
+        if (requestResponse.message == "user Authentication complete") {
 
             const userTOKEN = requestResponse.jwt
 
             setContext({ user: { ...context.user, user_Token: userTOKEN, is_session_created: true }, app: { ...context.app } })
 
         }
-        
+
+    }
+
+    const displayRegisterForm = () => {
+
+        const authContainer = document.getElementById('Login-Forms-Container')
+
+        authContainer.style.opacity = 0
+
+        setTimeout(() => {
+            
+            authContainer.scrollLeft = authContainer.offsetWidth / 1 + 20;
+            authContainer.style.opacity = 1
+
+        }, 300)
     }
 
     return (
@@ -127,11 +141,13 @@ const LoginForm = () => {
 
                 <button className="Login-Form-Action-Button-Login" onClick={loginUser}>Iniciar Sesion</button>
 
-                <button className="Login-Form-Action-Button-Register">Unirme</button>
+                <button className="Login-Form-Action-Button-Register" onClick={displayRegisterForm} >Unirme</button>
 
             </div>
 
         </div>
+
+
 
     )
 
