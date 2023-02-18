@@ -1,12 +1,9 @@
 
 // * Dependencies Required 
 
-import { useContext } from "react";
 import { MdVisibility, MdArrowBackIos } from 'react-icons/md'
 
 // * Modules Required
-
-import { AppContext } from "../../app/Context";
 
 // * view Styles
 
@@ -17,41 +14,6 @@ import './styles/RegisterForm.css'
 // * view to Return
 
 const RegisterForm = () => {
-
-    const { context, setContext } = useContext(AppContext);
-
-    const switchPasswordVisibility = () => {
-
-        if (document.getElementById('Register-Form-Password-Input').type == 'password') return document.getElementById('Register-Form-Password-Input').type = 'text'
-        if (document.getElementById('Register-Form-Password-Input').type == 'text') return document.getElementById('Register-Form-Password-Input').type = 'password'
-
-    }
-
-    const errorHandler = (handlerAction, handlerID, handlerMessage) => {
-
-        if (handlerAction == 'set') {
-
-            const InputContainer = document.getElementById(handlerID + '-Input-Container')
-            const InputErrorLabel = document.getElementById(handlerID + '-Input-Error-Label')
-
-            InputContainer.style.border = '1px solid #ff150d'
-            InputErrorLabel.innerText = handlerMessage
-
-            return
-        }
-
-        if (handlerAction == 'clear') {
-
-            const InputContainer = document.getElementById(handlerID + '-Input-Container')
-            const InputErrorLabel = document.getElementById(handlerID + '-Input-Error-Label')
-
-            InputContainer.style.border = '0px solid #ff150d'
-            InputErrorLabel.innerText = ''
-
-            return
-        }
-
-    }
 
     const displayLoginForm = () => {
 
@@ -68,13 +30,69 @@ const RegisterForm = () => {
 
     }
 
+    const switchPasswordVisibility = () => {
+
+        if (document.getElementById('Register-Form-Password-Input').type == 'password') return document.getElementById('Register-Form-Password-Input').type = 'text'
+        if (document.getElementById('Register-Form-Password-Input').type == 'text') return document.getElementById('Register-Form-Password-Input').type = 'password'
+
+    }
+
+    const registerUser = () => {
+
+        const userName = document.getElementById('Register-Form-Name-Input').value
+        const userSurnames = document.getElementById('Register-Form-Surnames-Input').value
+        const userEmail = document.getElementById('Register-Form-Email-Input').value
+        const userPassword = document.getElementById('Register-Form-Password-Input').value
+
+        // * Input validation
+
+        if(!userName) return errorHandler('set','Name')
+        if(userName.length < 2 ) return errorHandler('set','Name')
+
+        if(!userSurnames) return errorHandler('set','Surnames')
+        if(userSurnames.length < 3) return errorHandler('set','Surnames')
+
+        if(!userEmail) return errorHandler('set','Email')
+        if(!userEmail.includes('@') || !userEmail.includes('.') ) return errorHandler('set','Email')
+        if(userEmail.length < 6) return errorHandler('set','Email')
+        
+        if(!userPassword) return errorHandler('set','Password')
+        if(userPassword.length < 8) return errorHandler('set','Password')
+
+        // * Fetching Request
+
+
+    }
+
+    const errorHandler = (handlerAction, handlerID) => {
+
+        if (handlerAction == 'set') {
+
+            const InputContainer = document.getElementById('Register-' + handlerID + '-Input-Container')
+            InputContainer.style.border = '1px solid #ff150d'
+            return
+
+        }
+
+        if (handlerAction == 'clear') {
+
+            const InputContainer = document.getElementById('Register-' + handlerID + '-Input-Container')
+            InputContainer.style.border = '0px solid #ff150d'
+            return
+
+        }
+
+    }
+
+    
+
     return (
 
         <div className="Register-View-Content-Form-Containet-Content" id="Register-View-Container">
 
             <div className="Register-View-Form-Top-Container">
 
-                <div className="Register-View-Form-Top-Back-Button" onClick={displayLoginForm}>
+                <div className="Register-View-Form-Top-Back-Button" onClick={ displayLoginForm }>
 
                     <MdArrowBackIos size={18} color='#000d41' />
 
@@ -90,13 +108,13 @@ const RegisterForm = () => {
 
                 <div className="Register-View-Form-Name-Container">
 
-                    <div className="Register-Form-Name-Input-Container" id="Register-Name-Input-Container">
+                    <div className="Register-Form-Name-Input-Container" id="Register-Name-Input-Container" onClick={ () => { errorHandler('clear','Name', '') } }>
 
                         <input className="Register-Form-Input" id="Register-Form-Name-Input" type="text" placeholder="Nombre" />
 
                     </div>
 
-                    <div className="Register-Form-Name-Input-Container" id="Register-Surnames-Input-Container">
+                    <div className="Register-Form-Name-Input-Container" id="Register-Surnames-Input-Container" onClick={ () => { errorHandler('clear','Surnames', '') } }>
 
                         <input className="Register-Form-Input" id="Register-Form-Surnames-Input" type="text" placeholder="Apellido" />
 
@@ -104,17 +122,17 @@ const RegisterForm = () => {
 
                 </div>
 
-                <div className="Register-Form-Input-Container" id="Register-Email-Input-Container">
+                <div className="Register-Form-Input-Container" id="Register-Email-Input-Container" onClick={ () => { errorHandler('clear','Email', '') } }>
 
                     <input className="Register-Form-Input" id="Register-Form-Email-Input" type="text" placeholder="Correo electronico" />
 
                 </div>
 
-                <div className="Register-Form-Input-Container Password-Changes" id="Register-Password-Input-Container">
+                <div className="Register-Form-Input-Container Password-Changes" id="Register-Password-Input-Container" onClick={ () => { errorHandler('clear','Password', '') } }>
 
                     <input className="Register-Form-Input" id="Register-Form-Password-Input" type="password" placeholder="Nueva Contraseña" />
 
-                    <div className="Login-Form-Password-Text-Switch" onClick={switchPasswordVisibility}>
+                    <div className="Login-Form-Password-Text-Switch" onClick={ switchPasswordVisibility }>
 
                         <MdVisibility size={18} color='#000d41' />
 
@@ -124,7 +142,7 @@ const RegisterForm = () => {
 
                 <div className="Register-Form-Join-Now-Button">
 
-                    <p className="Register-Form-Button-Label">Crear cuenta</p>
+                    <p className="Register-Form-Button-Label" onClick={ registerUser }>Crear cuenta</p>
 
                 </div>
 

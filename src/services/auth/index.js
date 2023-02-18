@@ -21,13 +21,10 @@ export const sendLoginRequest = (userEmail, userPassword) => {
             },
             body: JSON.stringify(requestBody)
         });
-        
+
         resolve(await rawResponse.json())
 
 
     })
-
-
-
 
 }
