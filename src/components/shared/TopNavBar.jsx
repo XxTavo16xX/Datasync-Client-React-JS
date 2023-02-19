@@ -14,7 +14,7 @@ const TopNavBar = ({currentViewName}) => {
         <MenuButton />
         <Logo appName={context.app.app_name} />
         <ViewInfo current_workspace={ context.app.workspace } current_view_name={ context.app.current_view }/>
-        <UserContainer />
+        <UserContainer userName={context.user.user_display_name} user_profile_photo_url={context.user.user_profile_photo_url} />
 
     </div>
 
@@ -65,19 +65,19 @@ const ViewInfo = ({current_view_name, current_workspace}) => {
 
 }
 
-const UserContainer = () => {
+const UserContainer = ({userName, user_profile_photo_url}) => {
 
     return <div className="Header-User-Container">
 
         <div className="User-Container">
 
-            <div className="User-Photo-Container">
+            <div className="User-Photo-Container">                
 
-                <img src="https://scontent.webdesignnodes.com/datasync_dev/images/me.jpg" />
+                <img src={ user_profile_photo_url != 'defaultApp' ? user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png' } />
 
             </div>
 
-            <p className="User-Name-Label">Armando Peralta</p>
+            <p className="User-Name-Label">{userName}</p>
 
             <button className="User-Options-Button">
 
