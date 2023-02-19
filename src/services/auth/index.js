@@ -41,7 +41,7 @@ export const sendRegisterRequest = (userEmail, userPassword, userName, userSurna
         const requestBody = {
             userEmail: userEmail,
             userPassword: userPassword,
-            userName: userName + '-' + userSurnames
+            userName: userName + ' ' + userSurnames
         }
 
         const rawResponse = await fetch(APIBASEURL + 'api/v1/auth/signup/saveNewUser', {

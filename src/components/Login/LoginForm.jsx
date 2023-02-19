@@ -81,7 +81,7 @@ const LoginForm = () => {
 
             const userTOKEN = requestResponse.jwt
 
-            setContext({ user: { ...context.user, user_Token: userTOKEN, is_session_created: true }, app: { ...context.app } })
+            setContext({ user: { ...context.user, user_Token: userTOKEN, is_session_created: true, user_display_name: requestResponse.userDName, user_profile_photo_url: requestResponse.userPPURL, user_Workspace_Connection_ID: requestResponse.userWorkspacesID }, app: { ...context.app } })
 
         }
 
