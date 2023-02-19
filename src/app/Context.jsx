@@ -26,8 +26,7 @@ const defaultContext = {
         is_session_created: false,
         user_name: '',
         user_profile_photo_url: '/src/assets/images/defaultUser.png',
-        user_gender: 'M',
-        user_Token: ''
+        user_gender: 'M'
     }
 }
 
@@ -37,9 +36,13 @@ const AppProvider = (props) => {
 
     const localContext = localStorage.getItem('localContext')
 
-    // * In case there´s no context app saved into the localStorage the defaultContext will be returned
+    // * In case there´s no context app saved into the localStorage the defaultContext will be saved and returned
 
-    if (!localContext) {
+    if (localContext == null) {
+
+        // * Saving defaultContext in localStorage
+
+        localStorage.setItem('localContext', JSON.stringify(defaultContext))
 
         const [context, setContext] = React.useState(defaultContext);
 
@@ -53,11 +56,17 @@ const AppProvider = (props) => {
 
     }
 
-    // * Setting default context
+    // * Returning local context into appContext
 
-    // ! Must improve context by saving it into the local Storage, in case there´s no data must set the default context
+    const [context, setContext] = React.useState(JSON.parse(localContext));
 
+    return (
+        <AppContext.Provider value={{ context, setContext }}>
 
+            {props.children}
+
+        </AppContext.Provider>
+    )
 
 }
 
