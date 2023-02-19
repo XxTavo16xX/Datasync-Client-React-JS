@@ -10,8 +10,19 @@
     font-size: 28px;
     color: #000d41;
     margin-top: 10%;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     cursor: default;
+}
+
+.Login-View-Content-Form-Content-Subtitle-Label {
+    margin: auto;
+    width: 100%;
+    font-family: poppinsLight;
+    font-size: 15px;
+    color: #000d41;
+    margin-bottom: 15px;
+    cursor: default;
+    display: none;
 }
 
 .Login-Form-Input-Container {

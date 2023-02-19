@@ -65,7 +65,7 @@
 }
 
 .Register-Form-Input-Container{
-    width: 100%;
+    width: calc(100% - 2px);
     height: 40px;
     background-color: #dfe5ff;
     border-radius: 15px;

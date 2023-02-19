@@ -69,7 +69,7 @@ const LoginForm = () => {
 
         if (userPassword.length < 8) return errorHandler('set', 'Password', 'Tu contraseña debe tener minimo 8 caracteres')
 
-        const requestResponse = await sendLoginRequest(userEmail, userPassword)
+        const requestResponse = await sendLoginRequest(userEmail.toLowerCase(), userPassword)
 
         if (requestResponse.message == "Account not found") return errorHandler('set', 'Email', 'Verifica tu correo')
 
@@ -106,6 +106,8 @@ const LoginForm = () => {
         <div className="Login-View-Content-Form-Container-Content">
 
             <p className="Login-View-Content-Form-Content-Title-Label">Inicia Sesion</p>
+            
+            <p className="Login-View-Content-Form-Content-Subtitle-Label" id="Login-View-Content-Form-Content-Subtitle-Label">Haz creado tu cuenta correctamente.<br/>Ahora inicia sesion para continuar.</p>
 
             <div className="Login-Form-Input-Container" id="Email-Input-Container" onClick={() => { errorHandler('clear', 'Email') }}>
 
