@@ -34,38 +34,24 @@ const defaultContext = {
     }
 }
 
+const localContext = JSON.parse(localStorage.getItem('localContext'))
+
+if (!localContext) {
+    localStorage.setItem('localContext', JSON.stringify(defaultContext));
+}
+
 const AppProvider = (props) => {
 
-    // * Getting context from LocalStorage
+    const [context, updateReactContext] = React.useState(localContext || defaultContext);
 
-    const localContext = localStorage.getItem('localContext')
-
-    // * In case there´s no context app saved into the localStorage the defaultContext will be saved and returned
-
-    if (localContext == null) {
-
-        // * Saving defaultContext in localStorage
-
-        localStorage.setItem('localContext', JSON.stringify(defaultContext))
-
-        const [context, setContext] = React.useState(defaultContext);
-
-        return (
-            <AppContext.Provider value={{ context, setContext }}>
-
-                {props.children}
-
-            </AppContext.Provider>
-        )
-
+    const setContext = (newContext) => {
+     
+        localStorage.setItem('localContext', JSON.stringify(newContext))
+        updateReactContext(newContext)
     }
 
-    // * Returning local context into appContext
-
-    const [context, setContext] = React.useState(JSON.parse(localContext));
-
     return (
-        <AppContext.Provider value={{ context, setContext }}>
+        <AppContext.Provider value={{ context, setContext  }}>
 
             {props.children}
 
