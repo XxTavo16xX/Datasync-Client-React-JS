@@ -12,19 +12,23 @@ const defaultContext = {
     app: {
         app_name: 'Datasync',
         current_view: 'Dashboard',
-        workspace: 'Personal',
-        database: {
-            default_collection: 'Ordenes',
-            save_element_form_is_displayed: false
-        },
-        safetybox: {
-            password_generator_is_displayed: true,
-            password_generator_save_password: false
+        worksapce: {
+            name: 'Personal',
+            database: {
+                databaseConnections: [],
+                databaseDefaultConnection: '',
+            },
+            safetybox: {
+                cryptoBoxConnections: [],
+                cryptoBoxDefaultConnection: ''
+            }
         }
     },
     user: {
         is_session_created: false,
-        user_name: '',
+        user_Token: '',
+        user_Workspace_Connection_ID: [],
+        user_display_name: '',
         user_profile_photo_url: '/src/assets/images/defaultUser.png',
         user_gender: 'M'
     }
