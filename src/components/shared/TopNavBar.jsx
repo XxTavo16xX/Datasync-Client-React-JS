@@ -42,23 +42,35 @@ const Logo = ({ appName }) => {
 
 const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
-    const datafetched = [{ id: 'AsdawdWdWd', name: 'Copinsa' }, { id: 'AsdawdWaskdjalsk', name: 'PayAll Simulator' }]
+    const datafetched = [{ id: 'AsdawdWdWd', name: 'Label Name' }, { id: 'AsdawdWaskdjalsk', name: 'Label Name' }]
 
-    const workspaceConnections = () => {
+    const displayWorkspaceConnectionList = () => {
 
-        document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.display = 'block'
+        const workspaceListContainer = document.getElementById('Header-Account-Workspaces-Connected-List-Container')
 
-        setTimeout(() => {
-            
-            document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.height = '120px'
+        if (workspaceListContainer.style.display == '' || workspaceListContainer.style.display == 'none') {
 
-        }, 300)
+            workspaceListContainer.style.display = 'block'
+
+            setTimeout(() => { document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.height = '120px' }, 10)
+
+            return
+
+        } else if (workspaceListContainer.style.display == 'block') {
+
+            document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.height = '0px'
+
+            setTimeout(() => { document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.display = 'none' }, 300)
+
+            return
+
+        }
 
     }
 
     return <div className="Header-View-Info-Container">
 
-        <div className="Header-Account-Workspace-Selector" onClick={workspaceConnections}>
+        <div className="Header-Account-Workspace-Selector" onClick={displayWorkspaceConnectionList}>
 
             <div className="Header-Account-Current-Workspace-Container">
 
@@ -66,6 +78,7 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
                 <div className="Header-Account-Workspace-Button">
 
+                    
                     <MdKeyboardArrowDown color="ffffff" size={24} style={{ marginLeft: 10, marginTop: 3 }} />
 
                 </div>
