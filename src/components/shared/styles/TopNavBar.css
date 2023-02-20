@@ -9,6 +9,7 @@
     justify-content: flex-start;
     align-items: center;
     transition: .3s;
+    overflow: visible;
 }
 
 .Header-Lateral-Menu-Button {
@@ -38,35 +39,76 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    overflow: visible;
 }
 
 .Header-Account-Workspace-Selector{
     width: auto;
     height: auto;
+    position: relative;
+    overflow: visible;
+}
+
+.Header-Account-Current-Workspace-Container{
+    width: auto;
+    height: 40px;
     min-height: 40px;
     padding: 0px 15px 0px 15px;
     background-color: #06113c;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     margin-left: 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.Header-Account-Current-Workspace-Container{
-    width: 100%;
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
+.Header-Account-Workspace-List-Option-Label,
 .Header-Account-Workspace-Label{
     font-family: poppinsLight;
     font-size: 14px;
     color: #ffffff;
+    white-space: nowrap;
+}
+
+.Header-Account-Workspace-Button{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header-Account-Workspaces-Connected-List-Container{
+    width: auto;
+    max-width: 500px;
+    height: 0px;
+    position: absolute;
+    z-index: 999;
+    display: none;
+    background-color: #06113c;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-left: 20px;
+    transition: .3s;
+}
+
+.Header-Account-Workpace-List-Option-Container{
+    width: auto;
+    min-height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 15px 0px 15px;
+    cursor: pointer;
+}
+
+.Workpace-List-Option-New{
+    justify-content: space-around;
+}
+
+.Workpace-List-Option-New .Header-Account-Workspace-List-Option-Label{
+    margin-right: 15px;
 }
 
 .Header-Current-View-Label{

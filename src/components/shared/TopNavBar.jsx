@@ -1,4 +1,4 @@
-import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos } from "react-icons/md";
+import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos, MdAdd } from "react-icons/md";
 
 import { useContext } from "react";
 import { AppContext } from '../../app/Context';
@@ -42,8 +42,17 @@ const Logo = ({ appName }) => {
 
 const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
+    const datafetched = [{ id: 'AsdawdWdWd', name: 'Copinsa' }, { id: 'AsdawdWaskdjalsk', name: 'PayAll Simulator' }]
+
     const workspaceConnections = () => {
 
+        document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.display = 'block'
+
+        setTimeout(() => {
+            
+            document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.height = '120px'
+
+        }, 300)
 
     }
 
@@ -61,7 +70,37 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
                 </div>
 
-            </div>            
+            </div>
+
+            <div className="Header-Account-Workspaces-Connected-List-Container" id="Header-Account-Workspaces-Connected-List-Container">
+
+                {
+
+                    datafetched.map(element => {
+
+                        return (
+
+                            <div className="Header-Account-Workpace-List-Option-Container" key={element.id}>
+
+                                <p className="Header-Account-Workspace-List-Option-Label">{element.name}</p>
+
+                            </div>
+
+                        )
+
+                    })
+
+                }
+
+                <div className="Header-Account-Workpace-List-Option-Container Workpace-List-Option-New">
+
+                    <p className="Header-Account-Workspace-List-Option-Label">Crear nuevo workspace</p>
+
+                    <MdAdd size={18} color={'#fff'} />
+
+                </div>
+
+            </div>
 
         </div>
 
