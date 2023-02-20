@@ -5,7 +5,7 @@ import { AppContext } from '../../app/Context';
 
 import './styles/TopNavBar.css'
 
-const TopNavBar = ({currentViewName}) => {
+const TopNavBar = ({ currentViewName }) => {
 
     const { context, setContext } = useContext(AppContext);
 
@@ -13,11 +13,10 @@ const TopNavBar = ({currentViewName}) => {
 
         <MenuButton />
         <Logo appName={context.app.app_name} />
-        <ViewInfo current_workspace={ context.app.workspace } current_view_name={ context.app.current_view }/>
+        <ViewInfo current_workspace_name={context.app.worksapce.name} current_view_name={context.app.current_view} />
         <UserContainer userName={context.user.user_display_name} user_profile_photo_url={context.user.user_profile_photo_url} />
 
     </div>
-
 
 }
 
@@ -31,7 +30,7 @@ const MenuButton = () => {
 
 }
 
-const Logo = ({appName}) => {
+const Logo = ({ appName }) => {
 
     return <div className="Header-Logo-Container">
 
@@ -41,23 +40,34 @@ const Logo = ({appName}) => {
 
 }
 
-const ViewInfo = ({current_view_name, current_workspace}) => {
+const ViewInfo = ({ current_view_name, current_workspace_name }) => {
+
+    const workspaceConnections = () => {
+
+
+    }
 
     return <div className="Header-View-Info-Container">
 
-        <div className="Header-Account-Workspace-Selector">
+        <div className="Header-Account-Workspace-Selector" onClick={workspaceConnections}>
 
-            <p className="Header-Account-Workspace-Label">{ current_workspace }</p>
+            <div className="Header-Account-Current-Workspace-Container">
 
-            <div className="Header-Account-Workspace-Button">
+                <p className="Header-Account-Workspace-Label">{current_workspace_name}</p>
 
-                <MdKeyboardArrowDown color="ffffff" size={24} style={{ marginLeft: 10, marginTop: 3 }} />
+                <div className="Header-Account-Workspace-Button">
 
-            </div>
+                    <MdKeyboardArrowDown color="ffffff" size={24} style={{ marginLeft: 10, marginTop: 3 }} />
+
+                </div>
+
+            </div>            
 
         </div>
 
-        <MdArrowForwardIos size={18} color={'#06113c74'} style={{marginLeft: '20px'}} />
+
+
+        <MdArrowForwardIos size={18} color={'#06113c74'} style={{ marginLeft: '20px' }} />
 
         <p className="Header-Current-View-Label">{current_view_name}</p>
 
@@ -65,15 +75,15 @@ const ViewInfo = ({current_view_name, current_workspace}) => {
 
 }
 
-const UserContainer = ({userName, user_profile_photo_url}) => {
+const UserContainer = ({ userName, user_profile_photo_url }) => {
 
     return <div className="Header-User-Container">
 
         <div className="User-Container">
 
-            <div className="User-Photo-Container">                
+            <div className="User-Photo-Container">
 
-                <img src={ user_profile_photo_url != 'defaultApp' ? user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png' } />
+                <img src={user_profile_photo_url != 'defaultApp' ? user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
 
             </div>
 
