@@ -7,6 +7,7 @@ import { MdClose } from "react-icons/md";
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
+import { createWorkspaceWithConfig } from "../../services/workspace";
 
 // * view Styles
 
@@ -71,26 +72,36 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
         const addMemberInputContainer = document.getElementById('Workspace-Add-Member-Input-Container')
 
         const newMember = addMemberInput.value;
+
         if (!newMember.includes('@') || !newMember.includes('.')) return addMemberInputContainer.style.border = '1px solid red'
 
-        if (newMember) {
-
-            setWorkspaceMembersList([...workspaceMembersList, newMember]);            
-            addMemberInput.value = ''
-            setTimeout(() => { membersListContainer.scrollTop = membersListContainer.scrollHeight; },100)
+        if (!workspaceMembersList.includes(newMember) && newMember) {
+            setWorkspaceMembersList([...workspaceMembersList, newMember]);
         }
+
+        addMemberInput.value = ''
+        setTimeout(() => { membersListContainer.scrollTop = membersListContainer.scrollHeight; }, 100)
 
     }
 
-    const createWorkspace = () => {
+    const createWorkspace = async () => {
 
-        const workspaceNameInput = document.getElementById('Workspace-Name-Input') 
-        const workspaceNameInputContainer = document.getElementById('Workspace-Name-Input-Container') 
+        const workspaceNameInput = document.getElementById('Workspace-Name-Input')
+        const workspaceNameInputContainer = document.getElementById('Workspace-Name-Input-Container')
 
         const workspaceName = workspaceNameInput.value
 
-        if(!workspaceName) return workspaceNameInputContainer.style.border = '1px solid red'
+        if (!workspaceName) return workspaceNameInputContainer.style.border = '1px solid red'
 
+        const requestResponse = await createWorkspaceWithConfig(context.user.user_Token, workspaceName, workspaceMembersList)
+
+        if (requestResponse.error != 'none') { }
+
+        document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
+
+        setTimeout(() => {
+            setContext({ workspace: { ...context.workspace, name: requestResponse.message.workspaceName }, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user } })
+        },100)
     }
 
     return (
@@ -245,7 +256,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
             </div>
 
-            <div className="Workspace-Create-Button" onClick={ createWorkspace }>
+            <div className="Workspace-Create-Button" onClick={createWorkspace}>
 
                 <p className="Workspace-Create-Button-Label">Crear Workspace</p>
 
