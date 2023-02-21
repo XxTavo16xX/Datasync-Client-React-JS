@@ -46,6 +46,9 @@ const CalendarView = () => {
 
                         daysInMonth.map((element) => {
 
+                            const currentDate = new Date();
+                            const currentDateDay = currentDate.getDate();
+
                             const currentNumberDay = element.getDate()
 
                             return (
@@ -54,9 +57,9 @@ const CalendarView = () => {
 
                                     <div className="Calendar-Day-Margin">
 
-                                        <div className="Calendar-Day-Container-Top-Container">                                            
+                                        <div className="Calendar-Day-Container-Top-Container">
 
-                                            { currentNumberDay == 1 ? <div className="Calendar-Day-Current-Day-Sign"><p className="Calendar-Current-Day-Number-Label">{convertToDisplayNumber(currentNumberDay)}</p></div> : <p className="Calendar-Day-Number-Label">{convertToDisplayNumber(currentNumberDay)}</p>}
+                                            {currentNumberDay == currentDateDay ? <div className="Calendar-Day-Current-Day-Sign"><p className="Calendar-Current-Day-Number-Label">{convertToDisplayNumber(currentNumberDay)}</p></div> : <p className="Calendar-Day-Number-Label">{convertToDisplayNumber(currentNumberDay)}</p>}
 
                                         </div>
 
