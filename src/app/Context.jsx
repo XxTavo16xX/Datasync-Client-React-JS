@@ -13,17 +13,17 @@ const defaultContext = {
         app_name: 'Datasync',
         current_view: 'Dashboard',
         display_workspace_Widget: false,
-        display_create_workspace_view: false,
-        worksapce: {
-            name: 'Personal',
-            database: {
-                databaseConnections: [],
-                databaseDefaultConnection: '',
-            },
-            safetybox: {
-                cryptoBoxConnections: [],
-                cryptoBoxDefaultConnection: ''
-            }
+        display_create_workspace_view: false,        
+    },
+    worksapce: {
+        name: 'Personal',
+        database: {
+            databaseConnections: [],
+            databaseDefaultConnection: '',
+        },
+        safetybox: {
+            cryptoBoxConnections: [],
+            cryptoBoxDefaultConnection: ''
         }
     },
     user: {
