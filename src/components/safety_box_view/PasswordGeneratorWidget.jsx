@@ -54,8 +54,8 @@ const PasswordGeneratorWidget = () => {
 
         e.preventDefault()
 
-        if(context.app.safetybox.password_generator_save_password === false ) return setContext({ app: { ...context.app, safetybox: {...context.app.safetybox, password_generator_save_password: true} }, user: { ...context.user } })
-        if(context.app.safetybox.password_generator_save_password === true ) return setContext({ app: { ...context.app, safetybox: {...context.app.safetybox, password_generator_save_password: false} }, user: { ...context.user } })
+        if(context.app.safetybox.password_generator_save_password === false ) return setContext({ app: { ...context.app, safetybox: {...context.app.safetybox, password_generator_save_password: true} }, workspace: { ...context.workspace}, user: { ...context.user } })
+        if(context.app.safetybox.password_generator_save_password === true ) return setContext({ app: { ...context.app, safetybox: {...context.app.safetybox, password_generator_save_password: false} }, workspace: { ...context.workspace}, user: { ...context.user } })
 
         console.log('done');
 

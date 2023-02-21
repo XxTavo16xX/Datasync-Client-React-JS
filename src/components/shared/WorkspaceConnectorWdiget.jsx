@@ -57,7 +57,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
-        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user } }) }, 300)
+        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, workspace: { ...context.workspace}, user: { ...context.user } }) }, 300)
         return
 
     }
@@ -195,7 +195,7 @@ const JoinWorkspaceView = () => {
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
-        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user } }) }, 300)
+        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, workspace: { ...context.workspace}, user: { ...context.user } }) }, 300)
         return
 
     }

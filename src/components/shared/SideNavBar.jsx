@@ -85,7 +85,7 @@ const MenuOptionContainer = ({ menuOptionName }) => {
 
         if (!viewToDisplay) return
 
-        setContext({ app: { ...context.app, current_view: viewToDisplay }, user: { ...context.user } })
+        setContext({ app: { ...context.app, current_view: viewToDisplay }, workspace: { ...context.workspace}, user: { ...context.user } })
 
     }
 

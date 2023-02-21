@@ -13,7 +13,7 @@ const TopNavBar = () => {
 
         <MenuButton />
         <Logo appName={context.app.app_name} />
-        <ViewInfo current_workspace_name={context.workspacename} current_view_name={context.app.current_view} />
+        <ViewInfo current_workspace_name={context.workspace.name} current_view_name={context.app.current_view} />
         <UserContainer userName={context.user.user_display_name} user_profile_photo_url={context.user.user_profile_photo_url} />
 
     </div>
@@ -74,7 +74,7 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
     const displayCreateWorkspace = () => {
 
-        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: true }, user: { ...context.user } })
+        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: true }, workspace: { ...context.workspace}, user: { ...context.user } })
         setTimeout(() => { document.getElementById('Workspace-Connection-Widget').style.top = '0' }, 10)
         return
 
@@ -82,7 +82,7 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
     const displayWorkspaceJoin = () => {
 
-        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: false }, user: { ...context.user } })
+        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: false }, workspace: { ...context.workspace}, user: { ...context.user } })
         setTimeout(() => { document.getElementById('Workspace-Connection-Widget').style.top = '0' }, 10)
         return
 
