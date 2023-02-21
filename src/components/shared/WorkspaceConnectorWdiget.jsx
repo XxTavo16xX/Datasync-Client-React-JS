@@ -1,7 +1,7 @@
 
 // * Dependencies Required 
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MdClose } from "react-icons/md";
 
 // * Modules Required
@@ -57,8 +57,39 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
-        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, workspace: { ...context.workspace}, user: { ...context.user } }) }, 300)
+        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 300)
         return
+
+    }
+
+    const [workspaceMembersList, setWorkspaceMembersList] = useState([])
+
+    const addMemberToList = () => {
+
+        const addMemberInput = document.getElementById("Workspace-Add-Member-Email-Input")
+        const membersListContainer = document.getElementById('Workspace-Members-List-Container')
+        const addMemberInputContainer = document.getElementById('Workspace-Add-Member-Input-Container')
+
+        const newMember = addMemberInput.value;
+        if (!newMember.includes('@') || !newMember.includes('.')) return addMemberInputContainer.style.border = '1px solid red'
+
+        if (newMember) {
+
+            setWorkspaceMembersList([...workspaceMembersList, newMember]);            
+            addMemberInput.value = ''
+            setTimeout(() => { membersListContainer.scrollTop = membersListContainer.scrollHeight; },100)
+        }
+
+    }
+
+    const createWorkspace = () => {
+
+        const workspaceNameInput = document.getElementById('Workspace-Name-Input') 
+        const workspaceNameInputContainer = document.getElementById('Workspace-Name-Input-Container') 
+
+        const workspaceName = workspaceNameInput.value
+
+        if(!workspaceName) return workspaceNameInputContainer.style.border = '1px solid red'
 
     }
 
@@ -90,7 +121,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
                 <div className="Workpace-Row-Action-Container">
 
-                    <div className="Workspace-Name-Input-Container">
+                    <div className="Workspace-Name-Input-Container" id="Workspace-Name-Input-Container">
 
                         <input className="Workspace-Name-Input" type="text" placeholder="Web Design Nodes" id="Workspace-Name-Input" />
 
@@ -124,7 +155,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
                     </div>
 
-                    <div className="Workspace-Members-List-Container">
+                    <div className="Workspace-Members-List-Container" id="Workspace-Members-List-Container">
 
                         <div className="Workspace-Member-List-Option-Container">
 
@@ -153,17 +184,56 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
                         </div>
 
+                        {
+
+                            workspaceMembersList.map((memberEmail, index) => {
+
+                                return (
+
+                                    <div className="Workspace-Member-List-Option-Container" key={'New-Workspace-Member' + index}>
+
+                                        <div className="Workspace-Member-Table-Member-Container">
+
+                                            <div className="Workspace-Member-Image-Container">
+
+                                                <img src={user_profile_photo_url != 'defaultApp' ? user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+
+                                            </div>
+
+                                            <div className="Workspace-Member-Info-Container">
+
+                                                <p className="Workspace-Member-Info-Name-Label">Miembro Nuevo</p>
+                                                <p className="Workspace-Member-Info-Email-Label">{memberEmail}</p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div className="Workspace-Member-Table-Member-Roles-Container">
+
+                                            <p className="Workspace-Member-Roles-Label">Usuario</p>
+
+                                        </div>
+
+                                    </div>
+
+                                )
+
+                            })
+
+                        }
+
                     </div>
 
                     <div className="Workspace-Add-Member-Container">
 
-                        <div className="Workspace-Add-Member-Input-Container">
+                        <div className="Workspace-Add-Member-Input-Container" id="Workspace-Add-Member-Input-Container">
 
-                            <input className="Workspace-Add-Member-Input" type="text" placeholder="nombre@ejemplo.com" id="Workspace-Name-Input" />
+                            <input className="Workspace-Add-Member-Input" type="text" placeholder="nombre@ejemplo.com" id="Workspace-Add-Member-Email-Input" />
 
                         </div>
 
-                        <div className="Workspace-Add-Member-Button">
+                        <div className="Workspace-Add-Member-Button" onClick={addMemberToList}>
 
                             <p className="Workspace-Add-Member-Button-Label">Agregar</p>
 
@@ -175,7 +245,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
             </div>
 
-            <div className="Workspace-Create-Button">
+            <div className="Workspace-Create-Button" onClick={ createWorkspace }>
 
                 <p className="Workspace-Create-Button-Label">Crear Workspace</p>
 
@@ -195,7 +265,7 @@ const JoinWorkspaceView = () => {
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
-        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, workspace: { ...context.workspace}, user: { ...context.user } }) }, 300)
+        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 300)
         return
 
     }
@@ -216,7 +286,7 @@ const JoinWorkspaceView = () => {
 
             </div>
 
-            
+
         </div>
 
     )

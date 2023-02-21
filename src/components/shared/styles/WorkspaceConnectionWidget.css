@@ -143,10 +143,11 @@
 }
 
 .Workspace-Members-List-Container {
-    width: 100%;
+    width: calc(100% - 2px);
     height: 160px;
     margin-bottom: 20px;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .Workspace-Members-List-Container::-webkit-scrollbar {
@@ -156,6 +157,10 @@
 
 .Workspace-Members-List-Container::-webkit-scrollbar-thumb {
     background: #00eabe;
+}
+
+.Workspace-Member-List-Option-Container:last-child{
+    margin-bottom: 0px;
 }
 
 
