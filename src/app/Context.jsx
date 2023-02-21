@@ -15,7 +15,7 @@ const defaultContext = {
         display_workspace_Widget: false,
         display_create_workspace_view: false,        
     },
-    worksapce: {
+    workspace: {
         name: 'Personal',
         database: {
             databaseConnections: [],

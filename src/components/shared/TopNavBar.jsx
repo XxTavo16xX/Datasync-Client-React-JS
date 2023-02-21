@@ -13,7 +13,7 @@ const TopNavBar = () => {
 
         <MenuButton />
         <Logo appName={context.app.app_name} />
-        <ViewInfo current_workspace_name={context.app.worksapce.name} current_view_name={context.app.current_view} />
+        <ViewInfo current_workspace_name={context.workspacename} current_view_name={context.app.current_view} />
         <UserContainer userName={context.user.user_display_name} user_profile_photo_url={context.user.user_profile_photo_url} />
 
     </div>
