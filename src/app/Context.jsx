@@ -12,6 +12,8 @@ const defaultContext = {
     app: {
         app_name: 'Datasync',
         current_view: 'Dashboard',
+        display_workspace_Widget: false,
+        display_create_workspace_view: false,
         worksapce: {
             name: 'Personal',
             database: {

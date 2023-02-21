@@ -1,0 +1,317 @@
+.Workspace-Connection-Widget {
+    width: 550px;
+    height: 560px;
+    border-radius: 15px;
+    position: absolute;
+    overflow: hidden;
+    z-index: 800;
+    top: -560px;
+    left: 0;
+    transition: .3s;
+}
+
+.Workspace-Connection-Widget-Background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 801;
+    background: #000d41f6;
+    backdrop-filter: blur(16.5px);
+    -webkit-backdrop-filter: blur(16.5px);
+}
+
+.Workspace-Connection-Widget-Content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 802;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Workspace-Connection-Widget-Content-Margin {
+    width: 95%;
+    height: 90%;
+}
+
+.Workspace-Connection-Top-View-Container {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.Workspace-Connection-Top-Back-Button {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Workspace-Widget-View-Title-Label {
+    width: calc(80% - 40px);
+    font-family: poppinsMedium;
+    font-size: 18px;
+    color: #ffffff;
+    cursor: default;
+}
+
+.Workspace-Top-Action-Switch-Join-Button {
+    width: 20%;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Workspace-Switch-Join-Button-Label {
+    font-family: poppinsMedium;
+    font-size: 16px;
+    color: #000d41f6;
+}
+
+.Workspace-Row-Container {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.Workspace-Row-Text-Container {
+    width: 45%;
+    height: 100%;
+}
+
+.Workspace-Row-Title-Label {
+    font-family: poppinsMedium;
+    font-size: 18px;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.Workspace-Row-Subtitle-Label {
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.Workpace-Row-Action-Container {
+    width: 52%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 15px;
+}
+
+.Workspace-Name-Input-Container {
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Workspace-Name-Input {
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #000d41;
+}
+
+.Workspace-Members-Container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.Workspace-Members-List-Container {
+    width: 100%;
+    height: 160px;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+}
+
+.Workspace-Members-List-Container::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff;
+}
+
+.Workspace-Members-List-Container::-webkit-scrollbar-thumb {
+    background: #00eabe;
+}
+
+
+.Workspace-Member-List-Table-Top {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.Workspace-Member-Table-Top-Cell {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Workspace-Roles-Table-Top-Cell {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.Workspace-Member-Table-Top_label {
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.Workspace-Member-List-Option-Container {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.Workspace-Member-Table-Member-Container {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Workspace-Member-Image-Container {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.Workspace-Member-Info-Container {
+    width: calc(100% - 50px);
+}
+
+.Workspace-Member-Info-Name-Label {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.Workspace-Member-Info-Email-Label {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #ffffff
+}
+
+.Workspace-Member-Table-Member-Roles-Container {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+}
+
+.Workspace-Member-Roles-Label {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #ffffff
+}
+
+.Workspace-Add-Member-Container {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Workspace-Add-Member-Input-Container {
+    width: calc(100% - 150px);
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Workspace-Add-Member-Input {
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #000d41;
+}
+
+.Workspace-Add-Member-Button {
+    width: 140px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.Workspace-Create-Button-Label,
+.Workspace-Add-Member-Button-Label{
+    white-space: nowrap;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #000d41   
+}
+
+.Workspace-Create-Button{
+    width: 100%;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #00eabe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    cursor: pointer;
+}

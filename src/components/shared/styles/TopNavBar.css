@@ -86,9 +86,12 @@
     position: absolute;
     z-index: 999;
     display: none;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
     background-color: #06113c;
     border-radius: 5px;
-    margin-top: 15px;
+    margin-top: 20px;
     margin-left: 20px;
     transition: .3s;
 }
@@ -104,7 +107,8 @@
 }
 
 .Workpace-List-Option-New{
-    justify-content: space-around;
+    justify-content: space-between;
+    min-width: 90%;
 }
 
 .Workpace-List-Option-New .Header-Account-Workspace-List-Option-Label{

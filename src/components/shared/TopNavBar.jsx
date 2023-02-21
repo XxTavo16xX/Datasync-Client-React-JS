@@ -5,7 +5,7 @@ import { AppContext } from '../../app/Context';
 
 import './styles/TopNavBar.css'
 
-const TopNavBar = ({ currentViewName }) => {
+const TopNavBar = () => {
 
     const { context, setContext } = useContext(AppContext);
 
@@ -42,6 +42,8 @@ const Logo = ({ appName }) => {
 
 const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
+    const { context, setContext } = useContext(AppContext);
+
     const datafetched = [{ id: 'AsdawdWdWd', name: 'Label Name' }, { id: 'AsdawdWaskdjalsk', name: 'Label Name' }]
 
     const displayWorkspaceConnectionList = () => {
@@ -50,13 +52,15 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
         if (workspaceListContainer.style.display == '' || workspaceListContainer.style.display == 'none') {
 
-            workspaceListContainer.style.display = 'block'
+            workspaceListContainer.style.display = 'flex'
 
-            setTimeout(() => { document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.height = '120px' }, 10)
+            console.log();
+
+            setTimeout(() => { document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.height = [40 * workspaceListContainer.childElementCount] + 'px' }, 10)
 
             return
 
-        } else if (workspaceListContainer.style.display == 'block') {
+        } else if (workspaceListContainer.style.display == 'flex') {
 
             document.getElementById('Header-Account-Workspaces-Connected-List-Container').style.height = '0px'
 
@@ -65,6 +69,22 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
             return
 
         }
+
+    }
+
+    const displayCreateWorkspace = () => {
+
+        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: true }, user: { ...context.user } })
+        setTimeout(() => { document.getElementById('Workspace-Connection-Widget').style.top = '0' }, 10)
+        return
+
+    }
+
+    const displayWorkspaceJoin = () => {
+
+        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: false }, user: { ...context.user } })
+        setTimeout(() => { document.getElementById('Workspace-Connection-Widget').style.top = '0' }, 10)
+        return
 
     }
 
@@ -78,7 +98,7 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
                 <div className="Header-Account-Workspace-Button">
 
-                    
+
                     <MdKeyboardArrowDown color="ffffff" size={24} style={{ marginLeft: 10, marginTop: 3 }} />
 
                 </div>
@@ -105,9 +125,17 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
                 }
 
-                <div className="Header-Account-Workpace-List-Option-Container Workpace-List-Option-New">
+                <div className="Header-Account-Workpace-List-Option-Container Workpace-List-Option-New" onClick={displayWorkspaceJoin}>
 
-                    <p className="Header-Account-Workspace-List-Option-Label">Crear nuevo workspace</p>
+                    <p className="Header-Account-Workspace-List-Option-Label">Unirse a un Workspace</p>
+
+                    <MdAdd size={18} color={'#fff'} />
+
+                </div>
+
+                <div className="Header-Account-Workpace-List-Option-Container Workpace-List-Option-New" onClick={displayCreateWorkspace}>
+
+                    <p className="Header-Account-Workspace-List-Option-Label">Crear un nuevo Workspace</p>
 
                     <MdAdd size={18} color={'#fff'} />
 
@@ -116,8 +144,6 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
             </div>
 
         </div>
-
-
 
         <MdArrowForwardIos size={18} color={'#06113c74'} style={{ marginLeft: '20px' }} />
 

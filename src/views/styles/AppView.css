@@ -97,6 +97,7 @@
 .App-Content-Margin {
     width: 97.5%;
     height: 98%;
+    position: relative;
 }
 
 /* * Dark Theme Styles * */
