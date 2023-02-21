@@ -40,7 +40,7 @@ const Logo = ({ appName }) => {
 
 }
 
-const ViewInfo = ({ current_view_name, current_workspace_name }) => {
+const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
     const { context, setContext } = useContext(AppContext);
 
@@ -74,7 +74,7 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
     const displayCreateWorkspace = () => {
 
-        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: true }, workspace: { ...context.workspace}, user: { ...context.user } })
+        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: true }, workspace: { ...context.workspace }, user: { ...context.user } })
         setTimeout(() => { document.getElementById('Workspace-Connection-Widget').style.top = '0' }, 10)
         return
 
@@ -82,7 +82,7 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
     const displayWorkspaceJoin = () => {
 
-        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: false }, workspace: { ...context.workspace}, user: { ...context.user } })
+        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: false }, workspace: { ...context.workspace }, user: { ...context.user } })
         setTimeout(() => { document.getElementById('Workspace-Connection-Widget').style.top = '0' }, 10)
         return
 
@@ -109,13 +109,13 @@ const ViewInfo = ({ current_view_name, current_workspace_name }) => {
 
                 {
 
-                    datafetched.map(element => {
+                    context.user.user_Workspace_Connection_ID.map(element => {
 
                         return (
 
-                            <div className="Header-Account-Workpace-List-Option-Container" key={element.id}>
+                            <div className="Header-Account-Workpace-List-Option-Container" key={element.workspaceID}>
 
-                                <p className="Header-Account-Workspace-List-Option-Label">{element.name}</p>
+                                <p className="Header-Account-Workspace-List-Option-Label">{element.workspaceName}</p>
 
                             </div>
 
