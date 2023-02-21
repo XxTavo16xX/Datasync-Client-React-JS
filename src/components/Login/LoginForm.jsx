@@ -23,6 +23,14 @@ const LoginForm = () => {
 
     const { context, setContext } = useContext(AppContext);
 
+    const handleInputEnter = (event) => {
+
+        if (event.target.id === 'Login-Form-Email-Input' && event.key === 'Enter') return document.getElementById('Login-Form-Password-Input').focus()
+
+        if (event.target.id === 'Login-Form-Password-Input' && event.key === 'Enter') return loginUser()
+
+    }
+
     const switchPasswordVisibility = () => {
 
         if (document.getElementById('Login-Form-Password-Input').type == 'password') return document.getElementById('Login-Form-Password-Input').type = 'text'
@@ -81,7 +89,7 @@ const LoginForm = () => {
 
             const userTOKEN = requestResponse.jwt
 
-            setContext({ user: { ...context.user, user_Token: userTOKEN, is_session_created: true, user_display_name: requestResponse.userDName, user_profile_photo_url: requestResponse.userPPURL, user_Workspace_Connection_ID: requestResponse.userWorkspacesID }, workspace: { ...context.workspace}, app: { ...context.app } })
+            setContext({ user: { ...context.user, user_Token: userTOKEN, is_session_created: true, user_display_name: requestResponse.userDName, user_profile_photo_url: requestResponse.userPPURL, user_Workspace_Connection_ID: requestResponse.userWorkspacesID }, workspace: { ...context.workspace }, app: { ...context.app } })
 
         }
 
@@ -94,7 +102,7 @@ const LoginForm = () => {
         authContainer.style.opacity = 0
 
         setTimeout(() => {
-            
+
             authContainer.scrollLeft = authContainer.offsetWidth / 1 + 20;
             authContainer.style.opacity = 1
 
@@ -106,12 +114,12 @@ const LoginForm = () => {
         <div className="Login-View-Content-Form-Container-Content">
 
             <p className="Login-View-Content-Form-Content-Title-Label">Inicia Sesion</p>
-            
-            <p className="Login-View-Content-Form-Content-Subtitle-Label" id="Login-View-Content-Form-Content-Subtitle-Label">Haz creado tu cuenta correctamente.<br/>Ahora inicia sesion para continuar.</p>
+
+            <p className="Login-View-Content-Form-Content-Subtitle-Label" id="Login-View-Content-Form-Content-Subtitle-Label">Haz creado tu cuenta correctamente.<br />Ahora inicia sesion para continuar.</p>
 
             <div className="Login-Form-Input-Container" id="Email-Input-Container" onClick={() => { errorHandler('clear', 'Email') }}>
 
-                <input className="Login-Form-Input-Container-Input" id="Login-Form-Email-Input" type="text" placeholder="Ingresa tu Correo Electronico" />
+                <input className="Login-Form-Input-Container-Input" id="Login-Form-Email-Input" type="text" placeholder="Ingresa tu Correo Electronico" onKeyDown={handleInputEnter} />
 
             </div>
 
@@ -119,7 +127,7 @@ const LoginForm = () => {
 
             <div className="Login-Form-Input-Container Password-Changes" id="Password-Input-Container" onClick={() => { errorHandler('clear', 'Password') }}>
 
-                <input className="Login-Form-Input-Container-Input" id="Login-Form-Password-Input" type="password" placeholder="Ingresa tu Contraseña" />
+                <input className="Login-Form-Input-Container-Input" id="Login-Form-Password-Input" type="password" placeholder="Ingresa tu Contraseña" onKeyDown={handleInputEnter} />
 
                 <div className="Login-Form-Password-Text-Switch" onClick={switchPasswordVisibility}>
 

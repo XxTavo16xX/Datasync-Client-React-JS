@@ -84,6 +84,10 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
     }
 
+    const handleInputEnter = (event) => {
+        if (event.key === 'Enter') return addMemberToList()
+    }
+
     const createWorkspace = async () => {
 
         const workspaceNameInput = document.getElementById('Workspace-Name-Input')
@@ -101,7 +105,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         setTimeout(() => {
             setContext({ workspace: { ...context.workspace, name: requestResponse.message.workspaceName }, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user } })
-        },100)
+        }, 100)
     }
 
     return (
@@ -240,7 +244,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
                         <div className="Workspace-Add-Member-Input-Container" id="Workspace-Add-Member-Input-Container">
 
-                            <input className="Workspace-Add-Member-Input" type="text" placeholder="nombre@ejemplo.com" id="Workspace-Add-Member-Email-Input" />
+                            <input className="Workspace-Add-Member-Input" type="text" placeholder="nombre@ejemplo.com" id="Workspace-Add-Member-Email-Input" onKeyDown={handleInputEnter} />
 
                         </div>
 

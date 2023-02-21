@@ -32,6 +32,16 @@ const RegisterForm = () => {
 
     }
 
+    const handleInputEnter = (event) => {
+
+        if (event.target.id === 'Register-Form-Name-Input' && event.key === 'Enter') return document.getElementById('Register-Form-Surnames-Input').focus()
+        if (event.target.id === 'Register-Form-Surnames-Input' && event.key === 'Enter') return document.getElementById('Register-Form-Email-Input').focus()
+        if (event.target.id === 'Register-Form-Email-Input' && event.key === 'Enter') return document.getElementById('Register-Form-Password-Input').focus()
+        if (event.target.id === 'Register-Form-Password-Input' && event.key === 'Enter') return registerUser()
+
+    }
+
+
     const switchPasswordVisibility = () => {
 
         if (document.getElementById('Register-Form-Password-Input').type == 'password') return document.getElementById('Register-Form-Password-Input').type = 'text'
@@ -133,13 +143,13 @@ const RegisterForm = () => {
 
                     <div className="Register-Form-Name-Input-Container" id="Register-Name-Input-Container" onClick={() => { errorHandler('clear', 'Name', '') }}>
 
-                        <input className="Register-Form-Input" id="Register-Form-Name-Input" type="text" placeholder="Nombre" />
+                        <input className="Register-Form-Input" id="Register-Form-Name-Input" type="text" placeholder="Nombre"  onKeyDown={handleInputEnter}/>
 
                     </div>
 
                     <div className="Register-Form-Name-Input-Container" id="Register-Surnames-Input-Container" onClick={() => { errorHandler('clear', 'Surnames', '') }}>
 
-                        <input className="Register-Form-Input" id="Register-Form-Surnames-Input" type="text" placeholder="Apellido" />
+                        <input className="Register-Form-Input" id="Register-Form-Surnames-Input" type="text" placeholder="Apellido"  onKeyDown={handleInputEnter}/>
 
                     </div>
 
@@ -147,13 +157,13 @@ const RegisterForm = () => {
 
                 <div className="Register-Form-Input-Container" id="Register-Email-Input-Container" onClick={() => { errorHandler('clear', 'Email', '') }}>
 
-                    <input className="Register-Form-Input" id="Register-Form-Email-Input" type="text" placeholder="Correo electronico" />
+                    <input className="Register-Form-Input" id="Register-Form-Email-Input" type="text" placeholder="Correo electronico"  onKeyDown={handleInputEnter}/>
 
                 </div>
 
                 <div className="Register-Form-Input-Container Password-Changes" id="Register-Password-Input-Container" onClick={() => { errorHandler('clear', 'Password', '') }}>
 
-                    <input className="Register-Form-Input" id="Register-Form-Password-Input" type="password" placeholder="Nueva Contraseña" />
+                    <input className="Register-Form-Input" id="Register-Form-Password-Input" type="password" placeholder="Nueva Contraseña"  onKeyDown={handleInputEnter}/>
 
                     <div className="Login-Form-Password-Text-Switch" onClick={switchPasswordVisibility}>
 
