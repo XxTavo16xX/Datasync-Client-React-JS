@@ -17,7 +17,7 @@ const defaultContext = {
     },
     workspace: {
         name: 'Personal',
-        members: '',
+        members: [],
         calendarNodes: [],
         databaseNodes: [],
         cloudNodes: [],
@@ -51,7 +51,7 @@ const AppProvider = (props) => {
     }
 
     return (
-        <AppContext.Provider value={{ context, setContext  }}>
+        <AppContext.Provider value={{ context, setContext,   }}>
 
             {props.children}
 
