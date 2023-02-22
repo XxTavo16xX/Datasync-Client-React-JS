@@ -102,26 +102,11 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
     const changeToWorkspace = async (workspaceID) => {
 
-        if (workspaceID != 0) {
+        const requestResponse = await joinWorkspace(context.user.user_Token, workspaceID)
 
-            const requestResponse = await joinWorkspace(context.user.user_Token, workspaceID)
+        if (requestResponse.workspaceJoined == true) { setContext({ app: { ...context.app }, workspace: requestResponse.workspaceData, user: { ...context.user } }) }
 
-            if (requestResponse.workspaceJoined == true) {
-
-                setContext({ app: { ...context.app }, workspace: { ...context.workspace, name: requestResponse.workspaceData.name }, user: { ...context.user } })
-
-
-
-                console.log(requestResponse);
-
-            }
-
-
-            return
-
-        }
-
-        setContext({ app: { ...context.app }, workspace: { ...context.workspace, name: 'Personal' }, user: { ...context.user } })
+        return
 
     }
 
