@@ -25,8 +25,6 @@ const DashboardView = () => {
 
     const { context } = useContext(AppContext)
 
-    console.log();
-
     if (context.app.current_view == 'Dashboard') return (
 
         <div className="Dashboard-View-Container">
@@ -57,7 +55,7 @@ const DashboardView = () => {
 
                     <div className="Database-Widget-Content-Container">
 
-                        <DatabaseWidget />
+                        <DatabaseWidget databaseNodes={ context.workspace.databaseNodes } />
 
                     </div>
 
@@ -69,7 +67,7 @@ const DashboardView = () => {
 
                     <div className="PendingTask-Widget-Content-Container">
 
-                        <PendingTaskWidget completedTaskReceived={ context.workspace.pendingTaskNodes[0].completed } pendingTaskReceived={ context.workspace.pendingTaskNodes[0].pending } />
+                        <PendingTaskWidget completedTaskReceived={context.workspace.pendingTaskNodes[0].completed} pendingTaskReceived={context.workspace.pendingTaskNodes[0].pending} />
 
                     </div>
 
