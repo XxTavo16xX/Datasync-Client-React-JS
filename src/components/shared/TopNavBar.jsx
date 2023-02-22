@@ -1,9 +1,21 @@
-import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos, MdAdd } from "react-icons/md";
+
+// * Dependencies Required 
 
 import { useContext } from "react";
+import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos, MdAdd } from "react-icons/md";
+
+// * Modules Required
+
 import { AppContext } from '../../app/Context';
+import { joinWorkspace } from "../../services/workspace";
+
+// * view Styles
 
 import './styles/TopNavBar.css'
+
+// * Components Required
+
+// * view to Return
 
 const TopNavBar = () => {
 
@@ -88,6 +100,31 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
     }
 
+    const changeToWorkspace = async (workspaceID) => {
+
+        if (workspaceID != 0) {
+
+            const requestResponse = await joinWorkspace(context.user.user_Token, workspaceID)
+
+            if (requestResponse.workspaceJoined == true) {
+
+                setContext({ app: { ...context.app }, workspace: { ...context.workspace, name: requestResponse.workspaceData.name }, user: { ...context.user } })
+
+
+
+                console.log(requestResponse);
+
+            }
+
+
+            return
+
+        }
+
+        setContext({ app: { ...context.app }, workspace: { ...context.workspace, name: 'Personal' }, user: { ...context.user } })
+
+    }
+
     return <div className="Header-View-Info-Container">
 
         <div className="Header-Account-Workspace-Selector" onClick={displayWorkspaceConnectionList}>
@@ -113,7 +150,7 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
                         return (
 
-                            <div className="Header-Account-Workpace-List-Option-Container" key={element.workspaceID}>
+                            <div className="Header-Account-Workpace-List-Option-Container" key={element.workspaceID} onClick={() => { changeToWorkspace(element.workspaceID) }}>
 
                                 <p className="Header-Account-Workspace-List-Option-Label">{element.workspaceName}</p>
 

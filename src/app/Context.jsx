@@ -17,14 +17,12 @@ const defaultContext = {
     },
     workspace: {
         name: 'Personal',
-        database: {
-            databaseConnections: [],
-            databaseDefaultConnection: '',
-        },
-        safetybox: {
-            cryptoBoxConnections: [],
-            cryptoBoxDefaultConnection: ''
-        }
+        members: '',
+        calendarNodes: [],
+        databaseNodes: [],
+        cloudNodes: [],
+        safetyBoxNodes: [],
+        pendingTaskNodes:[]
     },
     user: {
         is_session_created: false,
