@@ -103,19 +103,17 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
-        // * Checking if workspace is already saved in local
-
         // * The next line check if the workspace is already saved locally by lookin for workspaceID
 
         const isWorkspaceAlreadySaved = context.user.user_Workspace_Connection_ID.findIndex(conn => conn.workspaceID === requestResponse.message.workspaceID);
 
         // * If the workspaceID has been found in local that mean that already exist so no need to save again
         
-        if (isWorkspaceAlreadySaved !== -1) { setTimeout(() => { setContext({ workspace: { ...context.workspace, name: requestResponse.message.workspaceName }, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user } }) }, 100) }
+        if (isWorkspaceAlreadySaved !== -1) { setTimeout(() => { setContext({ workspace: requestResponse.message.workspaceData, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user } }) }, 100) }
 
         // * If the workspaceID has not been found in local must be saved in local data.
 
-        setTimeout(() => { setContext({ workspace: { ...context.workspace, name: requestResponse.message.workspaceName }, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, requestResponse.message] } }) }, 100)
+        setTimeout(() => { setContext({ workspace: requestResponse.message.workspaceData, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.message.workspaceData._id, workspaceName: requestResponse.message.workspaceData.name }] } }) }, 100)
     }
 
     return (
