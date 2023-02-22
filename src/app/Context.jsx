@@ -29,6 +29,7 @@ const defaultContext = {
         user_Token: '',
         user_Workspace_Connection_ID: [],
         user_display_name: '',
+        user_email: '',
         user_profile_photo_url: '/src/assets/images/defaultUser.png',
         user_gender: 'M'
     }
