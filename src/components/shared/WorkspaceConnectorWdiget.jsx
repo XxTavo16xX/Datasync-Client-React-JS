@@ -7,7 +7,7 @@ import { MdClose } from "react-icons/md";
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
-import { createWorkspaceWithConfig } from "../../services/workspace";
+import { createWorkspaceWithConfig, joinWorkspace } from "../../services/workspace";
 
 // * view Styles
 
@@ -17,7 +17,6 @@ import './styles/WorkspaceConnectionWidget.css'
 
 // * view to Return
 
-
 const WorkspaceConnectionWidget = () => {
 
     const { context, setContext } = useContext(AppContext)
@@ -26,7 +25,7 @@ const WorkspaceConnectionWidget = () => {
 
         return (
 
-            <div className={ context.app.display_create_workspace_view != false ? "Workspace-Connection-Widget" : "Workspace-Connection-Widget Join-Widget-Container" } id="Workspace-Connection-Widget">
+            <div className={context.app.display_create_workspace_view != false ? "Workspace-Connection-Widget" : "Workspace-Connection-Widget Join-Widget-Container"} id="Workspace-Connection-Widget">
 
                 <div className="Workspace-Connection-Widget-Background"></div>
 
@@ -124,7 +123,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
                 <div className="Workspace-Connection-Top-Back-Button" onClick={closeWorkspaceWidget}>
 
-                    <MdClose color="#ffffff" size={28} />
+                    <MdClose color="#ffffff" size={22} />
 
                 </div>
 
@@ -286,8 +285,51 @@ const JoinWorkspaceView = () => {
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
-        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 300)
+        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 300)
         return
+
+    }
+
+    const handlerError = (action, message) => {
+
+        const invitationCodeErrorLabel = document.getElementById('Workspace-Widget-Invitation-Code-Error-Label')
+        const invitationInputContainer = document.getElementById('Workspace-Invitation-Code-Input-Container')
+
+        if (action == 'set') {
+
+            invitationInputContainer.style.border = '1px solid red'
+            invitationCodeErrorLabel.innerText = message
+            return
+        }
+
+        if (action == 'clear') {
+
+            invitationInputContainer.style.border = '0px solid transparent'
+            invitationCodeErrorLabel.innerText = ''
+            return
+
+        }
+
+    }
+
+    const joinWorkspaceAction = async () => {
+
+        const inivtationInput = document.getElementById('Workspace-Invitation-Code-Input')
+        const invitationCode = inivtationInput.value
+
+        if (!invitationCode) return handlerError('set', 'Ingresa tu codigo de invitacion')
+
+        const requestResponse = await joinWorkspace(context.user.user_Token, invitationCode)
+
+        if (requestResponse.workspaceJoined == true) {
+
+            document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
+            
+            setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false }, workspace: requestResponse.workspaceData, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.workspaceData._id, workspaceName: requestResponse.workspaceData.name }] } }) }, 1000)
+            
+            return
+
+        }
 
     }
 
@@ -301,7 +343,7 @@ const JoinWorkspaceView = () => {
 
                 <div className="Workspace-Connection-Top-Back-Button" onClick={closeWorkspaceWidget}>
 
-                    <MdClose color="#ffffff" size={28} />
+                    <MdClose color="#ffffff" size={22} />
 
                 </div>
 
@@ -313,13 +355,15 @@ const JoinWorkspaceView = () => {
 
             </div>
 
-            <div className="Workspace-Name-Input-Container Big-Input-Container" id="Workspace-Name-Input-Container">
+            <div className="Workspace-Name-Input-Container Big-Input-Container" id="Workspace-Invitation-Code-Input-Container" onClick={() => { handlerError('clear') }}>
 
-                <input className="Workspace-Name-Input Big-Input" type="text" placeholder="63f5df0c4ea4a5eb9758cce7-63f68ba34fe3ba3c50177a90" id="Workspace-Name-Input" />
+                <input className="Workspace-Name-Input Big-Input" type="text" placeholder="63f5df0c4ea4a5eb9758cce7-63f68ba34fe3ba3c50177a90" id="Workspace-Invitation-Code-Input" />
 
             </div>
 
-            <div className="Workspace-Create-Button" onClick="">
+            <p className="Workspace-Widget-Error-Label" id="Workspace-Widget-Invitation-Code-Error-Label"></p>
+
+            <div className="Workspace-Create-Button" onClick={joinWorkspaceAction}>
 
                 <p className="Workspace-Create-Button-Label">Unirme al Workspace</p>
 

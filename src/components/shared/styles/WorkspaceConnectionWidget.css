@@ -11,7 +11,7 @@
 }
 
 .Join-Widget-Container{
-    height: 230px;
+    height: 240px;
 }
 
 .Workspace-Connection-Widget-Background {
@@ -120,7 +120,7 @@
 }
 
 .Workspace-Name-Input-Container {
-    width: 100%;
+    width: calc(100% - 2px);
     height: 40px;
     background-color: #ffffff;
     border-radius: 15px;
@@ -205,6 +205,13 @@
     font-family: poppinsLight;
     font-size: 14px;
     color: #ffffff;
+}
+
+.Workspace-Widget-Error-Label{
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .Workspace-Member-List-Option-Container {
