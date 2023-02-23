@@ -319,6 +319,7 @@ const JoinWorkspaceView = () => {
         const invitationCode = inivtationInput.value
 
         if (!invitationCode) return handlerError('set', 'Ingresa tu codigo de invitacion')
+        if(invitationCode.length < 8) return handlerError('set', 'Ingresa un codigo valido')
 
         const requestResponse = await joinWorkspace(context.user.user_Token, invitationCode)
 
