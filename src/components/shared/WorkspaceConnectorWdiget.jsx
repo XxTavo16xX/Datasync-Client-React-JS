@@ -26,7 +26,7 @@ const WorkspaceConnectionWidget = () => {
 
         return (
 
-            <div className="Workspace-Connection-Widget" id="Workspace-Connection-Widget">
+            <div className={ context.app.display_create_workspace_view != false ? "Workspace-Connection-Widget" : "Workspace-Connection-Widget Join-Widget-Container" } id="Workspace-Connection-Widget">
 
                 <div className="Workspace-Connection-Widget-Background"></div>
 
@@ -47,8 +47,6 @@ const WorkspaceConnectionWidget = () => {
     }
 
 }
-
-
 
 const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) => {
 
@@ -108,7 +106,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
         const isWorkspaceAlreadySaved = context.user.user_Workspace_Connection_ID.findIndex(conn => conn.workspaceID === requestResponse.message.workspaceID);
 
         // * If the workspaceID has been found in local that mean that already exist so no need to save again
-        
+
         if (isWorkspaceAlreadySaved !== -1) { setTimeout(() => { setContext({ workspace: requestResponse.message.workspaceData, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user } }) }, 100) }
 
         // * If the workspaceID has not been found in local must be saved in local data.
@@ -309,6 +307,23 @@ const JoinWorkspaceView = () => {
 
             </div>
 
+            <div className="Workspace-Complete-Row-Text-Container">
+
+                <p className="Workspace-Row-Subtitle-Label">Ingresa el codigo de invitacion que recibiste.</p>
+
+            </div>
+
+            <div className="Workspace-Name-Input-Container Big-Input-Container" id="Workspace-Name-Input-Container">
+
+                <input className="Workspace-Name-Input Big-Input" type="text" placeholder="63f5df0c4ea4a5eb9758cce7-63f68ba34fe3ba3c50177a90" id="Workspace-Name-Input" />
+
+            </div>
+
+            <div className="Workspace-Create-Button" onClick="">
+
+                <p className="Workspace-Create-Button-Label">Unirme al Workspace</p>
+
+            </div>
 
         </div>
 
