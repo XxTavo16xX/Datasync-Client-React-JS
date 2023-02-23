@@ -8,6 +8,7 @@ import { MdClose } from "react-icons/md";
 
 import { AppContext } from '../../app/Context';
 import { createWorkspaceWithConfig, joinWorkspace } from "../../services/workspace";
+import { displayAppNotification } from "../../lib/System";
 
 // * view Styles
 
@@ -321,12 +322,20 @@ const JoinWorkspaceView = () => {
 
         const requestResponse = await joinWorkspace(context.user.user_Token, invitationCode)
 
+        if (requestResponse.workspaceJoined == false) {
+
+            document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
+            inivtationInput.value = ''
+            return displayAppNotification('Workspace', 'No ha sido posible unirte a este workspace. Intenta mas tarde.')
+
+        }
+
         if (requestResponse.workspaceJoined == true) {
 
             document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
-            
+            inivtationInput.value = ''
             setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false }, workspace: requestResponse.workspaceData, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.workspaceData._id, workspaceName: requestResponse.workspaceData.name }] } }) }, 1000)
-            
+
             return
 
         }
