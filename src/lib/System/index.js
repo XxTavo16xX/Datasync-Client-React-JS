@@ -1,27 +1,25 @@
 
 export const copyToClipboard = (textToCopy) => {
 
-    if(!textToCopy) return
+    if (!textToCopy) return
 
     navigator.clipboard.writeText(textToCopy)
 
 }
 
-export const displayAppNotification = (notificationMessage, ) => {
+export const displayAppNotification = (notificationTitle, notificationDescription) => {
 
-    if(!notificationMessage) return
+    if (!notificationTitle || !notificationDescription) return
 
     const notificationWidget = document.getElementById('Nofitication-Widget-Container-ID')
-    const notificationMessageLabel = document.getElementById('Notification-Widget-Message-Label-ID')
+    const notificationTitleLabel = document.getElementById('Notification-Widget-Title-Label')
+    const notificationDescriptionLabel = document.getElementById('Notification-Widget-Description-Label')
 
-    notificationMessageLabel.innerText = notificationMessage
+    notificationTitleLabel.innerText = notificationTitle
+    notificationDescriptionLabel.innerText = notificationDescription
 
-    notificationWidget.style.display = 'flex'
+    notificationWidget.style.right = '1vw'
 
-    setTimeout(() => { notificationWidget.style.transform = 'translateX(0px)' }, 200)
-
-    setTimeout(() => { notificationWidget.style.transform = 'translateX(250px)' }, 2500)
-
-    setTimeout(() => { notificationWidget.style.display = 'none' }, 2700)
+    setTimeout(() => { notificationWidget.style.right = '-100%' }, 2500)
 
 }

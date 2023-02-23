@@ -1,7 +1,7 @@
 
 // * Dependencies Required 
 
-import { MdCopyAll } from "react-icons/md";
+import { MdNotificationImportant } from "react-icons/md";
 
 // * Modules Required
 
@@ -13,15 +13,29 @@ import './styles/NotificationWidget.css'
 
 const NotificationWidget = () => {
 
-    return(
+    return (
 
         <div className="Nofitication-Widget-Container" id="Nofitication-Widget-Container-ID">
 
             <div className="Nofitication-Widget-Container-Margin">
 
-                <MdCopyAll className="Nofitication-Widget-Icon" color="#0cf063" size={22} />
+                <div className="Nofitication-Widget-Action-Icons-Container">
 
-                <p className="Notification-Widget-Message-Label" id="Notification-Widget-Message-Label-ID"></p>
+                    <div className="Notification-Widget-Icon-Container">
+
+                        <MdNotificationImportant size={'26px'} color='#00eabe' />
+
+                    </div>
+
+                </div>
+
+                <div className="Notification-Widget-Text-Container">
+
+                    <p className="Notification-Widget-Title-Label" id="Notification-Widget-Title-Label"></p>
+
+                    <p className="Notification-Widget-Description-Label" id="Notification-Widget-Description-Label"></p>
+
+                </div>
 
             </div>
 
