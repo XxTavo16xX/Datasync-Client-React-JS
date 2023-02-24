@@ -13,7 +13,8 @@ const defaultContext = {
         app_name: 'Datasync',
         current_view: 'Dashboard',
         display_workspace_Widget: false,
-        display_create_workspace_view: false,        
+        display_create_workspace_view: false,
+        display_AppWidget: false
     },
     workspace: {
         name: 'Personal',
@@ -22,7 +23,7 @@ const defaultContext = {
         databaseNodes: [],
         cloudNodes: [],
         safetyBoxNodes: [],
-        pendingTaskNodes:[]
+        pendingTaskNodes: []
     },
     user: {
         is_session_created: false,
@@ -31,28 +32,63 @@ const defaultContext = {
         user_display_name: '',
         user_email: '',
         user_profile_photo_url: '/src/assets/images/defaultUser.png',
-        user_gender: 'M'
+        user_gender: ''
     }
 }
 
+const compareAndMergeContexts = (defaultContext, localContext) => {
+
+    // * If localContext is null, return defaultContext
+
+    if (!localContext) {
+        return defaultContext;
+    }
+
+    // * Iiterate over the keys in defaultContext
+
+    Object.keys(defaultContext).forEach(key => {
+
+        // * If localContext doesn't have the same key, add it
+
+        if (!localContext.hasOwnProperty(key)) {
+
+            localContext[key] = defaultContext[key];
+        } else {
+
+            //  * If both values are objects, recursively compare and merge them
+
+            if (typeof defaultContext[key] === 'object' && typeof localContext[key] === 'object') {
+
+                localContext[key] = compareAndMergeContexts(defaultContext[key], localContext[key]);
+
+            }
+
+        }
+
+    });
+
+    return localContext;
+
+};
+
 const localContext = JSON.parse(localStorage.getItem('localContext'))
 
-if (!localContext) {
-    localStorage.setItem('localContext', JSON.stringify(defaultContext));
-}
+const contextToSet = compareAndMergeContexts(defaultContext, localContext)
+
+localStorage.setItem('localContext', JSON.stringify(contextToSet));
 
 const AppProvider = (props) => {
 
-    const [context, updateReactContext] = React.useState(localContext || defaultContext);
+    const [context, updateReactContext] = React.useState(contextToSet);
 
     const setContext = (newContext) => {
-     
+
         localStorage.setItem('localContext', JSON.stringify(newContext))
         updateReactContext(newContext)
     }
 
     return (
-        <AppContext.Provider value={{ context, setContext,   }}>
+        <AppContext.Provider value={{ context, setContext, }}>
 
             {props.children}
 
