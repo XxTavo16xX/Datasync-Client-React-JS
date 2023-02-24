@@ -7,7 +7,7 @@ import { MdClose } from "react-icons/md";
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
-import { createWorkspaceWithConfig, joinWorkspace } from "../../services/workspace";
+import { createWorkspace, joinWorkspace } from "../../services/workspace";
 import { displayAppNotification } from "../../lib/System";
 
 // * view Styles
@@ -86,7 +86,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
         if (event.key === 'Enter') return addMemberToList()
     }
 
-    const createWorkspace = async () => {
+    const createWorkspaceAction = async () => {
 
         const workspaceNameInput = document.getElementById('Workspace-Name-Input')
         const workspaceNameInputContainer = document.getElementById('Workspace-Name-Input-Container')
@@ -95,7 +95,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         if (!workspaceName) return workspaceNameInputContainer.style.border = '1px solid red'
 
-        const requestResponse = await createWorkspaceWithConfig(context.user.user_Token, workspaceName, workspaceMembersList)
+        const requestResponse = await createWorkspace(context.user.user_Token, workspaceName, workspaceMembersList)
 
         if (requestResponse.error != 'none') { }
 
@@ -266,7 +266,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
             </div>
 
-            <div className="Workspace-Create-Button" onClick={createWorkspace}>
+            <div className="Workspace-Create-Button" onClick={createWorkspaceAction}>
 
                 <p className="Workspace-Create-Button-Label">Crear Workspace</p>
 

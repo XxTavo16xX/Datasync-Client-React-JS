@@ -7,7 +7,7 @@ import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos, MdAdd } from "react-
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
-import { joinWorkspace } from "../../services/workspace";
+import { switchWorkspace } from "../../services/workspace";
 
 // * view Styles
 
@@ -56,8 +56,6 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
     const { context, setContext } = useContext(AppContext);
 
-    const datafetched = [{ id: 'AsdawdWdWd', name: 'Label Name' }, { id: 'AsdawdWaskdjalsk', name: 'Label Name' }]
-
     const displayWorkspaceConnectionList = () => {
 
         const workspaceListContainer = document.getElementById('Header-Account-Workspaces-Connected-List-Container')
@@ -102,7 +100,7 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
     const changeToWorkspace = async (workspaceID) => {
 
-        const requestResponse = await joinWorkspace(context.user.user_Token, workspaceID)
+        const requestResponse = await switchWorkspace(context.user.user_Token, workspaceID)
 
         if (requestResponse.workspaceJoined == true) { setContext({ app: { ...context.app }, workspace: requestResponse.workspaceData, user: { ...context.user } }) }
 
