@@ -16,6 +16,7 @@ import './styles/AppView.css'
 import TopNavBar from '../components/shared/TopNavBar'
 import SideNavBar from '../components/shared/SideNavBar'
 import WorkspaceConnectionWidget from "../components/shared/WorkspaceConnectorWdiget";
+import AppWidget from "../components/shared/AppWidget";
 
 import DashboardView from '../views/dashboard_view'
 import ChatView from '../views/chat_view'
@@ -51,6 +52,7 @@ const AppView = () => {
                     <div className="App-Content-Margin">
 
                         <WorkspaceConnectionWidget />
+                        <AppWidget />
 
                         <DashboardView />
                         <ChatView />
