@@ -57,7 +57,7 @@ const MenuOptionContainerSelected = ({ menuOptionName }) => {
 
     return (
 
-        <div className="SideNavBar-Option" onClick={() => { testClickHangler() }}>
+        <div className="SideNavBar-Option">
 
             <button className="SideNavBar-Option-Container">
 
