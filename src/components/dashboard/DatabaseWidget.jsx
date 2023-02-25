@@ -2,7 +2,7 @@
 // * Dependencies Required 
 
 import { useContext } from "react";
-import { MdMoreVert } from 'react-icons/md'
+import { MdMoreVert, MdAdd } from 'react-icons/md'
 import Lottie from "lottie-react";
 
 // * Modules Required
@@ -20,6 +20,12 @@ import './styles/DatabaseWidget.css'
 const DatabaseWidget = ({ databaseNodes }) => {
 
     const { setContext } = useContext(AppContext);
+
+    const createDatabaseNode = () => {
+
+
+
+    }
 
     return <div className="Database-Widget-Content-Container">
 
@@ -134,6 +140,12 @@ const DatabaseWidget = ({ databaseNodes }) => {
                                 </div>
 
                             })
+
+                    }
+
+                    {
+
+                        databaseNodes.length > 0 ? <div className="Database-Window-Container Database-Node-Container-New" onClick={() => { createDatabaseNode }}> <div className="Database-Window-Content-Margin-Add"> <MdAdd size={48} color='#000d41' /> </div> </div> : null
 
                     }
 

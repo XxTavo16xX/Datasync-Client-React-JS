@@ -54,7 +54,18 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2%;
+    gap: 3%;
+    overflow-y: scroll;
+    padding: 0px 15px 0px 0px;
+}
+
+.Database-Windows-Content-Margin::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+.Database-Windows-Content-Margin::-webkit-scrollbar-thumb {
+    background: #00eabe;
 }
 
 .Database-Windows-Empty-Content-Margin {
@@ -90,7 +101,7 @@
     margin-bottom: 20px;
 }
 
-.Database-Nodes-Empty-Create-Database-Button{
+.Database-Nodes-Empty-Create-Database-Button {
     width: auto;
     height: 40px;
     padding: 0px 15px 0px 15px;
@@ -103,13 +114,13 @@
     margin-bottom: 10px;
 }
 
-.Create-Database-Button-Label{
+.Create-Database-Button-Label {
     font-family: poppinsLight;
     font-size: 16px;
     color: #000d41;
 }
 
-.Database-Nodes-Empty-Report-Error-Button{
+.Database-Nodes-Empty-Report-Error-Button {
     width: auto;
     height: 30px;
     padding: 0px 15px 0px 15px;
@@ -120,11 +131,11 @@
     cursor: pointer;
 }
 
-.Database-Nodes-Empty-Report-Error-Button:hover{
+.Database-Nodes-Empty-Report-Error-Button:hover {
     background-color: #0000002c;
 }
 
-.Create-Database-Error-Button-Label{
+.Create-Database-Error-Button-Label {
     font-family: poppinsLight;
     font-size: 12px;
     color: #000d41;
@@ -133,6 +144,7 @@
 .Database-Window-Container {
     width: 100%;
     height: 100%;
+    min-height: 190px;
     max-height: 49%;
     background-color: #ffffffe3;
     border-radius: 15px;
@@ -143,9 +155,25 @@
     transition: .3s;
 }
 
+.Database-Node-Container-New {
+    background-color: #b6ddffbf;
+}
+
+.Database-Node-Container-New:hover {
+    background-color: #94cdffbf;
+}
+
 .Database-Window-Content-Margin {
     width: 90%;
     height: 90%;
+}
+
+.Database-Window-Content-Margin-Add {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Database-Window-Top-Container {
