@@ -18,7 +18,13 @@ import './styles/AppWidget.css'
 
 const AppWidget = () => {
 
-    const { context, setContext } = useContext(AppContext)
+    const { context, setContext, setDefaultContext } = useContext(AppContext)
+
+    const closeUserSession = () => {
+
+        setDefaultContext()
+
+    }
 
     if (context.app.display_AppWidget === true) return (
 
@@ -78,7 +84,7 @@ const AppWidget = () => {
 
                     </div>
 
-                    <div className="App-Widget-Option-Container">
+                    <div className="App-Widget-Option-Container" onClick={ closeUserSession }>
 
                         <div className="App-Widget-Option-Icon-Container">
 

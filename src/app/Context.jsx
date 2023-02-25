@@ -87,12 +87,21 @@ const AppProvider = (props) => {
         updateReactContext(newContext)
     }
 
+    const setDefaultContext = () => {
+
+        setContext({ app: defaultContext.app, workspace: defaultContext.workspace, user: defaultContext.user })
+        localStorage.setItem('localContext', JSON.stringify(defaultContext));
+
+    }
+
     return (
-        <AppContext.Provider value={{ context, setContext, }}>
+
+        <AppContext.Provider value={{ context, setContext, setDefaultContext }}>
 
             {props.children}
 
         </AppContext.Provider>
+
     )
 
 }
