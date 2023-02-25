@@ -22,7 +22,7 @@ const AppWidget = () => {
 
     if (context.app.display_AppWidget === true) return (
 
-        <div className="App-Widget-Container App-Widget-Container-Displayed">
+        <div className="App-Widget-Container" id="App-Widget-Container">
 
             <div className="App-Widget-Margin">
 
@@ -50,7 +50,7 @@ const AppWidget = () => {
 
                         <div className="App-Widget-Option-Icon-Container">
 
-                            <MdAccountCircle size={26} />
+                            <MdAccountCircle size={26} color='#06113c' />
 
                         </div>
 
@@ -66,7 +66,7 @@ const AppWidget = () => {
 
                         <div className="App-Widget-Option-Icon-Container">
 
-                            <MdSettings size={26} />
+                            <MdSettings size={26} color='#06113c' />
 
                         </div>
 
@@ -82,7 +82,7 @@ const AppWidget = () => {
 
                         <div className="App-Widget-Option-Icon-Container">
 
-                            <MdLogout size={26} />
+                            <MdLogout size={26} color='#06113c' />
 
                         </div>
 

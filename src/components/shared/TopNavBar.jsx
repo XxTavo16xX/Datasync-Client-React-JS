@@ -175,6 +175,25 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
 const UserContainer = ({ userName, user_profile_photo_url }) => {
 
+    const { context, setContext } = useContext(AppContext);
+
+    const displayAppWidget = () => {
+
+        if (context.app.display_AppWidget == true) {
+
+            document.getElementById('App-Widget-Container').style.height = '0px'
+            setTimeout(() => { setContext({ app: { ...context.app, display_AppWidget: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 150)
+            return
+            
+        }
+
+        setContext({ app: { ...context.app, display_AppWidget: true }, workspace: { ...context.workspace }, user: { ...context.user } })
+        setTimeout(() => { document.getElementById('App-Widget-Container').style.height = '235px' }, 150)
+        
+        return
+
+    }
+
     return <div className="Header-User-Container">
 
         <div className="User-Container">
@@ -187,7 +206,7 @@ const UserContainer = ({ userName, user_profile_photo_url }) => {
 
             <p className="User-Name-Label">{userName}</p>
 
-            <button className="User-Options-Button">
+            <button className="User-Options-Button" onClick={displayAppWidget}>
 
                 <MdKeyboardArrowDown size={24} />
 
