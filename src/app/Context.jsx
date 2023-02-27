@@ -14,7 +14,8 @@ const defaultContext = {
         current_view: 'Dashboard',
         display_workspace_Widget: false,
         display_create_workspace_view: false,
-        display_AppWidget: false
+        display_AppWidget: false,
+        display_create_database_node_widget: false
     },
     workspace: {
         name: 'Personal',

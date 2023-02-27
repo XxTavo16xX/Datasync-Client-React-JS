@@ -1,0 +1,227 @@
+
+.Create-Database-Node-Widget {
+    width: 500px;
+    height: auto;
+    background-color: #ffffff;
+    position: absolute;
+    z-index: 700;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 10px 45px 11px rgba(0, 0, 0, 0.1);
+    transition: .100s;
+}
+
+.Create-Database-Node-Margin {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.Create-Database-Node-Top-Container {
+    min-width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Create-Database-Node-Title-Lalbel {
+    font-family: poppinsMedium;
+    font-size: 18px;
+    color: #000d41;
+}
+
+.Create-Database-Form-Container {
+    width: 100%;
+    height: calc(100% - 40px);
+}
+
+.Create-Database-Node-Name-Container,
+.Create-Database-Node-Members-Container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.Create-Database-Title-Label {
+    width: 100%;
+    font-family: poppinsMedium;
+    font-size: 16px;
+    color: #000d41;
+    white-space: nowrap;
+}
+
+.Create-Database-Subtitle-Label {
+    width: 100%;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #000d41;
+    margin-bottom: 5px;
+}
+
+.Create-Database-Input-Container {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #c2e2ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Create-Database-Name-Input {
+    width: calc(100% - 20px);
+    height: 100%;
+    outline: none;
+    background-color: transparent;
+    font-family: poppinsLight;
+    font-size: 16px;
+    color: #000d41;
+}
+
+/* * Create Database From Members * */
+
+.Members-List-Action-Buttons-Container {
+    width: 97%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.Advance-Settings{
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+.Members-List-Search-Button {
+    width: 30px;
+    height: 30px;
+    background-color: #c2e2ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Members-List-Select-All-Button {
+    width: auto;
+    height: 30px;
+    background-color: #c2e2ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Members-Select-All-Label {
+    white-space: nowrap;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #000d41;
+    padding: 0px 10px 0px 10px;
+}
+
+.Members-List-Options-Container {
+    width: 100%;
+    height: auto;
+    max-height: 165px;
+    overflow-y: scroll;
+}
+
+.Members-List-Options-Container::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ffffff;
+}
+
+.Members-List-Options-Container::-webkit-scrollbar-thumb {
+    background: #00eabe;
+}
+
+.Member-List-Option-Container {
+    width: 98%;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background-color: #c2e2ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Member-Option-Photo-Container,
+.Member-Option-Checkbox-Container {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Member-Option-Photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+.Member-Option-Data-Container {
+    width: calc(100% - 100px);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.Member-Option-User-Name-Label {
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #000d41;
+}
+
+.Member-Option-User-Email-Label {
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #000d41;
+}
+
+
+.Create-Database-Node-Form-Action-Button-Container {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Create-Database-Node-Button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #000d41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Create-Database-Node-Button-Label {
+    white-space: nowrap;
+    font-family: poppinsLight;
+    font-size: 16px;
+    color: #ffffff;
+}

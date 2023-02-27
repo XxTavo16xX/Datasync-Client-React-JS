@@ -9,6 +9,7 @@ import Lottie from "lottie-react";
 
 import { AppContext } from '../../app/Context';
 import { getDateInHumanFormatByTimestamp } from "../../lib/Calendar";
+import { formatToDisplayNumber } from "../../lib/Display";
 import emptyBoxAnimation from '../../assets/animations/emptyBoxAnimation.json'
 
 // * view Styles
@@ -19,11 +20,19 @@ import './styles/DatabaseWidget.css'
 
 const DatabaseWidget = ({ databaseNodes }) => {
 
-    const { setContext } = useContext(AppContext);
+    const { context, setContext } = useContext(AppContext);
 
-    const createDatabaseNode = () => {
+    const displayCreateDatabaseNodeWidget = () => {
 
+        // * Toggle for create Database Widget
 
+        if (context.app.display_create_database_node_widget == false) {
+
+            setContext({ app: { ...context.app, display_create_database_node_widget: true }, workspace: { ...context.workspace }, user: { ...context.user } })
+            setTimeout(() => { document.getElementById('Create-Database-Node-Widget').style.opacity = '1' }, 50)
+            return
+
+        }
 
     }
 
@@ -126,7 +135,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                                 <div className="Database-Window-Storage-Space-Snippet">
 
-                                                    <p className="Database-Window-Storage-Space-Label">{currentDBNode.dbName}</p>
+                                                    <p className="Database-Window-Storage-Space-Label">{formatToDisplayNumber(currentDBNode.dbRecordCount) + ' elementos.'}</p>
 
                                                 </div>
 
@@ -145,7 +154,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                     {
 
-                        databaseNodes.length > 0 ? <div className="Database-Window-Container Database-Node-Container-New" onClick={() => { createDatabaseNode }}> <div className="Database-Window-Content-Margin-Add"> <MdAdd size={48} color='#000d41' /> </div> </div> : null
+                        databaseNodes.length > 0 ? <div className="Database-Window-Container Database-Node-Container-New" onClick={displayCreateDatabaseNodeWidget}> <div className="Database-Window-Content-Margin-Add"> <MdAdd size={48} color='#000d41' /> </div> </div> : null
 
                     }
 

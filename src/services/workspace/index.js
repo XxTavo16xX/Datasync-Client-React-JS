@@ -82,3 +82,30 @@ export const switchWorkspace = (userToken, workspaceID) => {
     })
 
 }
+
+export const getMembersInWorkspace = (userToken, workspaceID) => {
+
+    return new Promise(async resolve => {
+
+        if (!userToken) return resolve({ error: true, message: 'userToken Missing' })
+        if (!workspaceID) return resolve({ error: true, message: 'workspaceID Missing' })
+
+        const requestBody = {
+            userToken: userToken,
+            workspaceID: workspaceID,
+        }
+
+        const rawResponse = await fetch(APIBASEURL + 'api/v1/workspace/getMembersInWorkspace', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        resolve(await rawResponse.json())
+
+    })
+
+}

@@ -13,6 +13,8 @@ import '../styles/Dashboard_view.css'
 
 // * Components Required
 
+import CreateDatabaseNodeWidget from "../../components/dashboard/CreateDatabaseNodeWidget";
+
 import ResumenWidget from '../../components/dashboard/ResumenWidget'
 import BackupWidget from '../../components/dashboard/BackupWidget'
 
@@ -28,6 +30,8 @@ const DashboardView = () => {
     if (context.app.current_view == 'Dashboard') return (
 
         <div className="Dashboard-View-Container">
+
+            <CreateDatabaseNodeWidget />
 
             <div className="Dashboard-Top-Section-Container">
 
