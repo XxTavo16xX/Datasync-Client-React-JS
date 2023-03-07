@@ -71,7 +71,7 @@
 }
 
 .Create-Database-Input-Container {
-    width: 100%;
+    width: calc(100% - 2px);
     height: 40px;
     border-radius: 5px;
     background-color: #c2e2ff;

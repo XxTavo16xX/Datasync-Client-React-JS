@@ -62,6 +62,25 @@ const CreateDatabaseNodeWidget = () => {
 
     }
 
+    const formErrorHandler = (handlerTyoe) => {
+
+        const DatabaseNodeNameInputContainer = document.getElementById('Create-Database-Name-Input-Container')
+
+        if(handlerTyoe == 'clear') return DatabaseNodeNameInputContainer.style.border = '0px solid red'
+
+        if(handlerTyoe == 'set') return DatabaseNodeNameInputContainer.style.border = '1px solid red'
+
+    }
+
+    const createDatabaseNode = () => {
+
+        const DatabaseNodeNameInout = document.getElementById('Create-Database-Name-Input')
+        const databaseName = DatabaseNodeNameInout.value
+
+        if(!databaseName) return formErrorHandler('set')
+
+    }
+
     if (context.app.display_create_database_node_widget === true) {
 
         return (
@@ -86,7 +105,7 @@ const CreateDatabaseNodeWidget = () => {
 
                             <p className="Create-Database-Subtitle-Label">Asigna el nombre te tendra esta base de datos.</p>
 
-                            <div className="Create-Database-Input-Container" id="Create-Database-Name-Input-Container">
+                            <div className="Create-Database-Input-Container" id="Create-Database-Name-Input-Container" onClick={() => { formErrorHandler('clear') }} >
 
                                 <input className="Create-Database-Name-Input" id="Create-Database-Name-Input" type="text" placeholder="Registros" />
 
@@ -194,7 +213,7 @@ const CreateDatabaseNodeWidget = () => {
 
                         <div className="Create-Database-Node-Form-Action-Button-Container">
 
-                            <div className="Create-Database-Node-Button">
+                            <div className="Create-Database-Node-Button" onClick={createDatabaseNode}>
 
                                 <p className="Create-Database-Node-Button-Label">Crear base de datos</p>
 
