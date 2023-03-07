@@ -23,7 +23,15 @@ const CreateDatabaseNodeWidget = () => {
 
     useEffect(() => {
         getMembersInWorkspace(context.user.user_Token, context.workspace._id || '0')
-            .then(data => { setMembersData(data.workspaceMembersList); });
+            .then(data => {
+
+                const membersList = data.workspaceMembersList.map((memberData) => {
+                    return { ...memberData, checked: false };
+                });
+
+                setMembersData(membersList);
+
+            });
     }, [])
 
     const closeCreateDatabaseWidget = () => {
@@ -35,6 +43,22 @@ const CreateDatabaseNodeWidget = () => {
             return
 
         }
+
+    }
+
+    const addAllMembers = () => {
+        const memberListUpdated = membersData.map((memberData) => {
+            return { ...memberData, checked: true };
+        });
+
+        setMembersData(memberListUpdated);
+    };
+
+    const handleMemberCheckBox = (memberIndex) => {
+
+        const MembersListUpdated = [...membersData];
+        MembersListUpdated[memberIndex].checked = !MembersListUpdated[memberIndex].checked;
+        setMembersData(MembersListUpdated);
 
     }
 
@@ -84,7 +108,7 @@ const CreateDatabaseNodeWidget = () => {
 
                                 </div>
 
-                                <div className="Members-List-Select-All-Button">
+                                <div className="Members-List-Select-All-Button" onClick={addAllMembers}>
 
                                     <p className="Members-Select-All-Label">Agregar a todos.</p>
 
@@ -110,7 +134,7 @@ const CreateDatabaseNodeWidget = () => {
 
                                     </div>
 
-                                    <div className="Member-Option-Checkbox-Container">
+                                    <div className="Member-Option-Checkbox-Container" id={'checkBoxMemberNode' + context.user.user_display_name}>
 
                                         <MdCheckBox size={18} color='#000d41' />
 
@@ -140,9 +164,9 @@ const CreateDatabaseNodeWidget = () => {
 
                                                 </div>
 
-                                                <div className="Member-Option-Checkbox-Container">
+                                                <div className="Member-Option-Checkbox-Container" onClick={() => { handleMemberCheckBox(index) }}>
 
-                                                    <MdCheckBoxOutlineBlank size={18} color='#000d41' />
+                                                    {element.checked ? <MdCheckBox size={18} color='#000d41' /> : <MdCheckBoxOutlineBlank size={18} color='#000d41' />}
 
                                                 </div>
 
