@@ -10,6 +10,7 @@ import Lottie from "lottie-react";
 import { AppContext } from '../../app/Context';
 import { getDateInHumanFormatByTimestamp } from "../../lib/Calendar";
 import { formatToDisplayNumber } from "../../lib/Display";
+import { getDatabaseNodeContent } from "../../services/databaseNodes";
 import emptyBoxAnimation from '../../assets/animations/emptyBoxAnimation.json'
 
 // * view Styles
@@ -40,7 +41,12 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
         const databaseNodeData = await getDatabaseNodeContent(context.user.user_Token, context.workspace._id || 0 ,databaseSeed)
 
-        setContext( { ...context, app: { ...context.app, current_view: 'Base de datos' }, databaseNode: databaseNodeData })
+        if(databaseNodeData.isDatabaseContentFetched) {
+
+            setContext( { ...context, app: { ...context.app, current_view: 'Base de datos' }, databaseNode: databaseNodeData.message.databaseContent })
+
+        }
+
         
     }
 

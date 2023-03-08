@@ -42,6 +42,7 @@ export const getDatabaseNodeContent = (userToken, workspaceID, databaseSeed) => 
             userToken: userToken,
             workspaceID: workspaceID,
             databaseNodeSeed: databaseSeed,
+            contentToSave: {}
         }
 
         const rawResponse = await fetch(APIBASEURL + 'api/v1/database/getContent', {
