@@ -36,9 +36,11 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
     }
 
-    const displayDatabaseNodeContent = (databaseSeed) => {
+    const displayDatabaseNodeContent = async (databaseSeed) => {
 
-        setContext({ app: { ...context.app, current_view: 'Base de datos' }, workspace: { ...context.workspace}, user: { ...context.user } })
+        const databaseNodeData = await getDatabaseNodeContent(context.user.user_Token, context.workspace._id || 0 ,databaseSeed)
+
+        setContext( { ...context, app: { ...context.app, current_view: 'Base de datos' }, databaseNode: databaseNodeData })
         
     }
 

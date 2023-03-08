@@ -29,3 +29,32 @@ export const createDatabaseNodeRequest = (userToken, workspaceID, databaseName, 
     })
 
 }
+
+export const getDatabaseNodeContent = (userToken, workspaceID, databaseSeed) => {
+
+    return new Promise(async resolve => {
+
+        if (!userToken) return resolve({ error: true, message: 'userToken Missing' })
+        if (!workspaceID) return resolve({ error: true, message: 'workspaceID Missing' })
+        if (!databaseSeed) return resolve({ error: true, message: 'databaseSeed Missing' })
+
+        const requestBody = {
+            userToken: userToken,
+            workspaceID: workspaceID,
+            databaseNodeSeed: databaseSeed,
+        }
+
+        const rawResponse = await fetch(APIBASEURL + 'api/v1/database/getContent', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        resolve(await rawResponse.json())
+
+    })
+
+}
