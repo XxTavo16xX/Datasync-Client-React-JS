@@ -8,6 +8,7 @@ import { MdOutlineClose, MdSearch, MdCheckBox, MdCheckBoxOutlineBlank } from 're
 
 import { AppContext } from '../../app/Context';
 import { getMembersInWorkspace } from "../../services/workspace";
+import { createDatabaseNodeRequest } from "../../services/databaseNodes";
 
 // * view Styles
 
@@ -66,18 +67,34 @@ const CreateDatabaseNodeWidget = () => {
 
         const DatabaseNodeNameInputContainer = document.getElementById('Create-Database-Name-Input-Container')
 
-        if(handlerTyoe == 'clear') return DatabaseNodeNameInputContainer.style.border = '0px solid red'
+        if (handlerTyoe == 'clear') return DatabaseNodeNameInputContainer.style.border = '0px solid red'
 
-        if(handlerTyoe == 'set') return DatabaseNodeNameInputContainer.style.border = '1px solid red'
+        if (handlerTyoe == 'set') return DatabaseNodeNameInputContainer.style.border = '1px solid red'
 
     }
 
-    const createDatabaseNode = () => {
+    const createDatabaseNode = async () => {
 
         const DatabaseNodeNameInout = document.getElementById('Create-Database-Name-Input')
         const databaseName = DatabaseNodeNameInout.value
 
-        if(!databaseName) return formErrorHandler('set')
+        if (!databaseName) return formErrorHandler('set')
+
+        // * Filters the elements of the 'members Data' array whose 'checked' property is true, then create a new array with the emails of the members that meet the condition
+
+        const databaseMembersList = membersData.filter((memberElement) => memberElement.checked).map((memberElement) => memberElement.userEmail);
+
+        const requestResponse = await createDatabaseNodeRequest(context.user.user_Token, context.workspace._id || '0', databaseName, databaseMembersList)
+
+        // * If the database node create request has been complete sucessfully then we add the database data to the workspace database list.
+
+        if (requestResponse.databaseNodeCreated === true) {
+
+            const newDatabaseNode = requestResponse.message.databaseNodeData;
+
+            setContext({ app: { ...context.app, display_create_database_node_widget: false }, workspace: { ...context.workspace, databaseNodes: [...context.workspace.databaseNodes, newDatabaseNode], }, user: { ...context.user } })
+
+        }
 
     }
 

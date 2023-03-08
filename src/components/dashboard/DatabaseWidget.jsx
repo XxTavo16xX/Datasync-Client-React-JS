@@ -60,7 +60,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                 <p className="Database-Nodes-Empty-Message-Label">Aun no haz creado ninguna base de datos</p>
 
-                                <div className="Database-Nodes-Empty-Create-Database-Button">
+                                <div className="Database-Nodes-Empty-Create-Database-Button" onClick={displayCreateDatabaseNodeWidget}>
 
                                     <p className="Create-Database-Button-Label">Crear base de datos</p>
 
@@ -80,7 +80,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                             databaseNodes.map((currentDBNode, index) => {
 
-                                return <div className="Database-Window-Container" key={index} onClick={() => { goDatabaseViewInCollection(currentDBNode.dbName) }}>
+                                return <div className="Database-Window-Container" key={index} onClick={() => { goDatabaseViewInCollection(currentDBNode.databaseNodeName) }}>
 
                                     <div className="Database-Window-Content-Margin">
 
@@ -88,7 +88,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                             <div className="Database-Window-Last-Date-User-Container">
 
-                                                <p className="Database-Window-Last-Date-User-Label">{getDateInHumanFormatByTimestamp(currentDBNode.dbUpdatedAt)}</p>
+                                                <p className="Database-Window-Last-Date-User-Label">{getDateInHumanFormatByTimestamp(currentDBNode.databaseNodeUpdatedAt)}</p>
 
                                             </div>
 
@@ -102,7 +102,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                         <div className="Database-Window-Center-Container">
 
-                                            <p className="Database-Window-Center-Name-Label">{currentDBNode.dbName}</p>
+                                            <p className="Database-Window-Center-Name-Label">{currentDBNode.databaseNodeName}</p>
 
                                         </div>
 
@@ -114,7 +114,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                                     {
 
-                                                        currentDBNode.lastUpdateUser.map((currentUser, index) => {
+                                                        currentDBNode.databaseNodeLastUpdatesAuthors.map((currentUser, index) => {
 
                                                             return <div className="Database-Window-User-Image-Container" key={index} >
 
@@ -135,7 +135,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                                 <div className="Database-Window-Storage-Space-Snippet">
 
-                                                    <p className="Database-Window-Storage-Space-Label">{formatToDisplayNumber(currentDBNode.dbRecordCount) + ' elementos.'}</p>
+                                                    <p className="Database-Window-Storage-Space-Label">{formatToDisplayNumber(currentDBNode.databaseNodeEntries) + ' elementos.'}</p>
 
                                                 </div>
 
