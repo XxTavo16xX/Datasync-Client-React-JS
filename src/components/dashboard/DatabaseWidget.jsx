@@ -36,10 +36,10 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
     }
 
-    const displayDatabaseNodeContent = () => {
+    const displayDatabaseNodeContent = (databaseSeed) => {
 
-
-
+        setContext({ app: { ...context.app, current_view: 'Base de datos' }, workspace: { ...context.workspace}, user: { ...context.user } })
+        
     }
 
     return <div className="Database-Widget-Content-Container">
@@ -86,7 +86,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                             databaseNodes.map((currentDBNode, index) => {
 
-                                return <div className="Database-Window-Container" key={index} onClick={() => { displayDatabaseNodeContent(currentDBNode.databaseNodeName) }}>
+                                return <div className="Database-Window-Container" key={index} onClick={() => { displayDatabaseNodeContent(currentDBNode.databaseNodeSeed) }}>
 
                                     <div className="Database-Window-Content-Margin">
 
