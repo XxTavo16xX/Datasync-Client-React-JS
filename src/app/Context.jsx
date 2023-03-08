@@ -34,6 +34,11 @@ const defaultContext = {
         user_email: '',
         user_profile_photo_url: '/src/assets/images/defaultUser.png',
         user_gender: ''
+    },
+    databaseNode: {
+        databaseNodeSeed: '',
+        databaseNodeName: '',
+        databaseNodeLastEntries: []
     }
 }
 
