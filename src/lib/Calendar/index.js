@@ -7,8 +7,10 @@ export const getDateInHumanFormatByTimestamp = (timestamp) => {
 
     if (!timestamp) return '01 de enero de 2023'
 
-    const date = new Date(timestamp * 1000)
+    const timestampLength = timestamp.toString().length
 
+    const date = new Date(timestampLength === 13 ? timestamp : timestamp * 1000)
+    
     return date.getDate() + ' de ' + monthNamesList[date.getMonth()] + ' de ' + date.getFullYear()
 
 }

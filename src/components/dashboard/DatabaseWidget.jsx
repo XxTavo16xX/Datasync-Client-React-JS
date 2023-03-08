@@ -36,6 +36,12 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
     }
 
+    const displayDatabaseNodeContent = () => {
+
+
+
+    }
+
     return <div className="Database-Widget-Content-Container">
 
         <div className="Database-Content-Container-Margin">
@@ -80,7 +86,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                             databaseNodes.map((currentDBNode, index) => {
 
-                                return <div className="Database-Window-Container" key={index} onClick={() => { goDatabaseViewInCollection(currentDBNode.databaseNodeName) }}>
+                                return <div className="Database-Window-Container" key={index} onClick={() => { displayDatabaseNodeContent(currentDBNode.databaseNodeName) }}>
 
                                     <div className="Database-Window-Content-Margin">
 
