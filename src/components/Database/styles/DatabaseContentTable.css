@@ -1,0 +1,211 @@
+.Database-View-Results-Table-Container {
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+    position: relative;
+}
+
+.Database-View-Results-Table-Background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff6a;
+    backdrop-filter: blur(16.5px);
+    -webkit-backdrop-filter: blur(16.5px);
+    border-radius: 20px;
+}
+
+.Database-View-Element-View-Container {
+    width: 32%;
+    height: 100%;
+    position: relative;
+}
+
+.Database-View-Element-View-Background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background: #ffffff6a;
+    backdrop-filter: blur(16.5px);
+    -webkit-backdrop-filter: blur(16.5px);
+    border-radius: 10px;
+}
+
+.Database-View-Results-Table-Content{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 2;
+}
+
+.Database-View-Results-Table-Columns-Headers-Container{
+    width: calc(100% - 10px);
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Database-View-Results-Table-Column-Header-Cells{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1%;
+    background-color: #c2e2ff;    
+}
+
+.Column-Header-Cell-Selector{
+    max-width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    cursor: pointer;
+}
+
+.Column-Header-Cell-Estado{
+    max-width: 95px;
+}
+
+.Column-Header-Cell-CopNum{
+    max-width: 70px;
+}
+
+.Column-Header-Cell-Fecha{
+    max-width: 100px;
+}
+
+.Column-Header-Cell-Autor{
+    max-width: 140px;
+}
+
+.Database-View-Results-Table-Column-Header-Label{
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #000d41;
+}
+
+.Database-View-Results-Table-Rows-Cells-Container{
+    width: calc(100% - 10px);
+    height: calc(100% - 70px);
+    overflow: scroll;
+    margin-top: 10px;
+}
+
+.Database-View-Results-Table-Rows-Cells-Container::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+.Database-View-Results-Table-Rows-Cells-Container::-webkit-scrollbar-thumb {
+    background: #00eabe;
+}
+
+
+.Database-View-Results-Table-Row-Cells-Container{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffffd3;
+    cursor: pointer;
+    transition: .3s ;
+    animation-name: entrieAnimationIn;
+    animation-duration: .3s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.Database-View-Results-Table-Row-Cells-Container:hover{
+    background-color: #e4e4e4d3;
+}
+
+
+.Database-View-Result-Table-Cell{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.Row-Cell-Container{
+    max-width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    cursor: pointer;
+}
+
+.Row-Cell-Estado{
+    max-width: 95px;
+    justify-content: flex-start;
+}
+
+.Database-View-Result-Table-Cell-Status-Snippet{
+    width: auto;
+    height: 20px;    
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Snippet-Status-activa{
+    background-color: #00eabe;
+    box-shadow: 0px 10px 31px -3px #00eabf80;
+    color: #000d41;
+}
+
+.Snippet-Status-completed{
+    background-color: #000d41;
+    box-shadow: 0px 10px 31px -3px #000d4180;
+    color: #fff;
+}
+
+.Snippet-Status-canceled{
+    background-color: #fb1109;
+    box-shadow: 0px 10px 31px -3px #c8080180;
+    color: #ffffff;
+}
+
+.Snippet-Label{
+    font-family: poppinsLight;
+    font-size: 14px;    
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+}
+
+.Row-Cell-CopNum{
+    max-width: 70px;
+}
+
+.Row-Cell-Fecha{
+    max-width: 100px;
+}
+
+.Row-Cell-Autor{
+    max-width: 140px;
+}
+
+.Database-View-Result-Table-Cell-Label{
+    max-width: 95%;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #000d41;
+    white-space: nowrap;
+}
