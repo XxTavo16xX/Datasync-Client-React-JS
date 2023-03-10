@@ -10,10 +10,23 @@ export const getDateInHumanFormatByTimestamp = (timestamp) => {
     const timestampLength = timestamp.toString().length
 
     const date = new Date(timestampLength === 13 ? timestamp : timestamp * 1000)
-    
+
     return date.getDate() + ' de ' + monthNamesList[date.getMonth()] + ' de ' + date.getFullYear()
 
 }
+
+export const getDateByTimestamp = (timestamp) => {
+
+    if (!timestamp) return '01/01/2023'
+
+    const timestampLength = timestamp.toString().length
+
+    const date = new Date(timestampLength === 13 ? timestamp : timestamp * 1000)
+
+    return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+}
+
 
 export const getCurrentDateInHumanFormat = () => {
 

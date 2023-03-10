@@ -36,9 +36,12 @@ const defaultContext = {
         user_gender: ''
     },
     databaseNode: {
+        name: '',
         databaseNodeSeed: '',
         databaseNodeName: '',
-        databaseNodeLastEntries: []
+        databaseNodeEntries: [],
+        dataTitle: [],
+        dataKeys: []
     }
 }
 

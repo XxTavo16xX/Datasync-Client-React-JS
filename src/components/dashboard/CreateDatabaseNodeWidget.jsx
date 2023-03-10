@@ -127,7 +127,7 @@ const CreateDatabaseNodeWidget = () => {
                                 <input className="Create-Database-Name-Input" id="Create-Database-Name-Input" type="text" placeholder="Registros" />
 
                             </div>
-
+ 
                         </div>
 
                         <div className="Create-Database-Node-Members-Container">
