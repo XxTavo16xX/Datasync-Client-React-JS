@@ -1,6 +1,6 @@
 // * Dependencies Required 
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MdExpandMore } from "react-icons/md";
 
 // * Modules Required
@@ -11,35 +11,45 @@ import { AppContext } from "../../app/Context";
 
 import './styles/TopSearchContainer.css'
 
-// * Components Required
-
-import SelectBox from '../../components/shared/SelectBox'
-
 // * view to Return
 
 const TopSearchContainer = () => {
 
     const { context } = useContext(AppContext);
 
+    const [displaySelectorList, setdisplaySelectorList] = useState(false)
+
+    const handlerDatabaseSelectorClick = () => {
+
+        setdisplaySelectorList(!displaySelectorList)
+
+    }    
+
     return (
 
         <div className="Top-SearchBar-Container">
 
-            <div className="Top-SearchBar-Database-SelectBox">
+            <div className="Top-SearchBar-Database-SelectBox" onClick={handlerDatabaseSelectorClick}>
 
-                <p className="Database-SelectBox-Current-Label">Ordenes</p>
+                <div className="Top-SearchBar-Database-SelectedBox">
 
-                <div className="Top-SearchBar-Database-SelectBox-Expand">
+                    <p className="Database-SelectBox-Current-Label">{context.databaseNode.name}</p>
 
-                    <MdExpandMore color="#ffffff" size={24} />
+                    <div className="Top-SearchBar-Database-SelectBox-Expand">
+
+                        <MdExpandMore color="#ffffff" size={24} />
+
+                    </div>
 
                 </div>
+
+                {displaySelectorList == true ? <SelectBoxListContainer selectBoxOptionsList={context.workspace.databaseNodes} /> : null}
 
             </div>
 
             <div className="Top-SearchBar-Database-Input-Container">
 
-                <input className="Top-SearchBar-Database-Input" type="text" placeholder="Buscar en Ordenes"/>
+                <input className="Top-SearchBar-Database-Input" type="text" placeholder="Buscar en Ordenes" />
 
             </div>
 
@@ -48,6 +58,42 @@ const TopSearchContainer = () => {
                 <p className="Top-SearchBar-New-Element-Button-Label">Nueva Orden</p>
 
             </div>
+
+        </div>
+
+    )
+
+}
+
+const SelectBoxListContainer = ({ selectBoxOptionsList }) => {
+
+    const handleChangeDatabase = (databaseSeed) => {
+
+        console.log('changeTo: ' + databaseSeed);
+
+    }
+
+    return (
+
+        <div className="Top-SearchBar-Database-SelectBox-List-Container">
+
+            {
+
+                selectBoxOptionsList.map((databaseData, index) => {
+
+                    return (
+
+                        <div className="SelectBox-List-Option-Container" onClick={() => { handleChangeDatabase(databaseData.databaseNodeSeed) }} key={databaseData.databaseNodeName + '_' + index} >
+
+                            <p className="Database-SelectBox-Current-Label">{databaseData.databaseNodeName}</p>
+
+                        </div>
+
+                    )
+
+                })
+
+            }
 
         </div>
 
