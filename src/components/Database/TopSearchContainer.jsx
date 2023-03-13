@@ -6,6 +6,7 @@ import { MdExpandMore } from "react-icons/md";
 // * Modules Required
 
 import { AppContext } from "../../app/Context";
+import { getDatabaseNodeContent } from "../../services/databaseNodes";
 
 // * view Styles
 
@@ -67,9 +68,19 @@ const TopSearchContainer = () => {
 
 const SelectBoxListContainer = ({ selectBoxOptionsList }) => {
 
-    const handleChangeDatabase = (databaseSeed) => {
+    const { context, setContext } = useContext(AppContext);
 
-        console.log('changeTo: ' + databaseSeed);
+    const handleChangeDatabase = async (databaseSeed) => {
+
+        const databaseNodeData = await getDatabaseNodeContent(context.user.user_Token, context.workspace._id || 0 ,databaseSeed)
+
+        console.log(databaseNodeData);
+
+        if(databaseNodeData.isDatabaseContentFetched) {
+
+            setContext( { ...context, databaseNode: databaseNodeData.message.databaseContent })
+
+        }
 
     }
 
