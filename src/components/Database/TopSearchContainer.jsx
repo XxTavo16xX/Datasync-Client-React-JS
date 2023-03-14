@@ -16,7 +16,7 @@ import './styles/TopSearchContainer.css'
 
 const TopSearchContainer = () => {
 
-    const { context } = useContext(AppContext);
+    const { context, setContext } = useContext(AppContext);
 
     const [displaySelectorList, setdisplaySelectorList] = useState(false)
 
@@ -25,6 +25,14 @@ const TopSearchContainer = () => {
         setdisplaySelectorList(!displaySelectorList)
 
     }    
+
+    const handleNewDatabaseEntry = () => {
+
+        console.log('clic');
+
+        setContext( { ...context, app: { ...context.app, display_database_new_entry_form: !context.app.display_database_new_entry_form } })
+
+    }
 
     return (
 
@@ -54,7 +62,7 @@ const TopSearchContainer = () => {
 
             </div>
 
-            <div className="Top-SearchBar-New-Element-Button">
+            <div className="Top-SearchBar-New-Element-Button" onClick={handleNewDatabaseEntry}>
 
                 <p className="Top-SearchBar-New-Element-Button-Label">Nueva Orden</p>
 
