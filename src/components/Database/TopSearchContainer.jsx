@@ -28,8 +28,6 @@ const TopSearchContainer = () => {
 
     const handleNewDatabaseEntry = () => {
 
-        console.log('clic');
-
         setContext( { ...context, app: { ...context.app, display_database_new_entry_form: !context.app.display_database_new_entry_form } })
 
     }

@@ -14,6 +14,7 @@ import '../styles/Database_view.css'
 
 import TopSearchContainer from '../../components/database/TopSearchContainer'
 import DatabaseContentTable from "../../components/Database/DatabaseContentTable";
+import DatabaseForm from "../../components/Database/DatabaseForm";
 
 // * view to Return
 
@@ -44,6 +45,8 @@ const DatabaseView = () => {
                 </div>
 
             </div>
+
+            <DatabaseForm />
 
         </div>
 
