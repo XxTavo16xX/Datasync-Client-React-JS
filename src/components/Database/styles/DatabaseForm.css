@@ -71,13 +71,34 @@
     background-color: #ffffff3a;
 }
 
-.Database-Form-Header{
+.Database-Form-Sections-Container{
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+}
+
+.Database-Form-Sections-Container::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+.Database-Form-Sections-Container::-webkit-scrollbar-thumb {
+    background: #00eabe;
+}
+
+.Database-Form-Sections-Margin{
+    width: calc(100% - 10px);
+    height: auto;
+}
+
+.Database-Form-OrderData-Section{
     width: 100%;
     height:60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    margin-bottom: 12px;
 }
 
 .Database-Form-Container-Block{
@@ -87,4 +108,114 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+}
+
+.Database-Form-Section-Container{
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.Database-Form-Section-Title{
+    width: 100%;
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.Database-Form-Section-Shape-2_50{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.Database-Form-Section-Block-2{
+    width: 150%;
+    height: 60px;
+}
+
+.Database-Form-List-Tools-Bar{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.Database-Form-Search-Button{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.Database-Form-New-Product-Button{
+    width: auto;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Database-Form-Tools-Button-Label{
+    padding: 0px 10px 0px 10px;
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #081648;
+}
+
+.Form-Order-Lists-Container{
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    overflow-x: scroll;
+}
+
+.Form-Order-Lists-Container::-webkit-scrollbar {
+    height: 5px;
+    background-color: transparent;
+}
+
+.Form-Order-Lists-Container::-webkit-scrollbar-thumb {
+    background: #00eabe;
+}
+
+.Form-Order-List-Container,
+.Form-Order-Element-List-Container{
+    min-width: 100%;
+    height: 170px;
+    background-color: #ffffff35;
+    border-radius: 5px;
+}
+
+.Database-Form-Action-Button-Container{
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Action-Button-Label{
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #081648;   
 }

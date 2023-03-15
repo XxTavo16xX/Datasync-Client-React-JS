@@ -36,6 +36,13 @@ export const getCurrentDateInHumanFormat = () => {
 
 }
 
+export const getCurrenteDate = () => {
+
+    const date = new Date(Date.now())
+
+    return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+
 export const getMonthAndYearInHumandFormat = () => {
 
     const date = new Date(Date.now())

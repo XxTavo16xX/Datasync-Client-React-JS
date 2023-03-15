@@ -11,17 +11,19 @@ import './styles/InputText.css'
 
 // * view to Return
 
-function InputText({inputPlaceHolder}) {
+function InputText({inputPlaceHolder, inputDefaultValue}) {
 
-    const [isFocused, setIsFocused] = useState(false);
+    const [isFocused, setIsFocused] = useState(inputDefaultValue != null ? true : false);
     const [inputValue, setInputValue] = useState("");
 
     const handleFocus = () => {
         setIsFocused(true);
     };
 
-    const handleBlur = () => {
-        setIsFocused(false);
+    const handleBlur = (e) => {
+
+        if(e.target.value == '') return setIsFocused(false);
+        
     };
 
     const handleChange = (event) => {
@@ -32,7 +34,7 @@ function InputText({inputPlaceHolder}) {
 
         <div className="Input-Text-Container">
 
-            <input className="Input-Text-Input" type="text" value={inputValue} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
+            <input className="Input-Text-Input" type="text" value={inputDefaultValue} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
 
             <label className={isFocused || inputValue ? "Input-Text-Placeholder active" : "Input-Text-Placeholder " } htmlFor="text-view-input" >{inputPlaceHolder}</label>
 
