@@ -30,7 +30,7 @@ const DatabaseView = () => {
 
                 <TopSearchContainer />
 
-                <DatabaseContentTable />
+                {/* <DatabaseContentTable /> */}
 
             </div>
 
@@ -46,7 +46,7 @@ const DatabaseView = () => {
 
             </div>
 
-            <DatabaseForm />
+            {/* <DatabaseForm /> */}
 
         </div>
 

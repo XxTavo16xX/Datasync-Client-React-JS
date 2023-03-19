@@ -40,7 +40,7 @@ const CreateDatabaseNodeWidget = () => {
         if (context.app.display_create_database_node_widget == true) {
 
             document.getElementById('Create-Database-Node-Widget').style.opacity = '0'
-            setTimeout(() => { setContext({ app: { ...context.app, display_create_database_node_widget: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 50)
+            setTimeout(() => { setContext({ ...context, app: { ...context.app, display_create_database_node_widget: false } }) }, 50)
             return
 
         }

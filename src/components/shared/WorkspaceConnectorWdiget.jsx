@@ -56,7 +56,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
-        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 300)
+        setTimeout(() => { setContext({ ...context, app: { ...context.app, display_workspace_Widget: false } }) }, 300)
         return
 
     }
@@ -111,7 +111,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         // * If the workspaceID has not been found in local must be saved in local data.
 
-        setTimeout(() => { setContext({ workspace: requestResponse.message.workspaceData, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.message.workspaceData._id, workspaceName: requestResponse.message.workspaceData.name }] } }) }, 100)
+        setTimeout(() => { setContext({ ...context, workspace: requestResponse.message.workspaceData, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.message.workspaceData._id, workspaceName: requestResponse.message.workspaceData.name }] } }) }, 100)
     }
 
     return (
@@ -286,7 +286,7 @@ const JoinWorkspaceView = () => {
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
-        setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 300)
+        setTimeout(() => { setContext({ ...context, app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false } }) }, 300)
         return
 
     }
@@ -335,7 +335,7 @@ const JoinWorkspaceView = () => {
 
             document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
             inivtationInput.value = ''
-            setTimeout(() => { setContext({ app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false }, workspace: requestResponse.workspaceData, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.workspaceData._id, workspaceName: requestResponse.workspaceData.name }] } }) }, 1000)
+            setTimeout(() => { setContext({ ...context,  app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false }, workspace: requestResponse.workspaceData, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.workspaceData._id, workspaceName: requestResponse.workspaceData.name }] } }) }, 1000)
 
             return
 

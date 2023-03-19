@@ -84,7 +84,7 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
     const displayCreateWorkspace = () => {
 
-        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: true }, workspace: { ...context.workspace }, user: { ...context.user } })
+        setContext({ ...context, app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: true } })
         setTimeout(() => { document.getElementById('Workspace-Connection-Widget').style.top = '0' }, 10)
         return
 
@@ -92,7 +92,7 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
     const displayWorkspaceJoin = () => {
 
-        setContext({ app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: false }, workspace: { ...context.workspace }, user: { ...context.user } })
+        setContext({ ...context, app: { ...context.app, display_workspace_Widget: true, display_create_workspace_view: false } })
         setTimeout(() => { document.getElementById('Workspace-Connection-Widget').style.top = '0' }, 10)
         return
 
@@ -102,7 +102,7 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
         const requestResponse = await switchWorkspace(context.user.user_Token, workspaceID)
 
-        if (requestResponse.workspaceJoined == true) { setContext({ app: { ...context.app }, workspace: requestResponse.workspaceData, user: { ...context.user } }) }
+        if (requestResponse.workspaceJoined == true) { setContext({ ...context, workspace: requestResponse.workspaceData}) }
 
         return
 
@@ -182,12 +182,12 @@ const UserContainer = ({ userName, user_profile_photo_url }) => {
         if (context.app.display_AppWidget == true) {
 
             document.getElementById('App-Widget-Container').style.height = '0px'
-            setTimeout(() => { setContext({ app: { ...context.app, display_AppWidget: false }, workspace: { ...context.workspace }, user: { ...context.user } }) }, 150)
+            setTimeout(() => { setContext({ ...context, app: { ...context.app, display_AppWidget: false } }) }, 150)
             return
             
         }
 
-        setContext({ app: { ...context.app, display_AppWidget: true }, workspace: { ...context.workspace }, user: { ...context.user } })
+        setContext({ ...context, app: { ...context.app, display_AppWidget: true } })
         setTimeout(() => { document.getElementById('App-Widget-Container').style.height = '235px' }, 150)
         
         return

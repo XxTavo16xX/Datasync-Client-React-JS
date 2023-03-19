@@ -29,7 +29,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
         if (context.app.display_create_database_node_widget == false) {
 
-            setContext({ app: { ...context.app, display_create_database_node_widget: true }, workspace: { ...context.workspace }, user: { ...context.user } })
+            setContext( { ...context, app: { ...context.app, display_create_database_node_widget: true }})
             setTimeout(() => { document.getElementById('Create-Database-Node-Widget').style.opacity = '1' }, 50)
             return
 
@@ -126,7 +126,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                                 <div className="Database-Window-User-Snippet">
 
-                                                    {
+                                                    {/* {
 
                                                         currentDBNode.databaseNodeLastUpdatesAuthors.map((currentUser, index) => {
 
@@ -138,7 +138,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                                         })
 
-                                                    }
+                                                    } */}
 
 
                                                 </div>
@@ -149,7 +149,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                                                 <div className="Database-Window-Storage-Space-Snippet">
 
-                                                    <p className="Database-Window-Storage-Space-Label">{formatToDisplayNumber(currentDBNode.databaseNodeEntries) + ' elementos.'}</p>
+                                                    {/* <p className="Database-Window-Storage-Space-Label">{formatToDisplayN    umber(currentDBNode.databaseNodeEntries) + ' elementos.'}</p> */}
 
                                                 </div>
 

@@ -18,6 +18,14 @@ const defaultContext = {
         display_create_database_node_widget: false,
         display_database_new_entry_form: false
     },
+    user: {
+        is_session_created: false,
+        user_Token: '',
+        user_Workspace_Connection_ID: [],
+        user_display_name: '',
+        user_email: '',
+        user_profile_photo_url: '/src/assets/images/defaultUser.png'
+    },
     workspace: {
         name: 'Personal',
         members: [],
@@ -27,22 +35,20 @@ const defaultContext = {
         safetyBoxNodes: [],
         pendingTaskNodes: []
     },
-    user: {
-        is_session_created: false,
-        user_Token: '',
-        user_Workspace_Connection_ID: [],
-        user_display_name: '',
-        user_email: '',
-        user_profile_photo_url: '/src/assets/images/defaultUser.png',
-        user_gender: ''
-    },
     databaseNode: {
         name: '',
-        databaseNodeSeed: '',
-        databaseNodeName: '',
-        databaseNodeEntries: [],
-        dataTitle: [],
-        dataKeys: []
+        lastModifications: [],
+        databaseNodeEntries: 0,
+        _updatedAt: 0,
+        _type: 'Database-Node-Document-ID'
+    },
+    databaseNodeContent: {
+        type: '',
+        contentEntrySchema: {},
+        databaseTableSchema: {},
+        DocPreview: {},
+        _updatedAt: 0,
+        _type: 'Database-Node-Content-Schema'
     }
 }
 
