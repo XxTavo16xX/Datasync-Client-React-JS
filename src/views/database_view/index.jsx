@@ -33,7 +33,7 @@ const DatabaseView = () => {
 
                 // * Loading by default the first db connection from workspace
 
-                const userToken = context.user.user_Token
+                const userToken = context.userData.userToken
                 const originSeed = context.workspace._id
                 const databaseSeed = context.workspace.databaseNodes[0] != null ? context.workspace.databaseNodes[0]['databaseNodeSeed'] : ''
 

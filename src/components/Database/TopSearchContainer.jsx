@@ -78,7 +78,7 @@ const SelectBoxListContainer = ({ selectBoxOptionsList }) => {
 
     const handleChangeDatabase = async (databaseSeed) => {
 
-        const databaseNodeData = await getDatabaseNodeContent(context.user.user_Token, context.workspace._id || 0 ,databaseSeed)
+        const databaseNodeData = await getDatabaseNodeContent(context.userData.userToken, context.workspace._id || 0 ,databaseSeed)
 
         console.log(databaseNodeData);
 

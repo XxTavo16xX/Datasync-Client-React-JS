@@ -7,7 +7,7 @@ import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos, MdAdd } from "react-
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
-import { switchWorkspace } from "../../services/workspace";
+import { getWorkspaceNodeContext } from "../../services/workspace";
 
 // * view Styles
 
@@ -25,7 +25,7 @@ const TopNavBar = () => {
 
         <MenuButton />
         <Logo appName={context.app.app_name} />
-        <ViewInfo current_workspace_name={context.workspaceData.name} current_view_name={context.app.current_view} />
+        <ViewInfo />
         <UserContainer userName={context.userData.userDisplayName} user_profile_photo_url={context.userData.userProfilePhotoURL} />
 
     </div>
@@ -52,7 +52,7 @@ const Logo = ({ appName }) => {
 
 }
 
-const ViewInfo = ({ current_workspace_name, current_view_name }) => {
+const ViewInfo = () => {
 
     const { context, setContext } = useContext(AppContext);
 
@@ -100,9 +100,12 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
     const changeToWorkspace = async (workspaceID) => {
 
-        const requestResponse = await switchWorkspace(context.user.user_Token, workspaceID)
+        const requestResponse = await getWorkspaceNodeContext(context.userData.userToken, workspaceID)
 
-        if (requestResponse.workspaceJoined == true) { setContext({ ...context, workspace: requestResponse.workspaceData}) }
+        console.log(requestResponse);
+        console.log(requestResponse.workspaceLogin);
+
+        if (requestResponse.workspaceLogin == true) { setContext({ ...context, workspaceData: requestResponse.workspaceNodeContextData }) }
 
         return
 
@@ -114,7 +117,7 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
             <div className="Header-Account-Current-Workspace-Container">
 
-                <p className="Header-Account-Workspace-Label">{current_workspace_name}</p>
+                <p className="Header-Account-Workspace-Label">{context.workspaceData.name}</p>
 
                 <div className="Header-Account-Workspace-Button">
 
@@ -133,7 +136,7 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
                         return (
 
-                            <div className="Header-Account-Workpace-List-Option-Container" key={'top_nav_bar_' + i} onClick={() => { changeToWorkspace(element.workspaceID) }}>
+                            <div className="Header-Account-Workpace-List-Option-Container" key={'top_nav_bar_' + i} onClick={() => { changeToWorkspace(element._id) }}>
 
                                 <p className="Header-Account-Workspace-List-Option-Label">{element.name}</p>
 
@@ -167,7 +170,7 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
         <MdArrowForwardIos size={18} color={'#06113c74'} style={{ marginLeft: '20px' }} />
 
-        <p className="Header-Current-View-Label">{current_view_name}</p>
+        <p className="Header-Current-View-Label">{context.app.current_view}</p>
 
     </div>
 

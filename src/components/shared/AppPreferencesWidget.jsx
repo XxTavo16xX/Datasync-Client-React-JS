@@ -42,7 +42,7 @@ const AppPreferencesWidget = () => {
 
                     <div className="User-Info-Photo-Container">
 
-                        <img className="User-Info-Photo" src={context.userData.userProfilePhotoURL != 'defaultApp' ? context.user.user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+                        <img className="User-Info-Photo" src={context.userData.userProfilePhotoURL != 'defaultApp' ? context.userData.user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
 
                     </div>
 

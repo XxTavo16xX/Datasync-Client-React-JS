@@ -24,8 +24,6 @@ const CreateDatabaseNodeWidget = () => {
 
     useEffect(() => {
 
-        console.log('useEffect started');
-
         getMembersInWorkspace(context.userData.userToken, context.workspaceData._id)
 
             .then(data => {
@@ -91,7 +89,7 @@ const CreateDatabaseNodeWidget = () => {
 
         const databaseMembersList = membersData.filter((memberElement) => memberElement.checked).map((memberElement) => memberElement.userEmail);
 
-        const requestResponse = await createDatabaseNodeRequest(context.user.user_Token, context.workspace._id || '0', databaseName, databaseMembersList)
+        const requestResponse = await createDatabaseNodeRequest(context.userData.userToken, context.workspace._id || '0', databaseName, databaseMembersList)
 
         // * If the database node create request has been complete sucessfully then we add the database data to the workspace database list.
 
@@ -163,19 +161,19 @@ const CreateDatabaseNodeWidget = () => {
 
                                 <div className="Member-Option-Photo-Container">
 
-                                    <img className="Member-Option-Photo" src={context.user.user_profile_photo_url != 'defaultApp' ? context.user.user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+                                    <img className="Member-Option-Photo" src={context.userData.user_profile_photo_url != 'defaultApp' ? context.userData.user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
 
                                 </div>
 
                                 <div className="Member-Option-Data-Container">
 
-                                    <p className="Member-Option-User-Name-Label">{context.user.user_display_name}</p>
+                                    <p className="Member-Option-User-Name-Label">{context.userData.user_display_name}</p>
 
-                                    <p className="Member-Option-User-Email-Label">{context.user.user_email}</p>
+                                    <p className="Member-Option-User-Email-Label">{context.userData.user_email}</p>
 
                                 </div>
 
-                                <div className="Member-Option-Checkbox-Container" id={'checkBoxMemberNode' + context.user.user_display_name}>
+                                <div className="Member-Option-Checkbox-Container" id={'checkBoxMemberNode' + context.userData.user_display_name}>
 
                                     <MdCheckBox size={18} color='#000d41' />
 

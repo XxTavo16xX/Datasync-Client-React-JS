@@ -56,7 +56,7 @@ export const loginWorkspace = (userToken, workspaceID) => {
 
 }
 
-export const switchWorkspace = (userToken, workspaceID) => {
+export const getWorkspaceNodeContext = (userToken, workspaceID) => {
 
     return new Promise(async resolve => {
 
@@ -68,7 +68,7 @@ export const switchWorkspace = (userToken, workspaceID) => {
             workspaceID: workspaceID,
         }
 
-        const rawResponse = await fetch(APIBASEURL + 'api/v1/workspace/switchToWorkspace', {
+        const rawResponse = await fetch(APIBASEURL + 'api/v1/workspace/get', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
