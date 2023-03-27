@@ -18,38 +18,36 @@ const defaultContext = {
         display_create_database_node_widget: false,
         display_database_new_entry_form: false
     },
-    user: {
-        is_session_created: false,
-        user_Token: '',
-        user_Workspace_Connection_ID: [],
-        user_display_name: '',
-        user_email: '',
-        user_profile_photo_url: '/src/assets/images/defaultUser.png'
+    userData: {
+        userToken: null,
+        userDisplayName: '',
+        userEmail: '',
+        userProfilePhotoURL: '/src/assets/images/defaultUser.png',
+        userGender: '',
+        workspacesNodes: [],
+        _updatedAt: null
     },
-    workspace: {
+    workspaceData: {
+        _id: '',
         name: 'Personal',
-        members: [],
         calendarNodes: [],
         databaseNodes: [],
-        cloudNodes: [],
-        safetyBoxNodes: [],
-        pendingTaskNodes: []
+        _updatedAt: null
     },
-    databaseNode: {
+    databaseNodeData: {
+        _id: '',
         name: '',
         lastModifications: [],
-        databaseNodeEntries: 0,
-        _updatedAt: 0,
-        _type: 'Database-Node-Document-ID'
+        _updatedAt: 0
     },
-    databaseNodeContent: {
-        type: '',
-        contentEntrySchema: {},
+    databaseNodeContentSchemaData: {
+        _id: '',
+        contentType: '',
         databaseTableSchema: {},
-        DocPreview: {},
+        docPreview: {},
         _updatedAt: 0,
-        _type: 'Database-Node-Content-Schema'
-    }
+    },
+    databaseNodeDocuments : []
 }
 
 const compareAndMergeContexts = (defaultContext, localContext) => {
@@ -87,15 +85,17 @@ const compareAndMergeContexts = (defaultContext, localContext) => {
 
 };
 
-const localContext = JSON.parse(localStorage.getItem('localContext'))
+const userData = JSON.parse(localStorage.getItem('ds-user-data'))
+const workspaceNodeData = JSON.parse(localStorage.getItem('ds-workspace-node-data'))
+const databaseNodeData = JSON.parse(localStorage.getItem('ds-database-node-data'))
+const databaseNodeContentData = JSON.parse(localStorage.getItem('ds-database-node-content-data'))
 
-const contextToSet = compareAndMergeContexts(defaultContext, localContext)
 
-localStorage.setItem('localContext', JSON.stringify(contextToSet));
+
 
 const AppProvider = (props) => {
 
-    const [context, updateReactContext] = React.useState(contextToSet);
+    const [context, updateReactContext] = React.useState(defaultContext);
 
     const setContext = (newContext) => {
 

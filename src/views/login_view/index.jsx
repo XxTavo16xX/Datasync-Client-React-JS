@@ -23,7 +23,7 @@ const LoginView = () => {
 
     const { context, setContext } = useContext(AppContext)
 
-    if (context.user.is_session_created === false) {
+    if (context.userData.userToken == null) {
 
         return (
 

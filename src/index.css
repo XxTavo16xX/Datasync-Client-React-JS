@@ -29,6 +29,11 @@
     height: 134vh;
   }
 
+  .Login-View-Container {
+    width: 134vw !important;
+    height: 134vh !important;
+  }
+
 }
 
 

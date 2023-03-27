@@ -73,7 +73,7 @@ const RegisterForm = () => {
 
         // * Fetching Request
 
-        const requestResponse = await sendRegisterRequest(userEmail.toLowerCase(), userPassword, userName, userSurnames)
+        const requestResponse = await sendRegisterRequest(userName, userSurnames, userEmail.toLowerCase(), userPassword)
 
         console.log(requestResponse);
 
@@ -82,7 +82,7 @@ const RegisterForm = () => {
             return errorHandler('set', 'Email')
         }
 
-        if (requestResponse.message == 'user created successfully') {
+        if (requestResponse.message == 'user account created successfully') {
 
             displayLoginForm()
 

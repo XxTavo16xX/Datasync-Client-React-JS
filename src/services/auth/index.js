@@ -29,14 +29,14 @@ export const sendLoginRequest = (userEmail, userPassword) => {
 
 }
 
-export const sendRegisterRequest = (userEmail, userPassword, userName, userSurnames) => {
+export const sendRegisterRequest = (userName, userSurnames, userEmail, userPassword) => {
 
     return new Promise(async resolve => {
 
-        if(!userEmail) return resolve({error:true, message: 'userEmail Missing'})
-        if(!userPassword) return resolve({error:true, message: 'userPassword Missing'})
         if(!userName) return resolve({error:true, message: 'userName Missing'})
         if(!userSurnames) return resolve({error:true, message: 'userSurnames Missing'})
+        if(!userEmail) return resolve({error:true, message: 'userEmail Missing'})
+        if(!userPassword) return resolve({error:true, message: 'userPassword Missing'})
 
         const requestBody = {
             userEmail: userEmail,
@@ -44,7 +44,7 @@ export const sendRegisterRequest = (userEmail, userPassword, userName, userSurna
             userName: userName + ' ' + userSurnames
         }
 
-        const rawResponse = await fetch(APIBASEURL + 'api/v1/auth/signup/saveNewUser', {
+        const rawResponse = await fetch(APIBASEURL + 'api/v1/auth/signup', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

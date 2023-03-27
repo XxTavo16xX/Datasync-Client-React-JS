@@ -30,7 +30,7 @@ const AppView = () => {
 
     const { context } = useContext(AppContext)
 
-    if (context.user.is_session_created === true) return (
+    if (context.userData.userToken != null) return (
 
         <div className="App-View-Container">
 
@@ -46,6 +46,7 @@ const AppView = () => {
 
                 <TopNavBar />
                 <SideNavBar />
+                
 
                 <div className="App-Content-Container">
 
@@ -57,7 +58,7 @@ const AppView = () => {
                         <DashboardView />
                         <ChatView />
                         <CalendarView />
-                        <DatabaseView />
+                        { context.app.current_view == 'Base de datos' ? <DatabaseView></DatabaseView> : null }
                         <SafetyBoxView />
 
                     </div>
