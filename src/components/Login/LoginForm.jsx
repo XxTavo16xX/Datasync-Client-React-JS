@@ -85,11 +85,9 @@ const LoginForm = () => {
 
         // * If Login Request is complete successfully the user token must be saved in local
 
-        if (requestResponse.message == "user Authentication complete") {
+        if (requestResponse.isLoginSuccesfull == true) {
 
-            const userTOKEN = requestResponse.jwt
-
-            setContext({ ...context, user: { ...context.user, user_Token: userTOKEN, is_session_created: true, user_display_name: requestResponse.userDName, user_email: requestResponse.userDEmail, user_profile_photo_url: requestResponse.userPPURL, user_Workspace_Connection_ID: requestResponse.userWorkspacesID }, workspace: requestResponse.currentWorkspace })
+            setContext({ ...context, userData : requestResponse.userData, workspaceData: requestResponse.workspaceNodeContext })
 
         }
 

@@ -47,68 +47,41 @@ const defaultContext = {
         docPreview: {},
         _updatedAt: 0,
     },
-    databaseNodeDocuments : []
+    databaseNodeDocuments: []
 }
-
-const compareAndMergeContexts = (defaultContext, localContext) => {
-
-    // * If localContext is null, return defaultContext
-
-    if (!localContext) {
-        return defaultContext;
-    }
-
-    // * Iiterate over the keys in defaultContext
-
-    Object.keys(defaultContext).forEach(key => {
-
-        // * If localContext doesn't have the same key, add it
-
-        if (!localContext.hasOwnProperty(key)) {
-
-            localContext[key] = defaultContext[key];
-        } else {
-
-            //  * If both values are objects, recursively compare and merge them
-
-            if (typeof defaultContext[key] === 'object' && typeof localContext[key] === 'object') {
-
-                localContext[key] = compareAndMergeContexts(defaultContext[key], localContext[key]);
-
-            }
-
-        }
-
-    });
-
-    return localContext;
-
-};
-
-const userData = JSON.parse(localStorage.getItem('ds-user-data'))
-const workspaceNodeData = JSON.parse(localStorage.getItem('ds-workspace-node-data'))
-const databaseNodeData = JSON.parse(localStorage.getItem('ds-database-node-data'))
-const databaseNodeContentData = JSON.parse(localStorage.getItem('ds-database-node-content-data'))
-
-
-
 
 const AppProvider = (props) => {
 
-    const [context, updateReactContext] = React.useState(defaultContext);
+    const localUserData = JSON.parse(localStorage.getItem('ds-user-data'))
+    const localWorkspaceNodeData = JSON.parse(localStorage.getItem('ds-workspace-node-data'))
+    const localDatabaseNodeData = JSON.parse(localStorage.getItem('ds-database-node-data'))
+    const localDatabaseNodeContentData = JSON.parse(localStorage.getItem('ds-database-node-content-data'))
+
+    const contextSaved = {
+        app: defaultContext.app,
+        userData: localUserData != null ? localUserData : defaultContext.userData,
+        workspaceData: localWorkspaceNodeData != null ? localWorkspaceNodeData : defaultContext.workspaceData,
+        databaseNodeData: localDatabaseNodeData != null ? localDatabaseNodeData : defaultContext.databaseNodeData,
+        databaseNodeContentSchemaData: localDatabaseNodeContentData != null ? localDatabaseNodeContentData : defaultContext.databaseNodeContentSchemaData
+    }
+
+    const [context, updateReactContext] = React.useState(contextSaved);
 
     const setContext = (newContext) => {
 
-        localStorage.setItem('localContext', JSON.stringify(newContext))
+        // * Updates React Context
+
         updateReactContext(newContext)
+
+        // * Updates Local Context storage
+
+        localStorage.setItem('ds-user-data', JSON.stringify(newContext.userData))
+        localStorage.setItem('ds-workspace-node-context-data', JSON.stringify(newContext.workspaceData))
+        localStorage.setItem('ds-database-node-data', JSON.stringify(newContext.databaseNodeData))
+        localStorage.setItem('ds-database-node-content-data', JSON.stringify(newContext.databaseNodeContentSchemaData))
     }
 
-    const setDefaultContext = () => {
-
-        setContext({ app: defaultContext.app, workspace: defaultContext.workspace, user: defaultContext.user })
-        localStorage.setItem('localContext', JSON.stringify(defaultContext));
-
-    }
+    const setDefaultContext = () => { setContext(defaultContext) }
 
     return (
 
