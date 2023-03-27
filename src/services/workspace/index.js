@@ -29,7 +29,7 @@ export const createWorkspace = (userToken, workspaceName, workspaceMembers) => {
 
 }
 
-export const joinWorkspace = (userToken, workspaceID) => {
+export const loginWorkspace = (userToken, workspaceID) => {
 
     return new Promise(async resolve => {
 
@@ -41,7 +41,7 @@ export const joinWorkspace = (userToken, workspaceID) => {
             workspaceID: workspaceID,
         }
 
-        const rawResponse = await fetch(APIBASEURL + 'api/v1/workspace/join', {
+        const rawResponse = await fetch(APIBASEURL + 'api/v1/workspace/login', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -95,7 +95,7 @@ export const getMembersInWorkspace = (userToken, workspaceID) => {
             workspaceID: workspaceID,
         }
 
-        const rawResponse = await fetch(APIBASEURL + 'api/v1/workspace/getMembersInWorkspace', {
+        const rawResponse = await fetch(APIBASEURL + 'api/v1/workspace/get/membersList', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

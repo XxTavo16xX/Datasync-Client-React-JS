@@ -30,10 +30,12 @@ const CreateDatabaseNodeWidget = () => {
 
             .then(data => {
 
+                console.log(data);
+
                 const membersList = data.workspaceMembersList.map((memberData) => {
                     return { ...memberData, checked: false };
                 });
-
+// 
                 setMembersData(membersList);
 
             });
@@ -191,13 +193,13 @@ const CreateDatabaseNodeWidget = () => {
 
                                             <div className="Member-Option-Photo-Container">
 
-                                                <img className="Member-Option-Photo" src={element.userProfilePicURL != 'defaultApp' ? element.userProfilePicURL : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+                                                <img className="Member-Option-Photo" src={element.userProfilePhotoURL != 'defaultApp' ? element.userProfilePhotoURL : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
 
                                             </div>
 
                                             <div className="Member-Option-Data-Container">
 
-                                                <p className="Member-Option-User-Name-Label">{element.userName}</p>
+                                                <p className="Member-Option-User-Name-Label">{element.userDisplayName}</p>
 
                                                 <p className="Member-Option-User-Email-Label">{element.userEmail}</p>
 

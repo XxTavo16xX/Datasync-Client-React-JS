@@ -7,7 +7,7 @@ import { MdClose } from "react-icons/md";
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
-import { createWorkspace, joinWorkspace } from "../../services/workspace";
+import { createWorkspace, loginWorkspace } from "../../services/workspace";
 import { displayAppNotification } from "../../lib/System";
 
 // * view Styles
@@ -34,7 +34,7 @@ const WorkspaceConnectionWidget = () => {
 
                     {
 
-                        context.app.display_create_workspace_view === true ? <CreateWorkspaceView user_profile_photo_url={context.user.user_profile_photo_url} userName={context.user.user_display_name} userEmail='nombre@ejemplo.com' /> : <JoinWorkspaceView />
+                        context.app.display_create_workspace_view === true ? <CreateWorkspaceView /> : <LoginWorkspaceNode />
 
                     }
 
@@ -48,7 +48,7 @@ const WorkspaceConnectionWidget = () => {
 
 }
 
-const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) => {
+const CreateWorkspaceView = () => {
 
     const { context, setContext } = useContext(AppContext)
 
@@ -95,15 +95,15 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         if (!workspaceName) return workspaceNameInputContainer.style.border = '1px solid red'
 
-        const requestResponse = await createWorkspace(context.user.user_Token, workspaceName, workspaceMembersList)
+        const requestResponse = await createWorkspace(context.userData.userToken, workspaceName, workspaceMembersList)
 
-        if (requestResponse.error != 'none') { }
+        if (requestResponse.error == false) { }
 
         document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
 
         // * The next line check if the workspace is already saved locally by lookin for workspaceID
 
-        const isWorkspaceAlreadySaved = context.user.user_Workspace_Connection_ID.findIndex(conn => conn.workspaceID === requestResponse.message.workspaceID);
+        const isWorkspaceAlreadySaved = context.userData.workspaceNodes.findIndex(conn => conn._id === requestResponse.workspaceData._id);
 
         // * If the workspaceID has been found in local that mean that already exist so no need to save again
 
@@ -111,7 +111,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
         // * If the workspaceID has not been found in local must be saved in local data.
 
-        setTimeout(() => { setContext({ ...context, workspace: requestResponse.message.workspaceData, app: { ...context.app, display_workspace_Widget: false }, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.message.workspaceData._id, workspaceName: requestResponse.message.workspaceData.name }] } }) }, 100)
+        setTimeout(() => { setContext({ ...context, workspaceData: requestResponse.workspaceData, app: { ...context.app, display_workspace_Widget: false }, userData: { ...context.userData, workspaceNodes: [...context.userData.workspaceNodes, { _id: requestResponse.workspaceData._id, name: requestResponse.workspaceData.name }], _updatedAt: Date.now() } }) }, 100)
     }
 
     return (
@@ -184,14 +184,14 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
                                 <div className="Workspace-Member-Image-Container">
 
-                                    <img src={user_profile_photo_url != 'defaultApp' ? user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+                                    <img src={context.userData.userProfilePhotoURL != 'defaultApp' ? context.userData.userProfilePhotoURL : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
 
                                 </div>
 
                                 <div className="Workspace-Member-Info-Container">
 
-                                    <p className="Workspace-Member-Info-Name-Label">{userName}</p>
-                                    <p className="Workspace-Member-Info-Email-Label">{userEmail}</p>
+                                    <p className="Workspace-Member-Info-Name-Label">{context.userData.userDisplayName}</p>
+                                    <p className="Workspace-Member-Info-Email-Label">{context.userData.userEmail}</p>
 
                                 </div>
 
@@ -217,7 +217,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
                                             <div className="Workspace-Member-Image-Container">
 
-                                                <img src={user_profile_photo_url != 'defaultApp' ? user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+                                                <img src={context.userData.userProfilePhotoURL != 'defaultApp' ? context.userData.userProfilePhotoURL : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
 
                                             </div>
 
@@ -278,7 +278,7 @@ const CreateWorkspaceView = ({ userName, userEmail, user_profile_photo_url }) =>
 
 }
 
-const JoinWorkspaceView = () => {
+const LoginWorkspaceNode = () => {
 
     const { context, setContext } = useContext(AppContext)
 
@@ -321,9 +321,9 @@ const JoinWorkspaceView = () => {
         if (!invitationCode) return handlerError('set', 'Ingresa tu codigo de invitacion')
         if(invitationCode.length < 8) return handlerError('set', 'Ingresa un codigo valido')
 
-        const requestResponse = await joinWorkspace(context.user.user_Token, invitationCode)
+        const requestResponse = await loginWorkspace(context.userData.userToken, invitationCode)
 
-        if (requestResponse.workspaceJoined == false) {
+        if (requestResponse.isUserLoginSuccess == false) {
 
             document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
             inivtationInput.value = ''
@@ -331,11 +331,12 @@ const JoinWorkspaceView = () => {
 
         }
 
-        if (requestResponse.workspaceJoined == true) {
+        if (requestResponse.isUserLoginSuccess == true) {
 
             document.getElementById('Workspace-Connection-Widget').style.top = '-560px'
             inivtationInput.value = ''
-            setTimeout(() => { setContext({ ...context,  app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false }, workspace: requestResponse.workspaceData, user: { ...context.user, user_Workspace_Connection_ID: [...context.user.user_Workspace_Connection_ID, { workspaceID: requestResponse.workspaceData._id, workspaceName: requestResponse.workspaceData.name }] } }) }, 1000)
+
+            setTimeout(() => { setContext({ ...context, workspaceData: requestResponse.workspaceNodeContextData, app: { ...context.app, display_workspace_Widget: false, display_create_workspace_view: false }, userData: { ...context.userData, workspaceNodes: [...context.userData.workspaceNodes, { _id: requestResponse.workspaceNodeContextData._id, name: requestResponse.workspaceNodeContextData.name }], _updatedAt: Date.now() } }) }, 100)
 
             return
 
