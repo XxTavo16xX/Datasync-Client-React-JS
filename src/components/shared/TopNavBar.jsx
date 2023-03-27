@@ -25,8 +25,8 @@ const TopNavBar = () => {
 
         <MenuButton />
         <Logo appName={context.app.app_name} />
-        <ViewInfo current_workspace_name={context.workspace.name} current_view_name={context.app.current_view} />
-        <UserContainer userName={context.user.user_display_name} user_profile_photo_url={context.user.user_profile_photo_url} />
+        <ViewInfo current_workspace_name={context.workspaceData.name} current_view_name={context.app.current_view} />
+        <UserContainer userName={context.userData.userDisplayName} user_profile_photo_url={context.userData.userProfilePhotoURL} />
 
     </div>
 
@@ -129,13 +129,13 @@ const ViewInfo = ({ current_workspace_name, current_view_name }) => {
 
                 {
 
-                    context.user.user_Workspace_Connection_ID.map(element => {
+                    context.userData.workspaceNodes.map((element, i) => {
 
                         return (
 
-                            <div className="Header-Account-Workpace-List-Option-Container" key={element.workspaceID} onClick={() => { changeToWorkspace(element.workspaceID) }}>
+                            <div className="Header-Account-Workpace-List-Option-Container" key={'top_nav_bar_' + i} onClick={() => { changeToWorkspace(element.workspaceID) }}>
 
-                                <p className="Header-Account-Workspace-List-Option-Label">{element.workspaceName}</p>
+                                <p className="Header-Account-Workspace-List-Option-Label">{element.name}</p>
 
                             </div>
 
@@ -177,20 +177,9 @@ const UserContainer = ({ userName, user_profile_photo_url }) => {
 
     const { context, setContext } = useContext(AppContext);
 
-    const displayAppWidget = () => {
+    const displayAppPreferenceWidget = () => {
 
-        if (context.app.display_AppWidget == true) {
-
-            document.getElementById('App-Widget-Container').style.height = '0px'
-            setTimeout(() => { setContext({ ...context, app: { ...context.app, display_AppWidget: false } }) }, 150)
-            return
-            
-        }
-
-        setContext({ ...context, app: { ...context.app, display_AppWidget: true } })
-        setTimeout(() => { document.getElementById('App-Widget-Container').style.height = '235px' }, 150)
-        
-        return
+        setContext({ ...context, app: { ...context.app, display_app_pref_widget: !context.app.display_app_pref_widget } })
 
     }
 
@@ -206,7 +195,7 @@ const UserContainer = ({ userName, user_profile_photo_url }) => {
 
             <p className="User-Name-Label">{userName}</p>
 
-            <button className="User-Options-Button" onClick={displayAppWidget}>
+            <button className="User-Options-Button" onClick={displayAppPreferenceWidget}>
 
                 <MdKeyboardArrowDown size={24} />
 

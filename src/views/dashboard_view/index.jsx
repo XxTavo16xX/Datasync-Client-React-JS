@@ -31,7 +31,7 @@ const DashboardView = () => {
 
         <div className="Dashboard-View-Container">
 
-            <CreateDatabaseNodeWidget />
+            { context.app.display_create_database_node_widget != false ? <CreateDatabaseNodeWidget /> : null}
 
             <div className="Dashboard-Top-Section-Container">
 
@@ -59,7 +59,7 @@ const DashboardView = () => {
 
                     <div className="Database-Widget-Content-Container">
 
-                        <DatabaseWidget databaseNodes={ context.workspace.databaseNodes } />
+                        <DatabaseWidget databaseNodes={ context.workspaceData.databaseNodes } />
 
                     </div>
 
@@ -71,7 +71,7 @@ const DashboardView = () => {
 
                     <div className="PendingTask-Widget-Content-Container">
 
-                        <PendingTaskWidget completedTaskReceived={context.workspace.pendingTaskNodes[0].completed} pendingTaskReceived={context.workspace.pendingTaskNodes[0].pending} />
+                        {/* <PendingTaskWidget completedTaskReceived={context.workspace.pendingTaskNodes[0].completed} pendingTaskReceived={context.workspace.pendingTaskNodes[0].pending} /> */}
 
                     </div>
 

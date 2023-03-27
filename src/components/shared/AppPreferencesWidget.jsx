@@ -1,7 +1,7 @@
 
 // * Dependencies Required 
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MdAccountCircle, MdSettings, MdLogout } from "react-icons/md";
 
 // * Modules Required
@@ -10,15 +10,21 @@ import { AppContext } from '../../app/Context';
 
 // * view Styles
 
-import './styles/AppWidget.css'
+import './styles/AppPreferencesWidget.css'
 
 // * Components Required
 
 // * view to Return
 
-const AppWidget = () => {
+const AppPreferencesWidget = () => {
 
-    const { context, setContext, setDefaultContext } = useContext(AppContext)
+    const { context, setDefaultContext } = useContext(AppContext)
+
+    useEffect(() => {
+
+        setTimeout(() => { document.getElementById('App-Widget-Container').style.height = '230px' }, 100)
+
+    }, [])
 
     const closeUserSession = () => {
 
@@ -26,7 +32,7 @@ const AppWidget = () => {
 
     }
 
-    if (context.app.display_AppWidget === true) return (
+    return (
 
         <div className="App-Widget-Container" id="App-Widget-Container">
 
@@ -36,15 +42,15 @@ const AppWidget = () => {
 
                     <div className="User-Info-Photo-Container">
 
-                        <img className="User-Info-Photo" src={context.user.user_profile_photo_url != 'defaultApp' ? context.user.user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+                        <img className="User-Info-Photo" src={context.userData.userProfilePhotoURL != 'defaultApp' ? context.user.user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
 
                     </div>
 
                     <div className="User-Info-Text-Container">
 
-                        <p className="App-Widget-User-Name-Label">{context.user.user_display_name}</p>
+                        <p className="App-Widget-User-Name-Label">{context.userData.userDisplayName}</p>
 
-                        <p className="App-Widget-User-Email-Label">{context.user.user_email}</p>
+                        <p className="App-Widget-User-Email-Label">{context.userData.userEmail}</p>
 
                     </div>
 
@@ -84,7 +90,7 @@ const AppWidget = () => {
 
                     </div>
 
-                    <div className="App-Widget-Option-Container" onClick={ closeUserSession }>
+                    <div className="App-Widget-Option-Container" onClick={closeUserSession}>
 
                         <div className="App-Widget-Option-Icon-Container">
 
@@ -110,4 +116,4 @@ const AppWidget = () => {
 
 }
 
-export default AppWidget
+export default AppPreferencesWidget

@@ -16,7 +16,7 @@ import './styles/AppView.css'
 import TopNavBar from '../components/shared/TopNavBar'
 import SideNavBar from '../components/shared/SideNavBar'
 import WorkspaceConnectionWidget from "../components/shared/WorkspaceConnectorWdiget";
-import AppWidget from "../components/shared/AppWidget";
+import AppPreferencesWidget from "../components/shared/AppPreferencesWidget";
 
 import DashboardView from '../views/dashboard_view'
 import ChatView from '../views/chat_view'
@@ -46,14 +46,13 @@ const AppView = () => {
 
                 <TopNavBar />
                 <SideNavBar />
-                
 
                 <div className="App-Content-Container">
 
                     <div className="App-Content-Margin">
 
                         <WorkspaceConnectionWidget />
-                        <AppWidget />
+                        { context.app.display_app_pref_widget == true ? <AppPreferencesWidget /> : null }
 
                         <DashboardView />
                         <ChatView />

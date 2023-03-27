@@ -12,6 +12,7 @@ const defaultContext = {
     app: {
         app_name: 'Datasync',
         current_view: 'Dashboard',
+        display_app_pref_widget: false,
         display_workspace_Widget: false,
         display_create_workspace_view: false,
         display_AppWidget: false,
@@ -24,7 +25,7 @@ const defaultContext = {
         userEmail: '',
         userProfilePhotoURL: '/src/assets/images/defaultUser.png',
         userGender: '',
-        workspacesNodes: [],
+        workspaceNodes: [],
         _updatedAt: null
     },
     workspaceData: {
@@ -81,7 +82,16 @@ const AppProvider = (props) => {
         localStorage.setItem('ds-database-node-content-data', JSON.stringify(newContext.databaseNodeContentSchemaData))
     }
 
-    const setDefaultContext = () => { setContext(defaultContext) }
+    const setDefaultContext = () => {
+
+        setContext(defaultContext)
+
+        localStorage.removeItem('ds-user-data')
+        localStorage.removeItem('ds-workspace-node-context-data')
+        localStorage.removeItem('ds-database-node-data')
+        localStorage.removeItem('ds-database-node-content-data')
+
+    }
 
     return (
 
