@@ -1,6 +1,6 @@
 const APIBASEURL = 'http://localhost:2279/datasync/'
 
-export const createDatabaseNodeRequest = (userToken, workspaceID, databaseName, databaseMembersList) => {
+export const createDatabaseNodeRequest = (userToken, workspaceID, databaseName, databaseMembersList, databaseContentType, databaseContentSchema, databaseTableTitles, databaseTableSchemaLinkForRows) => {
 
     return new Promise(async resolve => {
 
@@ -10,9 +10,14 @@ export const createDatabaseNodeRequest = (userToken, workspaceID, databaseName, 
 
         const requestBody = {
             userToken: userToken,
-            workspaceID: workspaceID,
-            databaseNodeName: databaseName,
+            seedOrigin: workspaceID,
+            databaseName: databaseName,
             databaseMembersList: databaseMembersList,
+            contentType: databaseContentType,
+            contentEntryExample: databaseContentSchema,
+            contentTableColumnsTitlesList: databaseTableTitles,
+            contentTableRowsEntrysSchemaReferenceList: databaseTableSchemaLinkForRows,
+            contentDocPreviewSchema: {}
         }
 
         const rawResponse = await fetch(APIBASEURL + 'api/v1/database/create', {

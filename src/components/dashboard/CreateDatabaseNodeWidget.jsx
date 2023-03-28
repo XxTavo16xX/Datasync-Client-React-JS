@@ -106,6 +106,8 @@ const CreateDatabaseNodeWidget = () => {
 
     const createDatabaseNode = async () => {
 
+        // * Getting Database Node Name
+
         const DatabaseNodeNameInout = document.getElementById('Create-Database-Name-Input')
         const databaseName = DatabaseNodeNameInout.value
 
@@ -115,15 +117,37 @@ const CreateDatabaseNodeWidget = () => {
 
         const databaseMembersList = membersData.filter((memberElement) => memberElement.checked).map((memberElement) => memberElement.userEmail);
 
-        const requestResponse = await createDatabaseNodeRequest(context.userData.userToken, context.workspace._id || '0', databaseName, databaseMembersList)
+        // * Getting Database Node Type
+
+        const DatabaseNodeContentType = 'Entry-Form-Table-Document'
+
+        // * Getting Database Node Content Schema example
+
+        const DatabaseNodeContentSchemaTextArea = document.getElementById('Create-Database-Node-Content-Schema-TextArea')
+        const databaseNodeContentSchemaDataExample = DatabaseNodeContentSchemaTextArea.value        
+
+        // * Getting Database Node Table Columns Label
+
+        const DatabaseNodeTableTitleInput = document.getElementById('Create-Database-Node-Table-Title-Input')
+        const DatabaseNodeTableTitle = DatabaseNodeTableTitleInput.value
+        
+        // * Getting Database Node Table Row Content link to Schema
+        
+        const DatabaseNodeTableSchemaLinkInput = document.getElementById('Create-Database-Node-Table-Link-Input')
+        const DatabaseNodeTableSchemaLink = DatabaseNodeTableSchemaLinkInput.value
+        
+        
+        const requestResponse = await createDatabaseNodeRequest(context.userData.userToken, context.workspaceData._id, databaseName, databaseMembersList, DatabaseNodeContentType, databaseNodeContentSchemaDataExample, DatabaseNodeTableTitle, DatabaseNodeTableSchemaLink)
+
+        console.log(requestResponse);
 
         // * If the database node create request has been complete sucessfully then we add the database data to the workspace database list.
 
         if (requestResponse.databaseNodeCreated === true) {
 
-            const newDatabaseNode = requestResponse.message.databaseNodeData;
+            const newDatabaseNode = requestResponse.dbNode;
 
-            setContext({ app: { ...context.app, display_create_database_node_widget: false }, workspace: { ...context.workspace, databaseNodes: [...context.workspace.databaseNodes, newDatabaseNode], }, user: { ...context.user } })
+            setContext({ ...context, app: { ...context.app, display_create_database_node_widget: false }, workspaceData: { ...context.workspaceData, databaseNodes: [...context.workspaceData.databaseNodes, requestResponse.workspaceNode] }, databaseNodeData : newDatabaseNode.databaseNodeData, databaseNodeContentSchemaData : newDatabaseNode.databaseNodeContentData })
 
         }
 
@@ -247,7 +271,7 @@ const CreateDatabaseNodeWidget = () => {
 
                             <div className="Create-Database-textarea-Container" id="Create-Database-textarea-Container" onClick={() => { formErrorHandler('clear') }} >
 
-                                <textarea className="Create-Database-textarea" id="Create-Database-textarea" type="text" placeholder="{}" />
+                                <textarea className="Create-Database-textarea" id="Create-Database-Node-Content-Schema-TextArea" type="text" placeholder="{}" />
 
                             </div>
 
@@ -287,7 +311,7 @@ const CreateDatabaseNodeWidget = () => {
 
                             <div className="Create-Database-Input-Container" id="Create-Database-Name-Input-Container" onClick={() => { formErrorHandler('clear') }} >
 
-                                <input className="Create-Database-Name-Input" id="Create-Database-Name-Input" type="text" placeholder="ID, Status, Fecha" />
+                                <input className="Create-Database-Name-Input" id="Create-Database-Node-Table-Title-Input" type="text" placeholder="ID, Status, Fecha" />
 
                             </div>
 
@@ -301,7 +325,7 @@ const CreateDatabaseNodeWidget = () => {
 
                             <div className="Create-Database-Input-Container" id="Create-Database-Name-Input-Container" onClick={() => { formErrorHandler('clear') }} >
 
-                                <input className="Create-Database-Name-Input" id="Create-Database-Name-Input" type="text" placeholder="ID, Status, Fecha" />
+                                <input className="Create-Database-Name-Input" id="Create-Database-Node-Table-Link-Input" type="text" placeholder="ID, Status, Fecha" />
 
                             </div>
 

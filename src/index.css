@@ -17,21 +17,32 @@
   user-select: none;
 }
 
+
 #root {
   width: 100vw;
   height: 100vh;
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
+
+  body {
+    width: 101.3vw;
+  }
+
   #root {
     zoom: .75;
-    width: 134vw;
+    width: 135vw;
     height: 134vh;
   }
 
   .Login-View-Container {
     width: 134vw !important;
     height: 134vh !important;
+  }
+
+  .App-Content-Container{
+    width: calc(100% - 268px) !important;
+    margin: 60px 0px 0px 245px !important;
   }
 
 }
