@@ -59,7 +59,7 @@ const DashboardView = () => {
 
                     <div className="Database-Widget-Content-Container">
 
-                        <DatabaseWidget databaseNodes={ context.workspaceData.databaseNodes } />
+                        <DatabaseWidget />
 
                     </div>
 

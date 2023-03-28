@@ -19,7 +19,7 @@ import './styles/DatabaseWidget.css'
 
 // * view to Return
 
-const DatabaseWidget = ({ databaseNodes }) => {
+const DatabaseWidget = () => {
 
     const { context, setContext } = useContext(AppContext);
 
@@ -29,7 +29,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
         if (context.app.display_create_database_node_widget == false) {
 
-            setContext( { ...context, app: { ...context.app, display_create_database_node_widget: true }})
+            setContext({ ...context, app: { ...context.app, display_create_database_node_widget: true } })
             setTimeout(() => { document.getElementById('Create-Database-Node-Widget').style.opacity = '1' }, 50)
             return
 
@@ -39,15 +39,15 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
     const displayDatabaseNodeContent = async (databaseSeed) => {
 
-        const databaseNodeData = await getDatabaseNodeContent(context.userData.userToken, context.workspace._id || 0 ,databaseSeed)
+        const databaseNodeData = await getDatabaseNodeContent(context.userData.userToken, context.workspace._id || 0, databaseSeed)
 
-        if(databaseNodeData.isDatabaseContentFetched) {
+        if (databaseNodeData.isDatabaseContentFetched) {
 
-            setContext( { ...context, app: { ...context.app, current_view: 'Base de datos' }, databaseNode: databaseNodeData.message.databaseContent })
+            setContext({ ...context, app: { ...context.app, current_view: 'Base de datos' }, databaseNode: databaseNodeData.message.databaseContent })
 
         }
 
-        
+
     }
 
     return <div className="Database-Widget-Content-Container">
@@ -58,11 +58,11 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
             <div className="Database-Windows-Container">
 
-                <div className={databaseNodes.length === 0 ? "Database-Windows-Empty-Content-Margin" : "Database-Windows-Content-Margin"}>
+                <div className={context.workspaceData.databaseNodes.length === 0 ? "Database-Windows-Empty-Content-Margin" : "Database-Windows-Content-Margin"}>
 
                     {
 
-                        databaseNodes.length === 0 ?
+                        context.workspaceData.databaseNodes.length === 0 ?
 
                             <div className="Database-Nodes-Empty-Message-Container">
 
@@ -168,7 +168,7 @@ const DatabaseWidget = ({ databaseNodes }) => {
 
                     {
 
-                        databaseNodes.length > 0 ? <div className="Database-Window-Container Database-Node-Container-New" onClick={displayCreateDatabaseNodeWidget}> <div className="Database-Window-Content-Margin-Add"> <MdAdd size={48} color='#000d41' /> </div> </div> : null
+                        context.workspaceData.databaseNodes.length > 0 ? <div className="Database-Window-Container Database-Node-Container-New" onClick={displayCreateDatabaseNodeWidget}> <div className="Database-Window-Content-Margin-Add"> <MdAdd size={48} color='#000d41' /> </div> </div> : null
 
                     }
 

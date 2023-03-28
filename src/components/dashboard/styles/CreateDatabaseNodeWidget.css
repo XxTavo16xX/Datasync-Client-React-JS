@@ -1,7 +1,7 @@
 
 .Create-Database-Node-Widget {
     width: 500px;
-    height: auto;
+    height: 480px;
     background-color: #ffffff;
     position: absolute;
     z-index: 700;
@@ -42,14 +42,34 @@
     color: #000d41;
 }
 
-.Create-Database-Form-Container {
+.Create-Database-Forms-Container{
     width: 100%;
-    height: calc(100% - 40px);
+    height: calc(100% - 100px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    transition: .3s;
+}
+
+.Create-Database-Forms-Container::-webkit-scrollbar {
+    height: 0px;
+    background-color: transparent;
+}
+
+.Create-Database-Forms-Container::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+
+.Create-Database-Form-Container {
+    min-width: 100%;
+    height: 100%;
 }
 
 .Create-Database-Node-Name-Container,
 .Create-Database-Node-Members-Container {
-    width: 100%;
+    width: calc(100% - 5px);
     height: auto;
     margin-bottom: 20px;
 }
@@ -119,8 +139,8 @@
 
 .Members-List-Select-All-Button {
     width: auto;
-    height: 30px;
-    background-color: #c2e2ff;
+    height: 35px;
+    background-color: #000d41;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,7 +152,7 @@
     white-space: nowrap;
     font-family: poppinsLight;
     font-size: 14px;
-    color: #000d41;
+    color: #ffffff;
     padding: 0px 10px 0px 10px;
 }
 
@@ -199,6 +219,92 @@
     color: #000d41;
 }
 
+.Create-Database-Advance-Settings-Form-Container{
+    min-width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.Create-Batabase-Basic-Settings-Button{
+    width: 115px;
+    height: 35px;
+    background-color: #000d41;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Create-Batabase-Basic-Settings-Label{
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+.Create-Database-Advance-Settings-Form-Container::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+.Create-Database-Advance-Settings-Form-Container::-webkit-scrollbar-thumb {
+    background: #000d41;
+}
+
+.Create-Database-textarea-Container{
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c2e2ff;
+}
+
+.Create-Database-textarea{
+    width: 98%;
+    height: 80%;
+    background-color: transparent;
+    color: #000d41;
+    font-family: poppinsLight;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    resize: none    ;
+}
+
+.Create-Database-SelectBox-Container{
+    width: 100%;
+    min-height: 40px;
+    height: auto;
+    background-color: #000d41;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.SelectBox-Options-Selected-Container{
+    width: 98%;
+    height: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Option-Selected-Label{
+    width: calc(100% - 40px);
+    color: #ffffff;
+    font-family: poppinsLight;
+    font-size: 15px;
+}
+
+.SelectBox-Options-Container{
+    width: 98%;
+    height: 0px;
+}
 
 .Create-Database-Node-Form-Action-Button-Container {
     width: 100%;

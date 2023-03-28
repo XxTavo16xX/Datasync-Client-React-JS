@@ -2,7 +2,7 @@
 // * Dependencies Required 
 
 import { useContext, useState, useEffect } from "react";
-import { MdOutlineClose, MdSearch, MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
+import { MdOutlineClose, MdSearch, MdCheckBox, MdCheckBoxOutlineBlank, MdKeyboardArrowDown, MdKeyboardArrowLeft } from 'react-icons/md'
 
 // * Modules Required
 
@@ -28,12 +28,10 @@ const CreateDatabaseNodeWidget = () => {
 
             .then(data => {
 
-                console.log(data);
-
-                const membersList = data.workspaceMembersList.map((memberData) => {
-                    return { ...memberData, checked: false };
+                const membersList = data.workspaceMembersList.map((memberData, index) => {
+                    return { ...memberData, checked: index === 0 ? true : false };
                 });
-// 
+
                 setMembersData(membersList);
 
             });
@@ -78,6 +76,34 @@ const CreateDatabaseNodeWidget = () => {
 
     }
 
+    const createDatabaseFormsContainer = document.getElementById('Create-Database-Forms-Container')
+
+    const displayAdvanceSettings = () => {
+
+        createDatabaseFormsContainer.style.opacity = 0
+
+        setTimeout(() => {
+
+            createDatabaseFormsContainer.scrollLeft = createDatabaseFormsContainer.offsetWidth / 1 + 20;
+            createDatabaseFormsContainer.style.opacity = 1
+
+        }, 300)        
+
+    }
+
+    const displayBasicSettings = () => {
+
+        createDatabaseFormsContainer.style.opacity = 0
+
+        setTimeout(() => {
+
+            createDatabaseFormsContainer.scrollLeft = 0;
+            createDatabaseFormsContainer.style.opacity = 1
+
+        }, 300)
+
+    }
+
     const createDatabaseNode = async () => {
 
         const DatabaseNodeNameInout = document.getElementById('Create-Database-Name-Input')
@@ -117,113 +143,93 @@ const CreateDatabaseNodeWidget = () => {
 
                 </div>
 
-                <div className="Create-Database-Form-Container">
+                <div className="Create-Database-Forms-Container" id="Create-Database-Forms-Container">
 
-                    <div className="Create-Database-Node-Name-Container">
+                    <div className="Create-Database-Form-Container">
 
-                        <p className="Create-Database-Title-Label">Nombre</p>
+                        <div className="Create-Database-Node-Name-Container">
 
-                        <p className="Create-Database-Subtitle-Label">Asigna el nombre te tendra esta base de datos.</p>
+                            <p className="Create-Database-Title-Label">Nombre</p>
 
-                        <div className="Create-Database-Input-Container" id="Create-Database-Name-Input-Container" onClick={() => { formErrorHandler('clear') }} >
+                            <p className="Create-Database-Subtitle-Label">Asigna el nombre te tendra esta base de datos.</p>
 
-                            <input className="Create-Database-Name-Input" id="Create-Database-Name-Input" type="text" placeholder="Registros" />
+                            <div className="Create-Database-Input-Container" id="Create-Database-Name-Input-Container" onClick={() => { formErrorHandler('clear') }} >
 
-                        </div>
-
-                    </div>
-
-                    <div className="Create-Database-Node-Members-Container">
-
-                        <p className="Create-Database-Title-Label">Miembros</p>
-
-                        <p className="Create-Database-Subtitle-Label">Define que usuarios del workspace tendran acceso a estos datos.</p>
-
-                        <div className="Members-List-Action-Buttons-Container">
-
-                            <div className="Members-List-Search-Button">
-
-                                <MdSearch size={18} color='#000d41' />
-
-                            </div>
-
-                            <div className="Members-List-Select-All-Button" onClick={addAllMembers}>
-
-                                <p className="Members-Select-All-Label">Agregar a todos.</p>
+                                <input className="Create-Database-Name-Input" id="Create-Database-Name-Input" type="text" placeholder="Registros" />
 
                             </div>
 
                         </div>
 
-                        <div className="Members-List-Options-Container">
+                        <div className="Create-Database-Node-Members-Container">
 
-                            <div className="Member-List-Option-Container">
+                            <p className="Create-Database-Title-Label">Miembros</p>
 
-                                <div className="Member-Option-Photo-Container">
+                            <p className="Create-Database-Subtitle-Label">Define que usuarios del workspace tendran acceso a estos datos.</p>
 
-                                    <img className="Member-Option-Photo" src={context.userData.user_profile_photo_url != 'defaultApp' ? context.userData.user_profile_photo_url : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+                            <div className="Members-List-Action-Buttons-Container">
 
-                                </div>
+                                <div className="Members-List-Search-Button">
 
-                                <div className="Member-Option-Data-Container">
-
-                                    <p className="Member-Option-User-Name-Label">{context.userData.user_display_name}</p>
-
-                                    <p className="Member-Option-User-Email-Label">{context.userData.user_email}</p>
+                                    <MdSearch size={18} color='#000d41' />
 
                                 </div>
 
-                                <div className="Member-Option-Checkbox-Container" id={'checkBoxMemberNode' + context.userData.user_display_name}>
+                                <div className="Members-List-Select-All-Button" onClick={addAllMembers}>
 
-                                    <MdCheckBox size={18} color='#000d41' />
+                                    <p className="Members-Select-All-Label">Agregar a todos.</p>
 
                                 </div>
 
                             </div>
 
-                            {
+                            <div className="Members-List-Options-Container">
 
-                                membersData.map((element, index) => {
+                                {
 
-                                    return (
+                                    membersData.map((element, index) => {
 
-                                        <div className="Member-List-Option-Container" key={index} >
+                                        return (
 
-                                            <div className="Member-Option-Photo-Container">
+                                            <div className="Member-List-Option-Container" key={index} >
 
-                                                <img className="Member-Option-Photo" src={element.userProfilePhotoURL != 'defaultApp' ? element.userProfilePhotoURL : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+                                                <div className="Member-Option-Photo-Container">
+
+                                                    <img className="Member-Option-Photo" src={element.userProfilePhotoURL != 'defaultApp' ? element.userProfilePhotoURL : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png'} />
+
+                                                </div>
+
+                                                <div className="Member-Option-Data-Container">
+
+                                                    <p className="Member-Option-User-Name-Label">{element.userDisplayName}</p>
+
+                                                    <p className="Member-Option-User-Email-Label">{element.userEmail}</p>
+
+                                                </div>
+
+                                                <div className="Member-Option-Checkbox-Container" onClick={() => { handleMemberCheckBox(index) }}>
+
+                                                    {element.checked ? <MdCheckBox size={18} color='#000d41' /> : <MdCheckBoxOutlineBlank size={18} color='#000d41' />}
+
+                                                </div>
 
                                             </div>
 
-                                            <div className="Member-Option-Data-Container">
+                                        )
 
-                                                <p className="Member-Option-User-Name-Label">{element.userDisplayName}</p>
+                                    })
 
-                                                <p className="Member-Option-User-Email-Label">{element.userEmail}</p>
+                                }
 
-                                            </div>
+                            </div>
 
-                                            <div className="Member-Option-Checkbox-Container" onClick={() => { handleMemberCheckBox(index) }}>
+                            <div className="Members-List-Action-Buttons-Container Advance-Settings">
 
-                                                {element.checked ? <MdCheckBox size={18} color='#000d41' /> : <MdCheckBoxOutlineBlank size={18} color='#000d41' />}
+                                <div className="Members-List-Select-All-Button" onClick={displayAdvanceSettings} >
 
-                                            </div>
+                                    <p className="Members-Select-All-Label">Configuracion Avanzada</p>
 
-                                        </div>
-
-                                    )
-
-                                })
-
-                            }
-
-                        </div>
-
-                        <div className="Members-List-Action-Buttons-Container Advance-Settings">
-
-                            <div className="Members-List-Select-All-Button">
-
-                                <p className="Members-Select-All-Label">Configuracion Avanzada</p>
+                                </div>
 
                             </div>
 
@@ -231,13 +237,93 @@ const CreateDatabaseNodeWidget = () => {
 
                     </div>
 
-                    <div className="Create-Database-Node-Form-Action-Button-Container">
+                    <div className="Create-Database-Advance-Settings-Form-Container">            
 
-                        <div className="Create-Database-Node-Button" onClick={createDatabaseNode}>
+                        <div className="Create-Database-Node-Name-Container">
 
-                            <p className="Create-Database-Node-Button-Label">Crear base de datos</p>
+                            <p className="Create-Database-Title-Label">Estructura de datos</p>
+
+                            <p className="Create-Database-Subtitle-Label">Escribe el esquema de datos en el que se guardaran los datos.</p>
+
+                            <div className="Create-Database-textarea-Container" id="Create-Database-textarea-Container" onClick={() => { formErrorHandler('clear') }} >
+
+                                <textarea className="Create-Database-textarea" id="Create-Database-textarea" type="text" placeholder="{}" />
+
+                            </div>
 
                         </div>
+
+                        <div className="Create-Database-Node-Name-Container">
+
+                            <p className="Create-Database-Title-Label">Tipo de base de datos</p>
+
+                            <p className="Create-Database-Subtitle-Label">Asigna el tipo de datos que se almacenaran y procesaran.</p>
+
+                            <div className="Create-Database-SelectBox-Container" id="Create-Database-DBtype-SelectBox-Container" onClick={() => { formErrorHandler('clear') }} >
+
+                                <div className="SelectBox-Options-Selected-Container">
+
+                                    <p className="Option-Selected-Label">Formulario, Tabla y Preview de documento.</p>
+
+                                    <MdKeyboardArrowDown color="#ffffff" size={35} />
+
+                                </div>
+
+                                <div className="SelectBox-Options-Container">
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div className="Create-Database-Node-Name-Container">
+
+                            <p className="Create-Database-Title-Label">Titulos en tabla</p>
+
+                            <p className="Create-Database-Subtitle-Label">Escribe las columnas que deseas mostrar el la tabla separadas por una coma.</p>
+
+                            <div className="Create-Database-Input-Container" id="Create-Database-Name-Input-Container" onClick={() => { formErrorHandler('clear') }} >
+
+                                <input className="Create-Database-Name-Input" id="Create-Database-Name-Input" type="text" placeholder="ID, Status, Fecha" />
+
+                            </div>
+
+                        </div>
+
+                        <div className="Create-Database-Node-Name-Container">
+
+                            <p className="Create-Database-Title-Label">Contenido en tabla</p>
+
+                            <p className="Create-Database-Subtitle-Label">Escribe el contenido que tendran las celdas separadas por una coma. Debera coincidir con la estructura de datos.</p>
+
+                            <div className="Create-Database-Input-Container" id="Create-Database-Name-Input-Container" onClick={() => { formErrorHandler('clear') }} >
+
+                                <input className="Create-Database-Name-Input" id="Create-Database-Name-Input" type="text" placeholder="ID, Status, Fecha" />
+
+                            </div>
+
+                        </div>
+
+                        <div className="Create-Batabase-Basic-Settings-Button" onClick={displayBasicSettings} >
+
+                                <MdKeyboardArrowLeft color="#ffffff" size={35} />
+
+                                <p className="Create-Batabase-Basic-Settings-Label">Regresar</p>
+
+                            </div>
+
+                    </div>
+
+                </div>
+
+                <div className="Create-Database-Node-Form-Action-Button-Container">
+
+                    <div className="Create-Database-Node-Button" onClick={createDatabaseNode}>
+
+                        <p className="Create-Database-Node-Button-Label">Crear base de datos</p>
 
                     </div>
 

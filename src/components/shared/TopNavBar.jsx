@@ -102,9 +102,6 @@ const ViewInfo = () => {
 
         const requestResponse = await getWorkspaceNodeContext(context.userData.userToken, workspaceID)
 
-        console.log(requestResponse);
-        console.log(requestResponse.workspaceLogin);
-
         if (requestResponse.workspaceLogin == true) { setContext({ ...context, workspaceData: requestResponse.workspaceNodeContextData }) }
 
         return
