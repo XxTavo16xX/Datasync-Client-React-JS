@@ -45,12 +45,11 @@ export const getDatabaseNodeContent = (userToken, workspaceID, databaseSeed) => 
 
         const requestBody = {
             userToken: userToken,
-            workspaceID: workspaceID,
+            seedOrigin: workspaceID,
             databaseNodeSeed: databaseSeed,
-            contentToSave: {}
         }
 
-        const rawResponse = await fetch(APIBASEURL + 'api/v1/database/getContent', {
+        const rawResponse = await fetch(APIBASEURL + 'api/v1/database/get/databaseNode', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

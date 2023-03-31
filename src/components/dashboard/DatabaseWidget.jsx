@@ -39,11 +39,13 @@ const DatabaseWidget = () => {
 
     const displayDatabaseNodeContent = async (databaseSeed) => {
 
-        const databaseNodeData = await getDatabaseNodeContent(context.userData.userToken, context.workspace._id || 0, databaseSeed)
+        const databaseNodeData = await getDatabaseNodeContent(context.userData.userToken, context.workspaceData._id, databaseSeed)
 
-        if (databaseNodeData.isDatabaseContentFetched) {
+        console.log(databaseNodeData);
 
-            setContext({ ...context, app: { ...context.app, current_view: 'Base de datos' }, databaseNode: databaseNodeData.message.databaseContent })
+        if (databaseNodeData.isDatabaseNodeDataFetcned) {
+
+            setContext({ ...context, app: { ...context.app, current_view: 'Base de datos' }, databaseNodeData: databaseNodeData.databaseNodeData })
 
         }
 
@@ -92,7 +94,7 @@ const DatabaseWidget = () => {
 
                             // * Populating Database-Windows-Container with the Data recived by Datasync-API
 
-                            databaseNodes.map((currentDBNode, index) => {
+                            context.workspaceData.databaseNodes.map((currentDBNode, index) => {
 
                                 return <div className="Database-Window-Container" key={index} onClick={() => { displayDatabaseNodeContent(currentDBNode.databaseNodeSeed) }}>
 
@@ -102,7 +104,7 @@ const DatabaseWidget = () => {
 
                                             <div className="Database-Window-Last-Date-User-Container">
 
-                                                <p className="Database-Window-Last-Date-User-Label">{getDateInHumanFormatByTimestamp(currentDBNode.databaseNodeUpdatedAt)}</p>
+                                                <p className="Database-Window-Last-Date-User-Label">{getDateInHumanFormatByTimestamp(currentDBNode.databaseNodeLastUpdateAt)}</p>
 
                                             </div>
 
@@ -126,19 +128,19 @@ const DatabaseWidget = () => {
 
                                                 <div className="Database-Window-User-Snippet">
 
-                                                    {/* {
+                                                    {
 
-                                                        currentDBNode.databaseNodeLastUpdatesAuthors.map((currentUser, index) => {
+                                                        currentDBNode.databaseNodeLastUpdatesRecords.map((currentUser, index) => {
 
-                                                            return <div className="Database-Window-User-Image-Container" key={index} >
+                                                            return <div className="Database-Window-User-Image-Container" key={index} title={currentUser.recordMessage}>
 
-                                                                <img className='Databa-Window-User-Image' src={currentUser.userPhotoProfile} />
+                                                                <img className='Databa-Window-User-Image' src={currentUser.userProfilePhotoURL  != 'defaultApp' ? currentUser.userProfilePhotoURL : 'https://scontent.webdesignnodes.com/datasync/default_profile_pics/male/0.png' } />
 
                                                             </div>
 
                                                         })
 
-                                                    } */}
+                                                    }
 
 
                                                 </div>
@@ -149,7 +151,7 @@ const DatabaseWidget = () => {
 
                                                 <div className="Database-Window-Storage-Space-Snippet">
 
-                                                    {/* <p className="Database-Window-Storage-Space-Label">{formatToDisplayN    umber(currentDBNode.databaseNodeEntries) + ' elementos.'}</p> */}
+                                                    <p className="Database-Window-Storage-Space-Label">{formatToDisplayNumber(currentDBNode.databaseNodeDocuments) + ' elementos.'}</p>
 
                                                 </div>
 
