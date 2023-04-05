@@ -5,7 +5,6 @@ import { useContext, useEffect } from "react";
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
-import { getDatabaseNodeContext } from '../../services/databaseNodes'
 
 // * view Styles
 
@@ -31,15 +30,9 @@ const Form_Table_Document_Preview = () => {
 
         } {
 
-            getDatabaseNodeContext(context.userData.userToken, context.workspaceData._id, context.workspaceData.databaseNodes[0] != null ? context.workspaceData.databaseNodes[0]['databaseNodeSeed'] : '')
-                .then(data => {
+            // * Getting database Node Context from API
 
-                    if(data.isDatabaseNodeContextFetcned === true){
-
-                        setContext({ ...context, databaseNodeData: data.databaseNodeContext.databaseNodeContext, databaseNodeContentSchemaData: data.databaseNodeContext.databaseNodeContentSchemaContext, databaseNodeDocuments: data.databaseNodeContext.databaseNodeDocuments })
-
-                    }
-                })
+            
         }
 
     }, [])

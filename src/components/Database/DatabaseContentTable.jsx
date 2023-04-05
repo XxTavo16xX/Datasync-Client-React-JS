@@ -7,10 +7,13 @@ import Lottie from "lottie-react";
 
 import { AppContext } from '../../app/Context';
 import { getDateByTimestamp } from "../../lib/Calendar";
-import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
+import { MdCheckBoxOutlineBlank } from 'react-icons/md'
+import { getDatabaseNodeDocuments, getDatabaseNodeContext } from "../../services/databaseNodes";
+
+// * Animations required
+
 import loadingDocumentsAnimation from '../../assets/animations/loadingDocuments.json'
 import emptyBoxAnimation from '../../assets/animations/emptyBoxAnimation.json'
-import { getDatabaseNodeDocuments } from "../../services/databaseNodes";
 
 // * view Styles
 
@@ -22,24 +25,35 @@ import './styles/DatabaseContentTable.css'
 
 const DatabaseContentTable = () => {
 
-    const { context } = useContext(AppContext)
+    const { context, setContext } = useContext(AppContext)
 
-    const [tableHeaderList, setTableHeaderList] = useState([])
-    const [tableRowList, setTableRowList] = useState([])
+    const [tableHeaderList, setTableHeaderList] = useState(null)
+    const [tableRowList, setTableRowList] = useState(null)
     const [tableDocuments, setTableDocuments] = useState(null)
 
     useEffect(() => {
 
-        const tableHeader = context.databaseNodeContentSchemaData.databaseTableSchema.databaseColumnsTitle
-        const tableDocReference = context.databaseNodeContentSchemaData.databaseTableSchema.databaseRowsEntrySchemaReference
+        getDatabaseNodeContext(context.userData.userToken, context.workspaceData._id, context.workspaceData.databaseNodes[0] != null ? context.workspaceData.databaseNodes[0]['databaseNodeSeed'] : '')
+            .then(data => {
+
+                if (data.isDatabaseNodeContextFetcned === true) {
+
+                    setContext({ ...context, databaseNodeData: data.databaseNodeContext.databaseNodeContext, databaseNodeContentSchemaData: data.databaseNodeContext.databaseNodeContentSchemaContext })
+
+                    const tableHeader = data.databaseNodeContext.databaseNodeContentSchemaContext.databaseTableSchema.databaseColumnsTitle
+                    const tableDocReference = data.databaseNodeContext.databaseNodeContentSchemaContext.databaseTableSchema.databaseRowsEntrySchemaReference
+
+                    setTableHeaderList(tableHeader.split(','))
+                    setTableRowList(tableDocReference.split(','))
+
+                }
+            })
 
         getDatabaseNodeDocuments(context.userData.userToken, context.workspaceData._id, context.workspaceData.databaseNodes[0] != null ? context.workspaceData.databaseNodes[0]['databaseNodeSeed'] : '')
             .then(data => {
 
                 if (data.isDatabaseContentFetched == true) {
 
-                    setTableHeaderList(tableHeader.split(','))
-                    setTableRowList(tableDocReference.split(','))
                     setTableDocuments(data.databaseDocuments)
 
                 }
@@ -52,7 +66,7 @@ const DatabaseContentTable = () => {
 
         <>{
 
-            tableDocuments == null ? <TableSkeleton /> : <TableResult tableHeaderList={tableHeaderList} tableRowList={tableRowList} tableDocuments={tableDocuments} />
+            tableDocuments == null || tableHeaderList == null || tableRowList == null ? <TableSkeleton /> : <TableResult tableHeaderList={tableHeaderList} tableRowList={tableRowList} tableDocuments={tableDocuments} />
 
         }</>
 
