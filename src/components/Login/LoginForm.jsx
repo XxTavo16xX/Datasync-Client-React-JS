@@ -87,7 +87,8 @@ const LoginForm = () => {
 
         if (requestResponse.isLoginSuccesfull == true) {
             
-            setContext({ ...context, userData: requestResponse.userData, workspaceData: requestResponse.workspaceNodeContext })
+            await setContext({ ...context, workspaceData: requestResponse.workspaceNodeContext })
+            await setContext({ ...context, userData: requestResponse.userData })
 
         }
 
