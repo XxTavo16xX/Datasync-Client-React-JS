@@ -2,12 +2,15 @@
 // * Dependencies Required 
 
 import { useContext } from "react";
+import Lottie from "lottie-react";
 import { MdKeyboardArrowDown, MdSubject, MdArrowForwardIos, MdAdd } from "react-icons/md";
 
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
 import { getWorkspaceNodeContext } from "../../services/workspace";
+
+import loadingAnimation from '../../assets/animations/loadingAnimation.json'
 
 // * view Styles
 
@@ -168,6 +171,12 @@ const ViewInfo = () => {
         <MdArrowForwardIos size={18} color={'#06113c74'} style={{ marginLeft: '20px' }} />
 
         <p className="Header-Current-View-Label">{context.app.current_view}</p>
+
+        <div className="App-Status-Animation-Container">
+
+            { context.app.is_fetching_data_from_api == true ? <Lottie className="Lotie-Animation-Container" animationData={loadingAnimation} loop={true} /> : null }
+
+        </div>
 
     </div>
 

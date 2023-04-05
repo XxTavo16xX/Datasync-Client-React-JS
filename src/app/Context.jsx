@@ -12,6 +12,7 @@ const defaultContext = {
     app: {
         app_name: 'Datasync',
         current_view: 'Dashboard',
+        is_fetching_data_from_api: false,
         display_app_pref_widget: false,
         display_workspace_Widget: false,
         display_create_workspace_view: false,
