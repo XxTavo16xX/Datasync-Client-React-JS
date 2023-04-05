@@ -18,7 +18,7 @@ import DatabaseForm from '../../components/Database/DatabaseForm';
 
 const Form_Table_Document_Preview = () => {
 
-    const { context, setContext } = useContext(AppContext)
+    const { context, setContext } = useContext(AppContext)    
 
     useEffect(() => {
 
@@ -28,11 +28,6 @@ const Form_Table_Document_Preview = () => {
 
 
 
-        } {
-
-            // * Getting database Node Context from API
-
-            
         }
 
     }, [])

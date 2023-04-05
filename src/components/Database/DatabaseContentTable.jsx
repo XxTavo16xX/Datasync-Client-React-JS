@@ -9,11 +9,13 @@ import { AppContext } from '../../app/Context';
 import { getDateByTimestamp } from "../../lib/Calendar";
 import { MdCheckBoxOutlineBlank } from 'react-icons/md'
 import { getDatabaseNodeDocuments, getDatabaseNodeContext } from "../../services/databaseNodes";
+import { displayAppNotification } from "../../lib/System";
 
 // * Animations required
 
 import loadingDocumentsAnimation from '../../assets/animations/loadingDocuments.json'
 import emptyBoxAnimation from '../../assets/animations/emptyBoxAnimation.json'
+import accessDenied from '../../assets/animations/accessDenied.json'
 
 // * view Styles
 
@@ -26,12 +28,17 @@ import './styles/DatabaseContentTable.css'
 const DatabaseContentTable = () => {
 
     const { context, setContext } = useContext(AppContext)
-
+    
+    const [accessAproved, setAccessAproved] = useState(null)
     const [tableHeaderList, setTableHeaderList] = useState(null)
     const [tableRowList, setTableRowList] = useState(null)
     const [tableDocuments, setTableDocuments] = useState(null)
 
     useEffect(() => {
+
+        setContext({ ...context, app: { ...context.app, is_fetching_data_from_api: true } })
+
+        // * Getting database node context
 
         getDatabaseNodeContext(context.userData.userToken, context.workspaceData._id, context.workspaceData.databaseNodes[0] != null ? context.workspaceData.databaseNodes[0]['databaseNodeSeed'] : '')
             .then(data => {
@@ -46,18 +53,27 @@ const DatabaseContentTable = () => {
                     setTableHeaderList(tableHeader.split(','))
                     setTableRowList(tableDocReference.split(','))
 
+                    // * Getting database node documents
+
+                    getDatabaseNodeDocuments(context.userData.userToken, context.workspaceData._id, context.workspaceData.databaseNodes[0] != null ? context.workspaceData.databaseNodes[0]['databaseNodeSeed'] : '')
+                        .then(data => {
+
+                            if (data.isDatabaseContentFetched == true) {
+
+                                setAccessAproved(true)
+                                setTableDocuments(data.databaseDocuments)
+
+                            }
+
+                        })
+
+                } else {
+
+                    setAccessAproved(false)
+                    displayAppNotification('Base de datos', 'No tienes permisos para acceder a esta informacion.')
+                    setContext({ ...context, app: { ...context.app, is_fetching_data_from_api: false } })
+
                 }
-            })
-
-        getDatabaseNodeDocuments(context.userData.userToken, context.workspaceData._id, context.workspaceData.databaseNodes[0] != null ? context.workspaceData.databaseNodes[0]['databaseNodeSeed'] : '')
-            .then(data => {
-
-                if (data.isDatabaseContentFetched == true) {
-
-                    setTableDocuments(data.databaseDocuments)
-
-                }
-
             })
 
     }, [])
@@ -66,7 +82,7 @@ const DatabaseContentTable = () => {
 
         <>{
 
-            tableDocuments == null || tableHeaderList == null || tableRowList == null ? <TableSkeleton /> : <TableResult tableHeaderList={tableHeaderList} tableRowList={tableRowList} tableDocuments={tableDocuments} />
+            accessAproved == false ? <TableAccessDenied /> : tableDocuments == null || tableHeaderList == null || tableRowList == null && accessAproved == true ? <TableSkeleton /> : <TableResult tableHeaderList={tableHeaderList} tableRowList={tableRowList} tableDocuments={tableDocuments} />
 
         }</>
 
@@ -90,6 +106,35 @@ const TableSkeleton = () => {
                     <div className="Table-Content-Animation-Text-Container">
 
                         <p className="Table-Title-Label">Cargando documentos</p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    )
+
+}
+
+const TableAccessDenied = () => {
+
+    return (
+
+        <div className="Database-View-Results-Table-Container">
+
+            <div className="Database-View-Results-Table-Content-Denied">
+
+                <div className="Table-Content-Animation-Container">
+
+                    <Lottie animationData={accessDenied} loop={false} />
+
+                    <div className="Table-Content-Animation-Text-Container">
+
+                        <p className="Table-Title-Label">Acceso Negado</p>
 
                     </div>
 

@@ -61,6 +61,14 @@
     flex-direction: column;
 }
 
+.Database-View-Results-Table-Content-Denied {
+    width: calc(100% - 10px);
+    height: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .Table-Header-Container {
     width: calc(100% - 10px);
     height: 50px;
@@ -125,7 +133,7 @@
     background: #00eabe;
 }
 
-.Table-Content-Container-Empty-Container{
+.Table-Content-Container-Empty-Container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -144,7 +152,7 @@
     align-items: center;
 }
 
-.Table-Row-Container:hover{
+.Table-Row-Container:hover {
     background-color: #eaeaea;
 }
 
@@ -160,15 +168,18 @@
     max-width: 50px;
 }
 
-.Content-Cell-DS-DBT-STATE-COMPONENT, .Content-Cell-header-status{
+.Content-Cell-DS-DBT-STATE-COMPONENT,
+.Content-Cell-header-status {
     max-width: 100px;
 }
 
-.Content-Cell-CopNum, .Content-Cell-header-numberCOP{
+.Content-Cell-CopNum,
+.Content-Cell-header-numberCOP {
     max-width: 85px;
 }
 
-.Content-Cell-Fecha, .Content-Cell-header-orderDate{
+.Content-Cell-Fecha,
+.Content-Cell-header-orderDate {
     max-width: 100px
 }
 
