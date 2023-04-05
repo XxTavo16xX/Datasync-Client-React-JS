@@ -1,12 +1,16 @@
 // * Dependencies Required 
 
 import { useContext, useState, useEffect } from "react";
+import Lottie from "lottie-react";
 
 // * Modules Required
 
 import { AppContext } from '../../app/Context';
 import { getDateByTimestamp } from "../../lib/Calendar";
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md'
+import loadingDocumentsAnimation from '../../assets/animations/loadingDocuments.json'
+import emptyBoxAnimation from '../../assets/animations/emptyBoxAnimation.json'
+import { getDatabaseNodeDocuments } from "../../services/databaseNodes";
 
 // * view Styles
 
@@ -20,38 +24,63 @@ const DatabaseContentTable = () => {
 
     const { context } = useContext(AppContext)
 
+    const [tableHeaderList, setTableHeaderList] = useState([])
+    const [tableRowList, setTableRowList] = useState([])
+    const [tableDocuments, setTableDocuments] = useState(null)
+
+    useEffect(() => {
+
+        const tableHeader = context.databaseNodeContentSchemaData.databaseTableSchema.databaseColumnsTitle
+        const tableDocReference = context.databaseNodeContentSchemaData.databaseTableSchema.databaseRowsEntrySchemaReference
+
+        getDatabaseNodeDocuments(context.userData.userToken, context.workspaceData._id, context.workspaceData.databaseNodes[0] != null ? context.workspaceData.databaseNodes[0]['databaseNodeSeed'] : '')
+            .then(data => {
+
+                if (data.isDatabaseContentFetched == true) {
+
+                    setTableHeaderList(tableHeader.split(','))
+                    setTableRowList(tableDocReference.split(','))
+                    setTableDocuments(data.databaseDocuments)
+
+                }
+
+            })
+
+    }, [])
+
+    return (
+
+        <>{
+
+            tableDocuments == null ? <TableSkeleton /> : <TableResult tableHeaderList={tableHeaderList} tableRowList={tableRowList} tableDocuments={tableDocuments} />
+
+        }</>
+
+
+    )
+
+}
+
+const TableSkeleton = () => {
+
     return (
 
         <div className="Database-View-Results-Table-Container">
 
-            <div className="Database-View-Results-Table-Background"></div>
+            <div className="Database-View-Results-Table-Content-Skeleton">
 
-            <div className="Database-View-Results-Table-Content">
+                <div className="Table-Content-Animation-Container">
 
-                <div className="Database-View-Results-Table-Columns-Headers-Container">
+                    <Lottie animationData={loadingDocumentsAnimation} loop={true} />
 
-                    {
+                    <div className="Table-Content-Animation-Text-Container">
 
-                        context.databaseNode.dataTitle.map((columnHeaderText, index) => {
+                        <p className="Table-Title-Label">Cargando documentos</p>
 
-                            return (
-
-                                <div className={'Database-View-Results-Table-Column-Header-Cells Column-Header-Cell-' + columnHeaderText} key={columnHeaderText + '_' + index}>
-
-                                    {columnHeaderText != 'Selector' ? <p className="Database-View-Results-Table-Column-Header-Label">{columnHeaderText}</p> : <MdCheckBoxOutlineBlank size={18} color='#000' />}
-
-
-                                </div>
-
-                            )
-
-                        })
-
-                    }
+                    </div>
 
                 </div>
 
-                <DatabaseResults databaseNodeEntries={context.databaseNode.databaseNodeEntries} databaseEntriesKeys={context.databaseNode.dataKeys} databaseEntriesTitle={context.databaseNode.dataTitle} />
 
             </div>
 
@@ -61,19 +90,211 @@ const DatabaseContentTable = () => {
 
 }
 
-const DatabaseResults = ({ databaseNodeEntries, databaseEntriesKeys, databaseEntriesTitle }) => {
+const TableResult = ({ tableHeaderList, tableRowList, tableDocuments }) => {
 
-    const [databaseEntries, setDatabaseEntries] = useState([])
+    return (
 
-    useEffect(() => {
+        <div className="Database-View-Results-Table-Container">
 
-        const databaseEntriesList = databaseNodeEntries.map((databaseEntriData) => {
-            return { ...databaseEntriData, checked: false };
-        });
+            <div className="Database-View-Results-Table-Content">
 
-        setDatabaseEntries(databaseEntriesList);
+                <TableHeaderContainer tableHeaderList={tableHeaderList} />
 
-    }, [])
+                <TableRowsContainer tableRowList={tableRowList} tableDocuments={tableDocuments} />
+
+
+            </div>
+
+        </div>
+
+    )
+
+}
+
+const TableCellComponent = ({ tableCellContent }) => {
+
+    if (tableCellContent == 'DS-BDT-SELECTOR-COMPONENT') {
+
+        return (
+
+            <MdCheckBoxOutlineBlank size={18} color='#000' />
+
+        )
+
+    } else if (tableCellContent == 'DS-DBT-STATE-COMPONENT') {
+
+        return (
+
+            <p className="Table-Title-Label">Estado</p>
+
+        )
+
+
+    } else {
+
+        return (
+
+            <p className="Table-Title-Label">{tableCellContent}</p>
+
+        )
+
+    }
+
+}
+
+const TableHeaderContainer = ({ tableHeaderList }) => {
+
+    return (
+
+        <div className="Table-Header-Container">
+
+            <div className="Table-Header-Content-Margin">
+
+                {
+                    tableHeaderList.map((TableHeaderCell, index) => {
+
+
+                        return (
+
+                            <div className={'Table-Header-Cell-Container Content-Cell-' + TableHeaderCell.replaceAll('.', '-')} key={'ds-db-table-' + index}>
+
+                                <TableCellComponent tableCellContent={TableHeaderCell} />
+
+                            </div>
+
+                        )
+
+
+                    })
+
+                }
+
+            </div>
+
+        </div>
+
+    )
+
+}
+
+const TableRowsContainer = ({ tableRowList, tableDocuments }) => {
+
+    return (
+
+        <> {tableDocuments.length == 0 ? <TableRowsContainerEmpty /> : <TableRowsContainerResult tableRowList={tableRowList} tableDocuments={tableDocuments} />} </>
+
+    )
+
+}
+
+const TableRowsContainerEmpty = () => {
+
+    return (
+
+        <div className="Table-Content-Container">
+
+            <div className="Table-Content-Container-Empty-Container">
+
+                <div className="Table-Content-Animation-Container">
+
+                    <Lottie animationData={emptyBoxAnimation} loop={true} />
+
+                    <div className="Table-Content-Animation-Text-Container">
+
+                        <p className="Table-Title-Label">Sin registros</p>
+                        <p className="Table-Text-Label">Agrega una orden nueva</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    )
+
+}
+
+const TableRowsContainerResult = ({ tableRowList, tableDocuments }) => {
+
+    return (
+
+        <div className="Table-Content-Container">
+
+            {
+
+                tableDocuments.map((document, documentIndex) => {
+
+                    return (
+
+                        <div className="Table-Row-Container" key={'ds-dbn-ts-dcr-' + documentIndex} >
+
+                            <div className="Table-Header-Content-Margin">
+
+                                {
+
+                                    tableRowList.map((rowElement, rowElementIndex) => {
+
+                                        const docReferenceValue = getDocumentReferenceValue(document, rowElement)
+
+                                        return (
+
+                                            <div className={'Table-Content-Cell-Container Content-Cell-' + rowElement.replaceAll('.', '-')} key={'ds-dbn-tc-dcr' + documentIndex + ':' + rowElementIndex}>
+
+                                                {
+
+                                                    rowElement == 'DS-DBT-SELECTOR-COMPONENT' ? <MdCheckBoxOutlineBlank size={18} color='#000' /> : rowElement == 'header.status' ? <TableStatusSnippet databaseEntrieValue={docReferenceValue} /> : rowElement == 'header.numberCOP' ? <p className="Table-Text-Label">{'#' + docReferenceValue}</p> : rowElement == 'header.orderDate' ? <p className="Table-Text-Label">{getDateByTimestamp(docReferenceValue)}</p> : rowElement == '_createdBy' ? <p className="Table-Text-Label">{docReferenceValue.userDisplayName}</p> : <p className="Table-Text-Label">{docReferenceValue}</p>
+
+
+                                                }
+
+                                            </div>
+
+                                        )
+
+                                    })
+
+                                }
+
+                            </div>
+
+                        </div>
+
+                    )
+
+                })
+
+            }
+
+        </div>
+
+    )
+
+}
+
+const getDocumentReferenceValue = (document, reference) => {
+
+
+    if (reference == 'DS-DBT-SELECTOR-COMPONENT') return ''
+
+    if (reference == '_createdBy') return document['_createdBy']
+
+    const referenceArray = reference.split('.');
+    let value = document._content;
+
+    referenceArray.forEach(key => {
+        if (value.hasOwnProperty(key)) {
+            value = value[key];
+        } else {
+            value = undefined;
+        }
+    });
+
+    return value;
+}
+
+const TableRowsContent = ({ databaseNodeDocuments, databaseRowsReferences }) => {
 
     const handleEntrieCheckBox = (entrieIndex) => {
 
@@ -83,63 +304,64 @@ const DatabaseResults = ({ databaseNodeEntries, databaseEntriesKeys, databaseEnt
 
     }
 
-
     return (
 
         <div className="Database-View-Results-Table-Rows-Cells-Container">
 
             {
 
-                databaseEntries.map((databaseDocument, index) => {
+                databaseNodeDocuments.map((databaseNodeDocument, index) => {
 
+                    // * Creating Table Rows
 
                     return (
 
                         <div className="Database-View-Results-Table-Row-Cells-Container" key={index} onClick={() => { handleEntrieCheckBox(index) }}>
 
                             {
-                                databaseEntriesKeys.map((documentKeyLocation, documentEntryIndex) => {
+                                databaseRowsReferences.map((documentKeyLocation, documentEntryIndex) => {
 
-                                    const databaseEntrieDataLabel = databaseEntriesTitle[documentEntryIndex]
-                                    const databaseEntrieValue = documentKeyLocation.split('.').reduce((obj, key) => obj[key], databaseDocument)
+                                    // * Creating Row Cells
 
-                                    if (databaseEntrieDataLabel == 'Selector') {
+                                    const tableRowCell = documentKeyLocation.split('.').reduce((obj, key) => obj[key], databaseDocument)
 
-                                        return (
+                                    // if (databaseEntrieDataLabel == 'DS-SELECTOR-COMPONENT') {
 
-                                            <div className="Database-View-Result-Table-Cell Row-Cell-Container" key={index + '-' + documentEntryIndex}>
+                                    //     return (
 
-                                                {databaseDocument.checked == false ? <MdCheckBoxOutlineBlank size={18} color='#000' /> : <MdCheckBox size={18} color='#000' />}
+                                    //         <div className="Database-View-Result-Table-Cell Row-Cell-Container" key={index + '-' + documentEntryIndex}>
 
-                                            </div>
+                                    //             {databaseDocument.checked == false ? <MdCheckBoxOutlineBlank size={18} color='#000' /> : <MdCheckBox size={18} color='#000' />}
 
-                                        )
+                                    //         </div>
 
-                                    }
+                                    //     )
 
-                                    if (databaseEntrieDataLabel == 'Estado') {
+                                    // }
 
-                                        return (
+                                    // if (databaseEntrieDataLabel == 'Estado') {
 
-                                            <div className={'Database-View-Result-Table-Cell Row-Cell-' + databaseEntrieDataLabel} key={index + '-' + documentEntryIndex} >
+                                    //     return (
 
-                                                <StatusSnippet databaseEntrieValue={databaseEntrieValue} />
+                                    //         <div className={'Database-View-Result-Table-Cell Row-Cell-' + databaseEntrieDataLabel} key={index + '-' + documentEntryIndex} >
 
-                                            </div>
+                                    //             <StatusSnippet databaseEntrieValue={databaseEntrieValue} />
 
-                                        )
+                                    //         </div>
 
-                                    }
+                                    //     )
 
-                                    return (
+                                    // }
 
-                                        <div className={'Database-View-Result-Table-Cell Row-Cell-' + databaseEntrieDataLabel} key={index + '-' + documentEntryIndex} >
+                                    // return (
 
-                                            <p className="Database-View-Result-Table-Cell-Label">{databaseEntrieDataLabel == 'Fecha' ? getDateByTimestamp(databaseEntrieValue) : databaseEntrieDataLabel == 'CopNum' ? '#' + databaseEntrieValue : databaseEntrieValue}</p>
+                                    //     <div className={'Database-View-Result-Table-Cell Row-Cell-' + databaseEntrieDataLabel} key={index + '-' + documentEntryIndex} >
 
-                                        </div>
+                                    //         <p className="Database-View-Result-Table-Cell-Label">{databaseEntrieDataLabel == 'Fecha' ? getDateByTimestamp(databaseEntrieValue) : databaseEntrieDataLabel == 'CopNum' ? '#' + databaseEntrieValue : databaseEntrieValue}</p>
 
-                                    )
+                                    //     </div>
+
+                                    // )
 
 
 
@@ -160,11 +382,30 @@ const DatabaseResults = ({ databaseNodeEntries, databaseEntriesKeys, databaseEnt
 
 }
 
-const StatusSnippet = ({ databaseEntrieValue }) => {
+const EmptyDatabaseNode = () => {
 
-    if (databaseEntrieValue == 'completed') { return (<div className={'Database-View-Result-Table-Cell-Status-Snippet Snippet-Status-' + databaseEntrieValue}><p className="Snippet-Label">Archivada</p></div>) }
-    if (databaseEntrieValue == 'activa') { return (<div className={'Database-View-Result-Table-Cell-Status-Snippet Snippet-Status-' + databaseEntrieValue}><p className="Snippet-Label">Activa</p></div>) }
-    if (databaseEntrieValue == 'canceled') { return (<div className={'Database-View-Result-Table-Cell-Status-Snippet Snippet-Status-' + databaseEntrieValue}><p className="Snippet-Label">cancelada</p></div>) }
+    return (
+
+        <div className="asd">
+
+
+
+        </div>
+
+    )
+
+}
+
+const TableStatusSnippet = ({ databaseEntrieValue }) => {
+
+    if (databaseEntrieValue == 'completed') { return (<div className={'Table-Status-Snippet Snippet-Status-' + databaseEntrieValue}><p className="Snippet-Label">Archivada</p></div>) }
+    if (databaseEntrieValue == 'activa') { return (<div className={'Table-Status-Snippet Snippet-Status-' + databaseEntrieValue}><p className="Snippet-Label">Activa</p></div>) }
+    if (databaseEntrieValue == 'canceled') { return (<div className={'Table-Status-Snippet Snippet-Status-' + databaseEntrieValue}><p className="Snippet-Label">cancelada</p></div>) }
+
+}
+
+const TableAuthorSnippet = ({ userDisplayName, userProfilePhotoURL }) => {
+
 
 }
 

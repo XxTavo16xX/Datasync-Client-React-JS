@@ -5,6 +5,7 @@
     justify-content: flex-start;
     align-items: center;
     overflow: visible;
+    margin-bottom: 5;
 }
 
 .Top-SearchBar-Database-SelectBox{

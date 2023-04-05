@@ -40,7 +40,7 @@ const TopSearchContainer = () => {
 
                 <div className="Top-SearchBar-Database-SelectedBox">
 
-                    <p className="Database-SelectBox-Current-Label">{context.databaseNode.name}</p>
+                    <p className="Database-SelectBox-Current-Label">{context.databaseNodeData.name}</p>
 
                     <div className="Top-SearchBar-Database-SelectBox-Expand">
 
@@ -50,7 +50,7 @@ const TopSearchContainer = () => {
 
                 </div>
 
-                {displaySelectorList == true ? <SelectBoxListContainer selectBoxOptionsList={context.workspace.databaseNodes} /> : null}
+                {displaySelectorList == true ? <SelectBoxListContainer selectBoxOptionsList={context.workspaceData.databaseNodes} /> : null}
 
             </div>
 

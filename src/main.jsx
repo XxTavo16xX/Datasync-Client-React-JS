@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom/client'
 // * Modules Required
 
 import { AppProvider } from './app/Context'
+import { iniRightClickListener } from './app' 
 
 // * view Styles
 
@@ -18,6 +19,10 @@ import NotificationWidget from './components/shared/NotificationWidget'
 
 import LoginView from './views/login_view'
 import AppView from './views/app_view'
+
+// * Starting app config
+
+iniRightClickListener()
 
 // * view to Return
 

@@ -1,19 +1,8 @@
 .Database-View-Results-Table-Container {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 140px);
     margin-top: 15px;
     position: relative;
-}
-
-.Database-View-Results-Table-Background {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    background: #ffffff6a;
-    backdrop-filter: blur(16.5px);
-    -webkit-backdrop-filter: blur(16.5px);
-    border-radius: 20px;
 }
 
 .Database-View-Element-View-Container {
@@ -33,22 +22,200 @@
     border-radius: 10px;
 }
 
-.Database-View-Results-Table-Content{
+.Database-View-Results-Table-Content {
     width: 100%;
     height: 100%;
     border-radius: 5px;
     overflow: hidden;
     position: absolute;
     z-index: 2;
-}
-
-.Database-View-Results-Table-Columns-Headers-Container{
-    width: calc(100% - 10px);
-    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
 }
+
+.Database-View-Results-Table-Content-Skeleton {
+    width: calc(100% - 10px);
+    height: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Table-Content-Animation-Container {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Table-Content-Animation-Text-Container {
+    min-width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Table-Header-Container {
+    width: calc(100% - 10px);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c2e2ff;
+    margin-bottom: 10px;
+}
+
+.Table-Header-Content-Margin {
+    width: 98%;
+    height: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Table-Header-Cell-Container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Table-Header-Cell-Container:first-child {
+    max-width: 50px;
+}
+
+.Table-Title-Label {
+    max-width: 95%;
+    font-family: poppinsMedium;
+    font-size: 14px;
+    color: #000d41;
+    overflow: hidden;
+}
+
+.Table-Text-Label {
+    max-width: 95%;
+    font-family: poppinsLight;
+    font-size: 14px;
+    color: #000d41;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+
+.Table-Content-Container {
+    width: calc(100% - 10px);
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+}
+
+.Table-Content-Container::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+.Table-Content-Container::-webkit-scrollbar-thumb {
+    background: #00eabe;
+}
+
+.Table-Content-Container-Empty-Container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Table-Row-Container {
+    width: calc(100% - 10px);
+    height: 50px;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Table-Row-Container:hover{
+    background-color: #eaeaea;
+}
+
+.Table-Content-Cell-Container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Table-Content-Cell-Container:first-child {
+    max-width: 50px;
+}
+
+.Content-Cell-DS-DBT-STATE-COMPONENT, .Content-Cell-header-status{
+    max-width: 100px;
+}
+
+.Content-Cell-CopNum, .Content-Cell-header-numberCOP{
+    max-width: 85px;
+}
+
+.Content-Cell-Fecha, .Content-Cell-header-orderDate{
+    max-width: 100px
+}
+
+/* * Table Status Snippet * */
+
+.Table-Status-Snippet {
+    width: auto;
+    height: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Snippet-Status-activa {
+    background-color: #00eabe;
+    box-shadow: 0px 10px 31px -3px #00eabf80;
+    color: #000d41;
+}
+
+.Snippet-Status-completed {
+    background-color: #000d41;
+    box-shadow: 0px 10px 31px -3px #000d4180;
+    color: #fff;
+}
+
+.Snippet-Status-canceled {
+    background-color: #fb1109;
+    box-shadow: 0px 10px 31px -3px #c8080180;
+    color: #ffffff;
+}
+
+.Snippet-Label {
+    font-family: poppinsLight;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    white-space: nowrap;
+}
+
+/* * Table Author Snippet * */
+
+
+
+/*
 
 .Database-View-Results-Table-Column-Header-Cells{
     width: 100%;
@@ -56,8 +223,15 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 1%;
-    background-color: #c2e2ff;    
+    padding-left: 1%;    
+}
+
+.Database-Table-Selector-Component-Container{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Column-Header-Cell-Selector{
@@ -90,6 +264,14 @@
     font-family: poppinsMedium;
     font-size: 14px;
     color: #000d41;
+}
+
+.Table-Rows-Container{
+    width: calc(100% -10%);
+    height: 100% - 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Database-View-Results-Table-Rows-Cells-Container{
@@ -154,41 +336,7 @@
     justify-content: flex-start;
 }
 
-.Database-View-Result-Table-Cell-Status-Snippet{
-    width: auto;
-    height: 20px;    
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.Snippet-Status-activa{
-    background-color: #00eabe;
-    box-shadow: 0px 10px 31px -3px #00eabf80;
-    color: #000d41;
-}
-
-.Snippet-Status-completed{
-    background-color: #000d41;
-    box-shadow: 0px 10px 31px -3px #000d4180;
-    color: #fff;
-}
-
-.Snippet-Status-canceled{
-    background-color: #fb1109;
-    box-shadow: 0px 10px 31px -3px #c8080180;
-    color: #ffffff;
-}
-
-.Snippet-Label{
-    font-family: poppinsLight;
-    font-size: 14px;    
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
-}
 
 .Row-Cell-CopNum{
     max-width: 70px;
@@ -209,3 +357,5 @@
     color: #000d41;
     white-space: nowrap;
 }
+
+*/
