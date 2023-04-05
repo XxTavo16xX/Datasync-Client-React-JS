@@ -115,7 +115,11 @@ const CreateDatabaseNodeWidget = () => {
 
         // * Filters the elements of the 'members Data' array whose 'checked' property is true, then create a new array with the emails of the members that meet the condition
 
-        const databaseMembersList = membersData.filter((memberElement) => memberElement.checked).map((memberElement) => memberElement.userEmail);
+        const membersList = membersData.filter((memberElement) => memberElement.checked).map((memberElement) => memberElement.userEmail);
+
+        // * Removing owner email from database members list
+        
+        const databaseMembersList = membersList.filter(e => e !== context.userData.userEmail) 
 
         // * Getting Database Node Type
 
@@ -138,8 +142,6 @@ const CreateDatabaseNodeWidget = () => {
         
         
         const requestResponse = await createDatabaseNodeRequest(context.userData.userToken, context.workspaceData._id, databaseName, databaseMembersList, DatabaseNodeContentType, databaseNodeContentSchemaDataExample, DatabaseNodeTableTitle, DatabaseNodeTableSchemaLink)
-
-        console.log(requestResponse);
 
         // * If the database node create request has been complete sucessfully then we add the database data to the workspace database list.
 

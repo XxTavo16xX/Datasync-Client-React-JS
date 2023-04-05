@@ -93,6 +93,8 @@ const EmptyDatabaseNodeWidget = () => {
 
 const PopulatedDatabaseNodeWidget = ({ databaseNodeList }) => {
 
+    const { context, setContext } = useContext(AppContext);
+
     const displayCreateDatabaseNodeWidget = () => {
 
         // * Toggle for create Database Widget
