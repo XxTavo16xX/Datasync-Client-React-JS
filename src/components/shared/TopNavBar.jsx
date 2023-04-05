@@ -103,7 +103,11 @@ const ViewInfo = () => {
 
     const changeToWorkspace = async (workspaceID) => {
 
+        await setContext({ ...context, app: { ...context.app, is_fetching_data_from_api: true } })
+
         const requestResponse = await getWorkspaceNodeContext(context.userData.userToken, workspaceID)
+
+        await setContext({ ...context, app: { ...context.app, is_fetching_data_from_api: false } })
 
         if (requestResponse.workspaceLogin == true) { setContext({ ...context, workspaceData: requestResponse.workspaceNodeContextData }) }
 
