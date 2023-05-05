@@ -1,0 +1,230 @@
+.Home-Page-Container {
+    width: 100%;
+    height: auto;
+}
+
+.Home-Page-Margin {
+    margin: auto;
+    width: 95%;
+    padding-top: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.Home-Page-Text-Content-Container {
+    width: 60%;
+    height: auto;
+}
+
+.Home-Page-Title {
+    width: 100%;
+    font-size: 80px;
+    font-style: italic;
+    color: #000d41;
+}
+
+.Home-Page-Subtitle {
+    font-size: 20px;
+}
+
+.Home-Page-Auth-Form-Container {
+    width: 40%;
+    height: auto;
+}
+
+.Auth-Form-Margin {
+    margin: auto;
+    max-width: 540px;
+}
+
+.Auth-Form-Top-Section-Container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+    margin-bottom: 40px;
+}
+
+.WebApp-Icon-Container {
+    width: 90px;
+    height: 90px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+}
+
+.WebApp-Icon {
+    max-width: 80%;
+    height: 100%;
+    filter: drop-shadow(0px 5px 5px #000d4183);
+}
+
+.Auth-Form-SubLabel {
+    font-family: Poppins-Medium;
+    font-style: 24px;
+    color: #000d41c3;
+}
+
+.Auth-Form-Section-Container {
+    width: 100%;
+    height: auto;
+}
+
+.Form-Section {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.Form-Section-Name {
+    font-family: Poppins-Medium;
+    color: #000000;
+    white-space: nowrap;
+}
+
+.Form-Input-Container {
+    width: 100%;
+    height: 45px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    cursor: text;
+}
+
+.Form-Text-Input {
+    width: calc(100% - 20px);
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: text;
+}
+
+.Form-Switch-Input-Container{
+    width: 100%;
+    height: calc(100% - 35px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Form-Password-Input-Container {
+    width: calc(100% - 55px);
+    height: 45px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    cursor: text;
+}
+
+.Form-Password-Input {
+    width: calc(100% - 20px);
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: text;
+}
+
+.Form-Password-Input-Type-Switch-Button{
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.Form-Session-Action-Buttons-Container{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.Form-Forgot-Password-Button{
+    height: 40px;
+    display: grid;
+    place-items: center;
+    padding: 0px 10px 0px 10px;
+    border-radius: 10px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.Form-Forgot-Password-Button:hover{
+    background-color: #ffffff8e;
+    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+}
+
+.Button-Label{
+    cursor: pointer;
+    color: #000000;
+    white-space: nowrap;
+}
+
+.Form-Action-Buttons-Container{
+    width: 100%;
+}
+
+.Auth-Form-Login-Button{
+    width: 100%;
+    height: 40px;
+    background-color: #000d41;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.Auth-Form-Login-Button .Button-Label {
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.Auth-Form-Register-Button{
+    width: 100%;
+    height: 40px;
+    background-color: #00eabe;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.Auth-Form-Register-Button .Button-Label {
+    color: #000d41;
+    cursor: pointer;
+}
+
+.Invalid-Form-Input-Container{
+    box-shadow: 0px 0px 0px 2px #ff150d;
+}
+
+.Form-Input-Message-Label{
+    width: calc(100% - 4px);
+    white-space: nowrap;
+    overflow: hidden;
+    color: #ff150d;
+    font-weight: 600;
+    padding-left: 2px;
+    opacity: 0;
+    transition: .2s;
+}
