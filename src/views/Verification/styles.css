@@ -1,0 +1,24 @@
+
+.Verification-View-Container{
+    width: 100%;
+    height: 100%;
+}
+
+.Verification-Text-Container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.Verification-Title-Label{
+    font-family: Poppins-Medium;
+    font-size: 32px;
+}
+
+.Verification-Message-Container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}

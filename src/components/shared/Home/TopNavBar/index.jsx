@@ -35,11 +35,11 @@ const TopNavBar = () => {
 
                         <ul className='TopNavBar-Nav-Container-Ul'>
 
-                            <li className='TopNavBar-Nav-Container-Li'><span className='TopNavBar-Li-Label'>Inicio</span></li>
-                            <li className='TopNavBar-Nav-Container-Li'><span className='TopNavBar-Li-Label'>Ecocistema</span></li>
-                            <li className='TopNavBar-Nav-Container-Li'><span className='TopNavBar-Li-Label'>Herramientas</span></li>
-                            <li className='TopNavBar-Nav-Container-Li'><span className='TopNavBar-Li-Label'>Productos</span></li>
-                            <li className='TopNavBar-Nav-Container-Li'><span className='TopNavBar-Li-Label'>Precios</span></li>
+                            <li className='TopNavBar-Nav-Container-Li'><Link to='/'>Inicio</Link></li>
+                            <li className='TopNavBar-Nav-Container-Li'><Link to='/eco'>Ecocistema</Link></li>
+                            <li className='TopNavBar-Nav-Container-Li'><Link to='/tools'>Herramientas</Link></li>
+                            <li className='TopNavBar-Nav-Container-Li'><Link to='/products'>Productos</Link></li>
+                            <li className='TopNavBar-Nav-Container-Li'><Link to='/prices'>Precios</Link></li>
 
                         </ul>
 

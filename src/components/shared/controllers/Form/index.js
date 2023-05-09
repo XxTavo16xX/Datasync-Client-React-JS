@@ -1,4 +1,29 @@
 
+export const buttonOnPress = event => {
+
+    const buttonClicked = document.getElementById(event.target.id)
+
+    buttonClicked.style.transform = 'scale(0.99)'
+    buttonClicked.style.boxShadow = '0px 5px 0px 0px rgba(0,0,0,0.1)'
+
+}
+
+export const buttonUnpress = event => {
+
+    const buttonClicked = document.getElementById(event.target.id)
+
+    buttonClicked.style.transform = 'scale(1.01)'
+    buttonClicked.style.boxShadow = '0px 20px 15px 0px rgba(0,0,0,0.1)'
+
+    setTimeout(() => {
+        
+        buttonClicked.style.transform = 'scale(1)'
+        buttonClicked.style.boxShadow = '0px 0px 0px 0px rgba(0,0,0,0.1)'
+
+    }, 100)
+
+}
+
 export const setInputError = (targetInputID, errorMessage) => {
 
     const inputTargetContainer = document.getElementById(targetInputID + '_container')
@@ -19,10 +44,8 @@ export const clearInputError = event => {
 
     const inputTargetContainer = document.getElementById(inputTarget + '_container')
     const inputTargetMessageLabel = document.getElementById(inputTarget + '_message_label')
-    
+
     inputTargetContainer.classList.remove('Invalid-Form-Input-Container')
     inputTargetMessageLabel.style.opacity = '0'
-    
-    
 
 }

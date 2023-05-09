@@ -6,7 +6,8 @@
 .Home-Page-Margin {
     margin: auto;
     width: 95%;
-    padding-top: 120px;
+    height: auto;
+    padding-top: 80px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -17,15 +18,27 @@
     height: auto;
 }
 
-.Home-Page-Title {
-    width: 100%;
+.Home-Page-Name{
     font-size: 80px;
-    font-style: italic;
     color: #000d41;
+    margin-bottom: 5px;
+    font-style: normal;
+}
+
+.Home-Page-Title {
+    font-size: 80px;
+    color: #000d41;
+    margin-bottom: 20px;
+    font-style: italic;
 }
 
 .Home-Page-Subtitle {
     font-size: 20px;
+}
+
+.Home-Page-Animation-Player-Container{
+    width: 550px;
+    height: 550px;
 }
 
 .Home-Page-Auth-Form-Container {
@@ -46,32 +59,63 @@
     margin-bottom: 40px;
 }
 
-.WebApp-Icon-Container {
-    width: 90px;
-    height: 90px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+.Auth-Form-App-Logo-Container {
+    width: 100%;
+    height: 150px;
     display: grid;
     place-items: center;
-    margin-bottom: 20px;
 }
 
-.WebApp-Icon {
-    max-width: 80%;
-    height: 100%;
-    filter: drop-shadow(0px 5px 5px #000d4183);
+.Logo-Container {
+    width: 120px;
+    height: 120px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0px -10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.Logo-Container img {
+    width: auto;
+    max-height: 100%;
+    filter: drop-shadow(0px -5px 4px #000d415d);
 }
 
 .Auth-Form-SubLabel {
     font-family: Poppins-Medium;
     font-style: 24px;
     color: #000d41c3;
+    transition: .2s;
 }
 
 .Auth-Form-Section-Container {
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 50px;
+    overflow: hidden;
+    transition: .2s;
+    position: relative;
+}
+
+.Auth-Form-Login-Container,
+.Auth-Form-Forgot-Password-Container,
+.Auth-Form-Register-Container {
+    min-width: 98%;
+}
+
+.Doble-Form-Section-Container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Doble-Form-Section-Container .Regiter-Form-Section {
+    max-width: 49%;
 }
 
 .Form-Section {
@@ -81,7 +125,16 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+}
+
+.Regiter-Form-Section {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .Form-Section-Name {
@@ -97,7 +150,7 @@
     border-radius: 5px;
     display: grid;
     place-items: center;
-    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
     cursor: text;
 }
 
@@ -110,7 +163,7 @@
     cursor: text;
 }
 
-.Form-Switch-Input-Container{
+.Form-Switch-Input-Container {
     width: 100%;
     height: calc(100% - 35px);
     display: flex;
@@ -125,7 +178,7 @@
     border-radius: 5px;
     display: grid;
     place-items: center;
-    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
     cursor: text;
 }
 
@@ -138,18 +191,18 @@
     cursor: text;
 }
 
-.Form-Password-Input-Type-Switch-Button{
+.Form-Password-Input-Type-Switch-Button {
     width: 45px;
     height: 45px;
     background-color: #ffffff;
     border-radius: 5px;
     display: grid;
     place-items: center;
-    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
-.Form-Session-Action-Buttons-Container{
+.Form-Session-Action-Buttons-Container {
     width: 100%;
     height: 40px;
     display: flex;
@@ -158,7 +211,7 @@
     margin-bottom: 40px;
 }
 
-.Form-Forgot-Password-Button{
+.Form-Forgot-Password-Button {
     height: 40px;
     display: grid;
     place-items: center;
@@ -168,22 +221,22 @@
     cursor: pointer;
 }
 
-.Form-Forgot-Password-Button:hover{
+.Form-Forgot-Password-Button:hover {
     background-color: #ffffff8e;
-    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.Button-Label{
+.Button-Label {
     cursor: pointer;
     color: #000000;
     white-space: nowrap;
 }
 
-.Form-Action-Buttons-Container{
+.Form-Action-Buttons-Container {
     width: 100%;
 }
 
-.Auth-Form-Login-Button{
+.Auth-Form-Login-Button {
     width: 100%;
     height: 40px;
     background-color: #000d41;
@@ -192,6 +245,8 @@
     border-radius: 10px;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: .2s;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.1);
 }
 
 .Auth-Form-Login-Button .Button-Label {
@@ -199,7 +254,7 @@
     color: #ffffff;
 }
 
-.Auth-Form-Register-Button{
+.Auth-Form-Register-Button {
     width: 100%;
     height: 40px;
     background-color: #00eabe;
@@ -207,6 +262,8 @@
     place-items: center;
     border-radius: 10px;
     cursor: pointer;
+    transition: .2s;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.1);
 }
 
 .Auth-Form-Register-Button .Button-Label {
@@ -214,11 +271,11 @@
     cursor: pointer;
 }
 
-.Invalid-Form-Input-Container{
-    box-shadow: 0px 0px 0px 2px #ff150d;
+.Invalid-Form-Input-Container {
+    box-shadow: inset 0px 0px 0px 2px #ff150d;
 }
 
-.Form-Input-Message-Label{
+.Form-Input-Message-Label {
     width: calc(100% - 4px);
     white-space: nowrap;
     overflow: hidden;
@@ -227,4 +284,83 @@
     padding-left: 2px;
     opacity: 0;
     transition: .2s;
+}
+
+.Icon-Button {
+    height: 40px;
+    display: grid;
+    place-items: center;
+    padding: 0px 10px 0px 10px;
+    border-radius: 10px;
+    transition: .2s;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    background-color: #ffffff8e;
+    box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.Form-Section-Text-Label {
+    margin-bottom: 20px;
+}
+
+.Register-Form-Avatar-Selector-Container {
+    width: 100%;
+    height: 140px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Register-Avatar-Selected-Container {
+    width: 130px;
+    height: 130px;
+    border-radius: 140px;
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 38px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid #000d4190;
+    cursor: pointer;
+}
+
+.Register-Avatar-Selected-Container img {
+    width: auto;
+    max-height: 100%;
+}
+
+.Avatar-Select-Button {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+    transition: .2s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Avatar-Select-Button:hover {
+    background-color: #000d4190;
+}
+
+.Avatar-Select-Button:hover .Avatar-Select-Button-Label {
+    opacity: 1;
+}
+
+.Avatar-Select-Button-Label {
+    color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.Password-Input-Container-Complete {
+    width: 100%;
 }
