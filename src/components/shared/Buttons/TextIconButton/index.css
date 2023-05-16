@@ -1,0 +1,41 @@
+.ds-Text-Icon-Button{
+    width: auto;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: .2s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ds-Icon-Text-Label{
+    font-family: Poppins-Medium;
+    color: #000d41;
+    cursor: pointer;
+}
+
+.ds-Simple-Icon-Button{
+    background-color: #ffffff;
+}
+
+.ds-Transparent-Icon-Button{
+    background-color: #ffffff00;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.ds-Transparent-Icon-Button:focus{
+    background-color: #ffffffab;
+    box-shadow: 0px 0px 10px 2px #000d4119;
+    outline: none;
+}
+
+.ds-Transparent-Icon-Button:hover{
+    background-color: #ffffffab;
+    box-shadow: 0px 0px 10px 2px #000d4119;
+}
+
+#Register-Auth-Button{
+    width: 160px;
+}

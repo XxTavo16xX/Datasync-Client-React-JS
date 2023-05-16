@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 
 // * Components Required
 
-import TopNavBar from '../../components/shared/Home/TopNavBar'
+import TopNavBar from '../../components/shared/TopNavBar'
 import { Player } from '@lottiefiles/react-lottie-player'
 
 // * Libraries Required

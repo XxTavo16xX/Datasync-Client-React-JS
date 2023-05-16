@@ -1,0 +1,31 @@
+
+.ds-Checkbox{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ds-checkbox-icon-container:focus{
+    outline: 2px solid #0033ff7e;
+}
+
+.ds-uncheckbox-icon-container{
+    transition: .2s;
+}
+
+.ds-uncheckbox-icon-container:focus{
+    background-color: #78a0ffc6;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 1px #78a0ffc6;
+    outline: none;
+}
+
+.ds-Checkbox-Label{
+    font-family: Poppins-Medium;
+    font-style: 18px;
+    padding-left: 10px;
+    cursor: pointer;
+}

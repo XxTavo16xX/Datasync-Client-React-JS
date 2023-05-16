@@ -1,6 +1,28 @@
 
 const APIBASEURL = 'http://localhost:2279/datasync/'
 
+// * This function will send the values required to create a new account session
+
+export const loginUser = async (userEmail, userPassword, sessionState) => {
+
+    const requestBody = {
+        userEmail: userEmail,
+        userPassword: userPassword,
+        keepSession: sessionState
+    }
+
+    const requestRespone = await fetch(APIBASEURL + 'v1/user/login', {
+        method: 'POST',
+        body: JSON.stringify(requestBody),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    return requestRespone.json()
+
+}
+
 // * This function will send the values required to create a new user account
 
 export const createNewAccount = async (userEmail, userPassword, userFullName, userDisplayName, userProfilePicURL) => {
@@ -16,25 +38,6 @@ export const createNewAccount = async (userEmail, userPassword, userFullName, us
     console.log(requestBody);
 
     const requestRespone = await fetch(APIBASEURL + 'v1/user/newAccount', {
-        method: 'POST',
-        body: JSON.stringify(requestBody),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-
-    return requestRespone.json()
-
-}
-
-export const loginUser = async (userEmail, userPassword) => {
-
-    const requestBody = {
-        userEmail: userEmail,
-        userPassword: userPassword
-    }
-
-    const requestRespone = await fetch(APIBASEURL + 'v1/user/login', {
         method: 'POST',
         body: JSON.stringify(requestBody),
         headers: {
