@@ -3,11 +3,14 @@
 
 import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Player } from '@lottiefiles/react-lottie-player'
 
 // * Context Required
 
-import { AppContext } from '../../app/context'
+import { App_Context } from '../../app/contexts/app_context'
+import { Session_Context } from '../../app/contexts/session_context'
+import { User_Context } from '../../app/contexts/user_context'
+
+import { Notification_Context } from '../../app/contexts/notification_context'
 
 // * Styles Required
 
@@ -15,22 +18,36 @@ import './index.css'
 
 // * Components Required
 
+import { Player } from '@lottiefiles/react-lottie-player'
+
 import TopNavBar from '../../components/shared/TopNavBar'
 import Auth_Login_Form from '../../components/Auth/Form/Login'
 import Auth_Register_Form from '../../components/Auth/Form/Register'
 import Auth_Forgot_Password_Form from '../../components/Auth/Form/ForgotPassword'
 
-// * Component Exported
+// * View Controller
+
+import * as viewController from './controller'
+
+// * View Exported
 
 const Home_view = () => {
 
-    const { context, setContext } = useContext(AppContext)
-    const [ formSelected, setFormSelected ] = useState('login')
+    const { notificationContext, setNotificationContext } = useContext(Notification_Context)
+    const { appContext, setAppContext } = useContext(App_Context)
+    const { sessionContext, setSessionContext } = useContext(Session_Context)
+    const { userContext, setUserContext } = useContext(User_Context)
     const navigate = useNavigate();
+
+    const [formSelected, setFormSelected] = useState('login')
 
     useEffect(() => {
 
-        if (context.session.token != '') { navigate('/app') }
+        viewController.onComponentMounted(
+            { value: appContext, updateFunction: setAppContext },
+            { value: sessionContext, updateFunction: setSessionContext },
+            navigate
+        )
 
     }, [])
 
@@ -55,8 +72,7 @@ const Home_view = () => {
                             loop={true}
                             controls={false}
                             src="/assets/animations/working.json"
-                            style={{ height: '550px', width: '550px' }}
-                        ></Player>
+                            style={{ height: '550px', width: '550px' }} />
 
                     </div>
 
@@ -68,9 +84,9 @@ const Home_view = () => {
 
                         <div id='Auth-Forms-Container' className="Auth-Form-Section-Container">
 
-                            { formSelected === 'login' ? <Auth_Login_Form context={context} setContext={setContext} setFormSelected={setFormSelected} /> : null } 
-                            { formSelected === 'register' ? <Auth_Register_Form context={context} setContext={setContext} setFormSelected={setFormSelected} /> : null } 
-                            { formSelected === 'forgotPassword' ? <Auth_Forgot_Password_Form context={context} setContext={setContext} setFormSelected={setFormSelected} /> : null } 
+                            { formSelected === 'login' ? <Auth_Login_Form setFormSelected={setFormSelected} sessionContextValues={{ value: sessionContext, updateFunction: setSessionContext }} userContextValues={{ value: userContext, updateFunction: setUserContext }} notificationContextValues={{ value: notificationContext, updateFunction: setNotificationContext }} /> : null}
+                            { formSelected === 'register' ? <Auth_Register_Form setFormSelected={setFormSelected} notificationContextValues={{ value: notificationContext, updateFunction: setNotificationContext }} /> : null } 
+                            { formSelected === 'forgotPassword' ? <Auth_Forgot_Password_Form setFormSelected={setFormSelected} /> : null } 
 
                         </div>
 

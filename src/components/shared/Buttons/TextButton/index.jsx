@@ -25,7 +25,7 @@ export const PrimaryButton = ({ buttonID, buttonLabel, onPressed, buttonOnClick 
 
 }
 
-export const AccentButton = ({ buttonID, buttonLabel, buttonOnClick, onPressed }) => {
+export const AccentTextButton = ({ buttonID, buttonLabel, buttonOnClick, onPressed }) => {
 
     const buttonOnPressed = event => { if (event.key === 'Enter') onPressed() }
 

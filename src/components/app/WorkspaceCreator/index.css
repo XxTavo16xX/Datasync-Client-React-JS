@@ -1,0 +1,204 @@
+
+.Workspace-Node-Creator{
+    width: 620px;
+    height: auto;
+    max-height: 600px;
+    background-color: #000d41;
+    position: absolute;
+    z-index: 9;
+    top: 60px;
+    left: 12%;
+    display: grid;
+    place-items: center;
+    transform: translateY(-110%);
+    border-radius: 5px;
+    transition: .2s;
+    box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.1);
+}
+
+.Workspace-Node-Creator-Margin{
+    width: 96%;
+    height: 100%;
+}
+
+.Workspace-Node-Creator-Title-Bar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Title-Bar-Name-Label{
+    font-family: Poppins-Medium;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.Title-Bar-Close-Icon-Button{
+    width: 35px;
+    height: 35px;
+    background-color: #ffffffd4;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.Title-Bar-Close-Icon-Button:hover{
+    background-color: #ffffff;
+}
+
+.Workspace-Node-Creator-Form-Section{
+    margin-bottom: 10px;
+}
+
+.Workspace-Node-Form-Section-Title-Label{
+    font-family: Poppins-Medium;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.Workspace-Node-Section-Description-Label{
+    color: #ffffffcf;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.Workspace-Node-Creator-Name-Input-Container{
+    width: 100%;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.Workspace-Node-Members-List-Container{
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.Workspace-Node-Members-List-Top-Container{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Workspace-Node-Member-List{
+    max-height: 180px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+    scroll-behavior: smooth;
+}
+
+.Workspace-Node-Member-List::-webkit-scrollbar {
+    width: 5px;
+    background-color: transparent;
+}
+
+.Workspace-Node-Member-List::-webkit-scrollbar-thumb {
+    background: #ffffff ;
+}
+
+.Workspace-Members-Info-Label{
+    min-width: 70%;
+    height: 40px;
+    color: #ffffff;   
+}
+
+.Workspace-Members-Role-Label{
+    min-width: 30%;
+    height: 40px;
+    color: #ffffff;   
+}
+
+.Workspace-Member-Container{
+    width: calc(100% - 10px);
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Workspace-Member-Info-Container{
+    width: 72%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.Workspace-Member-Image-Container{
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+}
+
+.Workspace-Member-User-Info-Container{
+    width: calc(100% - 60px);
+    height: 50px;
+    overflow: hidden;
+}
+
+.Workspace-Member-Display-Name-Label, .Workspace-Member-Email-Label{
+    max-width: 97%;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.Workspace-Member-Role-Container{
+    width: 28%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Workspace-Member-Role-Selected-Label{
+    color: #ffffff;
+}
+
+.Workspace-Member-Role-Selector-Container{
+    width: 100%;
+    height: 30px;
+}
+
+.Workspace-Node-Members-List-Controlls{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Workspace-Node-Members-Add-Input-Container{
+    width: 68%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.Workspace-Node-Members-Action-Buttons-Container{
+    width: 30%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Workspace-Node-Members-Add-Button{
+    width: calc(100% - 50px);
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}

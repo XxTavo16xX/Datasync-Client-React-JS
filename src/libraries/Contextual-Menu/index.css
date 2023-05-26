@@ -1,0 +1,51 @@
+/* * Custom Edit Context Menu * */
+
+@keyframes onCustomContextDisplay {
+    0%{
+        height: 0px;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+
+    100%{
+        box-shadow: 0px 0px 7px 6px #000d4152, inset 0px 0px 0px 1px #000d411a;
+    }
+}
+
+.custom_context_menu_Edit{
+    width: 230px;
+    height: 0px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 9999;
+    overflow: hidden;
+    animation-name: onCustomContextDisplay;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;   
+}
+
+.custom_context_menu_option_container{
+    width: 100%;
+    height: 40px;
+    display: grid;
+    place-items: center;
+}
+
+.custom_context_menu_option_container:hover{
+    background-color: #e2ddff;
+}
+
+.custom_context_menu_option_container_margin{
+    width: 90%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.custom_context_menu_option_label{
+    color: #000d41;
+    cursor: inherit;
+    white-space: nowrap;
+}

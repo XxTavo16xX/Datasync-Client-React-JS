@@ -24,11 +24,6 @@
     transition: .2s;
 }
 
-.ds-sc-EditText-Invalid-Input{
-    box-shadow: inset 0px 0px 0px 2px #ff0000,inset 0px 0px 45px -11px #ff00001c;
-}
-
-
 .ds-sc-EditText-Input{
     width: calc(100% - 10px);
     height: 40px;

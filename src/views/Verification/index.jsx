@@ -1,50 +1,38 @@
 
 // * Dependencies Required
 
-import { useSearchParams } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { useSearchParams, useNavigate } from 'react-router-dom'
 
 // * Components Required
 
 import TopNavBar from '../../components/shared/TopNavBar'
 import { Player } from '@lottiefiles/react-lottie-player'
 
-// * Libraries Required
+// * Context Required
 
-import { validateAccountEmail } from '../../services/API/user'
+import { Notification_Context } from '../../app/contexts/notification_context'
 
 // * Styles Required
 
 import './styles.css'
-import { useEffect, useRef, useState } from 'react'
+
+// * View Controller
+
+import * as viewController from './controller'
 
 // * Exported View
 
 const Verification_View = () => {
 
-    const [getParameters] = useSearchParams()
-    const [animationMode, setAnimationMode] = useState('/assets/animations/email_verification.json')
+    const { notificationContext, setNotificationContext } = useContext(Notification_Context)
+    const navigate = useNavigate();
+    const [ getParameters ] = useSearchParams()
+    const [ animationMode, setAnimationMode ] = useState('/assets/animations/email_verification.json')
 
-    const handleAccountValidation = async () => {
-        
-        const verificationUserReference = getParameters.get('uRef')
-        const verificationResult = await validateAccountEmail(verificationUserReference)
-        const verificationStateLabel = document.getElementById('email_verification_state_label')
-        
-        if (!verificationUserReference) {
+    const addNewNotification = ({ title, message }) => {
 
-            setAnimationMode('/assets/animations/error_verification.json')
-            verificationStateLabel.innerText = 'Verificacion cancelada'
-            return
-
-        }        
-
-        if (verificationResult.isEmailVerificated == false) {
-
-            setAnimationMode('/assets/animations/error_verification.json')
-            verificationStateLabel.innerText = 'Verificacion Invalida. Solicita una verificacion nueva.'
-            return
-
-        }
+        setNotificationContext([...notificationContext, { title, message } ])
 
     }
 
@@ -67,7 +55,7 @@ const Verification_View = () => {
                             keepLastFrame={true}
                             src={animationMode}
                             style={{ height: '550px', width: '550px' }}
-                            onEvent={event => { if (event === 'complete') handleAccountValidation() }}
+                            onEvent={event => { if (event === 'complete') viewController.onAnimationComplete(navigate, getParameters, setAnimationMode, addNewNotification) }}
                         ></Player>
 
                     </div>

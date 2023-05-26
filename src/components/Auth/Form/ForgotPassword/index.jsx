@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 // * Exporting Datasync Auth Register Form
 
-const Auth_Forgot_Password_Form = ({ context, setContext, setFormSelected }) => {
+const Auth_Forgot_Password_Form = ({ setFormSelected }) => {
 
     useEffect(() => {
 

@@ -1,0 +1,102 @@
+.Select-Box {
+    width: 100%;
+    height: 100%;
+    transition: .2s;
+}
+
+.Primary-SelectBox {
+    background-color: #000d41;
+    cursor: pointer;
+}
+
+.Selected-Box-Container {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.Selected-Option-Label {
+    color: #ffffff;
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.Selected-Option-Icon {
+    min-width: 40px;
+    cursor: pointer;
+}
+
+.Select-Box-List-Container {
+    width: 0;
+    height: 0;
+    background-color: #000d41;
+    overflow: hidden;
+}
+
+.Select-Box-Option-Container {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: .2s;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.Select-Box-Option-Container:hover {
+    background-color: #ffffff3d;
+}
+
+.Select-Box-Option-Label {
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+/* * Reactive Select Box Styles * */
+
+.Reactive-Select-Box {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.Reactive-Select-Box .Selected-Option-Label {
+    color: #000d41;
+}
+
+.White-SelectBox {
+    background-color: #ffffff;
+}
+
+.White-SelectBox .Select-Box-Option-Container:hover{
+    background-color: #edf1fc;
+}
+
+.White-SelectBox .Selected-Option-Label {
+    color: #000d41;
+}
+
+.White-SelectBox .Selected-Option-Icon{
+    fill: #000d41;
+}
+
+.White-SelectBox .Select-Box-List-Container{
+    background-color: #ffffff;
+}
+
+.White-SelectBox .Select-Box-Option-Label{
+    color: #000d41;
+}

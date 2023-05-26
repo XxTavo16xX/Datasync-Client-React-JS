@@ -1,0 +1,16 @@
+
+.App-Page-Display{
+    width: calc(88% + 3px);
+    height: calc(100% - 55px);
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 8;
+    display: grid;
+    place-items: center;
+}
+
+.App-Page-Display-Margin{
+    width: 97%;
+    height: 98%;
+}

@@ -22,14 +22,14 @@ const EditText = ({ Title, placeholder, inputType, inputID, onEnter, onSend }) =
         const InputContainer = document.getElementById(inputContainerID + '_container')
         const InputErrorMessageLabel = document.getElementById(inputContainerID + '_error_label')
 
-        InputContainer.classList.remove('ds-sc-EditText-Invalid-Input')
+        InputContainer.classList.remove('ds-sc-Invalid-Input')
         InputErrorMessageLabel.innerText = ''
 
     }
 
     const handleInputKeyDown = event => {
 
-        if (document.getElementById(event.target.id + '_container').classList.contains('ds-sc-EditText-Invalid-Input')) return clearInvalidInputErrors(event)
+        if (document.getElementById(event.target.id + '_container').classList.contains('ds-sc-Invalid-Input')) return clearInvalidInputErrors(event)
 
         if (onEnter) {
 
@@ -68,7 +68,7 @@ const EditText = ({ Title, placeholder, inputType, inputID, onEnter, onSend }) =
 
                 </div>
 
-                <IconButton buttonID={inputID + '_icon_button'} buttonIcon={<MdVisibility button_reference={inputID + '_icon_button'} size={18} color='#000d41' style={{ cursor: 'pointer' }} />} buttonOnClick={handlePasswordSwitch} />
+                <IconButton buttonID={inputID + '_icon_button'} iconReference={<MdVisibility button_reference={inputID + '_icon_button'} size={18} color='#000d41' style={{ cursor: 'pointer' }} />} buttonOnClick={handlePasswordSwitch} />
 
             </div>
 

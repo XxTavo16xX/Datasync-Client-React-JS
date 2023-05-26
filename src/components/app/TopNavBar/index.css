@@ -1,0 +1,93 @@
+
+.Top-Nav-Bar-Container{
+    width: 100%;
+    height: 55px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+}
+
+.Top-Nav-Bar-Margin{
+    margin: auto;
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Top-Nav-Bar-Company-Brand-Container{
+    width: calc(12% - 4px);
+    height: 55px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-right: 1px solid #000d4143;
+    border-bottom: 1px solid #000d4143;
+}
+
+.Top-Nav-Bar-Logo{
+    width: 50px;
+    height: 50px;
+}
+
+.Top-Nav-Bar-Content-Container{
+    width: calc(88% + 3px);
+    height: 60px;
+    display: grid;
+    place-items: center;
+}
+
+.Top-Nav-Bar-Content-Margin{
+    width: 99%;
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Top-Nav-Bar-Connection-Info-Container{
+    width: auto;
+    height: 55px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Top-Nav-Bar-Select-Box-Container{
+    width: auto;
+    height: 40px;
+}
+
+.Top-Nav-Bar-Content-Current-View-Label{
+    font-family: Poppins-Medium;
+    font-weight: 800;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+
+.Top-Nav-Bar-User-Card{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    background-color: #000d41;
+    padding: 2px 15px 2px 15px;
+    border-radius: 5px;
+}
+
+.User-Action-Profile-Pic-Container{
+    width: 45px;
+    height: 45px;
+}
+
+.Username-Label{
+    white-space: nowrap;
+    font-family: Poppins-Medium;
+    font-size: 16px;
+    color: #ffffff;
+}

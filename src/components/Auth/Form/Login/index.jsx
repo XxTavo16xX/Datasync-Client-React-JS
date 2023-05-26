@@ -11,45 +11,20 @@ import './index.css'
 // * Components Required
 
 import EditText from '../../../shared/Inputs/EditText'
-import { PrimaryButton, AccentButton, TransparentButton } from '../../../shared/Buttons/TextButton'
+import { PrimaryButton, AccentTextButton, TransparentButton } from '../../../shared/Buttons/TextButton'
 import { Transparent_Checkbox } from '../../../shared/Inputs/CheckBox'
 
 // * Form Controllers
 
-import { init_Auth_Login_Form } from '..'
+import * as Auth_Login_Form_Controller from './controller'
 
 // * Exporting Datasync Auth Login Form
 
-const Auth_Login_Form = ({ context, setContext, setFormSelected }) => {
-
-    useEffect(() => {
-
-        document.getElementById('auth_login_form_container').style.opacity = '1'
-
-    })
+const Auth_Login_Form = ({ sessionContextValues, userContextValues, setFormSelected, notificationContextValues }) => {
 
     const navigate = useNavigate();
-
-    const auth_login_form_LoginUser = async () => {
-        
-        const loginResult = await init_Auth_Login_Form(context, setContext)
-
-        if (loginResult.isSuccessfull === true) navigate('/app') 
-
-    }
-
-    const switchToRegisterForm = () => {
-
-        document.getElementById('auth_login_form_container').style.opacity = '0'
-        setTimeout(() => setFormSelected('register'), 200)
-
-    }
-
-    const swithToForgotPasswordForm = () => {
-
-        setFormSelected('forgotPassword')
-
-    }
+    
+    useEffect(() => { Auth_Login_Form_Controller.onComponentMounted(sessionContextValues, userContextValues, setFormSelected, notificationContextValues, navigate) })
 
     return (
 
@@ -68,7 +43,7 @@ const Auth_Login_Form = ({ context, setContext, setFormSelected }) => {
             <p className="Auth-Form-Login-Title-Label">Ingresa tus credenciales para acceder a tu cuenta</p>
 
             <EditText inputID='auth_login_form_email_input' inputType='text' Title='Correo Electronico' placeholder='you@company.com' onEnter='auth_login_form_password_input' />
-            <EditText inputID='auth_login_form_password_input' inputType='password' Title='Contraseña' placeholder='**********' onSend={auth_login_form_LoginUser} />
+            <EditText inputID='auth_login_form_password_input' inputType='password' Title='Contraseña' placeholder='**********' onSend={Auth_Login_Form_Controller.handleLoginProcess} />
 
             <div className="Form-User-Session-Action-Buttons">
 
@@ -80,14 +55,14 @@ const Auth_Login_Form = ({ context, setContext, setFormSelected }) => {
 
                 <div className="Form-User-Session-Forgot-Password-Container">
 
-                    <TransparentButton buttonID='auth_login_form_forgot_password_button' buttonLabel='¿No recuerdas tu contraseña?' onPressed={swithToForgotPasswordForm} buttonOnClick={swithToForgotPasswordForm} />
+                    <TransparentButton buttonID='auth_login_form_forgot_password_button' buttonLabel='¿No recuerdas tu contraseña?' onPressed={Auth_Login_Form_Controller.switchToForgotPasswordForm} buttonOnClick={Auth_Login_Form_Controller.switchToForgotPasswordForm} />
 
                 </div>
 
             </div>
 
-            <PrimaryButton buttonID='auth_login_form_login_button' buttonLabel='Iniciar Sesion' onPressed={auth_login_form_LoginUser} buttonOnClick={auth_login_form_LoginUser} />
-            <AccentButton buttonID='auth_login_form_register_button'  buttonLabel='Crear nueva cuenta' onPressed={switchToRegisterForm} buttonOnClick={switchToRegisterForm} />
+            <PrimaryButton buttonID='auth_login_form_login_button' buttonLabel='Iniciar Sesion' onPressed={Auth_Login_Form_Controller.handleLoginProcess} buttonOnClick={Auth_Login_Form_Controller.handleLoginProcess} />
+            <AccentTextButton buttonID='auth_login_form_register_button'  buttonLabel='Crear nueva cuenta' onPressed={Auth_Login_Form_Controller.switchToRegisterForm} buttonOnClick={Auth_Login_Form_Controller.switchToRegisterForm} />
             
         </div>
 

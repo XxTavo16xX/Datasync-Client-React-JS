@@ -11,57 +11,18 @@ import { MdOutlineArrowBackIos } from 'react-icons/md'
 
 import './index.css'
 import { useEffect, useState } from 'react'
-import { init_Auth_Register_Form } from '..'
 
+// * Form Controllers
 
+import * as Auth_Register_Form_Controller from './controller'
 
 // * Exporting Datasync Auth Register Form
 
-const Auth_Register_Form = ({ context, setContext, setFormSelected }) => {
+const Auth_Register_Form = ({ setFormSelected, notificationContextValues }) => {
 
     const [isNewAccountSuccessfull, setNewAccountState] = useState(false)
 
-    useEffect(() => {
-
-        document.getElementById('auth_register_form_container').style.opacity = '1'
-
-    })
-
-    const switchToLoginForm = () => {
-
-        document.getElementById('auth_register_form_container').style.opacity = '0'
-        setTimeout(() => setFormSelected('login'), 200)
-
-    }
-
-    const handleLastnameInputEnter = () => {
-
-        const inputNameValue = document.getElementById('auth_register_form_name_input').value
-        const inputLastnameValue = document.getElementById('auth_register_form_lastname_input').value
-
-        const firstName = inputNameValue.split(' ')[0]
-        const firstLastname = inputLastnameValue.split(' ')[0]
-
-        document.getElementById('auth_register_form_username_input').value = firstName + ' ' + firstLastname
-
-    }
-
-    const auth_register_form_CreaterNewAccount = async () => {
-
-        const creationResult = await init_Auth_Register_Form(context, setContext)
-
-        if (creationResult.isSuccessfull === true) {
-
-            document.getElementById('auth_register_form_container').style.opacity = '0'
-
-            setTimeout(() => { setNewAccountState(true) }, 300)
-
-            setTimeout(() => { document.getElementById('auth_register_form_container').style.opacity = '1' }, 600)
-
-
-        }
-
-    }
+    useEffect(() => { Auth_Register_Form_Controller.onComponentMounted(setFormSelected, setNewAccountState, notificationContextValues) })
 
     return (
 
@@ -73,7 +34,7 @@ const Auth_Register_Form = ({ context, setContext, setFormSelected }) => {
 
                     <div className="Auth-Form-Register">
 
-                        <Transparent_Text_Icon_Button buttonID='Register-Auth-Button' buttonIcon={<MdOutlineArrowBackIos color='#000d41' size={20} button_reference='Register-Auth-Button' />} buttonLabel='Iniciar Sesion' onPressed={switchToLoginForm} buttonOnClick={switchToLoginForm} />
+                        <Transparent_Text_Icon_Button buttonID='Register-Auth-Button' buttonIcon={<MdOutlineArrowBackIos color='#000d41' size={20} button_reference='Register-Auth-Button' />} buttonLabel='Iniciar Sesion' onPressed={Auth_Register_Form_Controller.switchToLoginForm} buttonOnClick={Auth_Register_Form_Controller.switchToLoginForm} />
 
                         <div className="Auth-Form-Register-Title-Container">
 
@@ -91,7 +52,7 @@ const Auth_Register_Form = ({ context, setContext, setFormSelected }) => {
                         <div className="Auth-Form-Register-Names-Container">
 
                             <EditText inputID='auth_register_form_name_input' inputType='text' Title='Nombre' placeholder='Nombre' onEnter='auth_register_form_lastname_input' />
-                            <EditText inputID='auth_register_form_lastname_input' inputType='text' Title='Apellido' placeholder='Apellidos' onEnter='auth_register_form_username_input' onSend={handleLastnameInputEnter} />
+                            <EditText inputID='auth_register_form_lastname_input' inputType='text' Title='Apellido' placeholder='Apellidos' onEnter='auth_register_form_username_input' onSend={Auth_Register_Form_Controller.handleLastnameInputEnter} />
 
 
                         </div>
@@ -100,9 +61,9 @@ const Auth_Register_Form = ({ context, setContext, setFormSelected }) => {
 
                         <EditText inputID='auth_register_form_email_input' inputType='text' Title='Correo Electronico' placeholder='you@company.com' onEnter='auth_register_form_password_input' />
 
-                        <EditText inputID='auth_register_form_password_input' inputType='password' Title='Contraseña' placeholder='**********' onSend={auth_register_form_CreaterNewAccount} />
+                        <EditText inputID='auth_register_form_password_input' inputType='password' Title='Contraseña' placeholder='**********' onSend={Auth_Register_Form_Controller.handleRegisterProcess} />
 
-                        <PrimaryButton buttonID='auth_register_form_register_button' buttonLabel='Crear cuenta' onPressed={auth_register_form_CreaterNewAccount} buttonOnClick={auth_register_form_CreaterNewAccount} />
+                        <PrimaryButton buttonID='auth_register_form_register_button' buttonLabel='Crear cuenta' onPressed={Auth_Register_Form_Controller.handleRegisterProcess} buttonOnClick={Auth_Register_Form_Controller.handleRegisterProcess} />
 
                     </div>
 
@@ -118,7 +79,7 @@ const Auth_Register_Form = ({ context, setContext, setFormSelected }) => {
 
                         <p className="Auth-Form-Register-Text-Paragraph">Iniciar sesión para continuar.</p>
 
-                        <PrimaryButton buttonID='auth_register_form_goLogin_button' buttonLabel='Iniciar Sesion' onPressed={switchToLoginForm} buttonOnClick={switchToLoginForm} />
+                        <PrimaryButton buttonID='auth_register_form_goLogin_button' buttonLabel='Iniciar Sesion' onPressed={Auth_Register_Form_Controller.switchToLoginForm} buttonOnClick={Auth_Register_Form_Controller.switchToLoginForm} />
 
                     </div>
 

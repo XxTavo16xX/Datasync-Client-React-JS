@@ -1,0 +1,114 @@
+
+@keyframes onNotificationIn {
+    0%{
+        transform: translateX(200%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes onNotificationOut {
+    
+}
+
+.Notifications-Container{
+    width: 525px;
+    height: auto;
+    background-color: transparent;
+    position: absolute;
+    z-index: 999999999;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.Push-Notification-Container{
+    width: calc(100% - 40px);
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #000d41;
+    z-index: 999999999;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    transition: .2s;
+    margin-bottom: 20px;
+    transform: translateX(200%);
+    animation-name: onNotificationIn;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+
+.Push-Notification-Close-Button{
+    width: 25px;
+    height: 25px;
+    border-radius: 30px;
+    background-color: #00eabe10;
+    position: absolute;
+    top: -12.5px;
+    right: -12.5px;
+    transition: .2s;
+    display: grid;
+    place-items: center;   
+    fill: #ffffff10; 
+    cursor: pointer;
+}
+
+.Push-Notification-Close-Button:hover{
+    background-color: #00eabe;
+    fill: #000d41;
+}
+
+.Push-Notification-Close-Icon{
+    fill: inherit;
+    cursor: inherit;
+    font-size: 15px;
+}
+
+.Push-Notification-Margin{
+    width: 95%;
+    height: 90%;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.Push-Notification-Top-Container{
+    width: 100%;
+    height: 22px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Push-Notification-Title-Label{
+    font-family: Poppins-Medium;
+    font-size: 14px;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+.Push-Notification-Content-Label{
+    font-size: 14px;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+.Push-Notification-Content-Container{
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.Push-Notification-Container:last-child{
+    margin-bottom: 10px;
+}
